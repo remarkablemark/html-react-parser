@@ -10,5 +10,9 @@
     "html react parser",
     "html to react"
   ],
+  "dependencies": {
+    "domhandler": "^2.3.0",
+    "htmlparser2": "^3.9.1"
+  },
   "license": "MIT"
 }
