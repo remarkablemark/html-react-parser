@@ -41,7 +41,7 @@ describe('dom-to-react parser', function() {
     });
 
     // https://facebook.github.io/react/docs/forms.html#why-textarea-value
-    it('converts textarea correctly', function() {
+    it('converts <textarea> correctly', function() {
         var html = data.html.textarea;
         var reactElement = domToReact(htmlToDOM(html));
         assert(React.isValidElement(reactElement));
@@ -49,6 +49,20 @@ describe('dom-to-react parser', function() {
             reactElement,
             React.createElement('textarea', {
                 defaultValue: 'foo'
+            }, null)
+        );
+    });
+
+    it('converts <script> correctly', function() {
+        var html = data.html.script;
+        var reactElement = domToReact(htmlToDOM(html));
+        assert(React.isValidElement(reactElement));
+        assert.deepEqual(
+            reactElement,
+            React.createElement('script', {
+                dangerouslySetInnerHTML: {
+                    __html: 'alert(1 < 2);'
+                }
             }, null)
         );
     });
