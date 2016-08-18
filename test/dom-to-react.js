@@ -24,4 +24,20 @@ describe('dom-to-react parser', function() {
         );
     });
 
+    it('converts multiple DOM nodes to React', function() {
+        var html = data.html.multiple;
+        var reactElements = domToReact(htmlToDOM(html));
+        reactElements.forEach(function(reactElement) {
+            assert(React.isValidElement(reactElement));
+            assert(reactElement.key);
+        });
+        assert.deepEqual(
+            reactElements,
+            [
+                React.createElement('p', { key: 0 }, 'foo'),
+                React.createElement('p', { key: 1 }, 'bar')
+            ]
+        );
+    });
+
 });
