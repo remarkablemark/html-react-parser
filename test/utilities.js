@@ -36,6 +36,12 @@ describe('utilties', function() {
     describe('`invertObject` helper', function() {
         var invertObject = utilities.invertObject;
 
+        it('throws an error if the first argument is invalid', function() {
+            [undefined, null, 'foo', 1337].forEach(function(parameter) {
+                assert.throws(function() { invertObject(parameter); });
+            });
+        })
+
         it('swaps key with value for object', function() {
             assert.deepEqual(
                 invertObject({ foo: 'bar', baz: 'qux' }),
@@ -59,11 +65,29 @@ describe('utilties', function() {
             );
         });
 
-        it('throws an error if the first argument is invalid', function() {
-            [undefined, null, 'foo', 1337].forEach(function(parameter) {
-                assert.throws(function() { invertObject(parameter); });
-            });
-        })
+        it('uses override if valid', function() {
+            assert.deepEqual(
+                invertObject({ foo: 'bar', baz: 'qux' }, function(key, value) {
+                    if (key === 'foo') {
+                        return ['key', 'value'];
+                    }
+                }),
+                { key: 'value', qux: 'baz' }
+            );
+        });
+
+        it('does not use override if invalid', function() {
+            assert.deepEqual(
+                invertObject({ foo: 'bar', baz: 'qux' }, function(key, value) {
+                    if (key === 'foo') {
+                        return ['key'];
+                    } else if (key === 'baz') {
+                        return { key: 'value'  };
+                    }
+                }),
+                { bar: 'foo', qux: 'baz' }
+            );
+        });
     });
 
 });
