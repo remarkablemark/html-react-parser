@@ -33,4 +33,49 @@ describe('utilties', function() {
         })
     });
 
+    describe('`invertObject` helper', function() {
+        var invertObject = utilities.invertObject;
+
+        it('swaps key with value for object', function() {
+            assert.deepEqual(
+                invertObject({ foo: 'bar', baz: 'qux' }),
+                { bar: 'foo', qux: 'baz' }
+            );
+
+            // check for unusual cases
+            assert.deepEqual(
+                invertObject({
+                    $: 'dollar',
+                    _: 'underscore',
+                    num: 1,
+                    u: undefined
+                }),
+                {
+                    dollar: '$',
+                    underscore: '_',
+                    '1': 'num',
+                    'undefined': 'u'
+                }
+            );
+        });
+
+        it('swaps key with value for array', function() {
+            assert.deepEqual(
+                invertObject(['zero', 'one']),
+                { 'zero': '0', 'one': '1' }
+            );
+        });
+
+        it('throws an error if the first argument is invalid', function() {
+            [undefined, null, 'foo', 1337].forEach(function(parameter) {
+                assert.throws(function() { invertObject(parameter); });
+            });
+        })
+
+        it('throws an error if object is not flat', function() {
+            assert.throws(function() { invertObject({ nested: {} }); });
+            assert.throws(function() { invertObject({ obj: null }); });
+        })
+    });
+
 });
