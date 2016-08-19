@@ -52,4 +52,10 @@ describe('html-to-react parser', function() {
         assert.equal(render(reactElement), html);
     });
 
+    it('converts SVG to React', function() {
+        var svg = data.svg.complex;
+        var reactElement = Parser(svg);
+        assert.equal(render(reactElement), svg);
+    });
+
 });
