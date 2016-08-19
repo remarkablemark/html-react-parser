@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Convert HTML string to React elements.",
   "author": "Mark <mark@remarkablemark.org>",
+  "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
