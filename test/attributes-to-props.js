@@ -105,6 +105,53 @@ describe('attributes to props helper', function() {
     });
 
     /**
+     * SVG DOM property to React prop.
+     */
+    describe('SVG DOM properties', function() {
+
+        it('converts attributes/properties to React props', function() {
+            assert.deepEqual(
+                attributesToProps({
+                    edgeMode: 'edgeMode',
+                    'fill-opacity': '0.42',
+                    'fill-rule': 'evenodd',
+                    'glyph-orientation-vertical': 'auto',
+                    'horiz-adv-x': '9001',
+                    stroke: 'none',
+                    'xml:base': 'http://example.org'
+                }),
+                {
+                    edgeMode: 'edgeMode',
+                    fillOpacity: '0.42',
+                    fillRule: 'evenodd',
+                    glyphOrientationVertical: 'auto',
+                    horizAdvX: '9001',
+                    stroke: 'none',
+                    xmlBase: 'http://example.org'
+                }
+            );
+        });
+
+        it('does not convert incorrectly capitalized properties', function() {
+            assert.deepEqual(
+                attributesToProps({
+                    'XLINK:HREF': '#',
+                    ychannelselector: 'G',
+                    ZoomAndPan: 'disable'
+                }),
+                {
+                    /*
+                    xlinkHref: '#',
+                    yChannelSelector: 'G',
+                    zoomAndPan: 'disable'
+                    */
+                }
+            );
+        });
+
+    });
+
+    /**
      * Style string to object.
      */
     describe('style', function() {
