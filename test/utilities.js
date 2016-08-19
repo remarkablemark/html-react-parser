@@ -41,28 +41,21 @@ describe('utilties', function() {
                 invertObject({ foo: 'bar', baz: 'qux' }),
                 { bar: 'foo', qux: 'baz' }
             );
+        });
 
-            // check for unusual cases
+        it('swaps only if value is string', function() {
             assert.deepEqual(
                 invertObject({
                     $: 'dollar',
                     _: 'underscore',
                     num: 1,
-                    u: undefined
+                    u: undefined,
+                    n: null
                 }),
                 {
                     dollar: '$',
-                    underscore: '_',
-                    '1': 'num',
-                    'undefined': 'u'
+                    underscore: '_'
                 }
-            );
-        });
-
-        it('swaps key with value for array', function() {
-            assert.deepEqual(
-                invertObject(['zero', 'one']),
-                { 'zero': '0', 'one': '1' }
             );
         });
 
@@ -70,11 +63,6 @@ describe('utilties', function() {
             [undefined, null, 'foo', 1337].forEach(function(parameter) {
                 assert.throws(function() { invertObject(parameter); });
             });
-        })
-
-        it('throws an error if object is not flat', function() {
-            assert.throws(function() { invertObject({ nested: {} }); });
-            assert.throws(function() { invertObject({ obj: null }); });
         })
     });
 
