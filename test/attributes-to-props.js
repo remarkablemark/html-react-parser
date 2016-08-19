@@ -67,6 +67,36 @@ describe('attributes to props helper', function() {
         );
     });
 
+    it('keeps data- and aria- attributes as is', function() {
+        assert.deepEqual(
+            attributesToProps({
+                'data-foo': 'bar',
+                'aria-live': 'polite'
+            }),
+            {
+                'data-foo': 'bar',
+                'aria-live': 'polite'
+            }
+        );
+    });
+
+    it('converts DOM attributes with weird capitalization', function() {
+        assert.deepEqual(
+            attributesToProps({
+                'ACCEPT-CHARSET': 'ISO-8859-1',
+                formNOvalidate: true,
+                sEcUrItY: 'restricted',
+                'data-FOO': 'bar'
+            }),
+            {
+                acceptCharset: 'ISO-8859-1',
+                formNoValidate: true,
+                security: 'restricted',
+                'data-FOO': 'bar'
+            }
+        );
+    });
+
     it('converts CSS style string to JS style object', function() {
         // proper css
         assert.deepEqual(
