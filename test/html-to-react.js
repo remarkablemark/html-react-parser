@@ -30,6 +30,13 @@ describe('html-to-react parser', function() {
         assert.equal(render(reactElement), html);
     });
 
+    it('converts single HTML element and ignores comment', function() {
+        var html = data.html.single;
+        // comment should be ignored
+        var reactElement = Parser(html + data.html.comment);
+        assert.equal(render(reactElement), html);
+    });
+
     it('converts multiple HTML elements to React', function() {
         var html = data.html.multiple;
         var reactElements = Parser(html);

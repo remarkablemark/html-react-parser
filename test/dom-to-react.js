@@ -67,4 +67,21 @@ describe('dom-to-react parser', function() {
         );
     });
 
+    it('skips HTML comments', function() {
+        var html = [data.html.single, data.html.comment, data.html.single].join('');
+        var reactElements = domToReact(htmlToDOM(html));
+        reactElements.forEach(function(reactElement) {
+            assert(React.isValidElement(reactElement));
+            assert(reactElement.key);
+        });
+        assert.deepEqual(
+            reactElements,
+            [
+                React.createElement('p', { key: 0 }, 'foo'),
+                // comment is in the middle
+                React.createElement('p', { key: 2 }, 'foo')
+            ]
+        );
+    });
+
 });
