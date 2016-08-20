@@ -9,11 +9,13 @@ var domToReact = require('./lib/dom-to-react');
 /**
  * Convert HTML to React.
  *
- * @param  {String} html - The HTML.
+ * @param  {String}   html              - The HTML.
+ * @param  {Object}   [options]         - The additional options.
+ * @param  {Function} [options.replace] - The replace method.
  * @return {ReactElement|Array}
  */
-function htmlToReact(html) {
-    return domToReact(htmlToDOM(html));
+function htmlToReact(html, options) {
+    return domToReact(htmlToDOM(html), options);
 }
 
 /**

@@ -22,40 +22,94 @@ function render(reactElement) {
 /**
  * Tests for `htmlToReact`.
  */
-describe('html-to-react parser', function() {
+describe('html-to-react', function() {
 
-    it('converts single HTML element to React', function() {
-        var html = data.html.single;
-        var reactElement = Parser(html);
-        assert.equal(render(reactElement), html);
+    /**
+     * Parser conversion.
+     */
+    describe('parser', function() {
+
+        it('converts single HTML element to React', function() {
+            var html = data.html.single;
+            var reactElement = Parser(html);
+            assert.equal(render(reactElement), html);
+        });
+
+        it('converts single HTML element and ignores comment', function() {
+            var html = data.html.single;
+            // comment should be ignored
+            var reactElement = Parser(html + data.html.comment);
+            assert.equal(render(reactElement), html);
+        });
+
+        it('converts multiple HTML elements to React', function() {
+            var html = data.html.multiple;
+            var reactElements = Parser(html);
+            assert.equal(
+                render(React.createElement('div', {}, reactElements)),
+                '<div>' + html + '</div>'
+            );
+        });
+
+        it('converts complex HTML to React', function() {
+            var html = data.html.complex;
+            var reactElement = Parser(html);
+            assert.equal(render(reactElement), html);
+        });
+
+        it('converts SVG to React', function() {
+            var svg = data.svg.complex;
+            var reactElement = Parser(svg);
+            assert.equal(render(reactElement), svg);
+        });
+
     });
 
-    it('converts single HTML element and ignores comment', function() {
-        var html = data.html.single;
-        // comment should be ignored
-        var reactElement = Parser(html + data.html.comment);
-        assert.equal(render(reactElement), html);
-    });
+    /**
+     * Options.
+     */
+    describe('options', function() {
 
-    it('converts multiple HTML elements to React', function() {
-        var html = data.html.multiple;
-        var reactElements = Parser(html);
-        assert.equal(
-            render(React.createElement('div', {}, reactElements)),
-            '<div>' + html + '</div>'
-        );
-    });
+        describe('replace', function() {
 
-    it('converts complex HTML to React', function() {
-        var html = data.html.complex;
-        var reactElement = Parser(html);
-        assert.equal(render(reactElement), html);
-    });
+            it('overrides the element if replace is valid', function() {
+                var html = data.html.complex;
+                var reactElement = Parser(html, {
+                    replace: function(node) {
+                        if (node.name === 'title') {
+                            return React.createElement('meta', { charSet: 'utf-8' });
+                        }
+                    }
+                });
+                assert.equal(
+                    render(reactElement),
+                    html.replace('<title>Title</title>', '<meta charset="utf-8"/>')
+                );
+            });
 
-    it('converts SVG to React', function() {
-        var svg = data.svg.complex;
-        var reactElement = Parser(svg);
-        assert.equal(render(reactElement), svg);
+            it('does not override the element if replace is invalid', function() {
+                var html = data.html.complex;
+                var reactElement = Parser(html, {
+                    replace: function(node) {
+                        if (node.attribs && node.attribs.id === 'header') {
+                            return {
+                                type: 'h1',
+                                props: { children: 'Heading' }
+                            };
+                        }
+                    }
+                });
+                assert.notEqual(
+                    render(reactElement),
+                    html.replace(
+                        '<header id="header">Header</header>',
+                        '<h1>Heading</h1>'
+                    )
+                );
+            });
+
+        });
+
     });
 
 });
