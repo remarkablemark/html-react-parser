@@ -2,19 +2,23 @@
 
 An HTML to React parser.
 
+`Parser(htmlString[, options])`
+
+This parser converts an HTML string to [React element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements). There is also a `replace` option if you want to swap a specific element with your own React element.
+
+### Example
+
 ```js
 var Parser = require('html-react-parser');
-// Parser(htmlString[, options]);
-
-var reactElement = Parser('<p>Hello, world!</p>');
-// ReactDOM.render(reactElement, node);
+var reactElement = (
+    Parser('<p>Hello, world!</p>') // equivalent to `React.createElement('p', {}, 'Hello, world!')`
+);
+ReactDOM.render(reactElement, document.getElementById('node'));
 ```
 
 ## Installation
 
-```sh
-$ npm install html-react-parser
-```
+`npm install html-react-parser`
 
 ## Usage
 
@@ -27,25 +31,27 @@ var ReactDOM = require('react-dom');
 // single element
 ReactDOM.render(
     Parser('<p>single</p>'),
-    document.getElementById('single')
+    document.getElementById('root')
 );
 
 // adjacent elements
 ReactDOM.render(
+    // the parser returns an array for adjacent elements
+    // so make sure they are nested under a parent React element
     React.createElement('div', {}, Parser('<p>one</p><p>two</p>'))
-    document.getElementById('adjacent')
+    document.getElementById('root')
 );
 
 // nested elements
 ReactDOM.render(
     Parser('<ul><li>inside</li></ul>'),
-    document.getElementedById('nested')
+    document.getElementedById('root')
 );
 
 // attributes are preserved
 ReactDOM.render(
     Parser('<section id="foo" class="bar baz" data-qux="42">look at me now</section>'),
-    document.getElementById('attributes')
+    document.getElementById('root')
 );
 ```
 
@@ -53,13 +59,26 @@ ReactDOM.render(
 
 #### replace(domNode)
 
+`replace` allows you to swap an element with your own React element.
+
+The output of `domNode` is the same as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+
 ```js
 var Parser = require('html-react-parser');
 var React = require('react');
-var ReactDOM = require('react-dom');
 
-var reactElement = Parser('<div><p id="main">replace me</p></div>', {
+var html = '<div><p id="main">replace me</p></div>';
+
+var reactElement = Parser(html, {
     replace: function(domNode) {
+        // example `domNode`:
+        // {  type: 'tag',
+        //    name: 'p',
+        //    attribs: { id: 'main' },
+        //    children: [],
+        //    next: null,
+        //    prev: null,
+        //    parent: [Circular] }
         if (domNode.attribs && domNode.attribs.id === 'main') {
             // element is replaced only if a valid React element is returned
             return React.createElement('span', { style: { fontSize: '42px' } }, 'replaced!');
@@ -67,20 +86,14 @@ var reactElement = Parser('<div><p id="main">replace me</p></div>', {
     }
 });
 
-ReactDOM.render(
-    reactElement,
-    document.getElementById('replace')
-);
+var ReactDOM = require('react-dom');
+ReactDOM.render(reactElement, document.getElementById('root'));
 // <div><span style="font-size: 42px;">replaced!</span></div>
 ```
 
-The object properties of `domNode` is the same as the output from `require('htmlparser2').parseDOM`.
-
 ## Testing
 
-```sh
-$ npm test
-```
+`npm test`
 
 ## License
 
