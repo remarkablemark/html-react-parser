@@ -19,6 +19,7 @@
     "htmlparser2": "^3.9.1"
   },
   "devDependencies": {
+    "jsdomify": "^2.1.0",
     "mocha": "^3.0.2",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
