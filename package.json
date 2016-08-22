@@ -1,11 +1,18 @@
 {
   "name": "html-react-parser",
   "version": "0.0.1",
-  "description": "Convert HTML string to React elements.",
+  "description": "An HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remarkablemark/html-react-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/remarkablemark/html-react-parser/issues"
   },
   "keywords": [
     "html",
