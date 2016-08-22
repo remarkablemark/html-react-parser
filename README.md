@@ -2,9 +2,11 @@
 
 An HTML to React parser.
 
-`Parser(htmlString[, options])`
+```
+Parser(htmlString[, options])
+```
 
-This parser converts an HTML string to [React element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements). There is also a `replace` option if you want to swap a specific element with your own React element.
+The parser converts an HTML string to [React element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements). You can also `replace` element(s) with your own custom React element(s) via the parser options.
 
 ### Example
 
@@ -18,7 +20,9 @@ ReactDOM.render(reactElement, document.getElementById('node'));
 
 ## Installation
 
-`npm install html-react-parser`
+```sh
+$ npm install html-react-parser
+```
 
 ## Usage
 
@@ -93,7 +97,13 @@ ReactDOM.render(reactElement, document.getElementById('root'));
 
 ## Testing
 
-`npm test`
+```sh
+$ npm test
+```
+
+## Special Thanks
+
+To [benox3](https://github.com/benox3) and [tdlm](https://github.com/tdlm) for their feedback and review.
 
 ## License
 
