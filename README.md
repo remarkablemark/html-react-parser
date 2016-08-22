@@ -49,6 +49,33 @@ ReactDOM.render(
 );
 ```
 
+### Options
+
+#### replace(domNode)
+
+```js
+var Parser = require('html-react-parser');
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var reactElement = Parser('<div><p id="main">replace me</p></div>', {
+    replace: function(domNode) {
+        if (domNode.attribs && domNode.attribs.id === 'main') {
+            // element is replaced only if a valid React element is returned
+            return React.createElement('span', { style: { fontSize: '42px' } }, 'replaced!');
+        }
+    }
+});
+
+ReactDOM.render(
+    reactElement,
+    document.getElementById('replace')
+);
+// <div><span style="font-size: 42px;">replaced!</span></div>
+```
+
+The object properties of `domNode` is the same as the output from `require('htmlparser2').parseDOM`.
+
 ## Testing
 
 ```sh
