@@ -1,0 +1,34 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "mocha": true,
+        "commonjs": true
+    },
+
+    "extends": "eslint:recommended",
+
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            { SwitchCase: 1 }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "strict": 2,
+        "no-unused-vars": 2,
+        "no-cond-assign": 2,
+        "camelcase": 1
+    }
+}
