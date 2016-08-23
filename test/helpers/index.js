@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var assert = require('assert');
+var util = require('util');
 
 /**
  * Test for deep equality between objects that have circular references.

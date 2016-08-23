@@ -30,7 +30,7 @@ describe('utilties', function() {
             [undefined, null, 1337, {}, []].forEach(function(parameter) {
                 assert.throws(function() { camelCase(parameter); });
             });
-        })
+        });
     });
 
     describe('`invertObject` helper', function() {
@@ -40,7 +40,7 @@ describe('utilties', function() {
             [undefined, null, 'foo', 1337].forEach(function(parameter) {
                 assert.throws(function() { invertObject(parameter); });
             });
-        })
+        });
 
         it('swaps key with value for object', function() {
             assert.deepEqual(
@@ -67,7 +67,7 @@ describe('utilties', function() {
 
         it('uses override if valid', function() {
             assert.deepEqual(
-                invertObject({ foo: 'bar', baz: 'qux' }, function(key, value) {
+                invertObject({ foo: 'bar', baz: 'qux' }, function(key) {
                     if (key === 'foo') {
                         return ['key', 'value'];
                     }
@@ -78,7 +78,7 @@ describe('utilties', function() {
 
         it('does not use override if invalid', function() {
             assert.deepEqual(
-                invertObject({ foo: 'bar', baz: 'qux' }, function(key, value) {
+                invertObject({ foo: 'bar', baz: 'qux' }, function(key) {
                     if (key === 'foo') {
                         return ['key'];
                     } else if (key === 'baz') {
