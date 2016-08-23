@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+    - stable
+
+sudo: false # https://docs.travis-ci.com/user/migrating-from-legacy/
+
+install:
+    - npm install
+
+script:
+    - npm run lint
+    - npm test
+
+cache:
+    directories:
+        - node_modules
+
+notifications:
+    email: false
