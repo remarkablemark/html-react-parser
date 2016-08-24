@@ -26,7 +26,7 @@ describe('attributes to props helper', function() {
                 {
                     className: 'ic',
                     htmlFor: 'tran',
-                    httpEquiv: 'refresh',
+                    httpEquiv: 'refresh'
                 }
             );
         });

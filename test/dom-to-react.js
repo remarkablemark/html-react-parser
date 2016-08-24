@@ -5,7 +5,7 @@
  */
 var assert = require('assert');
 var React = require('react');
-var htmlToDOM = require('../lib/html-to-dom');
+var htmlToDOMServer = require('../lib/html-to-dom-server');
 var domToReact = require('../lib/dom-to-react');
 var data = require('./data');
 
@@ -16,7 +16,7 @@ describe('dom-to-react parser', function() {
 
     it('converts single DOM node to React', function() {
         var html = data.html.single;
-        var reactElement = domToReact(htmlToDOM(html));
+        var reactElement = domToReact(htmlToDOMServer(html));
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -26,7 +26,7 @@ describe('dom-to-react parser', function() {
 
     it('converts multiple DOM nodes to React', function() {
         var html = data.html.multiple;
-        var reactElements = domToReact(htmlToDOM(html));
+        var reactElements = domToReact(htmlToDOMServer(html));
         reactElements.forEach(function(reactElement) {
             assert(React.isValidElement(reactElement));
             assert(reactElement.key);
@@ -43,7 +43,7 @@ describe('dom-to-react parser', function() {
     // https://facebook.github.io/react/docs/forms.html#why-textarea-value
     it('converts <textarea> correctly', function() {
         var html = data.html.textarea;
-        var reactElement = domToReact(htmlToDOM(html));
+        var reactElement = domToReact(htmlToDOMServer(html));
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -55,7 +55,7 @@ describe('dom-to-react parser', function() {
 
     it('converts <script> correctly', function() {
         var html = data.html.script;
-        var reactElement = domToReact(htmlToDOM(html));
+        var reactElement = domToReact(htmlToDOMServer(html));
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -69,7 +69,7 @@ describe('dom-to-react parser', function() {
 
     it('skips HTML comments', function() {
         var html = [data.html.single, data.html.comment, data.html.single].join('');
-        var reactElements = domToReact(htmlToDOM(html));
+        var reactElements = domToReact(htmlToDOMServer(html));
         reactElements.forEach(function(reactElement) {
             assert(React.isValidElement(reactElement));
             assert(reactElement.key);
