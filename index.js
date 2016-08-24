@@ -12,7 +12,7 @@ var htmlToDOM;
 
 /** Client (Browser). */
 if (typeof window !== 'undefined' && this === window) {
-    htmlToDOM = require('./html-to-dom-client');
+    htmlToDOM = require('./lib/html-to-dom-client');
 
 /** Server (Node). */
 } else {
