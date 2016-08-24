@@ -1,12 +1,14 @@
-;(function(factory) {
+/* eslint-disable strict */
+// UMD template: https://github.com/ForbesLindesay/umd/blob/master/template.js
+;(function(factory) { // eslint-disable-line no-extra-semi
 
     // CommonJS
     if (typeof exports === 'object' && typeof module !== 'undefined') {
         module.exports = factory();
 
     // RequireJS (AMD)
-    } else if (typeof define === 'function' && define.amd) {
-        define([], factory());
+    } else if (typeof define === 'function' && define.amd) { // eslint-disable-line no-undef
+        define([], factory()); // eslint-disable-line no-undef
 
     // Browser (script tag)
     } else {
