@@ -29,6 +29,18 @@ describe('html-to-react', function() {
      */
     describe('parser', function() {
 
+        it('throws an error if first argument is not a string', function() {
+            assert.throws(function() { Parser(); });
+
+            [undefined, null, {}, [], 42].forEach(function(arg) {
+                assert.throws(function() { Parser(arg); });
+            });
+        });
+
+        it('returns string if cannot be parsed to HTML', function() {
+            assert.equal(Parser('foo'), 'foo');
+        });
+
         it('converts single HTML element to React', function() {
             var html = data.html.single;
             var reactElement = Parser(html);
