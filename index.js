@@ -3,8 +3,21 @@
 /**
  * Module dependencies.
  */
-var htmlToDOM = require('./lib/html-to-dom');
 var domToReact = require('./lib/dom-to-react');
+var htmlToDOM;
+
+/**
+ * Detect environment.
+ */
+
+/** Client (Browser). */
+if (typeof window !== 'undefined' && this === window) {
+    htmlToDOM = require('./html-to-dom-client');
+
+/** Server (Node). */
+} else {
+    htmlToDOM = require('./lib/html-to-dom-server');
+}
 
 /**
  * Convert HTML to React.
@@ -14,11 +27,6 @@ var domToReact = require('./lib/dom-to-react');
  * @param  {Function} [options.replace] - The replace method.
  * @return {ReactElement|Array}
  */
-function htmlToReact(html, options) {
+module.exports = function(html, options) {
     return domToReact(htmlToDOM(html), options);
-}
-
-/**
- * Export HTML to React parser.
- */
-module.exports = htmlToReact;
+};

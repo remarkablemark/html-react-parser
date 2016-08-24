@@ -7,8 +7,8 @@ var assert = require('assert');
 var util = require('util');
 var jsdomify = require('jsdomify').default;
 var htmlparser = require('htmlparser2');
-var parseDOM = require('../lib/html-to-dom');
-var formatDOM = require('../lib/html-to-dom-client');
+var htmlToDOMServer = require('../lib/html-to-dom-server');
+var htmlToDOMClient = require('../lib/html-to-dom-client');
 var helpers = require('./helpers/');
 var data = require('./data');
 
@@ -26,7 +26,7 @@ describe('html-to-dom', function() {
             var html = data.html.complex;
             // use `util.inspect` to resolve circular references
             assert.equal(
-                util.inspect(parseDOM(html), { showHidden: true, depth: null }),
+                util.inspect(htmlToDOMServer(html), { showHidden: true, depth: null }),
                 util.inspect(htmlparser.parseDOM(html), { showHidden: true, depth: null })
             );
         });
@@ -48,13 +48,14 @@ describe('html-to-dom', function() {
             jsdomify.destroy();
         });
 
-        it('formats the nodes like `htmlparser2.parseDOM`', function() {
-            var html = data.html.attributes + data.html.nested + data.html.comment + data.html.script;
-            var root = document.createElement('div');
-            root.innerHTML = html;
-            var clientNodes = formatDOM(root.childNodes);
-            var serverNodes = parseDOM(html);
-            helpers.deepEqualCircular(clientNodes, serverNodes);
+        it('outputs the same result as the server parser', function() {
+            var html = (
+                data.html.attributes +
+                data.html.nested +
+                data.html.comment +
+                data.html.script
+            );
+            helpers.deepEqualCircular(htmlToDOMClient(html), htmlToDOMServer(html));
         });
 
     });
