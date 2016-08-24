@@ -51,6 +51,9 @@
      * @return {ReactElement|Array}
      */
     function HTMLReactParser(html, options) {
+        if (typeof html !== 'string') {
+            throw new Error('`HTMLReactParser`: The first argument must be a string.');
+        }
         return domToReact(htmlToDOM(html), options);
     }
 
