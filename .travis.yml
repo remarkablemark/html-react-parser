@@ -10,7 +10,8 @@ install:
 
 script:
     - npm run lint
-    - npm test
+    - npm run cover
+    - npm run coveralls
 
 cache:
     directories:
