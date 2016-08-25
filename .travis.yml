@@ -11,6 +11,8 @@ install:
 script:
     - npm run lint
     - npm run cover
+
+after_script:
     - npm run coveralls
 
 cache:
