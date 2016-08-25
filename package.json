@@ -7,7 +7,8 @@
   "scripts": {
     "test": "mocha",
     "lint": "eslint index.js \"lib/**\" \"test/**\"",
-    "cover": "istanbul cover _mocha -- -R spec \"test/**/*\""
+    "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "htmlparser2": "^3.9.1"
   },
   "devDependencies": {
+    "coveralls": "^2.11.12",
     "eslint": "^3.3.1",
     "istanbul": "^0.4.5",
     "jsdomify": "^2.1.0",
