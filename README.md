@@ -1,4 +1,11 @@
-# html-react-parser [![Build Status](https://travis-ci.org/remarkablemark/html-react-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-react-parser) [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
+# html-react-parser
+
+[![NPM](https://nodei.co/npm/html-react-parser.png)](https://nodei.co/npm/html-react-parser/)
+
+[![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
+[![Build Status](https://travis-ci.org/remarkablemark/html-react-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-react-parser)
+[![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
+[![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 
 An HTML to React parser.
 
@@ -15,7 +22,7 @@ var Parser = require('html-react-parser');
 var reactElement = (
     Parser('<p>Hello, world!</p>') // equivalent to `React.createElement('p', {}, 'Hello, world!')`
 );
-ReactDOM.render(reactElement, document.getElementById('node'));
+require('react-dom').render(reactElement, document.getElementById('root'));
 ```
 
 ## Installation
@@ -49,7 +56,7 @@ ReactDOM.render(
 // nested elements
 ReactDOM.render(
     Parser('<ul><li>inside</li></ul>'),
-    document.getElementedById('root')
+    document.getElementById('root')
 );
 
 // attributes are preserved
@@ -65,7 +72,7 @@ ReactDOM.render(
 
 `replace` allows you to swap an element with your own React element.
 
-The output of `domNode` is the same as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+The `domNode` object has the same schema as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
 
 ```js
 var Parser = require('html-react-parser');
@@ -90,8 +97,7 @@ var reactElement = Parser(html, {
     }
 });
 
-var ReactDOM = require('react-dom');
-ReactDOM.render(reactElement, document.getElementById('root'));
+require('react-dom').render(reactElement, document.getElementById('root'));
 // <div><span style="font-size: 42px;">replaced!</span></div>
 ```
 
