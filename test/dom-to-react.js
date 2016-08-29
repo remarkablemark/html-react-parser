@@ -5,9 +5,9 @@
  */
 var assert = require('assert');
 var React = require('react');
-var ReactDOMServer = require('react-dom/server');
 var htmlToDOMServer = require('../lib/html-to-dom-server');
 var domToReact = require('../lib/dom-to-react');
+var helpers = require('./helpers/');
 var data = require('./data');
 
 /**
@@ -78,9 +78,7 @@ describe('dom-to-react parser', function() {
         var html = data.html.void;
         var reactElements = domToReact(htmlToDOMServer(html));
         assert.doesNotThrow(function() {
-            ReactDOMServer.renderToStaticMarkup(
-                React.createElement('div', {}, reactElements)
-            );
+            helpers.render(React.createElement('div', {}, reactElements));
         });
     });
 

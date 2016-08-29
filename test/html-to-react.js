@@ -5,19 +5,9 @@
  */
 var assert = require('assert');
 var React = require('react');
-var ReactDOMServer = require('react-dom/server');
 var Parser = require('../');
+var helpers = require('./helpers/');
 var data = require('./data');
-
-/**
- * Render a React element to static HTML markup.
- *
- * @param  {ReactElement} reactElement - The React element.
- * @return {String}                    - The static HTML markup.
- */
-function render(reactElement) {
-    return ReactDOMServer.renderToStaticMarkup(reactElement);
-}
 
 /**
  * Tests for `htmlToReact`.
@@ -44,21 +34,21 @@ describe('html-to-react', function() {
         it('converts single HTML element to React', function() {
             var html = data.html.single;
             var reactElement = Parser(html);
-            assert.equal(render(reactElement), html);
+            assert.equal(helpers.render(reactElement), html);
         });
 
         it('converts single HTML element and ignores comment', function() {
             var html = data.html.single;
             // comment should be ignored
             var reactElement = Parser(html + data.html.comment);
-            assert.equal(render(reactElement), html);
+            assert.equal(helpers.render(reactElement), html);
         });
 
         it('converts multiple HTML elements to React', function() {
             var html = data.html.multiple;
             var reactElements = Parser(html);
             assert.equal(
-                render(React.createElement('div', {}, reactElements)),
+                helpers.render(React.createElement('div', {}, reactElements)),
                 '<div>' + html + '</div>'
             );
         });
@@ -66,13 +56,13 @@ describe('html-to-react', function() {
         it('converts complex HTML to React', function() {
             var html = data.html.complex;
             var reactElement = Parser(html);
-            assert.equal(render(reactElement), html);
+            assert.equal(helpers.render(reactElement), html);
         });
 
         it('converts SVG to React', function() {
             var svg = data.svg.complex;
             var reactElement = Parser(svg);
-            assert.equal(render(reactElement), svg);
+            assert.equal(helpers.render(reactElement), svg);
         });
 
     });
@@ -94,7 +84,7 @@ describe('html-to-react', function() {
                     }
                 });
                 assert.equal(
-                    render(reactElement),
+                    helpers.render(reactElement),
                     html.replace('<title>Title</title>', '<meta charset="utf-8"/>')
                 );
             });
@@ -112,7 +102,7 @@ describe('html-to-react', function() {
                     }
                 });
                 assert.notEqual(
-                    render(reactElement),
+                    helpers.render(reactElement),
                     html.replace(
                         '<header id="header">Header</header>',
                         '<h1>Heading</h1>'
