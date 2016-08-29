@@ -68,11 +68,36 @@ ReactDOM.render(
 
 ### Options
 
-#### replace(domNode)
+#### replace(domNode, key)
 
-`replace` allows you to swap an element with your own React element.
+The `replace` method allows you to swap an element with your own React element.
 
-The `domNode` object has the same schema as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+The method has 2 parameters:
+1. `domNode`: An object which shares the same schema as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+2. `key`: A number to keep track of the element. You should set it as the ["key" prop](https://fb.me/react-warning-keys) in case your element has siblings.
+
+```js
+Parser('<p id="replace">text</p>', {
+    replace: function(domNode, key) {
+        console.log(domNode);
+        // {  type: 'tag',
+        //    name: 'p',
+        //    attribs: { id: 'replace' },
+        //    children: [],
+        //    next: null,
+        //    prev: null,
+        //    parent: null }
+
+        console.log(key); // 0
+
+        return;
+        // element is not replaced because
+        // a valid React element is not returned
+    }
+});
+```
+
+Working example:
 
 ```js
 var Parser = require('html-react-parser');
@@ -81,18 +106,14 @@ var React = require('react');
 var html = '<div><p id="main">replace me</p></div>';
 
 var reactElement = Parser(html, {
-    replace: function(domNode) {
-        // example `domNode`:
-        // {  type: 'tag',
-        //    name: 'p',
-        //    attribs: { id: 'main' },
-        //    children: [],
-        //    next: null,
-        //    prev: null,
-        //    parent: [Circular] }
+    replace: function(domNode, key) {
         if (domNode.attribs && domNode.attribs.id === 'main') {
-            // element is replaced only if a valid React element is returned
-            return React.createElement('span', { style: { fontSize: '42px' } }, 'replaced!');
+            return React.createElement('span', {
+                key: key,
+                style: { fontSize: '42px' } },
+            'replaced!');
+            // equivalent jsx syntax:
+            // return <span key={key} style={{ fontSize: '42px' }}>replaced!</span>;
         }
     }
 });

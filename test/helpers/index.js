@@ -5,6 +5,21 @@
  */
 var assert = require('assert');
 var util = require('util');
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
+
+/**
+ * Render a React element to static HTML markup.
+ *
+ * @param  {ReactElement} reactElement - The React element.
+ * @return {String}                    - The static HTML markup.
+ */
+function render(reactElement) {
+    if (!React.isValidElement(reactElement)) {
+        throw new Error(reactElement, 'is not a valid React element.');
+    }
+    return ReactDOMServer.renderToStaticMarkup(reactElement);
+}
 
 /**
  * Test for deep equality between objects that have circular references.
@@ -65,5 +80,6 @@ function deepEqualCircular(actual, expected) {
  * Export assert helpers.
  */
 module.exports = {
-    deepEqualCircular: deepEqualCircular
+    deepEqualCircular: deepEqualCircular,
+    render: render
 };
