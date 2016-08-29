@@ -5,6 +5,7 @@
  */
 var assert = require('assert');
 var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 var htmlToDOMServer = require('../lib/html-to-dom-server');
 var domToReact = require('../lib/dom-to-react');
 var data = require('./data');
@@ -65,6 +66,22 @@ describe('dom-to-react parser', function() {
                 }
             }, null)
         );
+    });
+
+    it('does not have `children` for void elements', function() {
+        var html = data.html.img;
+        var reactElement = domToReact(htmlToDOMServer(html));
+        assert(!reactElement.props.children);
+    });
+
+    it('does not throw an error for void elements', function() {
+        var html = data.html.void;
+        var reactElements = domToReact(htmlToDOMServer(html));
+        assert.doesNotThrow(function() {
+            ReactDOMServer.renderToStaticMarkup(
+                React.createElement('div', {}, reactElements)
+            );
+        });
     });
 
     it('skips HTML comments', function() {
