@@ -77,15 +77,15 @@ describe('html-to-react', function() {
             it('overrides the element if replace is valid', function() {
                 var html = data.html.complex;
                 var reactElement = Parser(html, {
-                    replace: function(node) {
+                    replace: function(node, key) {
                         if (node.name === 'title') {
-                            return React.createElement('meta', { charSet: 'utf-8' });
+                            return React.createElement('title', { key: key }, 'Replaced Title');
                         }
                     }
                 });
                 assert.equal(
                     helpers.render(reactElement),
-                    html.replace('<title>Title</title>', '<meta charset="utf-8"/>')
+                    html.replace('<title>Title</title>', '<title>Replaced Title</title>')
                 );
             });
 
