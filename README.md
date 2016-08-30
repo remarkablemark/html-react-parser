@@ -118,6 +118,44 @@ require('react-dom').render(reactElement, document.getElementById('root'));
 // <div><span style="font-size: 42px;">replaced!</span></div>
 ```
 
+Advanced usage with replace, keeping children (useful if child elements also needs to be replaced or just kept):
+
+```js
+var Parser = require('html-react-parser');
+var domToReact = require('html-react-parser/lib/dom-to-react'); // used for recursively parsing DOM created from the HTML
+var React = require('react');
+
+var html = '<div><p id="main"><span class="prettify">keep me and make me pretty!</span></p></div>';
+
+var parserConfig = {
+    replace: function(domNode) {
+        var parsedChildren;
+        if (domNode.attribs) {
+            if (domNode.attribs.id === 'main') {
+                parsedChildren = domToReact(domNode.children, parserConfig); // continue parsing domNode's children with same config
+                return React.createElement('span', {
+                    style: { fontSize: '42px' }
+                }, parsedChildren);
+                // equivalent jsx syntax:
+                // return <span style={{ fontSize: '42px' }}>{parsedChildren}</span>;
+            } else if (domNode.attribs.class === 'prettify') {
+                parsedChildren = domToReact(domNode.children, parserConfig); // continue parsing domNode's children with same config
+                return React.createElement('span', {
+                    style: { color: 'hotpink' }
+                }, parsedChildren);
+                // equivalent jsx syntax:
+                // return <span style={{ color: 'hotpink' }}>{parsedChildren}</span>;
+            }
+        }
+    }
+};
+
+var reactElement = Parser(html, parserConfig);
+
+require('react-dom').render(reactElement, document.getElementById('root'));
+// <div><span style="font-size: 42px;"><span class="prettify" style="color: hotpink;">keep me and make me pretty!</span></span></div>
+```
+
 ## Testing
 
 ```sh
