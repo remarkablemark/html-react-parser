@@ -59,6 +59,18 @@ describe('html-to-react', function() {
             assert.equal(helpers.render(reactElement), html);
         });
 
+        it('converts empty <script> to React', function() {
+            var html = '<script></script>';
+            var reactElement = Parser(html);
+            assert.equal(helpers.render(reactElement), html);
+        });
+
+        it('converts empty <style> to React', function() {
+            var html = '<style></style>';
+            var reactElement = Parser(html);
+            assert.equal(helpers.render(reactElement), html);
+        });
+
         it('converts SVG to React', function() {
             var svg = data.svg.complex;
             var reactElement = Parser(svg);

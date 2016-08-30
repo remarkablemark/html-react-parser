@@ -54,7 +54,7 @@ describe('dom-to-react parser', function() {
         );
     });
 
-    it('converts <script> correctly', function() {
+    it('does not escape <script> content', function() {
         var html = data.html.script;
         var reactElement = domToReact(htmlToDOMServer(html));
         assert(React.isValidElement(reactElement));
@@ -63,6 +63,20 @@ describe('dom-to-react parser', function() {
             React.createElement('script', {
                 dangerouslySetInnerHTML: {
                     __html: 'alert(1 < 2);'
+                }
+            }, null)
+        );
+    });
+
+    it('does not escape <style> content', function() {
+        var html = data.html.style;
+        var reactElement = domToReact(htmlToDOMServer(html));
+        assert(React.isValidElement(reactElement));
+        assert.deepEqual(
+            reactElement,
+            React.createElement('style', {
+                dangerouslySetInnerHTML: {
+                    __html: 'body > .foo { color: #f00; }'
                 }
             }, null)
         );
