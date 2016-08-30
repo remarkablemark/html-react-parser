@@ -68,17 +68,16 @@ ReactDOM.render(
 
 ### Options
 
-#### replace(domNode, key)
+#### replace(domNode)
 
 The `replace` method allows you to swap an element with your own React element.
 
-The method has 2 parameters:
+The method has 1 parameter:
 1. `domNode`: An object which shares the same schema as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
-2. `key`: A number to keep track of the element. You should set it as the ["key" prop](https://fb.me/react-warning-keys) in case your element has siblings.
 
 ```js
 Parser('<p id="replace">text</p>', {
-    replace: function(domNode, key) {
+    replace: function(domNode) {
         console.log(domNode);
         // {  type: 'tag',
         //    name: 'p',
@@ -87,8 +86,6 @@ Parser('<p id="replace">text</p>', {
         //    next: null,
         //    prev: null,
         //    parent: null }
-
-        console.log(key); // 0
 
         return;
         // element is not replaced because
@@ -106,14 +103,13 @@ var React = require('react');
 var html = '<div><p id="main">replace me</p></div>';
 
 var reactElement = Parser(html, {
-    replace: function(domNode, key) {
+    replace: function(domNode) {
         if (domNode.attribs && domNode.attribs.id === 'main') {
             return React.createElement('span', {
-                key: key,
                 style: { fontSize: '42px' } },
             'replaced!');
             // equivalent jsx syntax:
-            // return <span key={key} style={{ fontSize: '42px' }}>replaced!</span>;
+            // return <span style={{ fontSize: '42px' }}>replaced!</span>;
         }
     }
 });

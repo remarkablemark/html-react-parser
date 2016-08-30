@@ -77,9 +77,9 @@ describe('html-to-react', function() {
             it('overrides the element if replace is valid', function() {
                 var html = data.html.complex;
                 var reactElement = Parser(html, {
-                    replace: function(node, key) {
+                    replace: function(node) {
                         if (node.name === 'title') {
-                            return React.createElement('title', { key: key }, 'Replaced Title');
+                            return React.createElement('title', {}, 'Replaced Title');
                         }
                     }
                 });
