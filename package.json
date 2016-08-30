@@ -1,6 +1,6 @@
 {
   "name": "html-react-parser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
@@ -19,10 +19,10 @@
   },
   "keywords": [
     "html",
+    "dom",
     "react",
     "parser",
-    "html react parser",
-    "html to react"
+    "converter"
   ],
   "dependencies": {
     "domhandler": "^2.3.0",
