@@ -5,6 +5,8 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
+    "build": "webpack index.js dist/html-to-react.js",
+    "build-min": "webpack -p index.js dist/html-to-react.min.js",
     "test": "mocha",
     "lint": "eslint index.js \"lib/**\" \"test/**\"",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",

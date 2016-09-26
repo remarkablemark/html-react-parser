@@ -4,9 +4,7 @@
  * Export webpack configuration.
  */
 module.exports = {
-    entry: './index',
     output: {
-        filename: './dist/html-to-react.min.js',
         library: 'HTMLReactParser',
         libraryTarget: 'umd'
     },
