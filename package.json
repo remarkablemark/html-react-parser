@@ -35,7 +35,8 @@
     "jsdomify": "^2.1.0",
     "mocha": "^3.0.2",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "webpack": "^1.13.2"
   },
   "peerDependencies": {
     "react": ">=0.14"
