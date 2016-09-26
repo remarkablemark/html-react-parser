@@ -1,6 +1,11 @@
 'use strict';
 
 /**
+ * Module dependencies.
+ */
+var webpack = require('webpack');
+
+/**
  * Export webpack configuration.
  */
 module.exports = {
@@ -15,5 +20,11 @@ module.exports = {
             commonjs: 'react',
             amd: 'react'
         }
-    }
+    },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
+    ]
 };
