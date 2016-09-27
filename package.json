@@ -5,6 +5,9 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=development webpack index.js dist/html-to-react.js",
+    "build-min": "NODE_ENV=production webpack -p index.js dist/html-to-react.min.js",
+    "prepublish": "npm run build && npm run build-min",
     "test": "mocha",
     "lint": "eslint index.js \"lib/**\" \"test/**\"",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
@@ -35,7 +38,8 @@
     "jsdomify": "^2.1.0",
     "mocha": "^3.0.2",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "webpack": "^1.13.2"
   },
   "peerDependencies": {
     "react": ">=0.14"
