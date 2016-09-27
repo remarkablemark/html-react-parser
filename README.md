@@ -31,6 +31,16 @@ Parser('<p>Hello, world!</p>');
 $ npm install html-react-parser
 ```
 
+Or you can download the script from a CDN:
+
+```html
+<!-- HTMLReactParser depends on React -->
+<script src="https://unpkg.com/react@latest/dist/react.min.js"></script>
+<script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
+```
+
+See more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+
 ## Usage
 
 Render to DOM:
