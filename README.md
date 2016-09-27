@@ -104,64 +104,21 @@ render(
 
 #### replace(domNode)
 
-The `replace` method allows you to swap an element with your own React element.
+The `replace` method allows you to swap an element with your own React Element.
 
-The first argument is `domNode`, which is an object which shares the same schema as the output from [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+The first argument is `domNode`, which is an object that has the same output as [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+
+The element is only replaced if a valid React Element is returned.
 
 ```js
+// with JSX
 Parser('<p id="replace">text</p>', {
-    replace: function(domNode) {
-        console.log(domNode);
-        // {  type: 'tag',
-        //    name: 'p',
-        //    attribs: { id: 'replace' },
-        //    children: [],
-        //    next: null,
-        //    prev: null,
-        //    parent: null }
-
-        return;
-        // element is not replaced because
-        // a valid React element is not returned
-    }
-});
-```
-
-Simple example:
-
-```js
-var Parser = require('html-react-parser');
-var React = require('react');
-
-var html = (
-    '<div>' +
-        '<p id="replace">'
-            'replace me' +
-        '</p>' +
-    '</div>'
-);
-
-var reactElement = Parser(html, {
-    replace: function(domNode) {
+    replace: (domNode) => {
         if (domNode.attribs && domNode.attribs.id === 'replace') {
-            return React.createElement('span', {
-                style: { fontSize: '42px' }
-            }, 'replaced!');
-            // equivalent jsx syntax:
-            // return <span style={{ fontSize: '42px' }}>replaced!</span>;
+            return <span>replaced</span>;
         }
     }
 });
-
-require('react-dom').render(
-    reactElement,
-    document.getElementById('root')
-);
-// <div>
-//     <span style="font-size: 42px;">
-//         replaced!
-//     </span>
-// </div>
 ```
 
 Advanced example (the replaced element's children are kept):
