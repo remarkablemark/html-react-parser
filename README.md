@@ -7,22 +7,22 @@
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 
-An HTML to React parser.
+An HTML to React parser:
 
 ```
 Parser(htmlString[, options])
 ```
 
-The parser converts an HTML string to [React element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements). You can also `replace` element(s) with your own custom React element(s) via the parser options.
+The parser converts a string of HTML to [React Element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements).
 
-### Example
+There is also an option to [replace](#replacedomnode) element(s) with your own React Element(s) via the [parser options](#options).
+
+#### Example
 
 ```js
 var Parser = require('html-react-parser');
-var reactElement = (
-    Parser('<p>Hello, world!</p>') // same as `React.createElement('p', {}, 'Hello, world!')`
-);
-require('react-dom').render(reactElement, document.getElementById('root'));
+Parser('<p>Hello, world!</p>');
+// same output as `React.createElement('p', {}, 'Hello, world!')`
 ```
 
 ## Installation
