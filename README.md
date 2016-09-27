@@ -121,62 +121,63 @@ Parser('<p id="replace">text</p>', {
 });
 ```
 
-Advanced example (the replaced element's children are kept):
+Advanced example (keep the replaced children):
 
 ```js
-var Parser = require('html-react-parser');
-var React = require('react');
+// with ES6 and JSX
 
-// used for recursively parsing DOM created from the HTML
-var domToReact = require('html-react-parser/lib/dom-to-react');
+// converts dom object to React Elements
+import domToReact from 'html-react-parser/lib/dom-to-react';
 
-var html = (
-    '<div>' +
-        '<p id="main">' +
-            '<span class="prettify">' +
-                'keep me and make me pretty!' +
-            '</span>' +
-        '</p>' +
-    '</div>'
-);
+const html = `
+    <div>
+        <p id="main">
+            <span class="prettify">
+                keep me and make me pretty!
+            </span>
+        </p>
+    </div>
+`;
 
-var parserConfig = {
-    replace: function(domNode) {
-        var parsedChildren;
-        if (domNode.attribs) {
-            if (domNode.attribs.id === 'main') {
-                // continue parsing domNode's children with same config
-                parsedChildren = domToReact(domNode.children, parserConfig);
-                return React.createElement('span', {
-                    style: { fontSize: '42px' }
-                }, parsedChildren);
-                // equivalent jsx syntax:
-                // return <span style={{ fontSize: '42px' }}>{parsedChildren}</span>;
+// parser config
+const options = {
+    replace: (domNode) => {
+        // do not replace if element has no attributes
+        if (!domNode.attribs) return;
 
-            } else if (domNode.attribs.class === 'prettify') {
-                // continue parsing domNode's children with same config
-                parsedChildren = domToReact(domNode.children, parserConfig);
-                return React.createElement('span', {
-                    style: { color: 'hotpink' }
-                }, parsedChildren);
-                // equivalent jsx syntax:
-                // return <span style={{ color: 'hotpink' }}>{parsedChildren}</span>;
-            }
+        if (domNode.attribs.id === 'main') {
+            return (
+                <span style={{ fontSize: '42px' }}>
+                    {domToReact(domNode.children, options)}
+                </span>
+            );
+
+        } else if (domNode.attribs.class === 'prettify') {
+            return (
+                <span style={{ color: 'hotpink' }}>
+                    {domToReact(domNode.children, options)}
+                </span>
+            );
         }
     }
 };
 
-require('react-dom').render(
-    Parser(html, parserConfig),
+render(
+    Parser(html, options),
     document.getElementById('root')
 );
-// <div>
-//     <span style="font-size: 42px;">
-//         <span class="prettify" style="color: hotpink;">
-//             keep me and make me pretty!
-//         </span>
-//     </span>
-// </div>
+```
+
+You will get the following:
+
+```html
+<div>
+    <span style="font-size: 42px;">
+        <span class="prettify" style="color: hotpink;">
+            keep me and make me pretty!
+        </span>
+    </span>
+</div>
 ```
 
 ## Testing
