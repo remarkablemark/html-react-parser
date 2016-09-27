@@ -43,34 +43,58 @@ See more [examples](https://github.com/remarkablemark/html-react-parser/tree/mas
 
 ## Usage
 
-Render to DOM:
+Given that you have the following required:
 
 ```js
-var Parser = require('html-react-parser');
-var ReactDOM = require('react-dom');
+// ES6
+import Parser from 'html-react-parser';
+import { render } from 'react-dom';
+```
 
-// single element
-ReactDOM.render(
+You may render one element:
+
+```js
+render(
     Parser('<p>single</p>'),
     document.getElementById('root')
 );
+```
 
-// adjacent elements
-ReactDOM.render(
+You may render adjacent elements:
+
+```js
+// with JSX
+render(
     // the parser returns an array for adjacent elements
     // so make sure they are nested under a parent React element
-    React.createElement('div', {}, Parser('<p>one</p><p>two</p>'))
+    <div>
+        {Parser('<p>brother</p><p>sister</p>')}
+    </div>,
     document.getElementById('root')
 );
 
-// nested elements
-ReactDOM.render(
+// without JSX
+render(
+    React.createElement('div', {},
+        Parser('<p>brother</p><p>sister</p>')
+    ),
+    document.getElementById('root')
+);
+```
+
+You may render nested elements:
+
+```js
+render(
     Parser('<ul><li>inside</li></ul>'),
     document.getElementById('root')
 );
+```
 
-// attributes are preserved
-ReactDOM.render(
+The parser will also preserve attributes:
+
+```js
+render(
     Parser('<section id="foo" class="bar baz" data-qux="42">look at me now</section>'),
     document.getElementById('root')
 );
