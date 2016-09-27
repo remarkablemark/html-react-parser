@@ -5,8 +5,8 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=development webpack index.js dist/html-to-react.js",
-    "build-min": "NODE_ENV=production webpack -p index.js dist/html-to-react.min.js",
+    "build": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
+    "build-min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
     "prepublish": "npm run build && npm run build-min",
     "test": "mocha",
     "lint": "eslint index.js \"lib/**\" \"test/**\"",
