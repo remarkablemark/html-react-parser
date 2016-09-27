@@ -55,9 +55,35 @@ describe('html-to-dom', function() {
                 data.html.comment +
                 data.html.script
             );
-            helpers.deepEqualCircular(htmlToDOMClient(html), htmlToDOMServer(html));
+
+            helpers.deepEqualCircular(
+                htmlToDOMClient(html),
+                htmlToDOMServer(html)
+            );
         });
 
+        it('works with `window.DOMParser`', function() {
+            var html = (
+                data.html.attributes +
+                data.html.nested +
+                data.html.comment +
+                data.html.script
+            );
+
+            // mock `window.DOMParser`
+            // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+            window.DOMParser = function() {
+                this.parseFromString = function(html) {
+                    jsdomify.create(html);
+                    return document;
+                };
+            };
+
+            helpers.deepEqualCircular(
+                htmlToDOMClient(html),
+                htmlToDOMServer(html)
+            );
+        });
     });
 
 });
