@@ -1,5 +1,6 @@
 test
 coverage
+examples
 webpack.config.js
 .eslint*
 .travis*
