@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Load with Require.js (AMD)</title>
+    </head>
+    <body style="padding: 50px">
+        <div id="root"></div>
+
+        <!-- Require.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+
+        <script>
+            requirejs.config({
+                paths: {
+                    'html-react-parser': 'https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min',
+                    'react': 'https://unpkg.com/react@latest/dist/react.min',
+                    'react-dom': 'https://unpkg.com/react-dom@latest/dist/react-dom.min'
+                }
+            });
+
+            requirejs([
+                'react-dom', 'html-react-parser'
+            ], function(ReactDOM, HTMLReactParser) {
+                ReactDOM.render(
+                    HTMLReactParser(
+                        '<h2 style="font-family:\'Lucida Grande\';">' +
+                            'HTMLReactParser loaded with Require.js' +
+                        '<\/h2>'
+                    ),
+                    document.getElementById('root')
+                );
+            });
+        </script>
+    </body>
+</html>
