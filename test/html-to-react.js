@@ -19,15 +19,15 @@ describe('html-to-react', function() {
      */
     describe('parser', function() {
 
-        it('throws an error if first argument is not a string', function() {
-            assert.throws(function() { Parser(); });
+        it('errors if first argument is not a string', function() {
+            assert.throws(function() { Parser(); }, TypeError);
 
             [undefined, null, {}, [], 42].forEach(function(arg) {
-                assert.throws(function() { Parser(arg); });
+                assert.throws(function() { Parser(arg); }, TypeError);
             });
         });
 
-        it('returns string if cannot be parsed to HTML', function() {
+        it('returns original argument if it is unable to parse the HTML', function() {
             assert.equal(Parser('foo'), 'foo');
         });
 

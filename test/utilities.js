@@ -26,9 +26,9 @@ describe('utilties', function() {
             assert.equal(camelCase('CAMEL-CASE'), 'camelCase');
         });
 
-        it('throws an error if the first argument is invalid', function() {
+        it('errors if the first argument is invalid', function() {
             [undefined, null, 1337, {}, []].forEach(function(parameter) {
-                assert.throws(function() { camelCase(parameter); });
+                assert.throws(function() { camelCase(parameter); }, TypeError);
             });
         });
     });
@@ -36,9 +36,9 @@ describe('utilties', function() {
     describe('`invertObject` helper', function() {
         var invertObject = utilities.invertObject;
 
-        it('throws an error if the first argument is invalid', function() {
+        it('errors if the first argument is invalid', function() {
             [undefined, null, 'foo', 1337].forEach(function(parameter) {
-                assert.throws(function() { invertObject(parameter); });
+                assert.throws(function() { invertObject(parameter); }, TypeError);
             });
         });
 
