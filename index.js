@@ -4,11 +4,7 @@
  * Module dependencies.
  */
 var domToReact = require('./lib/dom-to-react');
-var htmlToDOM = (
-    process.browser ?
-    require('./lib/html-to-dom-client') :
-    require('./lib/html-to-dom-server')
-);
+var htmlToDOM = require('html-dom-parser');
 
 /**
  * Convert HTML string to React elements.
