@@ -7,7 +7,8 @@ var assert = require('assert');
 var React = require('react');
 var Parser = require('../');
 var helpers = require('./helpers/');
-var data = require('./data');
+var mocks = helpers.mocks;
+var render = helpers.render;
 
 /**
  * Tests for `htmlToReact`.
@@ -32,49 +33,49 @@ describe('html-to-react', function() {
         });
 
         it('converts single HTML element to React', function() {
-            var html = data.html.single;
+            var html = mocks.html.single;
             var reactElement = Parser(html);
-            assert.equal(helpers.render(reactElement), html);
+            assert.equal(render(reactElement), html);
         });
 
         it('converts single HTML element and ignores comment', function() {
-            var html = data.html.single;
+            var html = mocks.html.single;
             // comment should be ignored
-            var reactElement = Parser(html + data.html.comment);
-            assert.equal(helpers.render(reactElement), html);
+            var reactElement = Parser(html + mocks.html.comment);
+            assert.equal(render(reactElement), html);
         });
 
         it('converts multiple HTML elements to React', function() {
-            var html = data.html.multiple;
+            var html = mocks.html.multiple;
             var reactElements = Parser(html);
             assert.equal(
-                helpers.render(React.createElement('div', {}, reactElements)),
+                render(React.createElement('div', {}, reactElements)),
                 '<div>' + html + '</div>'
             );
         });
 
         it('converts complex HTML to React', function() {
-            var html = data.html.complex;
-            var reactElement = Parser(html);
-            assert.equal(helpers.render(reactElement), html);
+            var html = mocks.html.complex;
+            var reactElement = Parser(mocks.html.doctype + html);
+            assert.equal(render(reactElement), html);
         });
 
         it('converts empty <script> to React', function() {
             var html = '<script></script>';
             var reactElement = Parser(html);
-            assert.equal(helpers.render(reactElement), html);
+            assert.equal(render(reactElement), html);
         });
 
         it('converts empty <style> to React', function() {
             var html = '<style></style>';
             var reactElement = Parser(html);
-            assert.equal(helpers.render(reactElement), html);
+            assert.equal(render(reactElement), html);
         });
 
         it('converts SVG to React', function() {
-            var svg = data.svg.complex;
+            var svg = mocks.svg.complex;
             var reactElement = Parser(svg);
-            assert.equal(helpers.render(reactElement), svg);
+            assert.equal(render(reactElement), svg);
         });
 
     });
@@ -87,7 +88,7 @@ describe('html-to-react', function() {
         describe('replace', function() {
 
             it('overrides the element if replace is valid', function() {
-                var html = data.html.complex;
+                var html = mocks.html.complex;
                 var reactElement = Parser(html, {
                     replace: function(node) {
                         if (node.name === 'title') {
@@ -96,13 +97,13 @@ describe('html-to-react', function() {
                     }
                 });
                 assert.equal(
-                    helpers.render(reactElement),
+                    render(reactElement),
                     html.replace('<title>Title</title>', '<title>Replaced Title</title>')
                 );
             });
 
             it('does not override the element if replace is invalid', function() {
-                var html = data.html.complex;
+                var html = mocks.html.complex;
                 var reactElement = Parser(html, {
                     replace: function(node) {
                         if (node.attribs && node.attribs.id === 'header') {
@@ -114,7 +115,7 @@ describe('html-to-react', function() {
                     }
                 });
                 assert.notEqual(
-                    helpers.render(reactElement),
+                    render(reactElement),
                     html.replace(
                         '<header id="header">Header</header>',
                         '<h1>Heading</h1>'

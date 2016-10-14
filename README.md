@@ -27,11 +27,13 @@ Parser('<p>Hello, world!</p>');
 
 ## Installation
 
+[NPM](https://www.npmjs.com/package/html-react-parser):
+
 ```sh
 $ npm install html-react-parser
 ```
 
-Or you can download the script from a CDN:
+[CDN](https://unpkg.com/html-react-parser/):
 
 ```html
 <!-- HTMLReactParser depends on React -->
@@ -113,7 +115,7 @@ The element is only replaced if a valid React Element is returned.
 ```js
 // with JSX
 Parser('<p id="replace">text</p>', {
-    replace: (domNode) => {
+    replace: function(domNode) {
         if (domNode.attribs && domNode.attribs.id === 'replace') {
             return <span>replaced</span>;
         }
@@ -189,9 +191,8 @@ $ npm run lint
 
 ## Special Thanks
 
-- To [htmlparser2](https://github.com/fb55/htmlparser2).
-- To all the [contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors).
-- To [benox3](https://github.com/benox3) and [tdlm](https://github.com/tdlm) for their feedback and review.
+- [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
+- [Contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
 
 ## License
 

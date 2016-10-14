@@ -28,8 +28,7 @@
     "converter"
   ],
   "dependencies": {
-    "domhandler": "^2.3.0",
-    "htmlparser2": "^3.9.1"
+    "html-dom-parser": "0.0.2"
   },
   "devDependencies": {
     "coveralls": "^2.11.12",

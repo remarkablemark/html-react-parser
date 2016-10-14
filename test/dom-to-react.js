@@ -5,10 +5,11 @@
  */
 var assert = require('assert');
 var React = require('react');
-var htmlToDOMServer = require('../lib/html-to-dom-server');
+var htmlToDOM = require('html-dom-parser');
 var domToReact = require('../lib/dom-to-react');
 var helpers = require('./helpers/');
-var data = require('./data');
+var mocks = helpers.mocks;
+var render = helpers.render;
 
 /**
  * Tests for `domToReact`.
@@ -16,8 +17,9 @@ var data = require('./data');
 describe('dom-to-react parser', function() {
 
     it('converts single DOM node to React', function() {
-        var html = data.html.single;
-        var reactElement = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.single;
+        var reactElement = domToReact(htmlToDOM(html));
+
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -26,12 +28,14 @@ describe('dom-to-react parser', function() {
     });
 
     it('converts multiple DOM nodes to React', function() {
-        var html = data.html.multiple;
-        var reactElements = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.multiple;
+        var reactElements = domToReact(htmlToDOM(html));
+
         reactElements.forEach(function(reactElement) {
             assert(React.isValidElement(reactElement));
             assert(reactElement.key);
         });
+
         assert.deepEqual(
             reactElements,
             [
@@ -43,8 +47,9 @@ describe('dom-to-react parser', function() {
 
     // https://facebook.github.io/react/docs/forms.html#why-textarea-value
     it('converts <textarea> correctly', function() {
-        var html = data.html.textarea;
-        var reactElement = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.textarea;
+        var reactElement = domToReact(htmlToDOM(html));
+
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -55,8 +60,9 @@ describe('dom-to-react parser', function() {
     });
 
     it('does not escape <script> content', function() {
-        var html = data.html.script;
-        var reactElement = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.script;
+        var reactElement = domToReact(htmlToDOM(html));
+
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -69,8 +75,9 @@ describe('dom-to-react parser', function() {
     });
 
     it('does not escape <style> content', function() {
-        var html = data.html.style;
-        var reactElement = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.style;
+        var reactElement = domToReact(htmlToDOM(html));
+
         assert(React.isValidElement(reactElement));
         assert.deepEqual(
             reactElement,
@@ -83,32 +90,40 @@ describe('dom-to-react parser', function() {
     });
 
     it('does not have `children` for void elements', function() {
-        var html = data.html.img;
-        var reactElement = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.img;
+        var reactElement = domToReact(htmlToDOM(html));
         assert(!reactElement.props.children);
     });
 
     it('does not throw an error for void elements', function() {
-        var html = data.html.void;
-        var reactElements = domToReact(htmlToDOMServer(html));
+        var html = mocks.html.void;
+        var reactElements = domToReact(htmlToDOM(html));
         assert.doesNotThrow(function() {
-            helpers.render(React.createElement('div', {}, reactElements));
+            render(React.createElement('div', {}, reactElements));
         });
     });
 
-    it('skips HTML comments', function() {
-        var html = [data.html.single, data.html.comment, data.html.single].join('');
-        var reactElements = domToReact(htmlToDOMServer(html));
+    it('skips doctype and comments', function() {
+        var html = [
+            mocks.html.doctype,
+            mocks.html.single,
+            mocks.html.comment,
+            mocks.html.single
+        ].join('');
+
+        var reactElements = domToReact(htmlToDOM(html));
         reactElements.forEach(function(reactElement) {
             assert(React.isValidElement(reactElement));
             assert(reactElement.key);
         });
+
         assert.deepEqual(
             reactElements,
             [
-                React.createElement('p', { key: 0 }, 'foo'),
+                // doctype
+                React.createElement('p', { key: 1 }, 'foo'),
                 // comment is in the middle
-                React.createElement('p', { key: 2 }, 'foo')
+                React.createElement('p', { key: 3 }, 'foo')
             ]
         );
     });
