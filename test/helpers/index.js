@@ -23,5 +23,6 @@ function render(reactElement) {
  * Export assert helpers.
  */
 module.exports = {
-    render: render
+    render: render,
+    mocks: require('./mocks')
 };
