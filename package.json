@@ -5,9 +5,10 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
+    "build-unmin": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
     "build-min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
-    "prepublish": "npm run build && npm run build-min",
+    "clean": "rm -rf dist",
+    "prepublish": "npm run clean && npm run build-unmin && npm run build-min",
     "test": "mocha",
     "lint": "eslint index.js \"lib/**\" \"test/**\"",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
@@ -36,15 +37,14 @@
     "istanbul": "^0.4.5",
     "jsdomify": "^2.1.0",
     "mocha": "^3.0.2",
-    "react": "*",
-    "react-dom": "*",
+    "react": "15.3",
+    "react-dom": "15.3",
     "webpack": "^1.13.2"
   },
   "peerDependencies": {
-    "react": ">=0.14"
+    "react": "<=15.3"
   },
   "browser": {
-    "./lib/html-to-dom-server.js": false,
     "htmlparser2/lib/Parser": false,
     "domhandler": false
   },
