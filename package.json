@@ -41,7 +41,7 @@
     "webpack": "^1.13.2"
   },
   "peerDependencies": {
-    "react": ">=0.14"
+    "react": "<=15.3"
   },
   "browser": {
     "htmlparser2/lib/Parser": false,
