@@ -33,6 +33,12 @@ Parser('<p>Hello, world!</p>');
 $ npm install html-react-parser
 ```
 
+Or if you're using react <15.4:
+
+```sh
+$ npm install html-react-parser@0.2
+```
+
 [CDN](https://unpkg.com/html-react-parser/):
 
 ```html
