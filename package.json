@@ -44,7 +44,6 @@
     "react": ">=0.14"
   },
   "browser": {
-    "./lib/html-to-dom-server.js": false,
     "htmlparser2/lib/Parser": false,
     "domhandler": false
   },
