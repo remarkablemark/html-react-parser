@@ -37,12 +37,13 @@
     "istanbul": "^0.4.5",
     "jsdomify": "^2.1.0",
     "mocha": "^3.0.2",
-    "react": "15.3",
-    "react-dom": "15.3",
+    "react": ">=15.4",
+    "react-dom": ">=15.4",
     "webpack": "^1.13.2"
   },
   "peerDependencies": {
-    "react": "<=15.3"
+    "react": ">=15.4",
+    "react-dom": ">=15.4"
   },
   "browser": {
     "htmlparser2/lib/Parser": false,
