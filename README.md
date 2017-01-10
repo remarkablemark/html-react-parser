@@ -13,7 +13,7 @@ An HTML to React parser:
 Parser(htmlString[, options])
 ```
 
-The parser converts a string of HTML to [React Element(s)](https://facebook.github.io/react/docs/glossary.html#react-elements).
+The parser converts an HTML string to [React Element(s)](https://facebook.github.io/react/docs/react-api.html#creating-react-elements).
 
 There is also an option to [replace](#replacedomnode) element(s) with your own React Element(s) via the [parser options](#options).
 
@@ -24,6 +24,8 @@ var Parser = require('html-react-parser');
 Parser('<p>Hello, world!</p>');
 // same output as `React.createElement('p', {}, 'Hello, world!')`
 ```
+
+[JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/)
 
 ## Installation
 
@@ -42,8 +44,9 @@ $ npm install html-react-parser@0.2
 [CDN](https://unpkg.com/html-react-parser/):
 
 ```html
-<!-- HTMLReactParser depends on React -->
+<!-- HTMLReactParser depends on React and ReactDOM -->
 <script src="https://unpkg.com/react@latest/dist/react.min.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.min.js"></script>
 <script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
 ```
 
