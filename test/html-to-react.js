@@ -78,6 +78,13 @@ describe('html-to-react', function() {
             assert.equal(render(reactElement), svg);
         });
 
+        it('decodes HTML entities', function() {
+            var encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
+            var decodedEntities = 'asdf & ÿ ü \'';
+            var reactElement = Parser('<i>' + encodedEntities + '</i>');
+            assert.equal(reactElement.props.children, decodedEntities);
+        });
+
     });
 
     /**
