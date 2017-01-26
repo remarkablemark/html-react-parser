@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.2](https://github.com/remarkablemark/html-react-parser/compare/v0.0.1...v0.0.2) - 2016-08-23
+### Added
+- [ESLint](http://eslint.org) as the linter (#2)
+- [Travis CI](https://travis-ci.org) (#4)
+
+### Fixed
+- `package.json` **peerDependencies** for `react` and `react-dom`
+
 ## [0.0.1](https://github.com/remarkablemark/html-react-parser/tree/v0.0.1) - 2016-08-23
 ### Added
 - HTML to React parser which consists of:
