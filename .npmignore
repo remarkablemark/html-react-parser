@@ -2,6 +2,7 @@ test
 coverage
 examples
 webpack.config.js
+CHANGELOG.md
 .eslint*
 .travis*
 .npmignore
