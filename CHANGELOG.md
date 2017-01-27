@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.7](https://github.com/remarkablemark/html-react-parser/compare/v0.0.6...v0.0.7) - 2016-09-27
+### Added
+- Examples of using the parser with script tag and RequireJS (#26)
+
+### Changed
+- Update build (#25)
+- Update README description, instructions, and examples (#27)
+
 ## [0.0.6](https://github.com/remarkablemark/html-react-parser/compare/v0.0.5...v0.0.6) - 2016-09-27
 ### Added
 - README example with advanced usage of `replace` option from @poacher2k (#17)
