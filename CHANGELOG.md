@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.1.0](https://github.com/remarkablemark/html-react-parser/compare/v0.0.7...v0.1.0) - 2016-10-14
+### Changed
+- Replace HTML to DOM converter with [html-dom-parser](https://github.com/remarkablemark/html-dom-parser) (#28)
+  - Save `html-dom-parser`
+  - Remove `domhandler` and `htmlparser2`
+- Update tests and README
+
 ## [0.0.7](https://github.com/remarkablemark/html-react-parser/compare/v0.0.6...v0.0.7) - 2016-09-27
 ### Added
 - Examples of using the parser with script tag and RequireJS (#26)
