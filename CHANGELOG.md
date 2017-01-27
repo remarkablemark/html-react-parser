@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.6](https://github.com/remarkablemark/html-react-parser/compare/v0.0.5...v0.0.6) - 2016-09-27
+### Added
+- README example with advanced usage of `replace` option from @poacher2k (#17)
+- Contributors section to README (#21)
+
+### Changed
+- Use webpack to build UMD bundle (#22)
+
+### Fixed
+- Regex bug on client parser (#24)
+
 ## [0.0.5](https://github.com/remarkablemark/html-react-parser/compare/v0.0.4...v0.0.5) - 2016-08-30
 ### Changed
 - Remove `key` parameter from `replace` and use `React.cloneElement` (#18)
