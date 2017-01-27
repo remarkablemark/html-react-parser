@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.1.1](https://github.com/remarkablemark/html-react-parser/compare/v0.1.0...v0.1.1) - 2016-11-17
+### Fixed
+- `HTMLDOMPropertyConfig.js` and `SVGDOMPropertyConfig.js` have been moved from `react/lib/` to `react-dom/lib/` in v15.4
+
 ## [0.1.0](https://github.com/remarkablemark/html-react-parser/compare/v0.0.7...v0.1.0) - 2016-10-14
 ### Changed
 - Replace HTML to DOM converter with [html-dom-parser](https://github.com/remarkablemark/html-dom-parser) (#28)
