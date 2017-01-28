@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.3.3](https://github.com/remarkablemark/html-react-parser/compare/v0.3.2...v0.3.3) - 2017-01-27
+### Added
+- Created CHANGELOG with details on each version release (#37)
+
+### Changed
+- Update examples to load parser from relative `dist/` directory (#36)
+
+### Removed
+- Removed unnecessary field "browser" in `package.json` (#36)
+
 ## [0.3.2](https://github.com/remarkablemark/html-react-parser/compare/v0.3.1...v0.3.2) - 2017-01-26
 ### Fixed
 - Decode HTML entities by default on node (#34)
