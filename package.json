@@ -29,17 +29,16 @@
     "converter"
   ],
   "dependencies": {
-    "html-dom-parser": "0.0.2"
+    "html-dom-parser": "0.1.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.12",
-    "eslint": "^3.3.1",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.0.0",
     "istanbul": "^0.4.5",
-    "jsdomify": "^2.1.0",
-    "mocha": "^3.0.2",
+    "mocha": "^3.4.2",
     "react": ">=15.4",
     "react-dom": ">=15.4",
-    "webpack": "^1.13.2"
+    "webpack": "^2.6.1"
   },
   "peerDependencies": {
     "react": ">=15.4",
