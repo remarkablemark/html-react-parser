@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [Unreleased](https://github.com/remarkablemark/html-react-parser/compare/v0.3.3...HEAD)
+### Changed
+- Dependencies:
+  - html-dom-parser@0.1.0
+  - coveralls@2.13.1
+  - eslint@4.0.0
+  - mocha@3.4.2
+  - webpack@2.6.1
+
+### Removed
+- Dependencies:
+  - jsdomify
+
 ## [0.3.3](https://github.com/remarkablemark/html-react-parser/compare/v0.3.2...v0.3.3) - 2017-01-27
 ### Added
 - Created CHANGELOG with details on each version release (#37)
