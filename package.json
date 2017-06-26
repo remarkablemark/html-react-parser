@@ -33,12 +33,12 @@
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
-    "eslint": "^4.0.0",
+    "eslint": "^4.1.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
     "react": ">=15.4",
     "react-dom": ">=15.4",
-    "webpack": "^2.6.1"
+    "webpack": "^3.0.0"
   },
   "peerDependencies": {
     "react": ">=15.4",
