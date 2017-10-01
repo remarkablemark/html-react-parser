@@ -17,7 +17,7 @@ The parser converts an HTML string to [React Element(s)](https://facebook.github
 
 There is also an option to [replace](#replacedomnode) element(s) with your own React Element(s) via the [parser options](#options).
 
-#### Example
+## Example
 
 ```js
 var Parser = require('html-react-parser');
@@ -32,37 +32,36 @@ Parser('<p>Hello, world!</p>');
 [NPM](https://www.npmjs.com/package/html-react-parser):
 
 ```sh
-$ npm install html-react-parser
+npm install html-react-parser --save
 ```
 
-Or if you're using react <15.4:
+[Yarn](https://yarn.fyi/html-react-parser):
 
 ```sh
-$ npm install html-react-parser@0.2
+yarn add html-react-parser
 ```
 
 [CDN](https://unpkg.com/html-react-parser/):
 
 ```html
-<!-- HTMLReactParser depends on React and ReactDOM -->
-<script src="https://unpkg.com/react@latest/dist/react.min.js"></script>
-<script src="https://unpkg.com/react-dom@latest/dist/react-dom.min.js"></script>
+<!-- HTMLReactParser depends on React -->
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
 ```
 
-See more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+See [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
 
 ## Usage
 
-Given that you have the following required:
+Given that you have the following imported:
 
 ```js
-// ES6
+// ES Modules
 import Parser from 'html-react-parser';
 import { render } from 'react-dom';
 ```
 
-You may render one element:
+You can render an element:
 
 ```js
 render(
@@ -71,7 +70,7 @@ render(
 );
 ```
 
-You may render adjacent elements:
+You can render multiple elements:
 
 ```js
 // with JSX
@@ -93,7 +92,7 @@ render(
 );
 ```
 
-You may render nested elements:
+You can render nested elements:
 
 ```js
 render(
@@ -117,7 +116,7 @@ render(
 
 The `replace` method allows you to swap an element with your own React Element.
 
-The first argument is `domNode`, which is an object that has the same output as [htmlparser2.parseDOM](https://github.com/fb55/domhandler#example).
+The first argument is `domNode`, which is an object that has the same output as [`htmlparser2.parseDOM`](https://github.com/fb55/domhandler#example).
 
 The element is only replaced if a valid React Element is returned.
 
@@ -137,7 +136,7 @@ Advanced example (keep the replaced children):
 ```js
 // with ES6 and JSX
 
-// converts dom object to React Elements
+// converts DOM object to React Elements
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
 const html = `
@@ -150,8 +149,7 @@ const html = `
     </div>
 `;
 
-// parser config
-const options = {
+const parserOptions = {
     replace: (domNode) => {
         // do not replace if element has no attributes
         if (!domNode.attribs) return;
@@ -174,12 +172,12 @@ const options = {
 };
 
 render(
-    Parser(html, options),
+    Parser(html, parserOptions),
     document.getElementById('root')
 );
 ```
 
-You will get the following:
+It will output the following:
 
 ```html
 <div>
@@ -200,8 +198,9 @@ $ npm run lint
 
 ## Special Thanks
 
-- [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
 - [Contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
+- [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
+- [react-dom-core](https://github.com/remarkablemark/react-dom-core)
 
 ## License
 
