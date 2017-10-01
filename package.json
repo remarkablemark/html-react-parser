@@ -29,7 +29,8 @@
     "converter"
   ],
   "dependencies": {
-    "html-dom-parser": "0.1.2"
+    "html-dom-parser": "0.1.2",
+    "react-dom-core": "0.0.2"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
