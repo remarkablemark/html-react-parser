@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com)
 and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [Unreleased](https://github.com/remarkablemark/html-react-parser/compare/v0.3.6...HEAD)
+## [0.4.0](https://github.com/remarkablemark/html-react-parser/compare/v0.3.6...v0.4.0) - 2017-10-01
 ### Added
 - [react-dom-core](https://github.com/remarkablemark/react-dom-core) to dependencies (closes #43)
   - `react-dom` 16 no longer exposes `lib`, which includes the DOM property configs
