@@ -29,6 +29,7 @@
     "converter"
   ],
   "dependencies": {
+    "css-to-react-native": "^2.0.4",
     "html-dom-parser": "0.1.2",
     "react-dom-core": "0.0.2"
   },
