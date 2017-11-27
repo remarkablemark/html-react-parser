@@ -160,13 +160,15 @@ describe('attributes to props helper', function() {
             // proper css
             assert.deepEqual(
                 attributesToProps({
-                    style: 'color: #f00; font-size: 42px; z-index: -1;'
+                    style: 'color: #f00; font-size: 42px; z-index: -1; -moz-border-radius-topright: 10px; background: url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
                 }),
                 {
                     style: {
                         color: '#f00',
                         fontSize: '42px',
-                        zIndex: '-1'
+                        zIndex: '-1',
+                        MozBorderRadiusTopright: '10px',
+                        background: 'url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
                     }
                 }
             );
@@ -174,13 +176,14 @@ describe('attributes to props helper', function() {
             // valid but messy
             assert.deepEqual(
                 attributesToProps({
-                    style: 'border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1'
+                    style: 'border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
                 }),
                 {
                     style: {
                         borderBottomLeftRadius: '1em',
                         borderRightStyle: 'solid',
-                        zIndex: '-1'
+                        zIndex: '-1',
+                        MozBorderRadiusBottomleft: '20px'
                     }
                 }
             );
