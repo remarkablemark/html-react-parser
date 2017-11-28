@@ -1,8 +1,18 @@
 # Change Log
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com)
-and this project adheres to [Semantic Versioning](http://semver.org).
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/remarkablemark/html-react-parser/compare/v0.4.0...v0.4.1) (2017-11-28)
+
+
+### Bug Fixes
+
+* **attributes-to-props.js:** Remove unappropriate console logging and remove double quote from tests ([10ff149](https://github.com/remarkablemark/html-react-parser/commit/10ff149))
+* **attributes-to-props.js:** Use AST to transform style attributes into an style object ([68cd565](https://github.com/remarkablemark/html-react-parser/commit/68cd565))
+* **utilities.js:** Format string to lowercase before converting to camel case and assert the string is a string ([4522666](https://github.com/remarkablemark/html-react-parser/commit/4522666))
+
+
 
 ## [0.4.0](https://github.com/remarkablemark/html-react-parser/compare/v0.3.6...v0.4.0) - 2017-10-01
 ### Added
