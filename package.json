@@ -11,7 +11,8 @@
     "build:unmin": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
     "build:min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
     "test": "mocha",
-    "lint": "eslint index.js \"lib/**\" \"test/**\"",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },

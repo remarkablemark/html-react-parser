@@ -1,37 +1,18 @@
 {
-    "env": {
-        "node": true,
-        "browser": true,
-        "mocha": true,
-        "commonjs": true
-    },
-
-    "extends": "eslint:recommended",
-
-    "rules": {
-        "indent": [
-            "error",
-            4,
-            { "SwitchCase": 1 }
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-unused-vars": [
-            "error",
-            { "vars": "all", "args": "none" }
-        ],
-        "strict": 2,
-        "no-cond-assign": 2,
-        "camelcase": 1
-    }
+  "env": {
+    "node": true,
+    "browser": true,
+    "mocha": true,
+    "commonjs": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "no-cond-assign": 2,
+    "camelcase": 1
+  }
 }
