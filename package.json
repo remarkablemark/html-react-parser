@@ -5,16 +5,17 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
-    "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
-    "release": "standard-version",
-    "clean": "rm -rf dist",
     "build:unmin": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
     "build:min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
-    "test": "mocha",
+    "clean": "rm -rf dist",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
+    "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
-    "coveralls": "cat coverage/lcov.info | coveralls"
+    "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
+    "release": "standard-version",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -36,8 +37,11 @@
     "style-to-object": "0.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^5.2.3",
+    "@commitlint/config-conventional": "^5.2.3",
     "coveralls": "^3.0.0",
     "eslint": "^4.12.0",
+    "husky": "^0.14.3",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "react": "^16",

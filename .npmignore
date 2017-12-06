@@ -3,6 +3,7 @@ coverage
 examples
 test
 webpack.config.js
+.commitlintrc*
 .eslint*
-.travis*
 .npm*
+.travis*
