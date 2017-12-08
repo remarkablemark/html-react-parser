@@ -5,14 +5,17 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
-    "build-unmin": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
-    "build-min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
+    "build:unmin": "NODE_ENV=development webpack index.js dist/html-react-parser.js",
+    "build:min": "NODE_ENV=production webpack -p index.js dist/html-react-parser.min.js",
     "clean": "rm -rf dist",
-    "prepublish": "npm run clean && npm run build-unmin && npm run build-min",
-    "test": "mocha",
-    "lint": "eslint index.js \"lib/**\" \"test/**\"",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
-    "coveralls": "cat coverage/lcov.info | coveralls"
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
+    "release": "standard-version --no-verify",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -34,13 +37,17 @@
     "style-to-object": "0.2.0"
   },
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "eslint": "^4.1.1",
+    "@commitlint/cli": "^5.2.3",
+    "@commitlint/config-conventional": "^5.2.3",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.12.0",
+    "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
+    "mocha": "^4.0.1",
     "react": "^16",
     "react-dom": "^16",
-    "webpack": "^3.0.0"
+    "standard-version": "^4.2.0",
+    "webpack": "^3.8.1"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15 || ^16"

@@ -1,8 +1,9 @@
-test
+benchmarks
 coverage
 examples
+test
 webpack.config.js
-CHANGELOG.md
+.commitlintrc*
 .eslint*
+.npm*
 .travis*
-.npmignore
