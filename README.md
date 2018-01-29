@@ -196,11 +196,20 @@ $ npm test
 $ npm run lint
 ```
 
+## Release
+
+```sh
+$ npm run release
+$ npm publish
+$ git push --follow-tags
+```
+
 ## Special Thanks
 
 - [Contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
 - [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
 - [react-dom-core](https://github.com/remarkablemark/react-dom-core)
+- [style-to-object](https://github.com/remarkablemark/style-to-object)
 
 ## License
 
