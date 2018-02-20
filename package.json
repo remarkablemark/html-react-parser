@@ -32,22 +32,22 @@
     "converter"
   ],
   "dependencies": {
-    "html-dom-parser": "0.1.2",
+    "html-dom-parser": "0.1.3",
     "react-dom-core": "0.0.2",
     "style-to-object": "0.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^5.2.3",
-    "@commitlint/config-conventional": "^5.2.3",
+    "@commitlint/cli": "^6.1.0",
+    "@commitlint/config-conventional": "^6.1.0",
     "coveralls": "^3.0.0",
-    "eslint": "^4.12.0",
+    "eslint": "^4.18.0",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-    "mocha": "^4.0.1",
+    "mocha": "^5.0.1",
     "react": "^16",
     "react-dom": "^16",
-    "standard-version": "^4.2.0",
-    "webpack": "^3.8.1"
+    "standard-version": "^4.3.0",
+    "webpack": "^3.11.0"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15 || ^16"
