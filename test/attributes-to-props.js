@@ -102,6 +102,26 @@ describe('attributes to props helper', function() {
             );
         });
 
+        it('converts bool properties', function() {
+            assert.deepEqual(
+                attributesToProps({
+                    readonly: ''
+                }),
+                {
+                    readOnly: true
+                }
+            );
+
+            assert.deepEqual(
+                attributesToProps({
+                    disabled: 'disabled'
+                }),
+                {
+                    disabled: true
+                }
+            );
+        });
+
     });
 
     /**
