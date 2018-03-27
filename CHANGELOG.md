@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.3"></a>
+## [0.4.3](https://github.com/remarkablemark/html-react-parser/compare/v0.4.2...v0.4.3) (2018-03-27)
+
+
+### Bug Fixes
+
+* **parser:** fix boolean attributes parsing ([e478a44](https://github.com/remarkablemark/html-react-parser/commit/e478a44))
+* **parser:** fix case when style is empty string ([fa2a8b4](https://github.com/remarkablemark/html-react-parser/commit/fa2a8b4))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/remarkablemark/html-react-parser/compare/v0.4.1...v0.4.2) (2018-02-20)
 
