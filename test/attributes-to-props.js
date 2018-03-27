@@ -207,6 +207,36 @@ describe('attributes to props helper', function() {
                     }
                 }
             );
+
+            // style is null
+            assert.deepEqual(
+                attributesToProps({
+                    style: null
+                }),
+                {
+                    style: null
+                }
+            );
+
+            // style is undefined
+            assert.deepEqual(
+                attributesToProps({
+                    style: undefined
+                }),
+                {
+                    style: undefined
+                }
+            );
+
+            // style is empty string
+            assert.deepEqual(
+                attributesToProps({
+                    style: ''
+                }),
+                {
+                    style: {}
+                }
+            );
         });
 
     });
