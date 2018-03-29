@@ -52,5 +52,9 @@
   "peerDependencies": {
     "react": "^0.14 || ^15 || ^16"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "license": "MIT"
 }

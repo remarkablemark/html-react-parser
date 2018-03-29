@@ -1,9 +1,0 @@
-benchmarks
-coverage
-examples
-test
-webpack.config.js
-.commitlintrc*
-.eslint*
-.npm*
-.travis*
