@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/remarkablemark/html-react-parser/compare/v0.4.3...v0.4.4) (2018-05-07)
+
+
+### Bug Fixes
+
+* **package:** upgrade react-dom-core@0.0.3 ([b4a1c6e](https://github.com/remarkablemark/html-react-parser/commit/b4a1c6e))
+
+
+
 <a name="0.4.3"></a>
 ## [0.4.3](https://github.com/remarkablemark/html-react-parser/compare/v0.4.2...v0.4.3) (2018-03-27)
 
