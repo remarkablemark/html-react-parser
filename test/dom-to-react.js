@@ -131,7 +131,9 @@ describe('dom-to-react parser', function() {
     
     it('handles svg\'s with a viewBox', function() {
         var html = mocks.html.svg;
-        var reactElement = domToReact(htmlToDOM(html));
+        var reactElement = domToReact(htmlToDOM(html, { lowerCaseAttributeNames: false }));
+
+        console.log(reactElement);
 
         assert.deepEqual(
             reactElement,
