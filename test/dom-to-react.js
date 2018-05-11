@@ -133,8 +133,6 @@ describe('dom-to-react parser', function() {
         var html = mocks.html.svg;
         var reactElement = domToReact(htmlToDOM(html, { lowerCaseAttributeNames: false }));
 
-        console.log(reactElement);
-
         assert.deepEqual(
             reactElement,
             React.createElement('svg', { viewBox: '0 0 512 512', id: 'foo' }, 'Inner')
