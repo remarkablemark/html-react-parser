@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.6"></a>
+## [0.4.6](https://github.com/remarkablemark/html-react-parser/compare/v0.4.5...v0.4.6) (2018-05-13)
+
+
+### Bug Fixes
+
+* accidentally left a console ([953e564](https://github.com/remarkablemark/html-react-parser/commit/953e564))
+* added test case for viewBox ([261ffb7](https://github.com/remarkablemark/html-react-parser/commit/261ffb7))
+* moving svg mock to correct place ([6ffb148](https://github.com/remarkablemark/html-react-parser/commit/6ffb148))
+* svg attributes now correctly handled ([94643e1](https://github.com/remarkablemark/html-react-parser/commit/94643e1))
+
+
+
 <a name="0.4.5"></a>
 ## [0.4.5](https://github.com/remarkablemark/html-react-parser/compare/v0.4.4...v0.4.5) (2018-05-09)
 
