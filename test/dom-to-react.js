@@ -128,4 +128,14 @@ describe('dom-to-react parser', function() {
         );
     });
 
+    
+    it('handles svg\'s with a viewBox', function() {
+        var html = mocks.svg.simple;
+        var reactElement = domToReact(htmlToDOM(html, { lowerCaseAttributeNames: false }));
+
+        assert.deepEqual(
+            reactElement,
+            React.createElement('svg', { viewBox: '0 0 512 512', id: 'foo' }, 'Inner')
+        );
+    });
 });
