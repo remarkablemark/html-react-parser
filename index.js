@@ -1,8 +1,3 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
 var domToReact = require('./lib/dom-to-react');
 var htmlToDOM = require('html-dom-parser');
 
