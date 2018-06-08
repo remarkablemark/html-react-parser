@@ -13,10 +13,10 @@ var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
  * @return {ReactElement|Array}
  */
 function HTMLReactParser(html, options) {
-    if (typeof html !== 'string') {
-        throw new TypeError('First argument must be a string');
-    }
-    return domToReact(htmlToDOM(html, domParserOptions), options);
+  if (typeof html !== 'string') {
+    throw new TypeError('First argument must be a string');
+  }
+  return domToReact(htmlToDOM(html, domParserOptions), options);
 }
 
 /**

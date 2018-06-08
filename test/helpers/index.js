@@ -13,16 +13,16 @@ var ReactDOMServer = require('react-dom/server');
  * @return {String}                    - The static HTML markup.
  */
 function render(reactElement) {
-    if (!React.isValidElement(reactElement)) {
-        throw new Error(reactElement, 'is not a valid React element.');
-    }
-    return ReactDOMServer.renderToStaticMarkup(reactElement);
+  if (!React.isValidElement(reactElement)) {
+    throw new Error(reactElement, 'is not a valid React element.');
+  }
+  return ReactDOMServer.renderToStaticMarkup(reactElement);
 }
 
 /**
  * Export assert helpers.
  */
 module.exports = {
-    render: render,
-    mocks: require('./mocks')
+  render: render,
+  mocks: require('./mocks')
 };
