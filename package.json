@@ -13,6 +13,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
+    "precommit": "lint-staged",
     "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
     "release": "standard-version --no-verify",
     "test": "mocha"
