@@ -1,8 +1,3 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
 var domToReact = require('./lib/dom-to-react');
 var htmlToDOM = require('html-dom-parser');
 
@@ -18,10 +13,10 @@ var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
  * @return {ReactElement|Array}
  */
 function HTMLReactParser(html, options) {
-    if (typeof html !== 'string') {
-        throw new TypeError('First argument must be a string');
-    }
-    return domToReact(htmlToDOM(html, domParserOptions), options);
+  if (typeof html !== 'string') {
+    throw new TypeError('First argument must be a string');
+  }
+  return domToReact(htmlToDOM(html, domParserOptions), options);
 }
 
 /**

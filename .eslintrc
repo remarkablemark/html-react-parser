@@ -6,13 +6,8 @@
     "commonjs": true
   },
   "extends": "eslint:recommended",
+  "plugins": ["prettier"],
   "rules": {
-    "indent": ["error", 4, { "SwitchCase": 1 }],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
-    "no-cond-assign": 2,
-    "camelcase": 1
+    "prettier/prettier": "error"
   }
 }
