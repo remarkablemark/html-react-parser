@@ -16,7 +16,8 @@
     "precommit": "lint-staged",
     "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
     "release": "standard-version --no-verify",
-    "test": "mocha"
+    "test": "mocha",
+    "test:benchmark": "node ./test/benchmark.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^6.1.0",
     "@commitlint/config-conventional": "^6.1.0",
+    "benchmark": "2.1.4",
     "coveralls": "^3.0.0",
     "eslint": "^4.18.0",
     "eslint-plugin-prettier": "^2.6.0",
