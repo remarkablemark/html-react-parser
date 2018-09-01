@@ -173,6 +173,20 @@ npm test
 npm run lint # npm run lint:fix
 ```
 
+## Benchmarks
+
+```sh
+npm run test:benchmark
+```
+
+Here's an example output of the benchmarks run on a MacBook Pro 2017:
+
+```
+html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
+html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
+html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
+```
+
 ## Release
 
 ```sh
