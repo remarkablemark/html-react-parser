@@ -36,14 +36,14 @@
   "dependencies": {
     "html-dom-parser": "0.1.3",
     "react-dom-core": "0.0.3",
-    "style-to-object": "0.2.1"
+    "style-to-object": "0.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.1.0",
-    "@commitlint/config-conventional": "^6.1.0",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
     "benchmark": "2.1.4",
     "coveralls": "^3.0.0",
-    "eslint": "^4.18.0",
+    "eslint": "^5.5.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
