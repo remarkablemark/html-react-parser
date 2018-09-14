@@ -1,23 +1,16 @@
 language: node_js
-
 node_js:
-    - stable
-
-sudo: false # https://docs.travis-ci.com/user/migrating-from-legacy/
-
+- stable
 install:
-    - npm install
-
+- npm install
 script:
-    - npm run lint
-    - npm run cover
-
+- npm run lint
+- npm run cover
+- npm run build
 after_script:
-    - npm run coveralls
-
+- npm run coveralls
 cache:
-    directories:
-        - node_modules
-
+  directories:
+  - node_modules
 notifications:
-    email: false
+  email: false

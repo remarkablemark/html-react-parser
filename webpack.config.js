@@ -1,31 +1,21 @@
-'use strict';
+var path = require('path');
 
 /**
- * Module dependencies.
- */
-var webpack = require('webpack');
-
-/**
- * Export webpack configuration.
+ * Webpack configuration.
  */
 module.exports = {
+  entry: path.resolve(__dirname, 'index.js'),
   output: {
     library: 'HTMLReactParser',
     libraryTarget: 'umd'
   },
   externals: {
     react: {
-      root: 'React',
-      commonjs2: 'react',
+      amd: 'react',
       commonjs: 'react',
-      amd: 'react'
+      commonjs2: 'react',
+      root: 'React'
     }
   },
-  plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-  ]
+  mode: process.env.NODE_ENV
 };
