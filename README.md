@@ -120,8 +120,8 @@ Parser('<p id="replace">text</p>', {
 });
 ```
 
-Here's an [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) that replaces but keeps the children:
-```js
+Here's an [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) of using `replace` to modify the children:
+```jsx
 // with ES6 and JSX
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -164,6 +164,17 @@ ReactDOMServer.renderToStaticMarkup(reactElement);
     keep me and make me pretty!
   </span>
 </h1>
+```
+
+Here's an [example](https://repl.it/@remarkablemark/html-react-parser-issue-56) of using `replace` to exclude an element:
+```js
+Parser('<p><br id="remove"></p>', {
+  replace: ({ attribs }) => {
+    if (attribs && attribs.id === 'remove') {
+      return React.createElement(React.Fragment);
+    }
+  },
+});
 ```
 
 ## Testing
