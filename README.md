@@ -29,26 +29,26 @@ Parser('<p>Hello, world!</p>');
 ## Installation
 
 [NPM](https://www.npmjs.com/package/html-react-parser):
-
 ```sh
-npm install html-react-parser --save
+$ npm install html-react-parser --save
 ```
 
 [Yarn](https://yarn.fyi/html-react-parser):
-
 ```sh
-yarn add html-react-parser
+$ yarn add html-react-parser
 ```
 
 [CDN](https://unpkg.com/html-react-parser/):
-
 ```html
 <!-- HTMLReactParser depends on React -->
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
+<script>
+  window.HTMLReactParser(/* string */);
+</script>
 ```
 
-More [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+See more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
 
 ## Usage
 
@@ -180,18 +180,17 @@ Parser('<p><br id="remove"></p>', {
 ## Testing
 
 ```sh
-npm test
-npm run lint # npm run lint:fix
+$ npm test
+$ npm run lint # npm run lint:fix
 ```
 
 ## Benchmarks
 
 ```sh
-npm run test:benchmark
+$ npm run test:benchmark
 ```
 
 Here's an example output of the benchmarks run on a MacBook Pro 2017:
-
 ```
 html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
 html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
@@ -201,9 +200,9 @@ html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
 ## Release
 
 ```sh
-npm run release
-npm publish
-git push --follow-tags
+$ npm run release
+$ npm publish
+$ git push --follow-tags
 ```
 
 ## Special Thanks
