@@ -1,23 +1,20 @@
-'use strict';
+const Benchmark = require('benchmark');
+const { data } = require('./helpers/');
+const Parser = require('../');
 
-var Benchmark = require('benchmark');
-var helpers = require('./helpers/');
-var Parser = require('../');
-
-var suite = new Benchmark.Suite();
-var mocks = helpers.mocks;
+const suite = new Benchmark.Suite();
 
 suite
-  .add('html-to-react - Single', function() {
-    Parser(mocks.html.single);
+  .add('html-to-react - Single', () => {
+    Parser(data.html.single);
   })
-  .add('html-to-react - Multiple', function() {
-    Parser(mocks.html.multiple);
+  .add('html-to-react - Multiple', () => {
+    Parser(data.html.multiple);
   })
-  .add('html-to-react - Complex', function() {
-    Parser(mocks.html.complex);
+  .add('html-to-react - Complex', () => {
+    Parser(data.html.complex);
   })
-  .on('cycle', function(event) {
+  .on('cycle', event => {
     process.stdout.write(String(event.target) + '\n');
   })
   .run({

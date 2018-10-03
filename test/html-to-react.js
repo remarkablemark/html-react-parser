@@ -1,102 +1,82 @@
-'use strict';
+const assert = require('assert');
+const React = require('react');
+const Parser = require('../');
+const { data, render } = require('./helpers/');
 
-/**
- * Module dependencies.
- */
-var assert = require('assert');
-var React = require('react');
-var Parser = require('../');
-var helpers = require('./helpers/');
-var mocks = helpers.mocks;
-var render = helpers.render;
-
-/**
- * Tests for `htmlToReact`.
- */
-describe('html-to-react', function() {
-  /**
-   * Parser conversion.
-   */
-  describe('parser', function() {
-    it('errors if first argument is not a string', function() {
-      assert.throws(function() {
-        Parser();
-      }, TypeError);
-
-      [undefined, null, {}, [], 42].forEach(function(arg) {
-        assert.throws(function() {
-          Parser(arg);
+describe('html-to-react', () => {
+  describe('parser', () => {
+    [undefined, null, {}, [], 42].forEach(value => {
+      it(`throws an error if first argument is ${value}`, () => {
+        assert.throws(() => {
+          Parser(value);
         }, TypeError);
       });
     });
 
-    it('returns original argument if it is unable to parse the HTML', function() {
+    it('returns string if it cannot be parsed as HTML', () => {
       assert.equal(Parser('foo'), 'foo');
     });
 
-    it('converts single HTML element to React', function() {
-      var html = mocks.html.single;
-      var reactElement = Parser(html);
+    it('converts single HTML element to React', () => {
+      const html = data.html.single;
+      const reactElement = Parser(html);
       assert.equal(render(reactElement), html);
     });
 
-    it('converts single HTML element and ignores comment', function() {
-      var html = mocks.html.single;
+    it('converts single HTML element and ignores comment', () => {
+      const html = data.html.single;
       // comment should be ignored
-      var reactElement = Parser(html + mocks.html.comment);
+      const reactElement = Parser(html + data.html.comment);
       assert.equal(render(reactElement), html);
     });
 
-    it('converts multiple HTML elements to React', function() {
-      var html = mocks.html.multiple;
-      var reactElements = Parser(html);
+    it('converts multiple HTML elements to React', () => {
+      const html = data.html.multiple;
+      const reactElements = Parser(html);
       assert.equal(
         render(React.createElement('div', {}, reactElements)),
         '<div>' + html + '</div>'
       );
     });
 
-    it('converts complex HTML to React', function() {
-      var html = mocks.html.complex;
-      var reactElement = Parser(mocks.html.doctype + html);
+    it('converts complex HTML to React', () => {
+      const html = data.html.complex;
+      const reactElement = Parser(data.html.doctype + html);
       assert.equal(render(reactElement), html);
     });
 
-    it('converts empty <script> to React', function() {
-      var html = '<script></script>';
-      var reactElement = Parser(html);
+    it('converts empty <script> to React', () => {
+      const html = '<script></script>';
+      const reactElement = Parser(html);
       assert.equal(render(reactElement), html);
     });
 
-    it('converts empty <style> to React', function() {
-      var html = '<style></style>';
-      var reactElement = Parser(html);
+    it('converts empty <style> to React', () => {
+      const html = '<style></style>';
+      const reactElement = Parser(html);
       assert.equal(render(reactElement), html);
     });
 
-    it('converts SVG to React', function() {
-      var svg = mocks.svg.complex;
-      var reactElement = Parser(svg);
+    it('converts SVG to React', () => {
+      const svg = data.svg.complex;
+      const reactElement = Parser(svg);
       assert.equal(render(reactElement), svg);
     });
 
-    it('decodes HTML entities', function() {
-      var encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
-      var decodedEntities = "asdf & ÿ ü '";
-      var reactElement = Parser('<i>' + encodedEntities + '</i>');
+    it('decodes HTML entities', () => {
+      const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
+      const decodedEntities = "asdf & ÿ ü '";
+      const reactElement = Parser('<i>' + encodedEntities + '</i>');
       assert.equal(reactElement.props.children, decodedEntities);
     });
   });
 
-  /**
-   * Options.
-   */
-  describe('options', function() {
-    describe('replace', function() {
-      it('overrides the element if replace is valid', function() {
-        var html = mocks.html.complex;
-        var reactElement = Parser(html, {
-          replace: function(node) {
+  describe('options', () => {
+    describe('replace', () => {
+      it('overrides the element if replace is valid', () => {
+        const html = data.html.complex;
+        const reactElement = Parser(html, {
+          replace: node => {
             if (node.name === 'title') {
               return React.createElement('title', {}, 'Replaced Title');
             }
@@ -108,10 +88,10 @@ describe('html-to-react', function() {
         );
       });
 
-      it('does not override the element if replace is invalid', function() {
-        var html = mocks.html.complex;
-        var reactElement = Parser(html, {
-          replace: function(node) {
+      it('does not override the element if replace is invalid', () => {
+        const html = data.html.complex;
+        const reactElement = Parser(html, {
+          replace: node => {
             if (node.attribs && node.attribs.id === 'header') {
               return {
                 type: 'h1',
