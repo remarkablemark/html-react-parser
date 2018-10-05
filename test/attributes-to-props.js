@@ -1,20 +1,9 @@
-'use strict';
+const assert = require('assert');
+const attributesToProps = require('../lib/attributes-to-props');
 
-/**
- * Module dependencies.
- */
-var assert = require('assert');
-var attributesToProps = require('../lib/attributes-to-props');
-
-/**
- * Tests for attributes to props helper.
- */
-describe('attributes to props helper', function() {
-  /**
-   * HTML DOM property to React prop.
-   */
-  describe('HTML DOM', function() {
-    it('converts attributes to React props', function() {
+describe('attributesToProps', () => {
+  describe('HTML DOM', () => {
+    it('converts attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           class: 'ic',
@@ -29,7 +18,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('converts standard properties to React props', function() {
+    it('converts standard properties to React props', () => {
       assert.deepEqual(
         attributesToProps({
           allowfullscreen: true,
@@ -44,7 +33,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('converts RDFa properties to React props', function() {
+    it('converts RDFa properties to React props', () => {
       assert.deepEqual(
         attributesToProps({
           property: 'foo',
@@ -57,7 +46,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('converts non-standard properties to React props', function() {
+    it('converts non-standard properties to React props', () => {
       assert.deepEqual(
         attributesToProps({
           itemscope: true,
@@ -70,7 +59,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('keeps `data-` and `aria-` attributes as is', function() {
+    it('keeps `data-` and `aria-` attributes as is', () => {
       assert.deepEqual(
         attributesToProps({
           'data-foo': 'bar',
@@ -83,7 +72,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('converts properties with weird capitalization', function() {
+    it('converts properties with weird capitalization', () => {
       assert.deepEqual(
         attributesToProps({
           'ACCEPT-CHARSET': 'ISO-8859-1',
@@ -100,7 +89,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('converts bool properties', function() {
+    it('converts bool properties', () => {
       assert.deepEqual(
         attributesToProps({
           readonly: ''
@@ -121,11 +110,8 @@ describe('attributes to props helper', function() {
     });
   });
 
-  /**
-   * SVG DOM property to React prop.
-   */
-  describe('SVG DOM properties', function() {
-    it('converts attributes/properties to React props', function() {
+  describe('SVG DOM properties', () => {
+    it('converts attributes/properties to React props', () => {
       assert.deepEqual(
         attributesToProps({
           edgeMode: 'edgeMode',
@@ -148,7 +134,7 @@ describe('attributes to props helper', function() {
       );
     });
 
-    it('does not convert incorrectly capitalized properties', function() {
+    it('does not convert incorrectly capitalized properties', () => {
       assert.deepEqual(
         attributesToProps({
           'XLINK:HREF': '#',
@@ -157,20 +143,17 @@ describe('attributes to props helper', function() {
         }),
         {
           /*
-                    xlinkHref: '#',
-                    yChannelSelector: 'G',
-                    zoomAndPan: 'disable'
-                    */
+          xlinkHref: '#',
+          yChannelSelector: 'G',
+          zoomAndPan: 'disable'
+          */
         }
       );
     });
   });
 
-  /**
-   * Style string to object.
-   */
-  describe('style', function() {
-    it('converts CSS style string to JS style object', function() {
+  describe('style', () => {
+    it('converts CSS style string to JS style object', () => {
       // proper css
       assert.deepEqual(
         attributesToProps({

@@ -1,33 +1,23 @@
-'use strict';
+const assert = require('assert');
+const React = require('react');
+const htmlToDOM = require('html-dom-parser');
+const domToReact = require('../lib/dom-to-react');
+const { data, render } = require('./helpers/');
 
-/**
- * Module dependencies.
- */
-var assert = require('assert');
-var React = require('react');
-var htmlToDOM = require('html-dom-parser');
-var domToReact = require('../lib/dom-to-react');
-var helpers = require('./helpers/');
-var mocks = helpers.mocks;
-var render = helpers.render;
-
-/**
- * Tests for `domToReact`.
- */
-describe('dom-to-react parser', function() {
-  it('converts single DOM node to React', function() {
-    var html = mocks.html.single;
-    var reactElement = domToReact(htmlToDOM(html));
+describe('dom-to-react parser', () => {
+  it('converts single DOM node to React', () => {
+    const html = data.html.single;
+    const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
     assert.deepEqual(reactElement, React.createElement('p', {}, 'foo'));
   });
 
-  it('converts multiple DOM nodes to React', function() {
-    var html = mocks.html.multiple;
-    var reactElements = domToReact(htmlToDOM(html));
+  it('converts multiple DOM nodes to React', () => {
+    const html = data.html.multiple;
+    const reactElements = domToReact(htmlToDOM(html));
 
-    reactElements.forEach(function(reactElement) {
+    reactElements.forEach(reactElement => {
       assert(React.isValidElement(reactElement));
       assert(reactElement.key);
     });
@@ -39,9 +29,9 @@ describe('dom-to-react parser', function() {
   });
 
   // https://facebook.github.io/react/docs/forms.html#why-textarea-value
-  it('converts <textarea> correctly', function() {
-    var html = mocks.html.textarea;
-    var reactElement = domToReact(htmlToDOM(html));
+  it('converts <textarea> correctly', () => {
+    const html = data.html.textarea;
+    const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
     assert.deepEqual(
@@ -56,9 +46,9 @@ describe('dom-to-react parser', function() {
     );
   });
 
-  it('does not escape <script> content', function() {
-    var html = mocks.html.script;
-    var reactElement = domToReact(htmlToDOM(html));
+  it('does not escape <script> content', () => {
+    const html = data.html.script;
+    const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
     assert.deepEqual(
@@ -75,9 +65,9 @@ describe('dom-to-react parser', function() {
     );
   });
 
-  it('does not escape <style> content', function() {
-    var html = mocks.html.style;
-    var reactElement = domToReact(htmlToDOM(html));
+  it('does not escape <style> content', () => {
+    const html = data.html.style;
+    const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
     assert.deepEqual(
@@ -94,30 +84,30 @@ describe('dom-to-react parser', function() {
     );
   });
 
-  it('does not have `children` for void elements', function() {
-    var html = mocks.html.img;
-    var reactElement = domToReact(htmlToDOM(html));
+  it('does not have `children` for void elements', () => {
+    const html = data.html.img;
+    const reactElement = domToReact(htmlToDOM(html));
     assert(!reactElement.props.children);
   });
 
-  it('does not throw an error for void elements', function() {
-    var html = mocks.html.void;
-    var reactElements = domToReact(htmlToDOM(html));
-    assert.doesNotThrow(function() {
+  it('does not throw an error for void elements', () => {
+    const html = data.html.void;
+    const reactElements = domToReact(htmlToDOM(html));
+    assert.doesNotThrow(() => {
       render(React.createElement('div', {}, reactElements));
     });
   });
 
-  it('skips doctype and comments', function() {
-    var html = [
-      mocks.html.doctype,
-      mocks.html.single,
-      mocks.html.comment,
-      mocks.html.single
+  it('skips doctype and comments', () => {
+    const html = [
+      data.html.doctype,
+      data.html.single,
+      data.html.comment,
+      data.html.single
     ].join('');
 
-    var reactElements = domToReact(htmlToDOM(html));
-    reactElements.forEach(function(reactElement) {
+    const reactElements = domToReact(htmlToDOM(html));
+    reactElements.forEach(reactElement => {
       assert(React.isValidElement(reactElement));
       assert(reactElement.key);
     });
@@ -130,9 +120,9 @@ describe('dom-to-react parser', function() {
     ]);
   });
 
-  it("handles svg's with a viewBox", function() {
-    var html = mocks.svg.simple;
-    var reactElement = domToReact(
+  it("handles svg's with a viewBox", () => {
+    const html = data.svg.simple;
+    const reactElement = domToReact(
       htmlToDOM(html, { lowerCaseAttributeNames: false })
     );
 

@@ -1,76 +1,64 @@
-'use strict';
+const assert = require('assert');
+const { camelCase, invertObject } = require('../lib/utilities');
 
-/**
- * Module dependencies.
- */
-var assert = require('assert');
-var utilities = require('../lib/utilities');
-
-/**
- * Tests for utilties.
- */
-describe('utilties', function() {
-  describe('`camelCase` helper', function() {
-    var camelCase = utilities.camelCase;
-
-    it("does nothing if the string doesn't need to be camel cased", function() {
-      assert.equal(camelCase(''), '');
-      assert.equal(camelCase('foo'), 'foo');
-      assert.equal(camelCase('fooBar'), 'fooBar');
-    });
-
-    it('properly camel cases a string', function() {
-      assert.equal(camelCase('foo-bar'), 'fooBar');
-      assert.equal(camelCase('foo-bar-baz'), 'fooBarBaz');
-      assert.equal(camelCase('CAMEL-CASE'), 'camelCase');
-    });
-
-    it('errors if the first argument is invalid', function() {
-      [undefined, null, 1337, {}, []].forEach(function(parameter) {
-        assert.throws(function() {
-          camelCase(parameter);
-        }, TypeError);
-      });
+describe('utilties.camelCase', () => {
+  [undefined, null, 1337, {}, []].forEach(value => {
+    it(`throws an error if first argument is ${value}`, () => {
+      assert.throws(() => {
+        camelCase(value);
+      }, TypeError);
     });
   });
 
-  describe('`invertObject` helper', function() {
-    var invertObject = utilities.invertObject;
+  it('does not modify string if it does not need to be camelCased', () => {
+    assert.equal(camelCase(''), '');
+    assert.equal(camelCase('foo'), 'foo');
+    assert.equal(camelCase('fooBar'), 'fooBar');
+  });
 
-    it('errors if the first argument is invalid', function() {
-      [undefined, null, 'foo', 1337].forEach(function(parameter) {
-        assert.throws(function() {
-          invertObject(parameter);
-        }, TypeError);
-      });
+  it('camelCases a string', () => {
+    assert.equal(camelCase('foo-bar'), 'fooBar');
+    assert.equal(camelCase('foo-bar-baz'), 'fooBarBaz');
+    assert.equal(camelCase('CAMEL-CASE'), 'camelCase');
+  });
+});
+
+describe('utilities.invertObject', () => {
+  [undefined, null, 'foo', 1337].forEach(value => {
+    it(`throws an error if the first argument is ${value}`, () => {
+      assert.throws(() => {
+        invertObject(value);
+      }, TypeError);
     });
+  });
 
-    it('swaps key with value for object', function() {
-      assert.deepEqual(invertObject({ foo: 'bar', baz: 'qux' }), {
-        bar: 'foo',
-        qux: 'baz'
-      });
+  it('swaps key with value', () => {
+    assert.deepEqual(invertObject({ foo: 'bar', baz: 'qux' }), {
+      bar: 'foo',
+      qux: 'baz'
     });
+  });
 
-    it('swaps only if value is string', function() {
+  it('swaps key with value if value is string', () => {
+    assert.deepEqual(
+      invertObject({
+        $: 'dollar',
+        _: 'underscore',
+        num: 1,
+        u: undefined,
+        n: null
+      }),
+      {
+        dollar: '$',
+        underscore: '_'
+      }
+    );
+  });
+
+  describe('options', () => {
+    it('applies override if provided', () => {
       assert.deepEqual(
-        invertObject({
-          $: 'dollar',
-          _: 'underscore',
-          num: 1,
-          u: undefined,
-          n: null
-        }),
-        {
-          dollar: '$',
-          underscore: '_'
-        }
-      );
-    });
-
-    it('uses override if valid', function() {
-      assert.deepEqual(
-        invertObject({ foo: 'bar', baz: 'qux' }, function(key) {
+        invertObject({ foo: 'bar', baz: 'qux' }, key => {
           if (key === 'foo') {
             return ['key', 'value'];
           }
@@ -79,9 +67,9 @@ describe('utilties', function() {
       );
     });
 
-    it('does not use override if invalid', function() {
+    it('does not apply override if invalid', () => {
       assert.deepEqual(
-        invertObject({ foo: 'bar', baz: 'qux' }, function(key) {
+        invertObject({ foo: 'bar', baz: 'qux' }, key => {
           if (key === 'foo') {
             return ['key'];
           } else if (key === 'baz') {
