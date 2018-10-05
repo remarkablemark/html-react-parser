@@ -1,6 +1,6 @@
 const { isValidElement } = require('react');
 const { renderToStaticMarkup } = require('react-dom/server');
-const data = require('./mocks');
+const data = require('./data');
 
 /**
  * Renders a React element to static HTML markup.
