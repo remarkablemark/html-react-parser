@@ -1,6 +1,6 @@
 const Benchmark = require('benchmark');
-const { data } = require('./helpers/');
-const Parser = require('../');
+const { data } = require('../test/helpers/');
+const Parser = require('..');
 
 const suite = new Benchmark.Suite();
 
