@@ -1,7 +1,17 @@
+const React = require('react');
 const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
 
 describe('attributesToProps', () => {
+  let actualReactVersion;
+  beforeEach(() => {
+    actualReactVersion = React.version;
+  });
+
+  afterEach(() => {
+    React.version = actualReactVersion;
+  });
+
   describe('HTML DOM', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(
@@ -108,6 +118,16 @@ describe('attributesToProps', () => {
         }
       );
     });
+
+    it('does not include unknown attributes for older react versions', () => {
+      React.version = '0.14';
+      assert.deepEqual(
+        attributesToProps({
+          unknownAttribute: 'someValue'
+        }),
+        {}
+      );
+    });
   });
 
   describe('SVG DOM properties', () => {
@@ -134,7 +154,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('does not convert incorrectly capitalized properties', () => {
+    it('includes but does not convert incorrectly capitalized properties', () => {
       assert.deepEqual(
         attributesToProps({
           'XLINK:HREF': '#',
@@ -142,12 +162,22 @@ describe('attributesToProps', () => {
           ZoomAndPan: 'disable'
         }),
         {
-          /*
-          xlinkHref: '#',
-          yChannelSelector: 'G',
-          zoomAndPan: 'disable'
-          */
+          'XLINK:HREF': '#',
+          ychannelselector: 'G',
+          ZoomAndPan: 'disable'
         }
+      );
+    });
+
+    it('does not include incorrectly capitalized properties on older React versions', () => {
+      React.version = '0.14';
+      assert.deepEqual(
+        attributesToProps({
+          'XLINK:HREF': '#',
+          ychannelselector: 'G',
+          ZoomAndPan: 'disable'
+        }),
+        {}
       );
     });
   });
