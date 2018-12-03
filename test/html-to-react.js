@@ -109,5 +109,19 @@ describe('html-to-react', () => {
         );
       });
     });
+
+    describe('domParserOptions', () => {
+      it('lowerCaseTags `false` passed to htmlToDOM, should drop a React warning', () => {
+        const html = data.html.special;
+        const closedTag = '<SpecialTag>inside</SpecialTag>';
+        const reactElement = Parser(html, {
+          domParserOptions: {
+            lowerCaseTags: false
+          }
+        });
+        const elementRender = render(reactElement);
+        assert.equal(elementRender, closedTag);
+      });
+    });
   });
 });
