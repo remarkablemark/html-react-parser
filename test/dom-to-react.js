@@ -5,6 +5,15 @@ const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
 
 describe('dom-to-react parser', () => {
+  let actualReactVersion;
+  beforeEach(() => {
+    actualReactVersion = React.version;
+  });
+
+  afterEach(() => {
+    React.version = actualReactVersion;
+  });
+
   it('converts single DOM node to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
@@ -129,6 +138,34 @@ describe('dom-to-react parser', () => {
     assert.deepEqual(
       reactElement,
       React.createElement('svg', { viewBox: '0 0 512 512', id: 'foo' }, 'Inner')
+    );
+  });
+
+  it('passes props unaltered for custom elements', () => {
+    const html = data.html.customElement;
+    const reactElement = domToReact(htmlToDOM(html));
+
+    assert.deepEqual(
+      reactElement,
+      React.createElement(
+        'custom-button',
+        {
+          class: 'myClass',
+          'custom-attribute': 'value'
+        },
+        null
+      )
+    );
+  });
+
+  it('handles custom element the same as everything else with older reacts', () => {
+    React.version = '0.14';
+    const html = data.html.customElement;
+    const reactElement = domToReact(htmlToDOM(html));
+
+    assert.deepEqual(
+      reactElement,
+      React.createElement('custom-button', { className: 'myClass' }, null)
     );
   });
 });

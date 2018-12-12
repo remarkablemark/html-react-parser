@@ -11,7 +11,8 @@
     "img": "<img src=\"http://stat.ic/img.jpg\" alt=\"Image\"/>",
     "void": "<link/><meta/><img/><br/><hr/><input/>",
     "comment": "<!-- comment -->",
-    "doctype": "<!DOCTYPE html>"
+    "doctype": "<!DOCTYPE html>",
+    "customElement": "<custom-button class=\"myClass\" custom-attribute=\"value\"></custom-button>"
   },
   "svg": {
     "simple": "<svg viewBox=\"0 0 512 512\" id=\"foo\">Inner</svg>",
