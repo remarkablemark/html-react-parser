@@ -3,6 +3,7 @@ const React = require('react');
 const htmlToDOM = require('html-dom-parser');
 const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
+const utilities = require('../lib/utilities');
 
 describe('dom-to-react parser', () => {
   let actualReactVersion;
@@ -141,7 +142,7 @@ describe('dom-to-react parser', () => {
     );
   });
 
-  it('passes props unaltered for custom elements', () => {
+  it('does not modify attributes on custom elements', () => {
     const html = data.html.customElement;
     const reactElement = domToReact(htmlToDOM(html));
 
@@ -158,14 +159,25 @@ describe('dom-to-react parser', () => {
     );
   });
 
-  it('handles custom element the same as everything else with older reacts', () => {
-    React.version = '0.14';
-    const html = data.html.customElement;
-    const reactElement = domToReact(htmlToDOM(html));
+  describe('when React <16', () => {
+    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-    assert.deepEqual(
-      reactElement,
-      React.createElement('custom-button', { className: 'myClass' }, null)
-    );
+    before(() => {
+      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+    });
+
+    after(() => {
+      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+    });
+
+    it('modifies attributes on custom elements', () => {
+      const html = data.html.customElement;
+      const reactElement = domToReact(htmlToDOM(html));
+
+      assert.deepEqual(
+        reactElement,
+        React.createElement('custom-button', { className: 'myClass' }, null)
+      );
+    });
   });
 });

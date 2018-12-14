@@ -1,17 +1,8 @@
-const React = require('react');
 const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
+const utilities = require('../lib/utilities');
 
 describe('attributesToProps', () => {
-  let actualReactVersion;
-  beforeEach(() => {
-    actualReactVersion = React.version;
-  });
-
-  afterEach(() => {
-    React.version = actualReactVersion;
-  });
-
   describe('HTML DOM', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(
@@ -118,16 +109,6 @@ describe('attributesToProps', () => {
         }
       );
     });
-
-    it('does not include unknown attributes for older react versions', () => {
-      React.version = '0.14';
-      assert.deepEqual(
-        attributesToProps({
-          unknownAttribute: 'someValue'
-        }),
-        {}
-      );
-    });
   });
 
   describe('SVG DOM properties', () => {
@@ -166,18 +147,6 @@ describe('attributesToProps', () => {
           ychannelselector: 'G',
           ZoomAndPan: 'disable'
         }
-      );
-    });
-
-    it('does not include incorrectly capitalized properties on older React versions', () => {
-      React.version = '0.14';
-      assert.deepEqual(
-        attributesToProps({
-          'XLINK:HREF': '#',
-          ychannelselector: 'G',
-          ZoomAndPan: 'disable'
-        }),
-        {}
       );
     });
   });
@@ -246,6 +215,38 @@ describe('attributesToProps', () => {
         {
           style: {}
         }
+      );
+    });
+  });
+
+  describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
+    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
+
+    before(() => {
+      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+    });
+
+    after(() => {
+      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+    });
+
+    it('does not include unknown attributes', () => {
+      assert.deepEqual(
+        attributesToProps({
+          unknownAttribute: 'someValue'
+        }),
+        {}
+      );
+    });
+
+    it('does not include incorrectly capitalized properties', () => {
+      assert.deepEqual(
+        attributesToProps({
+          'XLINK:HREF': '#',
+          ychannelselector: 'G',
+          ZoomAndPan: 'disable'
+        }),
+        {}
       );
     });
   });
