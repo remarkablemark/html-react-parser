@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/remarkablemark/html-react-parser/compare/v0.4.7...v0.5.0) (2018-12-16)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** undo default function parameter ([1017b25](https://github.com/remarkablemark/html-react-parser/commit/1017b25))
+
+
+### Features
+
+* support custom elements in React 16 ([7b2c5a8](https://github.com/remarkablemark/html-react-parser/commit/7b2c5a8))
+
+
+
 <a name="0.4.7"></a>
 ## [0.4.7](https://github.com/remarkablemark/html-react-parser/compare/v0.4.6...v0.4.7) (2018-09-14)
 
