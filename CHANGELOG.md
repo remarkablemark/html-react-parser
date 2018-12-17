@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/remarkablemark/html-react-parser/compare/v0.5.0...v0.6.0) (2018-12-17)
+
+
+### Features
+
+* **utilities:** add support for custom styles beginning with "--*" ([2c0a9dc](https://github.com/remarkablemark/html-react-parser/commit/2c0a9dc))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/remarkablemark/html-react-parser/compare/v0.4.7...v0.5.0) (2018-12-16)
 
