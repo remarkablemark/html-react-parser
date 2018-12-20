@@ -10,12 +10,10 @@
     "build:min": "NODE_ENV=production webpack -o dist/html-react-parser.min.js",
     "build:unmin": "NODE_ENV=development webpack -o dist/html-react-parser.js",
     "clean": "rm -rf dist",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
     "cover": "istanbul cover _mocha -- -R spec \"test/**/*\"",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "precommit": "npm test && lint-staged",
     "prepublishOnly": "npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha"
