@@ -22,6 +22,8 @@ describe('utilties.camelCase', () => {
     assert.equal(camelCase('fooBar'), 'fooBar');
     assert.equal(camelCase('--fooBar'), '--fooBar');
     assert.equal(camelCase('--foo-bar'), '--foo-bar');
+    assert.equal(camelCase('--foo100'), '--foo100');
+    assert.equal(camelCase('--foo-100'), '--foo-100');
   });
 
   it('camelCases a string', () => {
