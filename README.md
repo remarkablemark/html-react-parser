@@ -7,38 +7,41 @@
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 
-An HTML to React parser that works on the server and the browser:
+An HTML to React parser that works on both the server and the browser:
+
 ```
 HTMLReactParser(htmlString[, options])
 ```
 
-It converts an HTML string to [React elements](https://facebook.github.io/react/docs/react-api.html#creating-react-elements).
+The parser converts an HTML string to [React element(s)](https://reactjs.org/docs/react-api.html#creating-react-elements). If you want to [replace an element](#replacedomnode) with your own custom element, there's an [option](#options) to do that.
 
-There's also an [option](#options) to [replace](#replacedomnode) elements with your own custom React elements.
-
-## Example
+Example:
 
 ```js
-var Parser = require('html-react-parser');
-Parser('<p>Hello, world!</p>');
-// same output as `React.createElement('p', {}, 'Hello, world!')`
+var parse = require('html-react-parser');
+parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
 ```
 
-[JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [repl.it](https://repl.it/@remarkablemark/html-react-parser)
+[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [repl.it](https://repl.it/@remarkablemark/html-react-parser)
+
+See [usage](#usage) and more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
 
 ## Installation
 
 [NPM](https://www.npmjs.com/package/html-react-parser):
+
 ```sh
 $ npm install html-react-parser --save
 ```
 
-[Yarn](https://yarn.fyi/html-react-parser):
+[Yarn](https://yarnpkg.com/package/html-react-parser):
+
 ```sh
 $ yarn add html-react-parser
 ```
 
-[CDN](https://unpkg.com/html-react-parser/):
+[unpkg](https://unpkg.com/html-react-parser/) (CDN):
+
 ```html
 <!-- HTMLReactParser depends on React -->
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
@@ -48,56 +51,50 @@ $ yarn add html-react-parser
 </script>
 ```
 
-See more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
-
 ## Usage
 
-Given you have the following imported:
+Given you have `html-react-parser` imported:
+
 ```js
 // ES Modules
-import Parser from 'html-react-parser';
-import { render } from 'react-dom';
+import parse from 'html-react-parser';
 ```
 
-Render a single element:
+Parse single element:
+
 ```js
-render(
-  Parser('<h1>single</h1>'),
-  document.getElementById('root')
-);
+parse('<h1>single</h1>');
 ```
 
-Render multiple elements:
-```js
-// with JSX
-render(
-  // the parser returns an array for adjacent elements
-  // so make sure they're nested under a parent React element
-  <div>{Parser('<p>brother</p><p>sister</p>')}</div>,
-  document.getElementById('root')
-);
+Parse multiple elements:
 
-// or without JSX
-render(
-  React.createElement('div', {}, Parser('<p>brother</p><p>sister</p>')),
-  document.getElementById('root')
-);
+```js
+parse('<p>sibling 1</p><p>sibling 2</p>');
 ```
 
-Render nested elements:
-```js
-render(
-  Parser('<ul><li>inside</li></ul>'),
-  document.getElementById('root')
-);
+Because the parser returns an array for adjacent elements, make sure it's nested under a parent element when rendered:
+
+```jsx
+import React, { Component } from 'react';
+import parse from 'html-react-parser';
+
+class App extends Component {
+  render() {
+    return <div>{parse('<p>sibling 1</p><p>sibling 2</p>')}</div>;
+  }
+}
 ```
 
-Renders with attributes preserved:
+Parse nested elements:
+
 ```js
-render(
-  Parser('<p id="foo" class="bar baz" data-qux="42">look at me now</p>'),
-  document.getElementById('root')
-);
+parse('<ul><li>text</li></ul>');
+```
+
+Parse element with attributes:
+
+```js
+parse('<hr id="foo" class="bar" data-baz="qux">');
 ```
 
 ### Options
@@ -106,12 +103,12 @@ render(
 
 The `replace` method allows you to swap an element with your own React element.
 
-The first argument is `domNode`--an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2)'s [domhandler](https://github.com/fb55/domhandler#example).
+The first argument is `domNode`―an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2)'s [domhandler](https://github.com/fb55/domhandler#example).
 
 The element is replaced only if a valid React element is returned.
 
 ```js
-Parser('<p id="replace">text</p>', {
+parse('<p id="replace">text</p>', {
   replace: function(domNode) {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
       return React.createElement('span', {}, 'replaced');
@@ -120,60 +117,60 @@ Parser('<p id="replace">text</p>', {
 });
 ```
 
-Here's an [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) of using `replace` to modify the children:
+The following [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) uses `replace` to modify the children:
+
 ```jsx
-// with ES6 and JSX
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import parse from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
-const htmlString = `
+const elements = parse(
+  `
   <p id="main">
     <span class="prettify">
       keep me and make me pretty!
     </span>
   </p>
-`;
+`,
+  {
+    replace: ({ attribs, children }) => {
+      if (!attribs) return;
 
-const parserOptions = {
-  replace: ({ attribs, children }) => {
-    if (!attribs) return;
-
-    if (attribs.id === 'main') {
-      return (
-        <h1 style={{ fontSize: 42 }}>
-          {domToReact(children, parserOptions)}
-        </h1>
-      );
-    } else if (attribs.class === 'prettify') {
-      return (
-        <span style={{ color: 'hotpink' }}>
-          {domToReact(children, parserOptions)}
-        </span>
-      );
+      if (attribs.id === 'main') {
+        return (
+          <h1 style={{ fontSize: 42 }}>
+            {domToReact(children, parserOptions)}
+          </h1>
+        );
+      } else if (attribs.class === 'prettify') {
+        return (
+          <span style={{ color: 'hotpink' }}>
+            {domToReact(children, parserOptions)}
+          </span>
+        );
+      }
     }
   }
-};
+);
 
-const reactElement = Parser(htmlString, parserOptions);
-ReactDOMServer.renderToStaticMarkup(reactElement);
+console.log(renderToStaticMarkup(elements));
 ```
 
-[Output](https://repl.it/@remarkablemark/html-react-parser-replace-example):
+The output:
+
 ```html
 <h1 style="font-size:42px">
-  <span style="color:hotpink">
-    keep me and make me pretty!
-  </span>
+  <span style="color:hotpink">keep me and make me pretty!</span>
 </h1>
 ```
 
-Here's an [example](https://repl.it/@remarkablemark/html-react-parser-issue-56) of using `replace` to exclude an element:
-```js
-Parser('<p><br id="remove"></p>', {
-  replace: ({ attribs }) => {
-    if (attribs && attribs.id === 'remove') {
-      return React.createElement(React.Fragment);
-    }
-  },
+The following [example](https://repl.it/@remarkablemark/html-react-parser-issue-56) uses `replace` to exclude an element:
+
+```jsx
+parse('<p><br id="remove"></p>', {
+  replace: ({ attribs }) =>
+    attribs && attribs.id === 'remove' && <React.Fragment />
 });
 ```
 
@@ -191,6 +188,7 @@ $ npm run test:benchmark
 ```
 
 Here's an example output of the benchmarks run on a MacBook Pro 2017:
+
 ```
 html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
 html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
