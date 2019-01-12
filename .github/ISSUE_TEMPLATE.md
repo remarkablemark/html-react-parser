@@ -1,35 +1,33 @@
 <!--
 Is this a bug report?
-├── Yes
-│   └── Continue filling out the template.
-└── No
-    └── Delete the template and write in free form.
-        Please apply a label to the issue (if applicable).
+
+* Yes: Continue filling out the template.
+* No: Delete the template and write in free form. (Apply a label to the issue if applicable.)
 -->
 
-### Expected behavior
+## Expected Behavior
 
 <!-- What should happen. -->
 
-### Actual behavior
+## Actual Behavior
 
 <!-- What happens instead. -->
 
-### Steps to reproduce
+## Steps to Reproduce
 
 <!-- Describe a sequence of steps that anybody can repeat to see the issue. -->
 
-### Reproducible demo
+## Reproducible Demo
 
 <!--
-Creating a bug demo facilitates the resolvement of an issue:
+Creating a bug demo will speed up the process of resolving the issue:
 
 * CodeSandbox: https://codesandbox.io/s/940pov1l4w
 * JSFiddle: https://jsfiddle.net/remarkablemark/7v86d800/
 * repl.it: https://repl.it/@remarkablemark/html-react-parser
 -->
 
-### Environment
+## Environment
 
 - Version:
 - Platform:
