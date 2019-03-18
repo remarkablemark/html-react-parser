@@ -1,4 +1,4 @@
-import parse from 'html-dom-parser';
+import parse, { HTMLReactParserOptions } from 'html-dom-parser';
 import * as React from 'react';
 
 // $ExpectType string | DetailedReactHTMLElement<{}, HTMLElement> | DetailedReactHTMLElement<{}, HTMLElement>[]
@@ -16,13 +16,16 @@ parse('<p id="replace">text</p>', {
 });
 
 // Return ReactElement
-parse('<p><br id="remove"></p>', {
-  replace: ({ attribs }) =>
-    attribs && attribs.id === 'remove' && <React.Fragment />
-});
+const options: HTMLReactParserOptions = {
+  replace({ attribs }) {
+    return attribs && attribs.id === 'remove' && <React.Fragment />;
+  }
+} 
+
+parse('<p><br id="remove"></p>', options);
 
 // Return domhandler node
-parse('<a href="#">Heading</a>', {
+parse('<a id="header" href="#">Heading</a>', {
   replace: node => {
     if (node.attribs && node.attribs.id === 'header') {
       return {

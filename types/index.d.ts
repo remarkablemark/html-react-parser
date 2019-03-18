@@ -9,8 +9,8 @@ export default HTMLReactParser;
 type ReactElement = React.DetailedReactHTMLElement<{}, HTMLElement>;
 
 export interface HTMLReactParserOptions {
-  // TODO: Specify return type. React.ReactElement | undefined | false is not enough
-  replace(domNode: DomNode): any;
+  // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
+  replace(domNode: DomNode): React.ReactElement | object | undefined | false;
 }
 
 /**
