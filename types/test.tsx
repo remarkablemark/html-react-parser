@@ -20,7 +20,7 @@ const options: HTMLReactParserOptions = {
   replace({ attribs }) {
     return attribs && attribs.id === 'remove' && <React.Fragment />;
   }
-} 
+};
 
 parse('<p><br id="remove"></p>', options);
 
