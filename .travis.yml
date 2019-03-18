@@ -5,6 +5,7 @@ install:
 - npm install
 script:
 - npm run lint
+- npm run dtslint
 - npm run cover
 - npm run build
 - npm run benchmark
