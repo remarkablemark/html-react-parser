@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/remarkablemark/html-react-parser/compare/v0.6.2...v0.6.3) (2019-03-19)
+
+
+### Bug Fixes
+
+* **typescript:** test.tsx after dtslint run ([38e6bba](https://github.com/remarkablemark/html-react-parser/commit/38e6bba))
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/remarkablemark/html-react-parser/compare/v0.6.1...v0.6.2) (2019-03-07)
 
