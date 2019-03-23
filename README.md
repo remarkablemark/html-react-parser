@@ -174,6 +174,12 @@ parse('<p><br id="remove"></p>', {
 });
 ```
 
+## FAQ
+
+#### Is this library XSS safe?
+
+No, this library does _not_ sanitize against [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting). See [#94](https://github.com/remarkablemark/html-react-parser/issues/94) for more details.
+
 ## Testing
 
 ```sh
