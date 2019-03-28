@@ -159,7 +159,7 @@ describe('dom-to-react parser', () => {
     );
   });
 
-  it('does not modify keys for replacement if it have one', () => {
+  it('does not modify keys for replacement if it has one', () => {
     const html = [data.html.single, data.html.customElement].join('');
 
     const reactElements = domToReact(htmlToDOM(html), {
@@ -171,7 +171,7 @@ describe('dom-to-react parser', () => {
           return React.createElement(
             'custom-button',
             {
-              key: 'meyKey',
+              key: 'myKey',
               class: 'myClass',
               'custom-attribute': 'replaced value'
             },
@@ -186,7 +186,7 @@ describe('dom-to-react parser', () => {
       React.createElement(
         'custom-button',
         {
-          key: 'meyKey',
+          key: 'myKey',
           class: 'myClass',
           'custom-attribute': 'replaced value'
         },
