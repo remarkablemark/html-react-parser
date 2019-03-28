@@ -24,7 +24,7 @@ parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text
 
 [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [repl.it](https://repl.it/@remarkablemark/html-react-parser)
 
-See [usage](#usage) and more [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+See [usage](#usage) and [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
 
 ## Installation
 
@@ -176,9 +176,17 @@ parse('<p><br id="remove"></p>', {
 
 ## FAQ
 
-#### Is this library XSS safe?
+#### Is the library XSS safe?
 
-No, this library does _not_ sanitize against [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting). See [#94](https://github.com/remarkablemark/html-react-parser/issues/94) for more details.
+No, this library does **_not_** sanitize against [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting). See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
+
+#### Are `<script>` tags parsed?
+
+Although `<script>` tags are parsed, [react-dom](https://reactjs.org/docs/react-dom.html) does not render the contents. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
+
+#### My HTML attributes aren't getting called.
+
+That's because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) like `onclick` are parsed as a _string_ rather than a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
 
 ## Testing
 
@@ -203,10 +211,11 @@ html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
 
 ## Release
 
+Only collaborators with credentials can release and publish:
+
 ```sh
 $ npm run release
-$ npm publish
-$ git push --follow-tags
+$ git push --follow-tags && npm publish
 ```
 
 ## Special Thanks
