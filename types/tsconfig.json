@@ -9,7 +9,7 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": ".",
-    "paths": { "html-react-parser": ["."] },
+    "paths": { "html-react-parser": ["."], "html-react-parser/*": ["./*"] },
     "moduleResolution": "node"
   }
 }
