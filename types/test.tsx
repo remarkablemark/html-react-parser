@@ -1,4 +1,4 @@
-import parse, { HTMLReactParserOptions } from 'html-dom-parser';
+import parse, { HTMLReactParserOptions } from 'html-react-parser';
 import * as React from 'react';
 
 // $ExpectType string | DetailedReactHTMLElement<{}, HTMLElement> | DetailedReactHTMLElement<{}, HTMLElement>[]
