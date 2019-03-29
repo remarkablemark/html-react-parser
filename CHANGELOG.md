@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.4"></a>
+## [0.6.4](https://github.com/remarkablemark/html-react-parser/compare/v0.6.3...v0.6.4) (2019-03-29)
+
+
+### Bug Fixes
+
+* **dom-to-react:** allow custom keys for replacement ([abf20a2](https://github.com/remarkablemark/html-react-parser/commit/abf20a2))
+* **dom-to-react:** fix typos in the test ([4eec53e](https://github.com/remarkablemark/html-react-parser/commit/4eec53e))
+
+
+
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/remarkablemark/html-react-parser/compare/v0.6.2...v0.6.3) (2019-03-19)
 
