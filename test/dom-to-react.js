@@ -159,6 +159,42 @@ describe('dom-to-react parser', () => {
     );
   });
 
+  it('does not modify keys for replacement if it has one', () => {
+    const html = [data.html.single, data.html.customElement].join('');
+
+    const reactElements = domToReact(htmlToDOM(html), {
+      replace: node => {
+        if (node.name === 'p') {
+          return React.createElement('p', {}, 'replaced foo');
+        }
+        if (node.name === 'custom-button') {
+          return React.createElement(
+            'custom-button',
+            {
+              key: 'myKey',
+              class: 'myClass',
+              'custom-attribute': 'replaced value'
+            },
+            null
+          );
+        }
+      }
+    });
+
+    assert.deepEqual(reactElements, [
+      React.createElement('p', { key: 0 }, 'replaced foo'),
+      React.createElement(
+        'custom-button',
+        {
+          key: 'myKey',
+          class: 'myClass',
+          'custom-attribute': 'replaced value'
+        },
+        null
+      )
+    ]);
+  });
+
   describe('when React <16', () => {
     const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
