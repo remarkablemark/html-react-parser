@@ -15,6 +15,9 @@ export interface HTMLReactParserOptions {
 
 /**
  * Convert HTML string to React elements.
+ * 
+ * @param - Raw string of HTML to parse.
+ * @param options - Options to use when converting to react.
  * @returns ReactElement on successful parse or string when `html` cannot be
  * parsed as HTML
  */
