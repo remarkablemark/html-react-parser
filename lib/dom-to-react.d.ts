@@ -1,5 +1,8 @@
+// TypeScript Version: 3.3
+
 import * as React from 'react';
-import { DomNode, HTMLReactParserOptions } from 'html-react-parser';
+import { HTMLReactParserOptions } from '..';
+import { DomElement } from 'domhandler';
 
 /**
  * Converts DOM nodes to React elements.
@@ -9,6 +12,6 @@ import { DomNode, HTMLReactParserOptions } from 'html-react-parser';
  * @returns ReactElement or and array of ReactElements.
  */
 export default function domToReact(
-  nodes: DomNode[],
+  nodes: DomElement[],
   options?: HTMLReactParserOptions
 ): React.ReactElement | React.ReactElement[];
