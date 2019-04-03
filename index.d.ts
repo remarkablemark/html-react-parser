@@ -2,12 +2,10 @@
 
 import * as React from 'react';
 import { DomElement } from 'domhandler';
+import domToReact from './lib/dom-to-react';
+import htmlToDOM from 'html-dom-parser';
 
 export { DomElement };
-
-export as namespace HTMLReactParser;
-
-export default HTMLReactParser;
 
 type ReactElement = React.DetailedReactHTMLElement<{}, HTMLElement>;
 
@@ -28,3 +26,6 @@ declare function HTMLReactParser(
   html: string,
   options?: HTMLReactParserOptions
 ): ReactElement | ReactElement[] | string;
+
+export { domToReact, htmlToDOM };
+export default HTMLReactParser;
