@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/remarkablemark/html-react-parser/compare/v0.6.4...v0.7.0) (2019-04-05)
+
+
+### Bug Fixes
+
+* **coveralls:** moved dtslint tests to lint folder ([306fceb](https://github.com/remarkablemark/html-react-parser/commit/306fceb))
+* **types:** html-dom-parser > html-react-parser ([438b9af](https://github.com/remarkablemark/html-react-parser/commit/438b9af))
+
+
+### Features
+
+* **types:** add lib/dom-to-react declaration ([27ed8b6](https://github.com/remarkablemark/html-react-parser/commit/27ed8b6))
+
+
+
 <a name="0.6.4"></a>
 ## [0.6.4](https://github.com/remarkablemark/html-react-parser/compare/v0.6.3...v0.6.4) (2019-03-29)
 
