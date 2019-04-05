@@ -4,7 +4,6 @@
   "description": "An HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
-  "types": "types",
   "scripts": {
     "benchmark": "node benchmark",
     "build": "npm run clean && npm run build:min && npm run build:unmin",
@@ -15,7 +14,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "dtslint": "dtslint types",
+    "dtslint": "dtslint .",
     "prepublishOnly": "npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha"
@@ -35,7 +34,8 @@
     "converter"
   ],
   "dependencies": {
-    "html-dom-parser": "0.1.3",
+    "@types/domhandler": "2.4.1",
+    "html-dom-parser": "0.2.1",
     "react-dom-core": "0.0.4",
     "style-to-object": "0.2.2"
   },
@@ -67,7 +67,7 @@
   "files": [
     "dist",
     "lib",
-    "types/index.d.ts"
+    "index.d.ts"
   ],
   "license": "MIT"
 }

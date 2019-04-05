@@ -1,20 +1,24 @@
 // TypeScript Version: 3.3
 
 import * as React from 'react';
+import { DomElement } from 'domhandler';
+import domToReact from './lib/dom-to-react';
+import htmlToDOM from 'html-dom-parser';
 
-export as namespace HTMLReactParser;
-
-export default HTMLReactParser;
+export { DomElement };
 
 type ReactElement = React.DetailedReactHTMLElement<{}, HTMLElement>;
 
 export interface HTMLReactParserOptions {
   // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
-  replace(domNode: DomNode): React.ReactElement | object | undefined | false;
+  replace(domNode: DomElement): React.ReactElement | object | undefined | false;
 }
 
 /**
  * Convert HTML string to React elements.
+ *
+ * @param - Raw string of HTML to parse.
+ * @param options - Options to use when converting to react.
  * @returns ReactElement on successful parse or string when `html` cannot be
  * parsed as HTML
  */
@@ -23,18 +27,5 @@ declare function HTMLReactParser(
   options?: HTMLReactParserOptions
 ): ReactElement | ReactElement[] | string;
 
-/** domhandler node */
-export interface DomNode {
-  type: 'tag' | 'text' | 'directive' | 'comment' | 'script' | 'style';
-  name: string;
-  data?: string;
-  attribs?: {
-    [attributeName: string]: string;
-  };
-  children?: DomNode[];
-  parent?: DomNode;
-  prev?: DomNode;
-  next?: DomNode;
-  startIndex?: number;
-  endIndex?: number;
-}
+export { domToReact, htmlToDOM };
+export default HTMLReactParser;

@@ -23,3 +23,6 @@ function HTMLReactParser(html, options) {
  * Export HTML to React parser.
  */
 module.exports = HTMLReactParser;
+
+module.exports.domToReact = domToReact;
+module.exports.htmlToDOM = htmlToDOM;

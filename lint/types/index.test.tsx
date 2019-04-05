@@ -1,4 +1,4 @@
-import parse, { HTMLReactParserOptions } from 'html-dom-parser';
+import parse, { HTMLReactParserOptions, domToReact, htmlToDOM } from 'html-react-parser';
 import * as React from 'react';
 
 // $ExpectType string | DetailedReactHTMLElement<{}, HTMLElement> | DetailedReactHTMLElement<{}, HTMLElement>[]
@@ -35,3 +35,12 @@ parse('<a id="header" href="#">Heading</a>', {
     }
   }
 });
+
+// $ExpectType DomElement[]
+const dom = htmlToDOM('<div>text</div>');
+
+/* $ExpectType ReactElement<any, string | ((props: any) => ReactElement<any, string | any | (new (props: any) => Component<any, any, any>)> | null) |
+(new (props: any) => Component<any, any, any>)> |
+ReactElement<any, string | ((props: any) => ReactElement<any, string | any | (new (props: any) => Component<any, any, any>)> | null) |
+(new (props: any) => Component<any, any, any>)>[] */
+domToReact(dom);
