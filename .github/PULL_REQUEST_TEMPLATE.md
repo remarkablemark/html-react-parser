@@ -1,18 +1,18 @@
 <!-- Filling out the information below can facilitate the review/merge of the PR. -->
 
-### What is the motivation for this pull request?
+## What is the motivation for this pull request?
 
 <!-- Is this a feature, bug fix, docs, etc.? -->
 
-### What is the current behavior?
+## What is the current behavior?
 
 <!-- Please link to the issue (if applicable). -->
 
-### What is the new behavior?
+## What is the new behavior?
 
 <!-- If this is a feature change or bug fix. -->
 
-### Checklist:
+## Checklist:
 
 <!--
 Feel free to remove any item that is irrelevant to your changes.
