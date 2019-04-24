@@ -122,8 +122,27 @@ The following [example](https://repl.it/@remarkablemark/html-react-parser-replac
 ```jsx
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import parse from 'html-react-parser';
-import domToReact from 'html-react-parser/lib/dom-to-react';
+import parse, {domToReact} from 'html-react-parser';
+
+const parserOptions = {
+  replace: ({ attribs, children }) => {
+    if (!attribs) return;
+
+    if (attribs.id === 'main') {
+      return (
+        <h1 style={{ fontSize: 42 }}>
+          {domToReact(children, parserOptions)}
+        </h1>
+      );
+    } else if (attribs.class === 'prettify') {
+      return (
+        <span style={{ color: 'hotpink' }}>
+          {domToReact(children, parserOptions)}
+        </span>
+      );
+    }
+  }
+};
 
 const elements = parse(
   `
@@ -133,25 +152,7 @@ const elements = parse(
     </span>
   </p>
 `,
-  {
-    replace: ({ attribs, children }) => {
-      if (!attribs) return;
-
-      if (attribs.id === 'main') {
-        return (
-          <h1 style={{ fontSize: 42 }}>
-            {domToReact(children, parserOptions)}
-          </h1>
-        );
-      } else if (attribs.class === 'prettify') {
-        return (
-          <span style={{ color: 'hotpink' }}>
-            {domToReact(children, parserOptions)}
-          </span>
-        );
-      }
-    }
-  }
+  parserOptions
 );
 
 console.log(renderToStaticMarkup(elements));
