@@ -4,7 +4,8 @@ node_js:
 install:
   - npm install
 script:
-  - npx commitlint -e
+  # Lint last commit from history
+  - npx commitlint --from=HEAD~1
   - npm run lint
   - npm run dtslint
   - npm run cover
