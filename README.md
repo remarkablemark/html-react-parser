@@ -122,17 +122,23 @@ The following [example](https://repl.it/@remarkablemark/html-react-parser-replac
 ```jsx
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import parse, {domToReact} from 'html-react-parser';
+import parse, { domToReact } from 'html-react-parser';
 
-const parserOptions = {
+const html = `
+  <p id="main">
+    <span class="prettify">
+      keep me and make me pretty!
+    </span>
+  </p>
+`;
+
+const options = {
   replace: ({ attribs, children }) => {
     if (!attribs) return;
 
     if (attribs.id === 'main') {
       return (
-        <h1 style={{ fontSize: 42 }}>
-          {domToReact(children, parserOptions)}
-        </h1>
+        <h1 style={{ fontSize: 42 }}>{domToReact(children, parserOptions)}</h1>
       );
     } else if (attribs.class === 'prettify') {
       return (
@@ -144,25 +150,17 @@ const parserOptions = {
   }
 };
 
-const elements = parse(
-  `
-  <p id="main">
-    <span class="prettify">
-      keep me and make me pretty!
-    </span>
-  </p>
-`,
-  parserOptions
-);
-
-console.log(renderToStaticMarkup(elements));
+const reactElement = parse(html, options);
+console.log(renderToStaticMarkup(reactElement));
 ```
 
 The output:
 
 ```html
 <h1 style="font-size:42px">
-  <span style="color:hotpink">keep me and make me pretty!</span>
+  <span style="color:hotpink">
+    keep me and make me pretty!
+  </span>
 </h1>
 ```
 
@@ -177,7 +175,7 @@ parse('<p><br id="remove"></p>', {
 
 ## FAQ
 
-#### Is the library XSS safe?
+#### Is this library XSS safe?
 
 No, this library does **_not_** sanitize against [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting). See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
 
