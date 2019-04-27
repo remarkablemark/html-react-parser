@@ -6,11 +6,12 @@
 [![Build Status](https://travis-ci.org/remarkablemark/html-react-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-react-parser)
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
+[![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
 
 An HTML to React parser that works on both the server and the browser:
 
 ```
-HTMLReactParser(htmlString[, options])
+HTMLReactParser(string[, options])
 ```
 
 The parser converts an HTML string to [React element(s)](https://reactjs.org/docs/react-api.html#creating-react-elements). If you want to [replace an element](#replacedomnode) with your own custom element, there's an [option](#options) to do that.
