@@ -54,7 +54,7 @@ $ yarn add html-react-parser
 
 ## Usage
 
-Given you have `html-react-parser` imported:
+Given `html-react-parser` is imported:
 
 ```js
 // ES Modules
@@ -89,13 +89,15 @@ class App extends Component {
 Parse nested elements:
 
 ```js
-parse('<ul><li>text</li></ul>');
+parse('<ul><li>item</li></ul>');
 ```
 
 Parse element with attributes:
 
 ```js
-parse('<hr id="foo" class="bar" data-baz="qux">');
+parse(
+  '<hr id="foo" class="bar" data-attr="baz" custom="qux" style="top:42px;">'
+);
 ```
 
 ### Options
