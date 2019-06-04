@@ -1,6 +1,6 @@
 const assert = require('assert');
 const React = require('react');
-const Parser = require('../');
+const parse = require('../');
 const { data, render } = require('./helpers/');
 
 describe('html-to-react', () => {
@@ -8,31 +8,31 @@ describe('html-to-react', () => {
     [undefined, null, {}, [], 42].forEach(value => {
       it(`throws an error if first argument is ${value}`, () => {
         assert.throws(() => {
-          Parser(value);
+          parse(value);
         }, TypeError);
       });
     });
 
     it('returns string if it cannot be parsed as HTML', () => {
-      assert.equal(Parser('foo'), 'foo');
+      assert.equal(parse('foo'), 'foo');
     });
 
     it('converts single HTML element to React', () => {
       const html = data.html.single;
-      const reactElement = Parser(html);
+      const reactElement = parse(html);
       assert.equal(render(reactElement), html);
     });
 
     it('converts single HTML element and ignores comment', () => {
       const html = data.html.single;
       // comment should be ignored
-      const reactElement = Parser(html + data.html.comment);
+      const reactElement = parse(html + data.html.comment);
       assert.equal(render(reactElement), html);
     });
 
     it('converts multiple HTML elements to React', () => {
       const html = data.html.multiple;
-      const reactElements = Parser(html);
+      const reactElements = parse(html);
       assert.equal(
         render(React.createElement('div', {}, reactElements)),
         '<div>' + html + '</div>'
@@ -41,26 +41,26 @@ describe('html-to-react', () => {
 
     it('converts complex HTML to React', () => {
       const html = data.html.complex;
-      const reactElement = Parser(data.html.doctype + html);
+      const reactElement = parse(data.html.doctype + html);
       assert.equal(render(reactElement), html);
     });
 
     it('converts empty <style> to React', () => {
       const html = '<style></style>';
-      const reactElement = Parser(html);
+      const reactElement = parse(html);
       assert.equal(render(reactElement), html);
     });
 
     it('converts SVG to React', () => {
       const svg = data.svg.complex;
-      const reactElement = Parser(svg);
+      const reactElement = parse(svg);
       assert.equal(render(reactElement), svg);
     });
 
     it('decodes HTML entities', () => {
       const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
       const decodedEntities = "asdf & ÿ ü '";
-      const reactElement = Parser('<i>' + encodedEntities + '</i>');
+      const reactElement = parse('<i>' + encodedEntities + '</i>');
       assert.equal(reactElement.props.children, decodedEntities);
     });
   });
@@ -69,7 +69,7 @@ describe('html-to-react', () => {
     describe('replace', () => {
       it('overrides the element if replace is valid', () => {
         const html = data.html.complex;
-        const reactElement = Parser(html, {
+        const reactElement = parse(html, {
           replace: node => {
             if (node.name === 'title') {
               return React.createElement('title', {}, 'Replaced Title');
@@ -84,7 +84,7 @@ describe('html-to-react', () => {
 
       it('does not override the element if replace is invalid', () => {
         const html = data.html.complex;
-        const reactElement = Parser(html, {
+        const reactElement = parse(html, {
           replace: node => {
             if (node.attribs && node.attribs.id === 'header') {
               return {
@@ -103,5 +103,11 @@ describe('html-to-react', () => {
         );
       });
     });
+  });
+});
+
+describe('dom-to-react', () => {
+  it('exports domToReact', () => {
+    assert.equal(parse.domToReact, require('../lib/dom-to-react'));
   });
 });
