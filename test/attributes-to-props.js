@@ -217,6 +217,20 @@ describe('attributesToProps', () => {
         }
       );
     });
+
+    [Object, Array, Number, Date].forEach(type => {
+      it(`throws an error when attributes.style=${type.name}`, () => {
+        assert.throws(
+          () => {
+            attributesToProps({ style: type });
+          },
+          {
+            name: 'TypeError',
+            message: 'First argument must be a string.'
+          }
+        );
+      });
+    });
   });
 
   describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
