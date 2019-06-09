@@ -56,23 +56,9 @@ describe('dom-to-react parser', () => {
     );
   });
 
-  it('does not escape <script> content', () => {
+  it('does not parse <script> content', () => {
     const html = data.html.script;
-    const reactElement = domToReact(htmlToDOM(html));
-
-    assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'script',
-        {
-          dangerouslySetInnerHTML: {
-            __html: 'alert(1 < 2);'
-          }
-        },
-        null
-      )
-    );
+    assert.deepEqual(domToReact(htmlToDOM(html)), []);
   });
 
   it('does not escape <style> content', () => {
