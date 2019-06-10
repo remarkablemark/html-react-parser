@@ -8,7 +8,7 @@ script:
   - npx commitlint --from=HEAD~1
   - npm run lint
   - npm run dtslint
-  - npm run cover
+  - npm run test:cover
   - npm run build
   - npm run benchmark
 after_script:
