@@ -184,7 +184,7 @@ No, this library does **_not_** sanitize against [XSS (Cross-Site Scripting)](ht
 
 #### Are `<script>` tags parsed?
 
-Although `<script>` tags are parsed, [react-dom](https://reactjs.org/docs/react-dom.html) does not render the contents. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
+No, `<script>` tags are skipped because [react-dom](https://reactjs.org/docs/react-dom.html) does not render the contents. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
 
 #### My HTML attributes aren't getting called.
 
@@ -192,9 +192,23 @@ That's because [inline event handlers](https://developer.mozilla.org/docs/Web/Gu
 
 ## Testing
 
+Run tests:
+
 ```sh
 $ npm test
-$ npm run lint # npm run lint:fix
+```
+
+Run tests with coverage:
+
+```sh
+$ npm run test:cover
+```
+
+Lint files:
+
+```sh
+$ npm run lint
+$ npm run lint:fix
 ```
 
 ## Benchmarks
