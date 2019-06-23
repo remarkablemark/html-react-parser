@@ -1,3 +1,5 @@
 {
-  "*.js": ["npm run lint:fix", "git add"]
+  "*.js": ["npm run lint:fix", "git add"],
+  "*.{html,json,md,yml}": ["prettier --write", "git add"],
+  "*.*rc": ["prettier --write --parser json", "git add"]
 }
