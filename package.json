@@ -27,11 +27,11 @@
     "url": "https://github.com/remarkablemark/html-react-parser/issues"
   },
   "keywords": [
+    "html-react-parser",
     "html",
-    "dom",
     "react",
     "parser",
-    "converter"
+    "dom"
   ],
   "dependencies": {
     "@types/domhandler": "2.4.1",
@@ -65,8 +65,8 @@
     "react": "^0.14 || ^15 || ^16"
   },
   "files": [
-    "dist",
-    "lib",
+    "/dist",
+    "/lib",
     "index.d.ts"
   ],
   "license": "MIT"
