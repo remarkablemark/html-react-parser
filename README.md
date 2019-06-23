@@ -8,24 +8,22 @@
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 [![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
 
-An HTML to React parser that works on both the server and the browser:
+HTML to React parser that works on both the server (Node.js) and client (browser):
 
 ```
 HTMLReactParser(string[, options])
 ```
 
-The parser converts an HTML string to [React element(s)](https://reactjs.org/docs/react-api.html#creating-react-elements). If you want to [replace an element](#replacedomnode) with your own custom element, there's an [option](#options) to do that.
+It converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements). There's also an option to [replace an element](#replacedomnode) with your own.
 
-Example:
+#### Example:
 
 ```js
 var parse = require('html-react-parser');
 parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
 ```
 
-[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [repl.it](https://repl.it/@remarkablemark/html-react-parser)
-
-See [usage](#usage) and [examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
 
 ## Installation
 
@@ -41,7 +39,7 @@ $ npm install html-react-parser --save
 $ yarn add html-react-parser
 ```
 
-[unpkg](https://unpkg.com/html-react-parser/) (CDN):
+[CDN](https://unpkg.com/html-react-parser/):
 
 ```html
 <!-- HTMLReactParser depends on React -->
@@ -54,9 +52,12 @@ $ yarn add html-react-parser
 
 ## Usage
 
-Given `html-react-parser` is imported:
+Import the module:
 
 ```js
+// CommonJS
+const parse = require('html-react-parser');
+
 // ES Modules
 import parse from 'html-react-parser';
 ```
@@ -70,26 +71,31 @@ parse('<h1>single</h1>');
 Parse multiple elements:
 
 ```js
-parse('<p>sibling 1</p><p>sibling 2</p>');
+parse('<li>Item 1</li><li>Item 2</li>');
 ```
 
-Because the parser returns an array for adjacent elements, make sure it's nested under a parent element when rendered:
+But make sure to render the parsed adjacent elements under a parent element since the parsed output is an array:
 
 ```jsx
-import React, { Component } from 'react';
+import React from 'react';
 import parse from 'html-react-parser';
 
-class App extends Component {
-  render() {
-    return <div>{parse('<p>sibling 1</p><p>sibling 2</p>')}</div>;
-  }
+function App() {
+  return (
+    <ul>
+      {parse(`
+        <li>Item 1</li>
+        <li>Item 2</li>
+      `)}
+    </ul>
+  );
 }
 ```
 
 Parse nested elements:
 
 ```js
-parse('<ul><li>item</li></ul>');
+parse('<body><p>Lorem ipsum</p></body>');
 ```
 
 Parse element with attributes:
@@ -120,7 +126,7 @@ parse('<p id="replace">text</p>', {
 });
 ```
 
-The following [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) uses `replace` to modify the children:
+[Example](https://repl.it/@remarkablemark/html-react-parser-replace-example) that modifies an element but keeps the children:
 
 ```jsx
 import React from 'react';
@@ -157,7 +163,7 @@ const reactElement = parse(html, options);
 console.log(renderToStaticMarkup(reactElement));
 ```
 
-The output:
+Output:
 
 ```html
 <h1 style="font-size:42px">
@@ -167,7 +173,7 @@ The output:
 </h1>
 ```
 
-The following [example](https://repl.it/@remarkablemark/html-react-parser-issue-56) uses `replace` to exclude an element:
+[Example](https://repl.it/@remarkablemark/html-react-parser-issue-56) that excludes an element:
 
 ```jsx
 parse('<p><br id="remove"></p>', {
@@ -208,6 +214,11 @@ Lint files:
 
 ```sh
 $ npm run lint
+```
+
+Fix lint errors:
+
+```sh
 $ npm run lint:fix
 ```
 
