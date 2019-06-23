@@ -11,7 +11,7 @@ script:
   - npm run test:coverage
   - npm run build
   - npm run benchmark
-after_script:
+after_success:
   - npm run coveralls
 cache:
   directories:
