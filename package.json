@@ -17,7 +17,7 @@
     "prepublishOnly": "npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha",
-    "test:cover": "istanbul cover _mocha -- -R spec \"test/**/*\""
+    "test:coverage": "istanbul cover _mocha -- -R spec \"test/**/*\""
   },
   "repository": {
     "type": "git",

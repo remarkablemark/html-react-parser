@@ -207,7 +207,7 @@ $ npm test
 Run tests with coverage:
 
 ```sh
-$ npm run test:cover
+$ npm run test:coverage
 ```
 
 Lint files:
