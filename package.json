@@ -10,14 +10,15 @@
     "build:min": "cross-env NODE_ENV=production webpack -o dist/html-react-parser.min.js",
     "build:unmin": "cross-env NODE_ENV=development webpack -o dist/html-react-parser.js",
     "clean": "rimraf dist",
-    "coveralls": "cat coverage/lcov.info | coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "dtslint": "dtslint .",
     "prepublishOnly": "npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha",
-    "test:coverage": "istanbul cover _mocha -- -R spec \"test/**/*\""
+    "test:coverage": "nyc npm test",
+    "test:coverage:report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -50,9 +51,9 @@
     "eslint": "^5.10.0",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^2.4.0",
-    "istanbul": "^0.4.5",
     "lint-staged": "^8.1.0",
     "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
     "prettier": "^1.15.3",
     "react": "^16",
     "react-dom": "^16",
