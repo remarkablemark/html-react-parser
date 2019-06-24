@@ -1,6 +1,35 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.8.0](https://github.com/remarkablemark/html-react-parser/compare/v0.7.1...v0.8.0) (2019-06-24)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** fix lint error `no-prototype-builtins` ([fa66dfc](https://github.com/remarkablemark/html-react-parser/commit/fa66dfc))
+
+
+### Build System
+
+* **package:** refactor webpack config and generate sourcemap ([5dd4f07](https://github.com/remarkablemark/html-react-parser/commit/5dd4f07))
+* **package:** rename npm script `cover` to `test:cover` ([7d806c8](https://github.com/remarkablemark/html-react-parser/commit/7d806c8))
+* **package:** update `html-dom-parser@0.2.2` and devDependencies ([b39ac53](https://github.com/remarkablemark/html-react-parser/commit/b39ac53))
+* **package:** update dependencies and devDependencies ([8765ea9](https://github.com/remarkablemark/html-react-parser/commit/8765ea9))
+* **package:** update dependency `style-to-object` to 0.2.3 ([c2cc2ec](https://github.com/remarkablemark/html-react-parser/commit/c2cc2ec)), closes [remarkablemark/style-to-object#5](https://github.com/remarkablemark/html-react-parser/issues/5)
+
+
+### Features
+
+* **dom-to-react:** skip and do not parse <script> content ([1fb5ee2](https://github.com/remarkablemark/html-react-parser/commit/1fb5ee2))
+
+
+### Tests
+
+* **html-to-react:** add test that verifies `domToReact` is exported ([320c364](https://github.com/remarkablemark/html-react-parser/commit/320c364))
+* verify invalid style for `attributesToProps` throws an error ([b97f2e1](https://github.com/remarkablemark/html-react-parser/commit/b97f2e1))
+
+
 
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/remarkablemark/html-react-parser/compare/v0.7.0...v0.7.1) (2019-05-27)
