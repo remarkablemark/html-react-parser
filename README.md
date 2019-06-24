@@ -8,7 +8,7 @@
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 [![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
 
-HTML to React parser that works on both the server (Node.js) and client (browser):
+HTML to React parser that works on both the server (Node.js) and the client (browser):
 
 ```
 HTMLReactParser(string[, options])
@@ -23,7 +23,7 @@ var parse = require('html-react-parser');
 parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
 ```
 
-[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples).
+[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 ## Installation
 
@@ -74,22 +74,15 @@ Parse multiple elements:
 parse('<li>Item 1</li><li>Item 2</li>');
 ```
 
-But make sure to render the parsed adjacent elements under a parent element since the parsed output is an array:
+Since adjacent elements are parsed as an array, make sure to render them under a parent node:
 
 ```jsx
-import React from 'react';
-import parse from 'html-react-parser';
-
-function App() {
-  return (
-    <ul>
-      {parse(`
-        <li>Item 1</li>
-        <li>Item 2</li>
-      `)}
-    </ul>
-  );
-}
+<ul>
+  {parse(`
+    <li>Item 1</li>
+    <li>Item 2</li>
+  `)}
+</ul>
 ```
 
 Parse nested elements:
@@ -110,15 +103,35 @@ parse(
 
 #### replace(domNode)
 
-The `replace` method allows you to swap an element with your own React element.
+The `replace` callback allows you to swap an element with another React element.
 
-The first argument is `domNode`―an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2)'s [domhandler](https://github.com/fb55/domhandler#example).
+The first argument is an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2)'s [domhandler](https://github.com/fb55/domhandler#example):
 
-The element is replaced only if a valid React element is returned.
+```js
+parse('<br>', {
+  replace: function(domNode) {
+    console.dir(domNode, { depth: null });
+  }
+});
+```
+
+Console output:
+
+```js
+{ type: 'tag',
+  name: 'br',
+  attribs: {},
+  children: [],
+  next: null,
+  prev: null,
+  parent: null }
+```
+
+The element is replaced only if a _valid_ React element is returned:
 
 ```js
 parse('<p id="replace">text</p>', {
-  replace: function(domNode) {
+  replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
       return React.createElement('span', {}, 'replaced');
     }
@@ -126,7 +139,7 @@ parse('<p id="replace">text</p>', {
 });
 ```
 
-[Example](https://repl.it/@remarkablemark/html-react-parser-replace-example) that modifies an element but keeps the children:
+Here's an [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) that modifies an element but keeps the children:
 
 ```jsx
 import React from 'react';
@@ -149,7 +162,9 @@ const options = {
       return (
         <h1 style={{ fontSize: 42 }}>{domToReact(children, parserOptions)}</h1>
       );
-    } else if (attribs.class === 'prettify') {
+    }
+
+    if (attribs.class === 'prettify') {
       return (
         <span style={{ color: 'hotpink' }}>
           {domToReact(children, parserOptions)}
@@ -159,8 +174,7 @@ const options = {
   }
 };
 
-const reactElement = parse(html, options);
-console.log(renderToStaticMarkup(reactElement));
+console.log(renderToStaticMarkup(parse(html, options)));
 ```
 
 Output:
@@ -173,12 +187,11 @@ Output:
 </h1>
 ```
 
-[Example](https://repl.it/@remarkablemark/html-react-parser-issue-56) that excludes an element:
+Here's an [example](https://repl.it/@remarkablemark/html-react-parser-56) that excludes an element:
 
 ```jsx
 parse('<p><br id="remove"></p>', {
-  replace: ({ attribs }) =>
-    attribs && attribs.id === 'remove' && <React.Fragment />
+  replace: ({ attribs }) => attribs && attribs.id === 'remove' && <Fragment />
 });
 ```
 
