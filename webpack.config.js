@@ -1,13 +1,12 @@
-var path = require('path');
+const { resolve } = require('path');
+const { NODE_ENV } = process.env;
 
-/**
- * Webpack configuration.
- */
-module.exports = {
-  entry: path.resolve(__dirname, 'index.js'),
+const config = {
+  entry: resolve(__dirname, 'index.js'),
   output: {
     library: 'HTMLReactParser',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    path: resolve(__dirname, 'dist')
   },
   externals: {
     react: {
@@ -17,5 +16,11 @@ module.exports = {
       root: 'React'
     }
   },
-  mode: process.env.NODE_ENV
+  mode: NODE_ENV
 };
+
+if (NODE_ENV === 'production') {
+  config.devtool = 'source-map';
+}
+
+module.exports = config;

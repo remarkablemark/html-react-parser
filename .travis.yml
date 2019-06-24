@@ -4,14 +4,14 @@ node_js:
 install:
   - npm install
 script:
-  # Lint last commit from history
+  # Lint last commit message from history
   - npx commitlint --from=HEAD~1
   - npm run lint
   - npm run dtslint
-  - npm run test:cover
+  - npm run test:coverage
   - npm run build
   - npm run benchmark
-after_script:
+after_success:
   - npm run coveralls
 cache:
   directories:
