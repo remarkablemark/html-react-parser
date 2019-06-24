@@ -38,7 +38,7 @@
     "@types/domhandler": "2.4.1",
     "html-dom-parser": "0.2.2",
     "react-dom-core": "0.1.1",
-    "style-to-object": "0.2.2"
+    "style-to-object": "0.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
