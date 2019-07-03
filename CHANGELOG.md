@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/remarkablemark/html-react-parser/compare/v0.8.0...v0.8.1) (2019-07-03)
+
+
+### Tests
+
+* **html-to-react:** update variable name to fix test ([73237dd](https://github.com/remarkablemark/html-react-parser/commit/73237dd))
+
+
+
 ## [0.8.0](https://github.com/remarkablemark/html-react-parser/compare/v0.7.1...v0.8.0) (2019-06-24)
 
 
