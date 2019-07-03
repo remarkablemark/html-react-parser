@@ -223,10 +223,19 @@ Run tests with coverage:
 $ npm run test:coverage
 ```
 
+View coverage in browser:
+
+```sh
+$ npm run test:coverage
+$ npm run test:coverage:report
+$ open coverage/index.html
+```
+
 Lint files:
 
 ```sh
 $ npm run lint
+$ npm run dtslint
 ```
 
 Fix lint errors:
