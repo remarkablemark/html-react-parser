@@ -47,7 +47,7 @@ describe('html-to-react', () => {
 
     it('converts empty <script> to React', () => {
       const html = '<script></script>';
-      const reactElement = Parser(html);
+      const reactElement = parse(html);
       assert.equal(render(reactElement), html);
     });
 
