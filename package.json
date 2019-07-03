@@ -1,7 +1,7 @@
 {
   "name": "html-react-parser",
   "version": "0.8.0",
-  "description": "An HTML to React parser.",
+  "description": "HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "dtslint": "dtslint .",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run lint && npm run dtslint && npm test && npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha",
     "test:coverage": "nyc npm test",
