@@ -109,6 +109,26 @@ describe('attributesToProps', () => {
         }
       );
     });
+
+    it('converts overloaded boolean attributes', () => {
+      assert.deepEqual(
+        attributesToProps({
+          download: ''
+        }),
+        {
+          download: true
+        }
+      );
+
+      assert.deepEqual(
+        attributesToProps({
+          download: 'filename'
+        }),
+        {
+          download: 'filename'
+        }
+      );
+    });
   });
 
   describe('SVG', () => {
