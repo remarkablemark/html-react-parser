@@ -2,7 +2,7 @@ const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
-describe('attributesToProps', () => {
+describe('attributes-to-props', () => {
   describe('HTML', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(
@@ -60,7 +60,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('keeps `data-` and `aria-` attributes as is', () => {
+    it('keeps `data-*` and `aria-*` attributes as is', () => {
       assert.deepEqual(
         attributesToProps({
           'data-foo': 'bar',
@@ -248,35 +248,56 @@ describe('attributesToProps', () => {
     });
   });
 
-  describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
-    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
-
-    before(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+  describe('custom', () => {
+    it('converts attributes named after Object properties', () => {
+      // handled as custom attributes
+      const attributes = {
+        __defineGetter__: '',
+        __defineSetter__: '',
+        __lookupGetter__: '',
+        __lookupSetter__: '',
+        __proto__: '',
+        constructor: '',
+        hasOwnProperty: '',
+        isPrototypeOf: '',
+        propertyIsEnumerable: '',
+        toLocaleString: '',
+        toString: '',
+        valueOf: ''
+      };
+      assert.deepEqual(attributesToProps(attributes), attributes);
     });
 
-    after(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
-    });
+    describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
+      const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-    it('omits unknown attributes', () => {
-      assert.deepEqual(
-        attributesToProps({
-          unknownAttribute: 'someValue'
-        }),
-        {}
-      );
-    });
+      before(() => {
+        utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+      });
 
-    it('omits incorrectly capitalized attributes', () => {
-      assert.deepEqual(
-        attributesToProps({
-          'XLINK:HREF': '#',
-          YChannelSelector: 'G',
-          ZoomAndPan: 'disable'
-        }),
-        {}
-      );
+      after(() => {
+        utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+      });
+
+      it('omits unknown attributes', () => {
+        assert.deepEqual(
+          attributesToProps({
+            unknownAttribute: 'someValue'
+          }),
+          {}
+        );
+      });
+
+      it('omits incorrectly capitalized attributes', () => {
+        assert.deepEqual(
+          attributesToProps({
+            'XLINK:HREF': '#',
+            YChannelSelector: 'G',
+            ZoomAndPan: 'disable'
+          }),
+          {}
+        );
+      });
     });
   });
 });
