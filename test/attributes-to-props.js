@@ -135,16 +135,16 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('includes but does not convert incorrectly capitalized properties', () => {
+    it('keeps incorrectly capitalized attributes', () => {
       assert.deepEqual(
         attributesToProps({
           'XLINK:HREF': '#',
-          ychannelselector: 'G',
+          YChannelSelector: 'G',
           ZoomAndPan: 'disable'
         }),
         {
           'XLINK:HREF': '#',
-          ychannelselector: 'G',
+          YChannelSelector: 'G',
           ZoomAndPan: 'disable'
         }
       );
@@ -253,11 +253,11 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('does not include incorrectly capitalized properties', () => {
+    it('omits incorrectly capitalized attributes', () => {
       assert.deepEqual(
         attributesToProps({
           'XLINK:HREF': '#',
-          ychannelselector: 'G',
+          YChannelSelector: 'G',
           ZoomAndPan: 'disable'
         }),
         {}
