@@ -3,7 +3,7 @@ const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
 describe('attributesToProps', () => {
-  describe('HTML DOM', () => {
+  describe('HTML', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
@@ -19,7 +19,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts standard properties to React props', () => {
+    it('converts standard attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           allowfullscreen: true,
@@ -34,7 +34,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts RDFa properties to React props', () => {
+    it('converts RDFa attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           property: 'foo',
@@ -47,7 +47,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts non-standard properties to React props', () => {
+    it('converts non-standard attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           itemscope: true,
@@ -73,7 +73,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts properties with weird capitalization', () => {
+    it('converts attributes with weird capitalization', () => {
       assert.deepEqual(
         attributesToProps({
           'ACCEPT-CHARSET': 'ISO-8859-1',
@@ -90,7 +90,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts bool properties', () => {
+    it('converts boolean attributes', () => {
       assert.deepEqual(
         attributesToProps({
           readonly: ''
@@ -111,8 +111,8 @@ describe('attributesToProps', () => {
     });
   });
 
-  describe('SVG DOM properties', () => {
-    it('converts attributes/properties to React props', () => {
+  describe('SVG', () => {
+    it('converts attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           edgeMode: 'edgeMode',
@@ -152,8 +152,7 @@ describe('attributesToProps', () => {
   });
 
   describe('style', () => {
-    it('converts CSS style string to JS style object', () => {
-      // proper css
+    it('converts inline style to object', () => {
       assert.deepEqual(
         attributesToProps({
           style:
@@ -171,7 +170,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // valid but messy
       assert.deepEqual(
         attributesToProps({
           style:
@@ -187,7 +185,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is null
       assert.deepEqual(
         attributesToProps({
           style: null
@@ -197,7 +194,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is undefined
       assert.deepEqual(
         attributesToProps({
           style: undefined
@@ -207,7 +203,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is empty string
       assert.deepEqual(
         attributesToProps({
           style: ''
@@ -218,7 +213,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    [Object, Array, Number, Date].forEach(type => {
+    [Object, Array, Number, Date, Function].forEach(type => {
       it(`throws an error when attributes.style=${type.name}`, () => {
         assert.throws(
           () => {
@@ -244,7 +239,7 @@ describe('attributesToProps', () => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
     });
 
-    it('does not include unknown attributes', () => {
+    it('omits unknown attributes', () => {
       assert.deepEqual(
         attributesToProps({
           unknownAttribute: 'someValue'
