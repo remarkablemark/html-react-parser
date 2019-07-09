@@ -271,7 +271,7 @@ $ git push --follow-tags && npm publish
 
 - [Contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
 - [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
-- [react-dom-core](https://github.com/remarkablemark/react-dom-core)
+- [react-property](https://github.com/remarkablemark/react-dom-core/tree/master/packages/react-property)
 - [style-to-object](https://github.com/remarkablemark/style-to-object)
 
 ## License
