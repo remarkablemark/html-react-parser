@@ -2,8 +2,8 @@ const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
-describe('attributesToProps', () => {
-  describe('HTML DOM', () => {
+describe('attributes-to-props', () => {
+  describe('HTML', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
@@ -19,7 +19,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts standard properties to React props', () => {
+    it('converts standard attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           allowfullscreen: true,
@@ -34,7 +34,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts RDFa properties to React props', () => {
+    it('converts RDFa attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           property: 'foo',
@@ -47,7 +47,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts non-standard properties to React props', () => {
+    it('converts non-standard attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           itemscope: true,
@@ -60,7 +60,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('keeps `data-` and `aria-` attributes as is', () => {
+    it('keeps `data-*` and `aria-*` attributes as is', () => {
       assert.deepEqual(
         attributesToProps({
           'data-foo': 'bar',
@@ -73,7 +73,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts properties with weird capitalization', () => {
+    it('converts attributes with weird capitalization', () => {
       assert.deepEqual(
         attributesToProps({
           'ACCEPT-CHARSET': 'ISO-8859-1',
@@ -90,7 +90,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('converts bool properties', () => {
+    it('converts boolean attributes', () => {
       assert.deepEqual(
         attributesToProps({
           readonly: ''
@@ -109,10 +109,30 @@ describe('attributesToProps', () => {
         }
       );
     });
+
+    it('converts overloaded boolean attributes', () => {
+      assert.deepEqual(
+        attributesToProps({
+          download: ''
+        }),
+        {
+          download: true
+        }
+      );
+
+      assert.deepEqual(
+        attributesToProps({
+          download: 'filename'
+        }),
+        {
+          download: 'filename'
+        }
+      );
+    });
   });
 
-  describe('SVG DOM properties', () => {
-    it('converts attributes/properties to React props', () => {
+  describe('SVG', () => {
+    it('converts attributes to React props', () => {
       assert.deepEqual(
         attributesToProps({
           edgeMode: 'edgeMode',
@@ -135,16 +155,16 @@ describe('attributesToProps', () => {
       );
     });
 
-    it('includes but does not convert incorrectly capitalized properties', () => {
+    it('keeps incorrectly capitalized attributes', () => {
       assert.deepEqual(
         attributesToProps({
           'XLINK:HREF': '#',
-          ychannelselector: 'G',
+          YChannelSelector: 'G',
           ZoomAndPan: 'disable'
         }),
         {
           'XLINK:HREF': '#',
-          ychannelselector: 'G',
+          YChannelSelector: 'G',
           ZoomAndPan: 'disable'
         }
       );
@@ -152,8 +172,7 @@ describe('attributesToProps', () => {
   });
 
   describe('style', () => {
-    it('converts CSS style string to JS style object', () => {
-      // proper css
+    it('converts inline style to object', () => {
       assert.deepEqual(
         attributesToProps({
           style:
@@ -171,7 +190,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // valid but messy
       assert.deepEqual(
         attributesToProps({
           style:
@@ -187,7 +205,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is null
       assert.deepEqual(
         attributesToProps({
           style: null
@@ -197,7 +214,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is undefined
       assert.deepEqual(
         attributesToProps({
           style: undefined
@@ -207,7 +223,6 @@ describe('attributesToProps', () => {
         }
       );
 
-      // style is empty string
       assert.deepEqual(
         attributesToProps({
           style: ''
@@ -218,7 +233,7 @@ describe('attributesToProps', () => {
       );
     });
 
-    [Object, Array, Number, Date].forEach(type => {
+    [Object, Array, Number, Date, Function].forEach(type => {
       it(`throws an error when attributes.style=${type.name}`, () => {
         assert.throws(
           () => {
@@ -233,35 +248,56 @@ describe('attributesToProps', () => {
     });
   });
 
-  describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
-    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
-
-    before(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+  describe('custom', () => {
+    it('converts attributes named after Object properties', () => {
+      // handled as custom attributes
+      const attributes = {
+        __defineGetter__: '',
+        __defineSetter__: '',
+        __lookupGetter__: '',
+        __lookupSetter__: '',
+        __proto__: '',
+        constructor: '',
+        hasOwnProperty: '',
+        isPrototypeOf: '',
+        propertyIsEnumerable: '',
+        toLocaleString: '',
+        toString: '',
+        valueOf: ''
+      };
+      assert.deepEqual(attributesToProps(attributes), attributes);
     });
 
-    after(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
-    });
+    describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
+      const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-    it('does not include unknown attributes', () => {
-      assert.deepEqual(
-        attributesToProps({
-          unknownAttribute: 'someValue'
-        }),
-        {}
-      );
-    });
+      before(() => {
+        utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+      });
 
-    it('does not include incorrectly capitalized properties', () => {
-      assert.deepEqual(
-        attributesToProps({
-          'XLINK:HREF': '#',
-          ychannelselector: 'G',
-          ZoomAndPan: 'disable'
-        }),
-        {}
-      );
+      after(() => {
+        utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+      });
+
+      it('omits unknown attributes', () => {
+        assert.deepEqual(
+          attributesToProps({
+            unknownAttribute: 'someValue'
+          }),
+          {}
+        );
+      });
+
+      it('omits incorrectly capitalized attributes', () => {
+        assert.deepEqual(
+          attributesToProps({
+            'XLINK:HREF': '#',
+            YChannelSelector: 'G',
+            ZoomAndPan: 'disable'
+          }),
+          {}
+        );
+      });
     });
   });
 });
