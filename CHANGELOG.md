@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/remarkablemark/html-react-parser/compare/v0.9.0...v0.9.1) (2019-07-09)
+
+
+### Build System
+
+* replace `webpack` with `rollup` in order to optimize bundle ([a04ef27](https://github.com/remarkablemark/html-react-parser/commit/a04ef27))
+* **index:** fix rollup error of mixing named and default exports ([230de70](https://github.com/remarkablemark/html-react-parser/commit/230de70))
+
+
+
 ## [0.9.0](https://github.com/remarkablemark/html-react-parser/compare/v0.8.1...v0.9.0) (2019-07-09)
 
 
