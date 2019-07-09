@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/remarkablemark/html-react-parser/compare/v0.8.1...v0.9.0) (2019-07-09)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** handle attr named after Object properties ([3f857bb](https://github.com/remarkablemark/html-react-parser/commit/3f857bb))
+
+
+### Build System
+
+* **package:** update `react-property` to 1.0.1 ([26ebef9](https://github.com/remarkablemark/html-react-parser/commit/26ebef9))
+
+
+### Features
+
+* **attributes-to-props:** check for overloaded boolean values ([1151cfb](https://github.com/remarkablemark/html-react-parser/commit/1151cfb))
+* **attributes-to-props:** replace `react-dom` with `react-property` ([d6274b9](https://github.com/remarkablemark/html-react-parser/commit/d6274b9)), closes [#107](https://github.com/remarkablemark/html-react-parser/issues/107)
+
+
+### Tests
+
+* **attributes-to-props:** improve test names ([17fbdfd](https://github.com/remarkablemark/html-react-parser/commit/17fbdfd))
+
+
+
 ### [0.8.1](https://github.com/remarkablemark/html-react-parser/compare/v0.8.0...v0.8.1) (2019-07-03)
 
 
