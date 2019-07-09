@@ -19,10 +19,7 @@ function HTMLReactParser(html, options) {
   return domToReact(htmlToDOM(html, domParserOptions), options);
 }
 
-/**
- * Export HTML to React parser.
- */
-module.exports = HTMLReactParser;
+HTMLReactParser.domToReact = domToReact;
+HTMLReactParser.htmlToDOM = htmlToDOM;
 
-module.exports.domToReact = domToReact;
-module.exports.htmlToDOM = htmlToDOM;
+module.exports = HTMLReactParser;
