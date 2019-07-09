@@ -5,12 +5,12 @@ var htmlToDOM = require('html-dom-parser');
 var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
 
 /**
- * Convert HTML string to React elements.
+ * Converts HTML string to React elements.
  *
- * @param  {String}   html              - The HTML string.
- * @param  {Object}   [options]         - The additional options.
+ * @param  {String}   html              - The HTML string to parse to React.
+ * @param  {Object}   [options]         - The parser options.
  * @param  {Function} [options.replace] - The replace method.
- * @return {ReactElement|Array}
+ * @return {ReactElement|Array|String}  - When parsed with HTML string, returns React elements; otherwise, returns string or empty array.
  */
 function HTMLReactParser(html, options) {
   if (typeof html !== 'string') {
