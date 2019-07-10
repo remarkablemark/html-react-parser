@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Load with Script Tag</title>
-  </head>
-  <body style="padding: 50px;">
-    <div id="root"></div>
+<div id="root" style="padding: 50px;"></div>
 
-    <!-- React -->
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <!-- <script src="https://unpkg.com/react@15/dist/react.min.js"></script> -->
+<!-- React -->
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<!--
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+-->
 
-    <!-- HTMLReactParser -->
-    <script src="../dist/html-react-parser.min.js"></script>
+<!-- HTMLReactParser -->
+<script src="../dist/html-react-parser.min.js"></script>
 
-    <!-- ReactDOM -->
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <!-- <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script> -->
+<!-- ReactDOM -->
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<!--
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+-->
 
-    <script>
-      ReactDOM.render(
-        HTMLReactParser(
-          '<h2 style="font-family: \'Lucida Grande\', sans-serif;">' +
-            'HTMLReactParser loaded with script tag' +
-            '<\/h2>'
-        ),
-        document.getElementById('root')
-      );
-    </script>
-  </body>
-</html>
+<script>
+  window.ReactDOM.render(
+    window.HTMLReactParser(
+      '<h2 style="font-family: \'Lucida Grande\', sans-serif;">' +
+        'HTMLReactParser loaded with script tag' +
+        '<\/h2>'
+    ),
+    document.getElementById('root')
+  );
+</script>
