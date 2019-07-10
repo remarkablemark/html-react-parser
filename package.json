@@ -11,7 +11,7 @@
     "build:unmin": "cross-env NODE_ENV=development rollup --config --file dist/html-react-parser.js",
     "clean": "rimraf dist",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern /examples/ .",
     "lint:fix": "npm run lint -- --fix",
     "dtslint": "dtslint .",
     "prepublishOnly": "npm run lint && npm run dtslint && npm test && npm run build",
