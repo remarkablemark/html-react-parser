@@ -195,6 +195,31 @@ describe('dom-to-react parser', () => {
     ]);
   });
 
+  it('replace function support replace node', () => {
+    const html = data.html.single;
+    const reactElements = domToReact(htmlToDOM(html), {
+      replace: node => {
+        if (node.name === 'p') {
+          node.name = 'div';
+          return node;
+        }
+      }
+    });
+    assert.deepEqual(reactElements, React.createElement('div', {}, 'foo'));
+  });
+
+  it('delete node if replace return false', () => {
+    const html = data.html.single;
+    const reactElements = domToReact(htmlToDOM(html), {
+      replace: node => {
+        if (node.name === 'p') {
+          return false;
+        }
+      }
+    });
+    assert.deepEqual(reactElements, {});
+  });
+
   describe('when React <16', () => {
     const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 

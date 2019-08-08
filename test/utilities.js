@@ -4,7 +4,8 @@ const {
   PRESERVE_CUSTOM_ATTRIBUTES,
   camelCase,
   invertObject,
-  isCustomComponent
+  isCustomComponent,
+  isValidParserNode
 } = require('../lib/utilities');
 
 describe('utilties.camelCase', () => {
@@ -105,6 +106,26 @@ describe('utilities.isCustomComponent', () => {
 
   it('returns true if the props contains an `is` key', () => {
     assert.equal(isCustomComponent('button', { is: 'custom-button' }), true);
+  });
+});
+
+describe('utilities.isValidParserNode', () => {
+  it('return true', () => {
+    assert.equal(
+      isValidParserNode({ type: 'tag', name: 'div', attribs: {} }),
+      true
+    );
+  });
+  it('return false if params is not object', () => {
+    assert.equal(isValidParserNode('not object'), false);
+    assert.equal(isValidParserNode(1), false);
+    assert.equal(isValidParserNode(true), false);
+    assert.equal(isValidParserNode(), false);
+  });
+  it('return false if object not contains require properties', () => {
+    assert.equal(isValidParserNode({}), false);
+    assert.equal(isValidParserNode({ type: 'tag' }), false);
+    assert.equal(isValidParserNode({ type: 'tag', name: 'div' }), false);
   });
 });
 
