@@ -217,7 +217,7 @@ describe('dom-to-react parser', () => {
         }
       }
     });
-    assert.deepEqual(reactElements, {});
+    assert.deepEqual(reactElements, []);
   });
 
   describe('when React <16', () => {
