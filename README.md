@@ -127,13 +127,38 @@ Console output:
   parent: null }
 ```
 
-The element is replaced only if a _valid_ React element is returned:
+The element is replaced if a _valid_ React element is returned:
 
 ```js
 parse('<p id="replace">text</p>', {
   replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
       return React.createElement('span', {}, 'replaced');
+    }
+  }
+});
+```
+
+Or you can just modify domNode object:
+
+```js
+parse('<p id="replace">text</p>', {
+  replace: domNode => {
+    if (domNode.attribs && domNode.attribs.id === 'replace') {
+      domNode.name = 'div';
+      return domNode;
+    }
+  }
+});
+```
+
+you can remove node if false returned:
+
+```js
+parse('<p id="replace">text</p>', {
+  replace: domNode => {
+    if (domNode.attribs && domNode.attribs.id === 'replace') {
+      return false;
     }
   }
 });
