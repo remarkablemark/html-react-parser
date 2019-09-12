@@ -20,11 +20,11 @@ Is this a bug report?
 ## Reproducible Demo
 
 <!--
-Creating a bug demo will speed up the process of resolving the issue:
+Creating a bug demo will help speed up the process of resolving the issue:
 
 * CodeSandbox: https://codesandbox.io/s/940pov1l4w
 * JSFiddle: https://jsfiddle.net/remarkablemark/7v86d800/
-* repl.it: https://repl.it/@remarkablemark/html-react-parser
+* Repl.it: https://repl.it/@remarkablemark/html-react-parser
 -->
 
 ## Environment
