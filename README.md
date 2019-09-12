@@ -226,7 +226,6 @@ $ npm run test:coverage
 View coverage in browser:
 
 ```sh
-$ npm run test:coverage
 $ npm run test:coverage:report
 $ open coverage/index.html
 ```
@@ -273,6 +272,15 @@ $ git push --follow-tags && npm publish
 - [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
 - [react-property](https://github.com/remarkablemark/react-dom-core/tree/master/packages/react-property)
 - [style-to-object](https://github.com/remarkablemark/style-to-object)
+
+## Support
+
+- [Patreon](https://b.remarkabl.org/patreon)
+- [Open Collective](https://b.remarkabl.org/open-collective-html-react-parser)
+- [Ko-fi](https://b.remarkabl.org/ko-fi)
+- [Tidelift](https://b.remarkabl.org/tidelift-html-react-parser)
+- [Liberapay](https://b.remarkabl.org/liberapay)
+- [Teepsring](https://b.remarkabl.org/teespring)
 
 ## License
 
