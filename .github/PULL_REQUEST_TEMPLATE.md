@@ -1,8 +1,10 @@
-<!-- Filling out the information below can facilitate the review/merge of the PR. -->
+<!--
+Filling out the information below can facilitate the review/merge of the pull request (PR).
+-->
 
 ## What is the motivation for this pull request?
 
-<!-- Is this a feature, bug fix, docs, etc.? -->
+<!-- Is this a feature, bug fix, documentation, etc.? -->
 
 ## What is the current behavior?
 
@@ -16,14 +18,12 @@
 
 <!--
 Feel free to remove any item that is irrelevant to your changes.
-To check an item, place an "x" in the box like so:
-- [x] Tests
+To check an item, place an "x" in the box like so: `- [x] Tests`
 -->
 
 - [ ] Tests
 - [ ] Documentation
 
 <!--
-Do you have any additional comments?
-Thanks for contributing!
+Any other comments? Thank you for contributing!
 -->
