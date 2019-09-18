@@ -18,7 +18,8 @@
     "release": "standard-version --no-verify",
     "test": "mocha",
     "test:coverage": "nyc npm test",
-    "test:coverage:report": "nyc report --reporter=html"
+    "test:coverage:report": "nyc report --reporter=html",
+    "postinstall": "opencollective-postinstall || true"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
   "dependencies": {
     "@types/domhandler": "2.4.1",
     "html-dom-parser": "0.2.2",
+    "opencollective-postinstall": "2.0.2",
     "react-property": "1.0.1",
     "style-to-object": "0.2.3"
   },
@@ -72,5 +74,9 @@
     "/lib",
     "index.d.ts"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/html-react-parser"
+  }
 }

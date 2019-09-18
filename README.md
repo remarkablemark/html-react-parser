@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/html-react-parser.png)](https://nodei.co/npm/html-react-parser/)
 
-[![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
+[![Financial Contributors on Open Collective](https://opencollective.com/html-react-parser/all/badge.svg?label=financial+contributors)](https://opencollective.com/html-react-parser) [![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
 [![Build Status](https://travis-ci.org/remarkablemark/html-react-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-react-parser)
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
@@ -281,6 +281,36 @@ $ git push --follow-tags && npm publish
 - [Tidelift](https://b.remarkabl.org/tidelift-html-react-parser)
 - [Liberapay](https://b.remarkabl.org/liberapay)
 - [Teepsring](https://b.remarkabl.org/teespring)
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/remarkablemark/html-react-parser/graphs/contributors"><img src="https://opencollective.com/html-react-parser/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/html-react-parser/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/html-react-parser"><img src="https://opencollective.com/html-react-parser/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/html-react-parser/contribute)]
+
+<a href="https://opencollective.com/html-react-parser/organization/0/website"><img src="https://opencollective.com/html-react-parser/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/1/website"><img src="https://opencollective.com/html-react-parser/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/2/website"><img src="https://opencollective.com/html-react-parser/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/3/website"><img src="https://opencollective.com/html-react-parser/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/4/website"><img src="https://opencollective.com/html-react-parser/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/5/website"><img src="https://opencollective.com/html-react-parser/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/6/website"><img src="https://opencollective.com/html-react-parser/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/7/website"><img src="https://opencollective.com/html-react-parser/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/8/website"><img src="https://opencollective.com/html-react-parser/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/html-react-parser/organization/9/website"><img src="https://opencollective.com/html-react-parser/organization/9/avatar.svg"></a>
 
 ## License
 
