@@ -2,11 +2,12 @@
 
 [![NPM](https://nodei.co/npm/html-react-parser.png)](https://nodei.co/npm/html-react-parser/)
 
-[![Financial Contributors on Open Collective](https://opencollective.com/html-react-parser/all/badge.svg?label=financial+contributors)](https://opencollective.com/html-react-parser) [![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
+[![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
 [![Build Status](https://travis-ci.org/remarkablemark/html-react-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-react-parser)
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 [![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
+[![Financial Contributors on Open Collective](https://opencollective.com/html-react-parser/all/badge.svg?label=financial+contributors)](https://opencollective.com/html-react-parser)
 
 HTML to React parser that works on both the server (Node.js) and the client (browser):
 
@@ -266,22 +267,6 @@ $ npm run release
 $ git push --follow-tags && npm publish
 ```
 
-## Special Thanks
-
-- [Contributors](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
-- [html-dom-parser](https://github.com/remarkablemark/html-dom-parser)
-- [react-property](https://github.com/remarkablemark/react-dom-core/tree/master/packages/react-property)
-- [style-to-object](https://github.com/remarkablemark/style-to-object)
-
-## Support
-
-- [Patreon](https://b.remarkabl.org/patreon)
-- [Open Collective](https://b.remarkabl.org/open-collective-html-react-parser)
-- [Ko-fi](https://b.remarkabl.org/ko-fi)
-- [Tidelift](https://b.remarkabl.org/tidelift-html-react-parser)
-- [Liberapay](https://b.remarkabl.org/liberapay)
-- [Teepsring](https://b.remarkabl.org/teespring)
-
 ## Contributors
 
 ### Code Contributors
@@ -311,6 +296,15 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/html-react-parser/organization/7/website"><img src="https://opencollective.com/html-react-parser/organization/7/avatar.svg"></a>
 <a href="https://opencollective.com/html-react-parser/organization/8/website"><img src="https://opencollective.com/html-react-parser/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/html-react-parser/organization/9/website"><img src="https://opencollective.com/html-react-parser/organization/9/avatar.svg"></a>
+
+## Support
+
+- [Patreon](https://b.remarkabl.org/patreon)
+- [Open Collective](https://b.remarkabl.org/open-collective-html-react-parser)
+- [Ko-fi](https://b.remarkabl.org/ko-fi)
+- [Tidelift](https://b.remarkabl.org/tidelift-html-react-parser)
+- [Liberapay](https://b.remarkabl.org/liberapay)
+- [Teepsring](https://b.remarkabl.org/teespring)
 
 ## License
 
