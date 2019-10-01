@@ -161,14 +161,14 @@ const options = {
 
     if (attribs.id === 'main') {
       return (
-        <h1 style={{ fontSize: 42 }}>{domToReact(children, parserOptions)}</h1>
+        <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>
       );
     }
 
     if (attribs.class === 'prettify') {
       return (
         <span style={{ color: 'hotpink' }}>
-          {domToReact(children, parserOptions)}
+          {domToReact(children, options)}
         </span>
       );
     }
