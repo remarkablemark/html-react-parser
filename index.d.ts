@@ -5,10 +5,6 @@ import { DomElement } from 'domhandler';
 import domToReact from './lib/dom-to-react';
 import htmlToDOM from 'html-dom-parser';
 
-export { DomElement };
-
-type ReactElement = React.DetailedReactHTMLElement<{}, HTMLElement>;
-
 export interface HTMLReactParserOptions {
   // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
   replace(domNode: DomElement): React.ReactElement | object | undefined | false;
@@ -24,7 +20,11 @@ export interface HTMLReactParserOptions {
 declare function HTMLReactParser(
   html: string,
   options?: HTMLReactParserOptions
-): ReactElement | ReactElement[] | string;
+):
+  | string
+  | React.DetailedReactHTMLElement<{}, HTMLElement>
+  | Array<React.DetailedReactHTMLElement<{}, HTMLElement>>;
 
-export { domToReact, htmlToDOM };
+export { DomElement, domToReact, htmlToDOM };
+
 export default HTMLReactParser;
