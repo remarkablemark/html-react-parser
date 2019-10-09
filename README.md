@@ -206,11 +206,11 @@ No, this library does **_not_** perform HTML sanitization. See [#124](https://gi
 
 #### Are `<script>` tags parsed?
 
-Although, `<script>` tags and their contents are rendered on the server-side, they are not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
+Although `<script>` tags and their contents are rendered on the server-side, they're not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
 
-#### My HTML attributes aren't getting called.
+#### Why aren't my HTML attributes getting called?
 
-That's because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) like `onclick` are parsed as a _string_ rather than a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
+This is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ instead of a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
 
 ## Testing
 
