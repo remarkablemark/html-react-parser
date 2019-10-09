@@ -160,9 +160,7 @@ const options = {
     if (!attribs) return;
 
     if (attribs.id === 'main') {
-      return (
-        <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>
-      );
+      return <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>;
     }
 
     if (attribs.class === 'prettify') {
@@ -200,11 +198,15 @@ parse('<p><br id="remove"></p>', {
 
 #### Is this library XSS safe?
 
-No, this library does **_not_** sanitize against [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting). See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
+No, this library is **_not_** [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
+
+#### Does this library sanitize invalid HTML?
+
+No, this library does **_not_** perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124).
 
 #### Are `<script>` tags parsed?
 
-No, `<script>` tags are skipped because [react-dom](https://reactjs.org/docs/react-dom.html) does not render the contents. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
+Although, `<script>` tags and their contents are rendered on the server-side, they are not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
 
 #### My HTML attributes aren't getting called.
 
