@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/remarkablemark/html-react-parser/compare/v0.9.1...v0.9.2) (2019-11-04)
+
+
+### Bug Fixes
+
+* refactor TypeScript declaration file for `index.d.ts` ([f1fc00b](https://github.com/remarkablemark/html-react-parser/commit/f1fc00b))
+
+
+### Build System
+
+* **package:** remove `opencollective-postinstall` ([6e0b870](https://github.com/remarkablemark/html-react-parser/commit/6e0b870))
+* **package:** upgrade dependency html-dom-parser@0.2.3 ([891eda4](https://github.com/remarkablemark/html-react-parser/commit/891eda4)), closes [#126](https://github.com/remarkablemark/html-react-parser/issues/126) [remarkablemark/html-dom-parser#18](https://github.com/remarkablemark/html-react-parser/issues/18)
+
+
+
 ### [0.9.1](https://github.com/remarkablemark/html-react-parser/compare/v0.9.0...v0.9.1) (2019-07-09)
 
 
