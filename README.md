@@ -194,6 +194,18 @@ parse('<p><br id="remove"></p>', {
 });
 ```
 
+### library
+
+The `library` option allows you to specify which component library is used to create elements (currently either React or Preact). React is used by default if this option is not specified, or if the given option is unknown.
+
+Here's an example showing how to use Preact:
+
+```js
+parse('<br>', {
+  library: 'preact'
+});
+```
+
 ## FAQ
 
 #### Is this library XSS safe?
