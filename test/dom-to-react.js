@@ -1,5 +1,6 @@
 const assert = require('assert');
 const React = require('react');
+const Preact = require('preact');
 const htmlToDOM = require('html-dom-parser');
 const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
@@ -157,6 +158,13 @@ describe('dom-to-react parser', () => {
         null
       )
     );
+  });
+
+  it('handles using a custom component library', () => {
+    const html = data.html.single;
+    const preactElement = domToReact(htmlToDOM(html), { library: Preact });
+
+    assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
   });
 
   it('does not modify keys for replacement if it has one', () => {

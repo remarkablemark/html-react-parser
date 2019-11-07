@@ -8,6 +8,7 @@ import htmlToDOM from 'html-dom-parser';
 export interface HTMLReactParserOptions {
   // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
   replace(domNode: DomElement): React.ReactElement | object | undefined | false;
+  library?: object;
 }
 
 /**
