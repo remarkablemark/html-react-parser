@@ -267,13 +267,18 @@ Lint files:
 
 ```sh
 $ npm run lint
-$ npm run dtslint
 ```
 
 Fix lint errors:
 
 ```sh
 $ npm run lint:fix
+```
+
+Test TypeScript declaration file for style and correctness:
+
+```sh
+$ npm run lint:dts
 ```
 
 ## Benchmarks
