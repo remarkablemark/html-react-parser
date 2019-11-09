@@ -260,8 +260,9 @@ html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
 
 ### Code Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/remarkablemark/html-react-parser/graphs/contributors"><img src="https://opencollective.com/html-react-parser/contributors.svg?width=890&button=false" /></a>
+This project exists thanks to all the people who contribute. [[Contribute](https://github.com/remarkablemark/html-react-parser/blob/master/CONTRIBUTING.md)].
+
+[![Code Contributors](https://opencollective.com/html-react-parser/contributors.svg?width=890&button=false)](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
 
 ### Financial Contributors
 
@@ -269,22 +270,22 @@ Become a financial contributor and help us sustain our community. [[Contribute](
 
 #### Individuals
 
-<a href="https://opencollective.com/html-react-parser"><img src="https://opencollective.com/html-react-parser/individuals.svg?width=890"></a>
+[![Financial Contributors - Individuals](https://opencollective.com/html-react-parser/individuals.svg?width=890)](https://opencollective.com/html-react-parser)
 
 #### Organizations
 
 Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/html-react-parser/contribute)]
 
-<a href="https://opencollective.com/html-react-parser/organization/0/website"><img src="https://opencollective.com/html-react-parser/organization/0/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/1/website"><img src="https://opencollective.com/html-react-parser/organization/1/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/2/website"><img src="https://opencollective.com/html-react-parser/organization/2/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/3/website"><img src="https://opencollective.com/html-react-parser/organization/3/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/4/website"><img src="https://opencollective.com/html-react-parser/organization/4/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/5/website"><img src="https://opencollective.com/html-react-parser/organization/5/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/6/website"><img src="https://opencollective.com/html-react-parser/organization/6/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/7/website"><img src="https://opencollective.com/html-react-parser/organization/7/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/8/website"><img src="https://opencollective.com/html-react-parser/organization/8/avatar.svg"></a>
-<a href="https://opencollective.com/html-react-parser/organization/9/website"><img src="https://opencollective.com/html-react-parser/organization/9/avatar.svg"></a>
+[![Financial Contributors - Organization 0](https://opencollective.com/html-react-parser/organization/0/avatar.svg)](https://opencollective.com/html-react-parser/organization/0/website)
+[![Financial Contributors - Organization 1](https://opencollective.com/html-react-parser/organization/1/avatar.svg)](https://opencollective.com/html-react-parser/organization/1/website)
+[![Financial Contributors - Organization 2](https://opencollective.com/html-react-parser/organization/2/avatar.svg)](https://opencollective.com/html-react-parser/organization/2/website)
+[![Financial Contributors - Organization 3](https://opencollective.com/html-react-parser/organization/3/avatar.svg)](https://opencollective.com/html-react-parser/organization/3/website)
+[![Financial Contributors - Organization 4](https://opencollective.com/html-react-parser/organization/4/avatar.svg)](https://opencollective.com/html-react-parser/organization/4/website)
+[![Financial Contributors - Organization 5](https://opencollective.com/html-react-parser/organization/5/avatar.svg)](https://opencollective.com/html-react-parser/organization/5/website)
+[![Financial Contributors - Organization 6](https://opencollective.com/html-react-parser/organization/6/avatar.svg)](https://opencollective.com/html-react-parser/organization/6/website)
+[![Financial Contributors - Organization 7](https://opencollective.com/html-react-parser/organization/7/avatar.svg)](https://opencollective.com/html-react-parser/organization/7/website)
+[![Financial Contributors - Organization 8](https://opencollective.com/html-react-parser/organization/8/avatar.svg)](https://opencollective.com/html-react-parser/organization/8/website)
+[![Financial Contributors - Organization 9](https://opencollective.com/html-react-parser/organization/9/avatar.svg)](https://opencollective.com/html-react-parser/organization/9/website)
 
 ## Support
 
