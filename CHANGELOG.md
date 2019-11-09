@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/remarkablemark/html-react-parser/compare/v0.9.2...v0.10.0) (2019-11-09)
+
+
+### Build System
+
+* **package:** upgrade dependency style-to-object@0.3.0 ([87a0486](https://github.com/remarkablemark/html-react-parser/commit/87a0486))
+* **package:** upgrade devDependencies ([aaddf1b](https://github.com/remarkablemark/html-react-parser/commit/aaddf1b))
+
+
+### Features
+
+* **dom-to-react:** support Preact ([c3e77bb](https://github.com/remarkablemark/html-react-parser/commit/c3e77bb))
+
+
+### Tests
+
+* **types:** move TypeScript tests from `lint` to `test` directory ([7c9ab9d](https://github.com/remarkablemark/html-react-parser/commit/7c9ab9d))
+
+
+
 ### [0.9.2](https://github.com/remarkablemark/html-react-parser/compare/v0.9.1...v0.9.2) (2019-11-04)
 
 
