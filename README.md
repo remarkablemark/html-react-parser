@@ -194,6 +194,36 @@ parse('<p><br id="remove"></p>', {
 });
 ```
 
+### library
+
+The `library` option allows you to specify which component library is used to create elements. React is used by default if this option is not specified.
+
+Here's an example showing how to use Preact:
+
+```js
+parse('<br>', {
+  library: require('preact')
+});
+```
+
+Or, using a custom library:
+
+```js
+parse('<br>', {
+  library: {
+    cloneElement: () => {
+      /* ... */
+    },
+    createElement: () => {
+      /* ... */
+    },
+    isValidElement: () => {
+      /* ... */
+    }
+  }
+});
+```
+
 ## FAQ
 
 #### Is this library XSS safe?
