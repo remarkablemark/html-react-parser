@@ -10,13 +10,16 @@
     "types": [],
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": { "html-react-parser": ["."], "html-react-parser/lib/*": ["./lib/*"] },
+    "paths": {
+      "html-react-parser": ["."],
+      "html-react-parser/lib/*": ["./lib/*"]
+    },
     "jsx": "react"
   },
   "files": [
     "index.d.ts",
     "lib/dom-to-react.d.ts",
-    "lint/types/index.test.tsx",
-    "lint/types/lib/dom-to-react.test.tsx"
+    "test/types/index.test.tsx",
+    "test/types/lib/dom-to-react.test.tsx"
   ]
 }
