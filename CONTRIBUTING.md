@@ -44,3 +44,53 @@ Things that will improve the chance that your pull request will be accepted:
 
 [ci]: https://travis-ci.org/remarkablemark/html-react-parser
 [commit]: https://www.conventionalcommits.org/
+
+## Test
+
+Run tests:
+
+```sh
+$ npm test
+```
+
+Run tests with coverage:
+
+```sh
+$ npm run test:coverage
+```
+
+View coverage report in your browser:
+
+```sh
+$ npm run test:coverage:report
+$ open coverage/index.html
+```
+
+## Lint
+
+Lint codebase:
+
+```sh
+$ npm run lint
+```
+
+Fix lint errors:
+
+```sh
+$ npm run lint:fix
+```
+
+Test TypeScript declaration file for style and correctness:
+
+```sh
+$ npm run lint:dts
+```
+
+## Release
+
+Only collaborators with credentials can release and publish:
+
+```sh
+$ npm run release
+$ npm publish && git push --follow-tags
+```

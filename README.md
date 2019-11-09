@@ -242,45 +242,6 @@ Although `<script>` tags and their contents are rendered on the server-side, the
 
 This is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ instead of a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
 
-## Testing
-
-Run tests:
-
-```sh
-$ npm test
-```
-
-Run tests with coverage:
-
-```sh
-$ npm run test:coverage
-```
-
-View coverage in browser:
-
-```sh
-$ npm run test:coverage:report
-$ open coverage/index.html
-```
-
-Lint files:
-
-```sh
-$ npm run lint
-```
-
-Fix lint errors:
-
-```sh
-$ npm run lint:fix
-```
-
-Test TypeScript declaration file for style and correctness:
-
-```sh
-$ npm run lint:dts
-```
-
 ## Benchmarks
 
 ```sh
@@ -293,15 +254,6 @@ Here's an example output of the benchmarks run on a MacBook Pro 2017:
 html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
 html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
 html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
-```
-
-## Release
-
-Only collaborators with credentials can release and publish:
-
-```sh
-$ npm run release
-$ git push --follow-tags && npm publish
 ```
 
 ## Contributors
