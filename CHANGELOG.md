@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.1](https://github.com/remarkablemark/html-react-parser/compare/v0.10.0...v0.10.1) (2020-02-08)
+
+
+### Bug Fixes
+
+* **index:** make `replace` property optional in `index.d.ts` ([801512b](https://github.com/remarkablemark/html-react-parser/commit/801512ba353e46ba931ee018ea8a9ec6c2d5da60)), closes [#134](https://github.com/remarkablemark/html-react-parser/issues/134)
+
 ## [0.10.0](https://github.com/remarkablemark/html-react-parser/compare/v0.9.2...v0.10.0) (2019-11-09)
 
 
