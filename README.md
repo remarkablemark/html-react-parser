@@ -56,11 +56,11 @@ $ yarn add html-react-parser
 Import the module:
 
 ```js
-// CommonJS
-const parse = require('html-react-parser');
-
 // ES Modules
 import parse from 'html-react-parser';
+
+// CommonJS
+const parse = require('html-react-parser');
 ```
 
 Parse single element:
@@ -228,11 +228,11 @@ parse('<br>', {
 
 #### Is this library XSS safe?
 
-No, this library is **_not_** [XSS (Cross-Site Scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
+No, this library is _**not**_ [XSS (cross-site scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
 
 #### Does this library sanitize invalid HTML?
 
-No, this library does **_not_** perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124).
+No, this library does _**not**_ perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124) and [#125](https://github.com/remarkablemark/html-react-parser/issues/125).
 
 #### Are `<script>` tags parsed?
 
@@ -240,7 +240,15 @@ Although `<script>` tags and their contents are rendered on the server-side, the
 
 #### Why aren't my HTML attributes getting called?
 
-This is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ instead of a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
+This is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) like `onclick` are parsed as a _string_ instead of a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
+
+#### The parser throws an error.
+
+Check if your arguments are valid. Also, see ["Does this library sanitize invalid HTML?"](https://github.com/remarkablemark/html-react-parser#does-this-library-sanitize-invalid-html).
+
+#### Does this library support SSR?
+
+Yes, this library supports server-side rendering on Node.js. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
 
 ## Benchmarks
 
