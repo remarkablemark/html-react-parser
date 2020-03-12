@@ -23,3 +23,4 @@ HTMLReactParser.domToReact = domToReact;
 HTMLReactParser.htmlToDOM = htmlToDOM;
 
 module.exports = HTMLReactParser;
+module.exports.default = HTMLReactParser;
