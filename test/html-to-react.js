@@ -3,9 +3,6 @@ const React = require('react');
 const parse = require('../');
 const { data, render } = require('./helpers/');
 
-exports.__esModule = true;
-const ESParser = require('../');
-
 describe('html-to-react', () => {
   describe('parser', () => {
     [undefined, null, {}, [], 42].forEach(value => {
@@ -17,7 +14,7 @@ describe('html-to-react', () => {
     });
 
     it('has default ES Module defined', () => {
-      assert.notEqual(ESParser['default'], undefined);
+      assert.strictEqual(parse.default, parse);
     });
 
     it('returns string if it cannot be parsed as HTML', () => {
