@@ -13,6 +13,10 @@ describe('html-to-react', () => {
       });
     });
 
+    it('has default ES Module defined', () => {
+      assert.strictEqual(parse.default, parse);
+    });
+
     it('returns string if it cannot be parsed as HTML', () => {
       assert.equal(parse('foo'), 'foo');
     });
