@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.2](https://github.com/remarkablemark/html-react-parser/compare/v0.10.1...v0.10.2) (2020-03-13)
+
+
+### Bug Fixes
+
+* **index:** add default export for parser ([6259959](https://github.com/remarkablemark/html-react-parser/commit/62599594de72c12c0c9fe9a8642ee52ed0488734))
+
+
+### Tests
+
+* **html-to-react:** add test to ensure default export for parser ([efba1d4](https://github.com/remarkablemark/html-react-parser/commit/efba1d402000b25b8800e33c2b934351b64bac0c))
+* **html-to-react:** have a stronger assert ([064f0df](https://github.com/remarkablemark/html-react-parser/commit/064f0dfc742f67d57941a02bfdb70a76b56be472))
+
 ### [0.10.1](https://github.com/remarkablemark/html-react-parser/compare/v0.10.0...v0.10.1) (2020-02-08)
 
 
