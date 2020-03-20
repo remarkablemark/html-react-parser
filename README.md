@@ -232,7 +232,7 @@ No, this library is _**not**_ [XSS (cross-site scripting)](https://wikipedia.org
 
 #### Does this library sanitize invalid HTML?
 
-No, this library does _**not**_ perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124) and [#125](https://github.com/remarkablemark/html-react-parser/issues/125).
+No, this library does _**not**_ perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141).
 
 #### Are `<script>` tags parsed?
 
