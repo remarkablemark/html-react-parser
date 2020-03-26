@@ -3,10 +3,7 @@ import domToReact from 'html-react-parser/lib/dom-to-react';
 import * as React from 'react';
 import htmlToDOM from 'html-dom-parser';
 
-/* $ExpectType ReactElement<any, string | ((props: any) => ReactElement<any, string | any | (new (props: any) => Component<any, any, any>)> | null) |
-(new (props: any) => Component<any, any, any>)> |
-ReactElement<any, string | ((props: any) => ReactElement<any, string | any | (new (props: any) => Component<any, any, any>)> | null) |
-(new (props: any) => Component<any, any, any>)>[] */
+/* $ExpectType ReactElement | ReactElement[] */
 domToReact(htmlToDOM('<div>text</div>'));
 
 // `options.replace`
