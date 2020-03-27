@@ -13,11 +13,11 @@ export interface HTMLReactParserOptions {
 }
 
 /**
- * Converts HTML string to React elements.
+ * Converts HTML string to JSX element(s).
  *
- * @param  html    - The HTML string to parse to JSX.
+ * @param  html    - The HTML string to parse to JSX element(s).
  * @param  options - The parser options.
- * @return         - When parsed with HTML string, returns React elements; otherwise, returns string or empty array.
+ * @return         - Single or array of JSX elements.
  */
 declare function HTMLReactParser(
   html: string,
