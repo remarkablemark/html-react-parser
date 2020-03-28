@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.3](https://github.com/remarkablemark/html-react-parser/compare/v0.10.2...v0.10.3) (2020-03-28)
+
+
+### Bug Fixes
+
+* update .d.ts docstrings ([bae05c0](https://github.com/remarkablemark/html-react-parser/commit/bae05c0a00ac4917b8d0d3137098010a13f8377d))
+* use JSX.Element for type definitions ([d8e2ada](https://github.com/remarkablemark/html-react-parser/commit/d8e2adad4410544bbff4b5c9b827225aa96ed5d5))
+
 ### [0.10.2](https://github.com/remarkablemark/html-react-parser/compare/v0.10.1...v0.10.2) (2020-03-13)
 
 
