@@ -1,21 +1,11 @@
 const assert = require('assert');
 const React = require('react');
-const Preact = require('preact');
 const htmlToDOM = require('html-dom-parser');
 const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
 const utilities = require('../lib/utilities');
 
-describe('dom-to-react parser', () => {
-  let actualReactVersion;
-  beforeEach(() => {
-    actualReactVersion = React.version;
-  });
-
-  afterEach(() => {
-    React.version = actualReactVersion;
-  });
-
+describe('dom-to-react', () => {
   it('converts single DOM node to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
@@ -39,7 +29,7 @@ describe('dom-to-react parser', () => {
     ]);
   });
 
-  // https://facebook.github.io/react/docs/forms.html#why-textarea-value
+  // https://reactjs.org/docs/forms.html#the-textarea-tag
   it('converts <textarea> correctly', () => {
     const html = data.html.textarea;
     const reactElement = domToReact(htmlToDOM(html));
@@ -131,7 +121,7 @@ describe('dom-to-react parser', () => {
     ]);
   });
 
-  it("handles svg's with a viewBox", () => {
+  it('converts SVG element with viewBox attribute', () => {
     const html = data.svg.simple;
     const reactElement = domToReact(
       htmlToDOM(html, { lowerCaseAttributeNames: false })
@@ -160,47 +150,61 @@ describe('dom-to-react parser', () => {
     );
   });
 
-  it('handles using a custom component library', () => {
-    const html = data.html.single;
-    const preactElement = domToReact(htmlToDOM(html), { library: Preact });
+  describe('library', () => {
+    const Preact = require('preact');
 
-    assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+    it('converts with Preact instead of React', () => {
+      const html = data.html.single;
+      const preactElement = domToReact(htmlToDOM(html), { library: Preact });
+
+      assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+    });
   });
 
-  it('does not modify keys for replacement if it has one', () => {
-    const html = [data.html.single, data.html.customElement].join('');
-
-    const reactElements = domToReact(htmlToDOM(html), {
-      replace: node => {
-        if (node.name === 'p') {
-          return React.createElement('p', {}, 'replaced foo');
-        }
-        if (node.name === 'custom-button') {
-          return React.createElement(
-            'custom-button',
-            {
-              key: 'myKey',
-              class: 'myClass',
-              'custom-attribute': 'replaced value'
-            },
-            null
-          );
-        }
-      }
+  describe('replace', () => {
+    it("does not set key if there's 1 node", () => {
+      const replaceElement = React.createElement('p');
+      const reactElement = domToReact(htmlToDOM(data.html.single), {
+        replace: () => replaceElement
+      });
+      assert.deepEqual(reactElement, replaceElement);
     });
 
-    assert.deepEqual(reactElements, [
-      React.createElement('p', { key: 0 }, 'replaced foo'),
-      React.createElement(
-        'custom-button',
-        {
-          key: 'myKey',
-          class: 'myClass',
-          'custom-attribute': 'replaced value'
-        },
-        null
-      )
-    ]);
+    it("does not modify keys if it's already set", () => {
+      const html = [data.html.single, data.html.customElement].join('');
+
+      const reactElements = domToReact(htmlToDOM(html), {
+        replace: node => {
+          if (node.name === 'p') {
+            return React.createElement('p', {}, 'replaced foo');
+          }
+          if (node.name === 'custom-button') {
+            return React.createElement(
+              'custom-button',
+              {
+                key: 'myKey',
+                class: 'myClass',
+                'custom-attribute': 'replaced value'
+              },
+              null
+            );
+          }
+        }
+      });
+
+      assert.deepEqual(reactElements, [
+        React.createElement('p', { key: 0 }, 'replaced foo'),
+        React.createElement(
+          'custom-button',
+          {
+            key: 'myKey',
+            class: 'myClass',
+            'custom-attribute': 'replaced value'
+          },
+          null
+        )
+      ]);
+    });
   });
 
   describe('when React <16', () => {
