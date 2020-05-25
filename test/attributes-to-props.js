@@ -171,8 +171,19 @@ describe('attributes-to-props', () => {
     });
   });
 
+  // cssToJs
   describe('style', () => {
-    it('converts inline style to object', () => {
+    it('parses empty inline style to object', () => {
+      assert.deepEqual(attributesToProps({ style: '' }), { style: {} });
+    });
+
+    it('does not parse CSS comment', () => {
+      assert.deepEqual(attributesToProps({ style: '/* comment */' }), {
+        style: {}
+      });
+    });
+
+    it('parses inline style to object', () => {
       assert.deepEqual(
         attributesToProps({
           style:
@@ -220,15 +231,6 @@ describe('attributes-to-props', () => {
         }),
         {
           style: undefined
-        }
-      );
-
-      assert.deepEqual(
-        attributesToProps({
-          style: ''
-        }),
-        {
-          style: {}
         }
       );
     });
