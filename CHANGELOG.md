@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.4](https://github.com/remarkablemark/html-react-parser/compare/v0.10.3...v0.10.4) (2020-05-25)
+
+
+### Tests
+
+* **attributes-to-props:** test that CSS comment is not parsed ([0c27987](https://github.com/remarkablemark/html-react-parser/commit/0c27987ff10fa13f3f2f35ba1aba0b88b0e0d92e))
+* **dom-to-react:** tidy tests and add case for single node replace ([452f6be](https://github.com/remarkablemark/html-react-parser/commit/452f6be01500adffd740b0b1edb7a06790ba46f7))
+* tidy tests, replace `assert.equal` with `assert.strictEqual` ([ef04eff](https://github.com/remarkablemark/html-react-parser/commit/ef04effebdd2f753c99f706599d656b314442d08))
+
 ### [0.10.3](https://github.com/remarkablemark/html-react-parser/compare/v0.10.2...v0.10.3) (2020-03-28)
 
 
