@@ -6,16 +6,7 @@ const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
 const utilities = require('../lib/utilities');
 
-describe('dom-to-react parser', () => {
-  let actualReactVersion;
-  beforeEach(() => {
-    actualReactVersion = React.version;
-  });
-
-  afterEach(() => {
-    React.version = actualReactVersion;
-  });
-
+describe('dom-to-react', () => {
   it('converts single DOM node to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
@@ -39,7 +30,7 @@ describe('dom-to-react parser', () => {
     ]);
   });
 
-  // https://facebook.github.io/react/docs/forms.html#why-textarea-value
+  // https://reactjs.org/docs/forms.html#the-textarea-tag
   it('converts <textarea> correctly', () => {
     const html = data.html.textarea;
     const reactElement = domToReact(htmlToDOM(html));

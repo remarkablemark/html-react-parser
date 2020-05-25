@@ -18,26 +18,26 @@ describe('html-to-react', () => {
     });
 
     it('returns string if it cannot be parsed as HTML', () => {
-      assert.equal(parse('foo'), 'foo');
+      assert.strictEqual(parse('foo'), 'foo');
     });
 
     it('converts single HTML element to React', () => {
       const html = data.html.single;
       const reactElement = parse(html);
-      assert.equal(render(reactElement), html);
+      assert.strictEqual(render(reactElement), html);
     });
 
     it('converts single HTML element and ignores comment', () => {
       const html = data.html.single;
       // comment should be ignored
       const reactElement = parse(html + data.html.comment);
-      assert.equal(render(reactElement), html);
+      assert.strictEqual(render(reactElement), html);
     });
 
     it('converts multiple HTML elements to React', () => {
       const html = data.html.multiple;
       const reactElements = parse(html);
-      assert.equal(
+      assert.strictEqual(
         render(React.createElement('div', {}, reactElements)),
         '<div>' + html + '</div>'
       );
@@ -46,32 +46,32 @@ describe('html-to-react', () => {
     it('converts complex HTML to React', () => {
       const html = data.html.complex;
       const reactElement = parse(data.html.doctype + html);
-      assert.equal(render(reactElement), html);
+      assert.strictEqual(render(reactElement), html);
     });
 
     it('converts empty <script> to React', () => {
       const html = '<script></script>';
       const reactElement = parse(html);
-      assert.equal(render(reactElement), html);
+      assert.strictEqual(render(reactElement), html);
     });
 
     it('converts empty <style> to React', () => {
       const html = '<style></style>';
       const reactElement = parse(html);
-      assert.equal(render(reactElement), html);
+      assert.strictEqual(render(reactElement), html);
     });
 
     it('converts SVG to React', () => {
       const svg = data.svg.complex;
       const reactElement = parse(svg);
-      assert.equal(render(reactElement), svg);
+      assert.strictEqual(render(reactElement), svg);
     });
 
     it('decodes HTML entities', () => {
       const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
       const decodedEntities = "asdf & ÿ ü '";
       const reactElement = parse('<i>' + encodedEntities + '</i>');
-      assert.equal(reactElement.props.children, decodedEntities);
+      assert.strictEqual(reactElement.props.children, decodedEntities);
     });
   });
 
@@ -86,7 +86,7 @@ describe('html-to-react', () => {
             }
           }
         });
-        assert.equal(
+        assert.strictEqual(
           render(reactElement),
           html.replace('<title>Title</title>', '<title>Replaced Title</title>')
         );
@@ -118,6 +118,6 @@ describe('html-to-react', () => {
 
 describe('dom-to-react', () => {
   it('exports domToReact', () => {
-    assert.equal(parse.domToReact, require('../lib/dom-to-react'));
+    assert.strictEqual(parse.domToReact, require('../lib/dom-to-react'));
   });
 });
