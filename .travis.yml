@@ -12,7 +12,7 @@ script:
   - npm run build
   - npm run benchmark
 after_success:
-  - npm run coveralls
+  - npx nyc report --reporter=text-lcov | npx coveralls
 cache:
   directories:
     - node_modules
