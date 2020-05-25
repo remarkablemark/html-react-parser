@@ -234,20 +234,6 @@ describe('attributes-to-props', () => {
         }
       );
     });
-
-    [Object, Array, Number, Date, Function].forEach(type => {
-      it(`throws an error when attributes.style=${type.name}`, () => {
-        assert.throws(
-          () => {
-            attributesToProps({ style: type });
-          },
-          {
-            name: 'TypeError',
-            message: 'First argument must be a string.'
-          }
-        );
-      });
-    });
   });
 
   describe('custom', () => {
