@@ -7,10 +7,10 @@ var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
 /**
  * Converts HTML string to React elements.
  *
- * @param  {String}   html              - The HTML string to parse to React.
- * @param  {Object}   [options]         - The parser options.
- * @param  {Function} [options.replace] - The replace method.
- * @return {ReactElement|Array|String}  - When parsed with HTML string, returns React elements; otherwise, returns string or empty array.
+ * @param  {String}   html                    - The HTML string to parse to React.
+ * @param  {Object}   [options]               - The parser options.
+ * @param  {Function} [options.replace]       - The replace method.
+ * @return {JSX.Element|JSX.Element[]|String} - Returns React element(s), string, or empty array.
  */
 function HTMLReactParser(html, options) {
   if (typeof html !== 'string') {
@@ -22,5 +22,6 @@ function HTMLReactParser(html, options) {
 HTMLReactParser.domToReact = domToReact;
 HTMLReactParser.htmlToDOM = htmlToDOM;
 
+// support CommonJS and ES Modules
 module.exports = HTMLReactParser;
 module.exports.default = HTMLReactParser;
