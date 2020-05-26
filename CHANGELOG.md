@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.5](https://github.com/remarkablemark/html-react-parser/compare/v0.10.4...v0.10.5) (2020-05-26)
+
+
+### Tests
+
+* **html-to-react:** tidy and organize tests in html-to-react.js ([8dfbfe0](https://github.com/remarkablemark/html-react-parser/commit/8dfbfe03a65f900b2661dc80227883a77bef766c))
+
+
+### Build System
+
+* **package:** add missing peerDependency `typescript` ([91fb693](https://github.com/remarkablemark/html-react-parser/commit/91fb693c9ca9e4c473b1f532d0e03e6c42b90916))
+* **package:** upgrade devDependencies ([b2dc83b](https://github.com/remarkablemark/html-react-parser/commit/b2dc83b9834b70424c1525d5b30b7c6c32016838))
+* **rollup:** upgrade rollup, consolidate config, remove cross-env ([55b2b4e](https://github.com/remarkablemark/html-react-parser/commit/55b2b4e7a647e9829e89a45524ece86d0ab620bd))
+
 ### [0.10.4](https://github.com/remarkablemark/html-react-parser/compare/v0.10.3...v0.10.4) (2020-05-25)
 
 
