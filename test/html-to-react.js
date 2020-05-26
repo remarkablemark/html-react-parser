@@ -1,9 +1,23 @@
 const assert = require('assert');
 const React = require('react');
-const parse = require('../');
+const parse = require('..');
 const { data, render } = require('./helpers/');
 
 describe('html-to-react', () => {
+  describe('exports', () => {
+    it('has default ES Module', () => {
+      assert.strictEqual(parse.default, parse);
+    });
+
+    it('has domToReact', () => {
+      assert.strictEqual(parse.domToReact, require('../lib/dom-to-react'));
+    });
+
+    it('contains htmlToDOM', () => {
+      assert.strictEqual(parse.htmlToDOM, require('html-dom-parser'));
+    });
+  });
+
   describe('parser', () => {
     [undefined, null, {}, [], 42].forEach(value => {
       it(`throws an error if first argument is ${value}`, () => {
@@ -11,10 +25,6 @@ describe('html-to-react', () => {
           parse(value);
         }, TypeError);
       });
-    });
-
-    it('has default ES Module defined', () => {
-      assert.strictEqual(parse.default, parse);
     });
 
     it('returns string if it cannot be parsed as HTML', () => {
@@ -77,7 +87,7 @@ describe('html-to-react', () => {
 
   describe('options', () => {
     describe('replace', () => {
-      it('overrides the element if replace is valid', () => {
+      it('overrides the element if a valid React element is returned', () => {
         const html = data.html.complex;
         const reactElement = parse(html, {
           replace: node => {
@@ -92,7 +102,7 @@ describe('html-to-react', () => {
         );
       });
 
-      it('does not override the element if replace is invalid', () => {
+      it('does not override the element if an invalid React element is returned', () => {
         const html = data.html.complex;
         const reactElement = parse(html, {
           replace: node => {
@@ -113,11 +123,5 @@ describe('html-to-react', () => {
         );
       });
     });
-  });
-});
-
-describe('dom-to-react', () => {
-  it('exports domToReact', () => {
-    assert.strictEqual(parse.domToReact, require('../lib/dom-to-react'));
   });
 });
