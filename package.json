@@ -48,7 +48,7 @@
     "dtslint": "^2.0.0",
     "eslint": "^7.1.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.9",
+    "husky": "^4.2.5",
     "lint-staged": "^10.2.6",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
