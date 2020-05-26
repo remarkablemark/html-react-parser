@@ -58,7 +58,8 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
-    "standard-version": "^6"
+    "standard-version": "^6",
+    "typescript": "^3.9.3"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15 || ^16"
