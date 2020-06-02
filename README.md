@@ -307,6 +307,7 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## Support
 
+- [GitHub Sponsors](https://b.remarkabl.org/github-sponsors)
 - [Patreon](https://b.remarkabl.org/patreon)
 - [Open Collective](https://b.remarkabl.org/open-collective-html-react-parser)
 - [Ko-fi](https://b.remarkabl.org/ko-fi)
