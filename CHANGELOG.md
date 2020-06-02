@@ -1,8 +1,18 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.10.5](https://github.com/remarkablemark/html-react-parser/compare/v0.10.4...v0.10.5) (2020-05-26)
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/remarkablemark/html-react-parser/compare/v0.10.5...v0.11.0) (2020-06-02)
+
+
+### Features
+
+* **package:** upgrade html-dom-parser@0.3.0 ([d30bfdc](https://github.com/remarkablemark/html-react-parser/commit/d30bfdc))
+
+
+
+## [0.10.5](https://github.com/remarkablemark/html-react-parser/compare/v0.10.4...v0.10.5) (2020-05-26)
 
 
 ### Tests
