@@ -110,7 +110,7 @@ The first argument is an object with the same output as [htmlparser2](https://gi
 
 ```js
 parse('<br>', {
-  replace: function(domNode) {
+  replace: function (domNode) {
     console.dir(domNode, { depth: null });
   }
 });
@@ -249,6 +249,16 @@ Check if your arguments are valid. Also, see ["Does this library sanitize invali
 #### Does this library support SSR?
 
 Yes, this library supports server-side rendering on Node.js. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
+
+#### Why are my elements nested incorrectly?
+
+Make sure your [HTML markup is valid](https://validator.w3.org/). The HTML to DOM parsing will be affected if you're using self-closing syntax (`/>`) on non-void elements:
+
+```js
+parse('<div /><div />'); // returns single element instead of array of elements
+```
+
+See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
 
 ## Benchmarks
 
