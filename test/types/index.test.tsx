@@ -5,8 +5,20 @@ import parse, {
 } from 'html-react-parser';
 import * as React from 'react';
 
+// $ExpectError
+parse();
+
+// $ExpectType Element | Element[]
+parse('');
+
+// $ExpectType Element | Element[]
+parse('string');
+
 // $ExpectType Element | Element[]
 parse('<p>text</p>');
+
+// $ExpectType Element | Element[]
+parse('<li>1</li><li>2</li>');
 
 // $ExpectType Element | Element[]
 parse('<br id="replace">', {
