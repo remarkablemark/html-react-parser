@@ -43,6 +43,7 @@
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@types/react": "^16.9.35",
+    "@typescript-eslint/parser": "^3.1.0",
     "benchmark": "^2.1.4",
     "dtslint": "^3.6.10",
     "eslint": "^7.1.0",
