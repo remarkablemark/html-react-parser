@@ -1,6 +1,6 @@
 // TypeScript Version: 3.3
 
-import { DomElement } from 'domhandler';
+import { DomElement } from 'htmlparser2';
 import domToReact from './lib/dom-to-react';
 import htmlToDOM from 'html-dom-parser';
 
