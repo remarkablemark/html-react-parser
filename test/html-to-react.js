@@ -27,6 +27,10 @@ describe('html-to-react', () => {
       });
     });
 
+    it('converts empty string to empty array', () => {
+      assert.deepEqual(parse(''), []);
+    });
+
     it('returns string if it cannot be parsed as HTML', () => {
       assert.strictEqual(parse('foo'), 'foo');
     });
