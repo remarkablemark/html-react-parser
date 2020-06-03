@@ -1,43 +1,67 @@
-import parse, { HTMLReactParserOptions, domToReact, htmlToDOM } from 'html-react-parser';
+import parse, {
+  HTMLReactParserOptions,
+  domToReact,
+  htmlToDOM
+} from 'html-react-parser';
 import * as React from 'react';
 
-/* $ExpectType ReactElement | ReactElement[] */
-parse('<div>text</div>');
+// $ExpectError
+parse();
 
-// `options.replace`
+// $ExpectType Element | Element[]
+parse('');
 
-// Return React.createElement from `replace`
-parse('<p id="replace">text</p>', {
+// $ExpectType Element | Element[]
+parse('string');
+
+// $ExpectType Element | Element[]
+parse('<p>text</p>');
+
+// $ExpectType Element | Element[]
+parse('<li>1</li><li>2</li>');
+
+// $ExpectType Element | Element[]
+parse('<br id="replace">', {
   replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
-      return React.createElement('span', {}, 'replaced');
+      return <span>replaced</span>;
     }
   }
 });
 
-// Return ReactElement
-const options: HTMLReactParserOptions = {
+// $ExpectType Element | Element[]
+parse('<br id="remove">', {
   replace({ attribs }) {
-    return attribs && attribs.id === 'remove' && <React.Fragment />;
+    return attribs && attribs.id === 'remove' && <></>;
+  }
+});
+
+let options: HTMLReactParserOptions;
+
+options = {
+  replace: node => {
+    if (node.attribs && node.attribs.id === 'header') {
+      return;
+    }
   }
 };
 
-parse('<p><br id="remove"></p>', options);
+// $ExpectType Element | Element[]
+parse('<a id="header" href="#">Heading</a>', options);
 
-// Return domhandler node
-parse('<a id="header" href="#">Heading</a>', {
-  replace: node => {
-    if (node.attribs && node.attribs.id === 'header') {
-      return {
-        type: 'h1',
-        props: { children: 'Heading' }
-      };
-    }
+// $ExpectType Element | Element[]
+parse('<hr>', {
+  library: {
+    cloneElement: (element, props, children) =>
+      React.cloneElement(element, props, children),
+    createElement: (type, props, children) =>
+      React.createElement(type, props, children),
+    isValidElement: element => React.isValidElement(element)
   }
 });
 
 // $ExpectType DomElement[]
-const dom = htmlToDOM('<div>text</div>');
+const domNodes = htmlToDOM('<div>text</div>');
 
-/* $ExpectType ReactElement | ReactElement[] */
-domToReact(dom);
+// $ExpectType Element | Element[]
+domToReact(domNodes);

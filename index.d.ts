@@ -5,19 +5,27 @@ import domToReact from './lib/dom-to-react';
 import htmlToDOM from 'html-dom-parser';
 
 export interface HTMLReactParserOptions {
-  // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
   replace?: (
     domNode: DomElement
   ) => JSX.Element | object | void | undefined | null | false;
-  library?: object;
+  library?: {
+    cloneElement: (
+      element: JSX.Element,
+      props?: object,
+      ...children: any
+    ) => JSX.Element;
+    createElement: (type: any, props?: object, ...children: any) => JSX.Element;
+    isValidElement: (element: any) => boolean;
+    [key: string]: any;
+  };
 }
 
 /**
  * Converts HTML string to JSX element(s).
  *
- * @param  html    - The HTML string to parse to JSX element(s).
- * @param  options - The parser options.
- * @return         - Single or array of JSX elements.
+ * @param  html    - HTML string to parse to JSX element(s).
+ * @param  options - Parser options.
+ * @return         - JSX element(s).
  */
 declare function HTMLReactParser(
   html: string,

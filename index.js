@@ -16,6 +16,9 @@ function HTMLReactParser(html, options) {
   if (typeof html !== 'string') {
     throw new TypeError('First argument must be a string');
   }
+  if (html === '') {
+    return [];
+  }
   return domToReact(htmlToDOM(html, domParserOptions), options);
 }
 

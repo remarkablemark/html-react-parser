@@ -2,7 +2,7 @@ const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
-describe('attributes-to-props', () => {
+describe('attributes to props', () => {
   describe('HTML', () => {
     it('converts attributes to React props', () => {
       assert.deepEqual(

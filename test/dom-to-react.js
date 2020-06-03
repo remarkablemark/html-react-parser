@@ -5,7 +5,7 @@ const domToReact = require('../lib/dom-to-react');
 const { data, render } = require('./helpers/');
 const utilities = require('../lib/utilities');
 
-describe('dom-to-react', () => {
+describe('DOM to React', () => {
   it('converts single DOM node to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
