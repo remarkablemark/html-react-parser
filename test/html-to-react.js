@@ -127,5 +127,15 @@ describe('HTML to React', () => {
         );
       });
     });
+
+    describe('library', () => {
+      it('converts with Preact instead of React', () => {
+        const Preact = require('preact');
+        const html = data.html.single;
+        const options = { library: Preact };
+        const preactElement = parse(html, options);
+        assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+      });
+    });
   });
 });
