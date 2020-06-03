@@ -5,11 +5,19 @@ import domToReact from './lib/dom-to-react';
 import htmlToDOM from 'html-dom-parser';
 
 export interface HTMLReactParserOptions {
-  // TODO: Replace `object` by type for objects like `{ type: 'h1', props: { children: 'Heading' } }`
   replace?: (
     domNode: DomElement
   ) => JSX.Element | object | void | undefined | null | false;
-  library?: object;
+  library?: {
+    cloneElement: (
+      element: JSX.Element,
+      props?: object,
+      ...children: any
+    ) => JSX.Element;
+    createElement: (type: any, props?: object, ...children: any) => JSX.Element;
+    isValidElement: (element: any) => boolean;
+    [key: string]: any;
+  };
 }
 
 /**
