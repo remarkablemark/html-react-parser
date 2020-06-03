@@ -3,7 +3,7 @@ const React = require('react');
 const parse = require('..');
 const { data, render } = require('./helpers/');
 
-describe('html-to-react', () => {
+describe('HTML to React', () => {
   describe('exports', () => {
     it('has default ES Module', () => {
       assert.strictEqual(parse.default, parse);
@@ -13,7 +13,7 @@ describe('html-to-react', () => {
       assert.strictEqual(parse.domToReact, require('../lib/dom-to-react'));
     });
 
-    it('contains htmlToDOM', () => {
+    it('has htmlToDOM', () => {
       assert.strictEqual(parse.htmlToDOM, require('html-dom-parser'));
     });
   });
