@@ -1,13 +1,12 @@
 // TypeScript Version: 3.3
 
-import { DomElement } from 'htmlparser2';
+import { DomElement, ParserOptions } from 'htmlparser2';
 import domToReact from './lib/dom-to-react';
 import htmlToDOM from 'html-dom-parser';
 
 export interface HTMLReactParserOptions {
-  replace?: (
-    domNode: DomElement
-  ) => JSX.Element | object | void | undefined | null | false;
+  htmlparser2?: ParserOptions;
+
   library?: {
     cloneElement: (
       element: JSX.Element,
@@ -18,6 +17,10 @@ export interface HTMLReactParserOptions {
     isValidElement: (element: any) => boolean;
     [key: string]: any;
   };
+
+  replace?: (
+    domNode: DomElement
+  ) => JSX.Element | object | void | undefined | null | false;
 }
 
 /**
@@ -32,6 +35,6 @@ declare function HTMLReactParser(
   options?: HTMLReactParserOptions
 ): ReturnType<typeof domToReact>;
 
-export { DomElement, domToReact, htmlToDOM };
+export { DomElement, ParserOptions, domToReact, htmlToDOM };
 
 export default HTMLReactParser;
