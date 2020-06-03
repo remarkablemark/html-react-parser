@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/remarkablemark/html-react-parser/compare/v0.11.0...v0.11.1) (2020-06-03)
+
+
+### Performance Improvements
+
+* **index:** return empty array if first argument is empty string ([7f61f97](https://github.com/remarkablemark/html-react-parser/commit/7f61f97))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/remarkablemark/html-react-parser/compare/v0.10.5...v0.11.0) (2020-06-02)
 
