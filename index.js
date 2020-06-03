@@ -9,6 +9,7 @@ var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
  *
  * @param  {String}   html                    - HTML string.
  * @param  {Object}   [options]               - Parser options.
+ * @param  {Object}   [options.htmlparser2]   - htmlparser2 options.
  * @param  {Object}   [options.library]       - Library for React, Preact, etc.
  * @param  {Function} [options.replace]       - Replace method.
  * @return {JSX.Element|JSX.Element[]|String} - React element(s), empty array, or string.
@@ -20,7 +21,11 @@ function HTMLReactParser(html, options) {
   if (html === '') {
     return [];
   }
-  return domToReact(htmlToDOM(html, domParserOptions), options);
+  options = options || {};
+  return domToReact(
+    htmlToDOM(html, options.htmlparser2 || domParserOptions),
+    options
+  );
 }
 
 HTMLReactParser.domToReact = domToReact;
