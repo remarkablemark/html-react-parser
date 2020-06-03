@@ -6,9 +6,9 @@ import { DomElement } from 'domhandler';
 /**
  * Converts DOM nodes to JSX element(s).
  *
- * @param nodes - An array of DomNodes to convert to JSX element(s).
- * @param options - Options to use when converting to JSX.
- * @returns Single or array of JSX elements.
+ * @param nodes   - DOM nodes.
+ * @param options - Parser options.
+ * @returns       - JSX element(s).
  */
 export default function domToReact(
   nodes: DomElement[],
