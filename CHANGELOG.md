@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/remarkablemark/html-react-parser/compare/v0.11.1...v0.12.0) (2020-06-04)
+
+
+### Features
+
+* **index:** add htmlparser2 type to HTMLReactParserOptions ([81f74fb](https://github.com/remarkablemark/html-react-parser/commit/81f74fb))
+* **index:** add options.htmlparser2 ([c4ecf64](https://github.com/remarkablemark/html-react-parser/commit/c4ecf64))
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/remarkablemark/html-react-parser/compare/v0.11.0...v0.11.1) (2020-06-03)
 
