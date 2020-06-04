@@ -60,6 +60,18 @@ parse('<hr>', {
   }
 });
 
+// $ExpectType Element | Element[]
+parse('<p/><p/>', {
+  htmlparser2: {
+    xmlMode: true,
+    decodeEntities: true,
+    lowerCaseTags: false,
+    lowerCaseAttributeNames: false,
+    recognizeCDATA: true,
+    recognizeSelfClosing: true
+  }
+});
+
 // $ExpectType DomElement[]
 const domNodes = htmlToDOM('<div>text</div>');
 

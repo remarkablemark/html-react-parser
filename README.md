@@ -106,7 +106,7 @@ parse(
 
 The `replace` callback allows you to swap an element with another React element.
 
-The first argument is an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2)'s [domhandler](https://github.com/fb55/domhandler#example):
+The first argument is an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1)'s [domhandler](https://github.com/fb55/domhandler#example):
 
 ```js
 parse('<br>', {
@@ -223,6 +223,34 @@ parse('<br>', {
   }
 });
 ```
+
+### htmlparser2
+
+This library passes the following options to [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1) on the server-side:
+
+```js
+{
+  decodeEntities: true,
+  lowerCaseAttributeNames: false
+}
+```
+
+By passing your own options, the default library options will be **replaced** (not merged).
+
+As a result, to enable `decodeEntities` and `xmlMode`, you need to do the following:
+
+```js
+parse('<p /><p />', {
+  htmlparser2: {
+    decodeEntities: true,
+    xmlMode: true
+  }
+});
+```
+
+See [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options).
+
+> **Warning**: By overriding htmlparser2 options, there's a chance of breaking universal rendering. Do this at your own risk.
 
 ## FAQ
 

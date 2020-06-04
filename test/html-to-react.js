@@ -127,5 +127,30 @@ describe('HTML to React', () => {
         );
       });
     });
+
+    describe('library', () => {
+      it('converts with Preact instead of React', () => {
+        const Preact = require('preact');
+        const html = data.html.single;
+        const options = { library: Preact };
+        const preactElement = parse(html, options);
+        assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+      });
+    });
+
+    describe('htmlparser2', () => {
+      it('parses XHTML with xmlMode enabled', () => {
+        // using self-closing syntax (`/>`) for non-void elements is invalid
+        // which causes elements to nest instead of being rendered correctly
+        // enabling htmlparser2 option xmlMode resolves this issue
+        const html = '<ul><li/><li/></ul>';
+        const options = { htmlparser2: { xmlMode: true } };
+        const reactElements = parse(html, options);
+        assert.strictEqual(
+          render(reactElements),
+          '<ul><li></li><li></li></ul>'
+        );
+      });
+    });
   });
 });
