@@ -252,6 +252,32 @@ See [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-option
 
 > **Warning**: By overriding htmlparser2 options, there's a chance of breaking universal rendering. Do this at your own risk.
 
+### trim
+
+Normally, whitespace is preserved:
+
+```js
+parse('<br>\n'); // [React.createElement('br'), '\n']
+```
+
+By enabling the `trim` option, whitespace text nodes will be skipped:
+
+```js
+parse('<br>\n', { trim: true }); // React.createElement('br')
+```
+
+This addresses the warning:
+
+```
+Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of <table>. Make sure you don't have any extra whitespace between tags on each line of your source code.
+```
+
+However, this option may strip out intentional whitespace:
+
+```js
+parse('<p> </p>', { trim: true }); // React.createElement('p')
+```
+
 ## FAQ
 
 #### Is this library XSS safe?
@@ -287,6 +313,10 @@ parse('<div /><div />'); // returns single element instead of array of elements
 ```
 
 See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
+
+#### I get "Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table."
+
+Enable the [trim](https://github.com/remarkablemark/html-react-parser#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
 
 ## Benchmarks
 
