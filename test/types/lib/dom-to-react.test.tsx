@@ -38,3 +38,6 @@ domToReact(htmlToDOM('<a id="header" href="#">Heading</a>'), {
     }
   }
 });
+
+// $ExpectType Element | Element[]
+domToReact(htmlToDOM('\t<p>text \r</p>\n'), { trim: true });
