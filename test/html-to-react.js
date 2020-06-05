@@ -152,5 +152,27 @@ describe('HTML to React', () => {
         );
       });
     });
+
+    describe('trim', () => {
+      it('preserves whitespace text nodes when disabled (default)', () => {
+        const html = `<table>
+  <tbody>
+  </tbody>
+</table>`;
+        const reactElement = parse(html);
+        assert.strictEqual(render(reactElement), html);
+      });
+
+      it('removes whitespace text nodes when enabled', () => {
+        const html = `<table>
+      <tbody><tr><td> text </td><td> </td>\t</tr>\r</tbody>\n</table>`;
+        const options = { trim: true };
+        const reactElement = parse(html, options);
+        assert.strictEqual(
+          render(reactElement),
+          '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>'
+        );
+      });
+    });
   });
 });
