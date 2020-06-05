@@ -21,6 +21,8 @@ export interface HTMLReactParserOptions {
   replace?: (
     domNode: DomElement
   ) => JSX.Element | object | void | undefined | null | false;
+
+  trim?: boolean;
 }
 
 /**
