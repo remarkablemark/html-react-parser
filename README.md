@@ -318,6 +318,27 @@ See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
 
 Enable the [trim](https://github.com/remarkablemark/html-react-parser#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
 
+#### Don't change case of tags.
+
+Tags are lowercased by default. To prevent that from happening, pass the [htmlparser2 option](https://github.com/remarkablemark/html-react-parser#htmlparser2):
+
+```js
+const options = {
+  htmlparser2: {
+    lowerCaseTags: false
+  }
+};
+parse('<CustomElement>', options); // React.createElement('CustomElement')
+```
+
+> **Warning**: By preserving case-sensitivity of the tags, you may get rendering warnings like:
+>
+> ```
+> Warning: <CustomElement> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
+> ```
+
+See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://repl.it/@remarkablemark/html-react-parser-62).
+
 ## Benchmarks
 
 ```sh
