@@ -33,7 +33,7 @@ All notable changes to this project will be documented in this file. See [standa
 - **package:** upgrade devDependencies ([b2dc83b](https://github.com/remarkablemark/html-react-parser/commit/b2dc83b9834b70424c1525d5b30b7c6c32016838))
 - **rollup:** upgrade rollup, consolidate config, remove cross-env ([55b2b4e](https://github.com/remarkablemark/html-react-parser/commit/55b2b4e7a647e9829e89a45524ece86d0ab620bd))
 
-### [0.10.4](https://github.com/remarkablemark/html-react-parser/compare/v0.10.3...v0.10.4) (2020-05-25)
+## [0.10.4](https://github.com/remarkablemark/html-react-parser/compare/v0.10.3...v0.10.4) (2020-05-25)
 
 ### Tests
 
@@ -41,14 +41,14 @@ All notable changes to this project will be documented in this file. See [standa
 - **dom-to-react:** tidy tests and add case for single node replace ([452f6be](https://github.com/remarkablemark/html-react-parser/commit/452f6be01500adffd740b0b1edb7a06790ba46f7))
 - tidy tests, replace `assert.equal` with `assert.strictEqual` ([ef04eff](https://github.com/remarkablemark/html-react-parser/commit/ef04effebdd2f753c99f706599d656b314442d08))
 
-### [0.10.3](https://github.com/remarkablemark/html-react-parser/compare/v0.10.2...v0.10.3) (2020-03-28)
+## [0.10.3](https://github.com/remarkablemark/html-react-parser/compare/v0.10.2...v0.10.3) (2020-03-28)
 
 ### Bug Fixes
 
 - update .d.ts docstrings ([bae05c0](https://github.com/remarkablemark/html-react-parser/commit/bae05c0a00ac4917b8d0d3137098010a13f8377d))
 - use JSX.Element for type definitions ([d8e2ada](https://github.com/remarkablemark/html-react-parser/commit/d8e2adad4410544bbff4b5c9b827225aa96ed5d5))
 
-### [0.10.2](https://github.com/remarkablemark/html-react-parser/compare/v0.10.1...v0.10.2) (2020-03-13)
+## [0.10.2](https://github.com/remarkablemark/html-react-parser/compare/v0.10.1...v0.10.2) (2020-03-13)
 
 ### Bug Fixes
 
@@ -59,7 +59,7 @@ All notable changes to this project will be documented in this file. See [standa
 - **html-to-react:** add test to ensure default export for parser ([efba1d4](https://github.com/remarkablemark/html-react-parser/commit/efba1d402000b25b8800e33c2b934351b64bac0c))
 - **html-to-react:** have a stronger assert ([064f0df](https://github.com/remarkablemark/html-react-parser/commit/064f0dfc742f67d57941a02bfdb70a76b56be472))
 
-### [0.10.1](https://github.com/remarkablemark/html-react-parser/compare/v0.10.0...v0.10.1) (2020-02-08)
+## [0.10.1](https://github.com/remarkablemark/html-react-parser/compare/v0.10.0...v0.10.1) (2020-02-08)
 
 ### Bug Fixes
 
@@ -80,7 +80,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 - **types:** move TypeScript tests from `lint` to `test` directory ([7c9ab9d](https://github.com/remarkablemark/html-react-parser/commit/7c9ab9d))
 
-### [0.9.2](https://github.com/remarkablemark/html-react-parser/compare/v0.9.1...v0.9.2) (2019-11-04)
+## [0.9.2](https://github.com/remarkablemark/html-react-parser/compare/v0.9.1...v0.9.2) (2019-11-04)
 
 ### Bug Fixes
 
@@ -91,7 +91,7 @@ All notable changes to this project will be documented in this file. See [standa
 - **package:** remove `opencollective-postinstall` ([6e0b870](https://github.com/remarkablemark/html-react-parser/commit/6e0b870))
 - **package:** upgrade dependency html-dom-parser@0.2.3 ([891eda4](https://github.com/remarkablemark/html-react-parser/commit/891eda4)), closes [#126](https://github.com/remarkablemark/html-react-parser/issues/126)
 
-### [0.9.1](https://github.com/remarkablemark/html-react-parser/compare/v0.9.0...v0.9.1) (2019-07-09)
+## [0.9.1](https://github.com/remarkablemark/html-react-parser/compare/v0.9.0...v0.9.1) (2019-07-09)
 
 ### Build System
 
@@ -117,7 +117,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 - **attributes-to-props:** improve test names ([17fbdfd](https://github.com/remarkablemark/html-react-parser/commit/17fbdfd))
 
-### [0.8.1](https://github.com/remarkablemark/html-react-parser/compare/v0.8.0...v0.8.1) (2019-07-03)
+## [0.8.1](https://github.com/remarkablemark/html-react-parser/compare/v0.8.0...v0.8.1) (2019-07-03)
 
 ### Tests
 
@@ -241,7 +241,7 @@ All notable changes to this project will be documented in this file. See [standa
 - **attributes-to-props.js:** Use AST to transform style attributes into an style object ([68cd565](https://github.com/remarkablemark/html-react-parser/commit/68cd565))
 - **utilities.js:** Format string to lowercase before converting to camel case and assert the string is a string ([4522666](https://github.com/remarkablemark/html-react-parser/commit/4522666))
 
-## [0.4.0](https://github.com/remarkablemark/html-react-parser/compare/v0.3.6...v0.4.0) - 2017-10-01
+## [0.4.0](https://github.com/remarkablemark/html-react-parser/compare/v0.3.6...v0.4.0) (2017-10-01)
 
 ### Added
 
@@ -250,7 +250,7 @@ All notable changes to this project will be documented in this file. See [standa
   - Upgrade devDependencies of `react` and `react-dom` to 16
   - Update README and examples
 
-## [0.3.6](https://github.com/remarkablemark/html-react-parser/compare/v0.3.5...v0.3.6) - 2017-09-30
+## [0.3.6](https://github.com/remarkablemark/html-react-parser/compare/v0.3.5...v0.3.6) (2017-09-30)
 
 ### Changed
 
@@ -260,7 +260,7 @@ All notable changes to this project will be documented in this file. See [standa
   - Set react and react-dom versions to `^15.4`
     - Version 16 no longer exposes `HTMLDOMPropertyConfig` and `SVGDOMPropertyConfig`
 
-## [0.3.5](https://github.com/remarkablemark/html-react-parser/compare/v0.3.4...v0.3.5) - 2017-06-26
+## [0.3.5](https://github.com/remarkablemark/html-react-parser/compare/v0.3.4...v0.3.5) (2017-06-26)
 
 ### Changed
 
@@ -271,7 +271,7 @@ All notable changes to this project will be documented in this file. See [standa
   - webpack@3.0.0
 - Update webpack to enable scope hoisting
 
-## [0.3.4](https://github.com/remarkablemark/html-react-parser/compare/v0.3.3...v0.3.4) - 2017-06-17
+## [0.3.4](https://github.com/remarkablemark/html-react-parser/compare/v0.3.3...v0.3.4) (2017-06-17)
 
 ### Changed
 
@@ -287,7 +287,7 @@ All notable changes to this project will be documented in this file. See [standa
 - Dependencies:
   - jsdomify
 
-## [0.3.3](https://github.com/remarkablemark/html-react-parser/compare/v0.3.2...v0.3.3) - 2017-01-27
+## [0.3.3](https://github.com/remarkablemark/html-react-parser/compare/v0.3.2...v0.3.3) (2017-01-27)
 
 ### Added
 
@@ -298,25 +298,25 @@ All notable changes to this project will be documented in this file. See [standa
 - Update examples to load parser from relative `dist/` directory ([#36](https://github.com/remarkablemark/html-react-parser/issues/36))
 - Removed unnecessary field "browser" in `package.json` ([#36](https://github.com/remarkablemark/html-react-parser/issues/36))
 
-## [0.3.2](https://github.com/remarkablemark/html-react-parser/compare/v0.3.1...v0.3.2) - 2017-01-26
+## [0.3.2](https://github.com/remarkablemark/html-react-parser/compare/v0.3.1...v0.3.2) (2017-01-26)
 
 ### Fixed
 
 - Decode HTML entities by default on node ([#34](https://github.com/remarkablemark/html-react-parser/issues/34))
 
-## [0.3.1](https://github.com/remarkablemark/html-react-parser/compare/v0.3.0...v0.3.1) - 2017-01-10
+## [0.3.1](https://github.com/remarkablemark/html-react-parser/compare/v0.3.0...v0.3.1) (2017-01-10)
 
 ### Changed
 
 - Updated README by fixing CDN installation instructions and adding JSFiddle
 
-## [0.3.0](https://github.com/remarkablemark/html-react-parser/compare/v0.2.0...v0.3.0) - 2016-11-18
+## [0.3.0](https://github.com/remarkablemark/html-react-parser/compare/v0.2.0...v0.3.0) (2016-11-18)
 
 ### Changed
 
 - Upgrade `react` and `react-dom` to >15.4
 
-## [0.2.0](https://github.com/remarkablemark/html-react-parser/compare/v0.1.1...v0.2.0) - 2016-11-18
+## [0.2.0](https://github.com/remarkablemark/html-react-parser/compare/v0.1.1...v0.2.0) (2016-11-18)
 
 ### Added
 
@@ -326,22 +326,22 @@ All notable changes to this project will be documented in this file. See [standa
 
 - Silence webpack warning by keeping react <15.4 in this version
 
-## [0.1.1](https://github.com/remarkablemark/html-react-parser/compare/v0.1.0...v0.1.1) - 2016-11-17
+## [0.1.1](https://github.com/remarkablemark/html-react-parser/compare/v0.1.0...v0.1.1) (2016-11-17)
 
 ### Fixed
 
 - `HTMLDOMPropertyConfig.js` and `SVGDOMPropertyConfig.js` have been moved from `react/lib/` to `react-dom/lib/` in v15.4
 
-## [0.1.0](https://github.com/remarkablemark/html-react-parser/compare/v0.0.7...v0.1.0) - 2016-10-14
+## [0.1.0](https://github.com/remarkablemark/html-react-parser/compare/v0.0.7...v0.1.0) (2016-10-14)
 
 ### Changed
 
-- Replace HTML to DOM converter with [html-dom-parser](https://github.com/remarkablemark/html-dom-parser) (#28)
+- Replace HTML to DOM converter with [html-dom-parser](https://github.com/remarkablemark/html-dom-parser) ([#28](https://github.com/remarkablemark/html-react-parser/issues/28))
   - Save `html-dom-parser`
   - Remove `domhandler` and `htmlparser2`
 - Update tests and README
 
-## [0.0.7](https://github.com/remarkablemark/html-react-parser/compare/v0.0.6...v0.0.7) - 2016-09-27
+## [0.0.7](https://github.com/remarkablemark/html-react-parser/compare/v0.0.6...v0.0.7) (2016-09-27)
 
 ### Added
 
@@ -352,7 +352,7 @@ All notable changes to this project will be documented in this file. See [standa
 - Update build ([#25](https://github.com/remarkablemark/html-react-parser/issues/25))
 - Update README description, instructions, and examples ([#27](https://github.com/remarkablemark/html-react-parser/issues/27))
 
-## [0.0.6](https://github.com/remarkablemark/html-react-parser/compare/v0.0.5...v0.0.6) - 2016-09-27
+## [0.0.6](https://github.com/remarkablemark/html-react-parser/compare/v0.0.5...v0.0.6) (2016-09-27)
 
 ### Added
 
@@ -367,7 +367,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 - Regex bug on client parser ([#24](https://github.com/remarkablemark/html-react-parser/issues/24))
 
-## [0.0.5](https://github.com/remarkablemark/html-react-parser/compare/v0.0.4...v0.0.5) - 2016-08-30
+## [0.0.5](https://github.com/remarkablemark/html-react-parser/compare/v0.0.4...v0.0.5) (2016-08-30)
 
 ### Changed
 
@@ -377,7 +377,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 - Parsing of `<script>` and `<style>` tags ([#20](https://github.com/remarkablemark/html-react-parser/issues/20))
 
-## [0.0.4](https://github.com/remarkablemark/html-react-parser/compare/v0.0.3...v0.0.4) - 2016-08-29
+## [0.0.4](https://github.com/remarkablemark/html-react-parser/compare/v0.0.3...v0.0.4) (2016-08-29)
 
 ### Added
 
@@ -390,7 +390,7 @@ All notable changes to this project will be documented in this file. See [standa
 - Void elements (e.g., `<img />`) should not have children ([#16](https://github.com/remarkablemark/html-react-parser/issues/16))
 - Set default `key` parameter for sibling elements due to [keys warning](https://fb.me/react-warning-keys) ([#16](https://github.com/remarkablemark/html-react-parser/issues/16))
 
-## [0.0.3](https://github.com/remarkablemark/html-react-parser/compare/v0.0.2...v0.0.3) - 2016-08-24
+## [0.0.3](https://github.com/remarkablemark/html-react-parser/compare/v0.0.2...v0.0.3) (2016-08-24)
 
 ### Added
 
@@ -405,18 +405,18 @@ All notable changes to this project will be documented in this file. See [standa
 
 - HTML to DOM conversion on the client ([#10](https://github.com/remarkablemark/html-react-parser/issues/10))
 
-## [0.0.2](https://github.com/remarkablemark/html-react-parser/compare/v0.0.1...v0.0.2) - 2016-08-23
+## [0.0.2](https://github.com/remarkablemark/html-react-parser/compare/v0.0.1...v0.0.2) (2016-08-23)
 
 ### Added
 
 - [ESLint](http://eslint.org) as the linter ([#2](https://github.com/remarkablemark/html-react-parser/issues/2))
-- [Travis CI](https://travis-ci.org) ([#4](https://github.com/remarkablemark/html-react-parser/issues/2))
+- [Travis CI](https://travis-ci.org) ([#4](https://github.com/remarkablemark/html-react-parser/issues/4))
 
 ### Fixed
 
 - `package.json` **peerDependencies** for `react` and `react-dom`
 
-## [0.0.1](https://github.com/remarkablemark/html-react-parser/tree/v0.0.1) - 2016-08-23
+## [0.0.1](https://github.com/remarkablemark/html-react-parser/tree/v0.0.1) (2016-08-23)
 
 ### Added
 
