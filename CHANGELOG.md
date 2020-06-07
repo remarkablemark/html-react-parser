@@ -2,16 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="0.13.0"></a>
-# [0.13.0](https://github.com/remarkablemark/html-react-parser/compare/v0.12.0...v0.13.0) (2020-06-07)
-
+## [0.13.0](https://github.com/remarkablemark/html-react-parser/compare/v0.12.0...v0.13.0) (2020-06-07)
 
 ### Features
 
-* **dom-to-react:** add option `trim` that skips whitespace nodes ([413eaa0](https://github.com/remarkablemark/html-react-parser/commit/413eaa0))
-* **index:** type `trim` in HTMLReactParserOptions ([be71b13](https://github.com/remarkablemark/html-react-parser/commit/be71b13))
-
-
+- **dom-to-react:** add option `trim` that skips whitespace nodes ([413eaa0](https://github.com/remarkablemark/html-react-parser/commit/413eaa0))
+- **index:** type `trim` in HTMLReactParserOptions ([be71b13](https://github.com/remarkablemark/html-react-parser/commit/be71b13))
 
 ## [0.12.0](https://github.com/remarkablemark/html-react-parser/compare/v0.11.1...v0.12.0) (2020-06-04)
 
