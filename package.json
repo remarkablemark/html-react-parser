@@ -59,7 +59,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.12.1",
     "rollup-plugin-uglify": "^6.0.4",
-    "standard-version": "6",
+    "standard-version": "5",
     "typescript": "^3.9.3"
   },
   "peerDependencies": {
