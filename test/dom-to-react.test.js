@@ -1,4 +1,3 @@
-const assert = require('assert');
 const React = require('react');
 const htmlToDOM = require('html-dom-parser');
 const domToReact = require('../lib/dom-to-react');
@@ -10,7 +9,6 @@ describe('DOM to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
     expect(reactElement).toMatchSnapshot();
   });
 
@@ -18,9 +16,8 @@ describe('DOM to React', () => {
     const html = data.html.multiple;
     const reactElements = domToReact(htmlToDOM(html));
 
-    reactElements.forEach(reactElement => {
-      assert(React.isValidElement(reactElement));
-      assert(reactElement.key);
+    reactElements.forEach((reactElement, index) => {
+      expect(reactElement.key).toBe(String(index));
     });
 
     expect(reactElements).toMatchSnapshot();
@@ -31,7 +28,6 @@ describe('DOM to React', () => {
     const html = data.html.textarea;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
     expect(reactElement).toMatchSnapshot();
   });
 
@@ -39,7 +35,6 @@ describe('DOM to React', () => {
     const html = data.html.script;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
     expect(reactElement).toMatchSnapshot();
   });
 
@@ -47,22 +42,22 @@ describe('DOM to React', () => {
     const html = data.html.style;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
     expect(reactElement).toMatchSnapshot();
   });
 
   it('does not have `children` for void elements', () => {
     const html = data.html.img;
     const reactElement = domToReact(htmlToDOM(html));
-    assert(!reactElement.props.children);
+
+    expect(reactElement.props.children).toBe(null);
   });
 
   it('does not throw an error for void elements', () => {
     const html = data.html.void;
     const reactElements = domToReact(htmlToDOM(html));
-    assert.doesNotThrow(() => {
+    expect(() => {
       render(React.createElement('div', {}, reactElements));
-    });
+    }).not.toThrow();
   });
 
   it('skips doctype and comments', () => {
@@ -72,13 +67,11 @@ describe('DOM to React', () => {
       data.html.comment,
       data.html.single
     ].join('');
-
     const reactElements = domToReact(htmlToDOM(html));
-    reactElements.forEach((reactElement, index) => {
-      assert.strictEqual(React.isValidElement(reactElement), true);
-      assert(reactElement.key, String(index));
-    });
 
+    expect(reactElements).toHaveLength(2);
+    expect(reactElements[0].key).toBe('1');
+    expect(reactElements[1].key).toBe('3');
     expect(reactElements).toMatchSnapshot();
   });
 
@@ -105,14 +98,16 @@ describe('DOM to React', () => {
       const html = data.html.single;
       const reactElement = domToReact(htmlToDOM(html));
 
-      assert.deepEqual(reactElement, React.createElement('p', {}, 'foo'));
+      expect(React.isValidElement(reactElement)).toBe(true);
+      expect(reactElement).toEqual(React.createElement('p', {}, 'foo'));
     });
 
     it('converts with Preact instead of React', () => {
       const html = data.html.single;
       const preactElement = domToReact(htmlToDOM(html), { library: Preact });
 
-      assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+      expect(Preact.isValidElement(preactElement)).toBe(true);
+      expect(preactElement).toEqual(Preact.createElement('p', {}, 'foo'));
     });
   });
 
@@ -122,7 +117,7 @@ describe('DOM to React', () => {
       const reactElement = domToReact(htmlToDOM(data.html.single), {
         replace: () => replaceElement
       });
-      assert.strictEqual(reactElement.key, null);
+      expect(reactElement.key).toBe(null);
     });
 
     it("does not modify keys if it's already set", () => {
@@ -147,8 +142,8 @@ describe('DOM to React', () => {
         }
       });
 
-      assert.strictEqual(reactElements[0].key, '0');
-      assert.strictEqual(reactElements[1].key, 'myKey');
+      expect(reactElements[0].key).toBe('0');
+      expect(reactElements[1].key).toBe('myKey');
     });
   });
 
