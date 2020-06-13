@@ -11,7 +11,7 @@ describe('DOM to React', () => {
     const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
-    assert.deepEqual(reactElement, React.createElement('p', {}, 'foo'));
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('converts multiple DOM nodes to React', () => {
@@ -23,10 +23,7 @@ describe('DOM to React', () => {
       assert(reactElement.key);
     });
 
-    assert.deepEqual(reactElements, [
-      React.createElement('p', { key: 0 }, 'foo'),
-      React.createElement('p', { key: 1 }, 'bar')
-    ]);
+    expect(reactElements).toMatchSnapshot();
   });
 
   // https://reactjs.org/docs/forms.html#the-textarea-tag
@@ -35,16 +32,7 @@ describe('DOM to React', () => {
     const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'textarea',
-        {
-          defaultValue: 'foo'
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not escape <script> content', () => {
@@ -52,18 +40,7 @@ describe('DOM to React', () => {
     const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'script',
-        {
-          dangerouslySetInnerHTML: {
-            __html: 'alert(1 < 2);'
-          }
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not escape <style> content', () => {
@@ -71,18 +48,7 @@ describe('DOM to React', () => {
     const reactElement = domToReact(htmlToDOM(html));
 
     assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'style',
-        {
-          dangerouslySetInnerHTML: {
-            __html: 'body > .foo { color: #f00; }'
-          }
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not have `children` for void elements', () => {
@@ -108,17 +74,12 @@ describe('DOM to React', () => {
     ].join('');
 
     const reactElements = domToReact(htmlToDOM(html));
-    reactElements.forEach(reactElement => {
-      assert(React.isValidElement(reactElement));
-      assert(reactElement.key);
+    reactElements.forEach((reactElement, index) => {
+      assert.strictEqual(React.isValidElement(reactElement), true);
+      assert(reactElement.key, String(index));
     });
 
-    assert.deepEqual(reactElements, [
-      // doctype
-      React.createElement('p', { key: 1 }, 'foo'),
-      // comment is in the middle
-      React.createElement('p', { key: 3 }, 'foo')
-    ]);
+    expect(reactElements).toMatchSnapshot();
   });
 
   it('converts SVG element with viewBox attribute', () => {
@@ -127,31 +88,25 @@ describe('DOM to React', () => {
       htmlToDOM(html, { lowerCaseAttributeNames: false })
     );
 
-    assert.deepEqual(
-      reactElement,
-      React.createElement('svg', { viewBox: '0 0 512 512', id: 'foo' }, 'Inner')
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not modify attributes on custom elements', () => {
     const html = data.html.customElement;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'custom-button',
-        {
-          class: 'myClass',
-          'custom-attribute': 'value'
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   describe('library', () => {
     const Preact = require('preact');
+
+    it('converts with React (default)', () => {
+      const html = data.html.single;
+      const reactElement = domToReact(htmlToDOM(html));
+
+      assert.deepEqual(reactElement, React.createElement('p', {}, 'foo'));
+    });
 
     it('converts with Preact instead of React', () => {
       const html = data.html.single;
@@ -162,16 +117,16 @@ describe('DOM to React', () => {
   });
 
   describe('replace', () => {
-    it("does not set key if there's 1 node", () => {
+    it("does not set key if there's a single node", () => {
       const replaceElement = React.createElement('p');
       const reactElement = domToReact(htmlToDOM(data.html.single), {
         replace: () => replaceElement
       });
-      assert.deepEqual(reactElement, replaceElement);
+      assert.strictEqual(reactElement.key, null);
     });
 
     it("does not modify keys if it's already set", () => {
-      const html = [data.html.single, data.html.customElement].join('');
+      const html = data.html.single + data.html.customElement;
 
       const reactElements = domToReact(htmlToDOM(html), {
         replace: node => {
@@ -192,18 +147,17 @@ describe('DOM to React', () => {
         }
       });
 
-      assert.deepEqual(reactElements, [
-        React.createElement('p', { key: 0 }, 'replaced foo'),
-        React.createElement(
-          'custom-button',
-          {
-            key: 'myKey',
-            class: 'myClass',
-            'custom-attribute': 'replaced value'
-          },
-          null
-        )
-      ]);
+      assert.strictEqual(reactElements[0].key, '0');
+      assert.strictEqual(reactElements[1].key, 'myKey');
+    });
+  });
+
+  describe('when React >=16', () => {
+    it('preserves unknown attributes', () => {
+      const html = data.html.customElement;
+      const reactElement = domToReact(htmlToDOM(html));
+
+      expect(reactElement).toMatchSnapshot();
     });
   });
 
@@ -218,14 +172,11 @@ describe('DOM to React', () => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
     });
 
-    it('modifies attributes on custom elements', () => {
+    it('removes unknown attributes', () => {
       const html = data.html.customElement;
       const reactElement = domToReact(htmlToDOM(html));
 
-      assert.deepEqual(
-        reactElement,
-        React.createElement('custom-button', { className: 'myClass' }, null)
-      );
+      expect(reactElement).toMatchSnapshot();
     });
   });
 });
