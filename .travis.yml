@@ -8,11 +8,11 @@ script:
   - npx commitlint --from=HEAD~1
   - npm run lint
   - npm run lint:dts
-  - npm run test:coverage
+  - npm test
   - npm run build
   - npm run benchmark
 after_success:
-  - npx nyc report --reporter=text-lcov | npx coveralls
+  - cat coverage/lcov.info | npx coveralls
 cache:
   directories:
     - node_modules

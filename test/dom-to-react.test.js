@@ -210,11 +210,11 @@ describe('DOM to React', () => {
   describe('when React <16', () => {
     const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-    before(() => {
+    beforeAll(() => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
     });
 
-    after(() => {
+    afterAll(() => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
     });
 

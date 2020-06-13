@@ -1,6 +1,6 @@
 {
   "hooks": {
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "npm run lint:dts && npm run test:coverage && lint-staged"
+    "pre-commit": "npm run lint:dts && npm test && lint-staged"
   }
 }

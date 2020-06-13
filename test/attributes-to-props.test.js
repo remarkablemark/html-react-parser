@@ -259,11 +259,11 @@ describe('attributes to props', () => {
     describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
       const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-      before(() => {
+      beforeAll(() => {
         utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
       });
 
-      after(() => {
+      afterAll(() => {
         utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
       });
 
