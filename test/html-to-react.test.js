@@ -18,13 +18,14 @@ describe('HTML to React', () => {
   });
 
   describe('parser', () => {
-    [undefined, null, {}, [], 42].forEach(value => {
-      it(`throws an error if first argument is ${value}`, () => {
+    it.each([undefined, null, {}, [], 0, 1, () => {}, new Date()])(
+      'throws an error if first argument is %p',
+      input => {
         expect(() => {
-          parse(value);
+          parse(input);
         }).toThrow(TypeError);
-      });
-    });
+      }
+    );
 
     it('converts empty string to empty array', () => {
       expect(parse('')).toEqual([]);
