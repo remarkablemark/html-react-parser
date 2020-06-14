@@ -11,9 +11,10 @@
     "lint": "eslint --ignore-path .gitignore --ignore-pattern /examples/ .",
     "lint:dts": "dtslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prepublishOnly": "npm run lint && npm run lint:dts && npm test && npm run clean && npm run build",
+    "prepublishOnly": "npm run lint && npm run lint:dts && npm run test:ci && npm run clean && npm run build",
     "release": "standard-version --no-verify",
     "test": "jest --coverage",
+    "test:ci": "npm test -- --ci",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
