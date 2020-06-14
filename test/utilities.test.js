@@ -8,46 +8,47 @@ const {
 
 describe('utilities', () => {
   describe('camelCase', () => {
-    [undefined, null, 1337, {}, []].forEach(value => {
-      it(`throws an error if first argument is ${value}`, () => {
+    it.each([undefined, null, {}, [], 0, 1, () => {}, new Date()])(
+      'throws an error if first argument is %p',
+      input => {
         expect(() => {
-          camelCase(value);
+          camelCase(input);
         }).toThrow(TypeError);
-      });
-    });
+      }
+    );
 
-    it('does not modify string if it does not need to be camelCased', () => {
-      [
-        ['', ''],
-        ['foo', 'foo'],
-        ['fooBar', 'fooBar'],
-        ['--fooBar', '--fooBar'],
-        ['--foo-bar', '--foo-bar'],
-        ['--foo-100', '--foo-100']
-      ].forEach(testCase => {
-        expect(camelCase(testCase[0])).toBe(testCase[1]);
-      });
-    });
+    it.each([
+      ['', ''],
+      ['foo', 'foo'],
+      ['fooBar', 'fooBar'],
+      ['--fooBar', '--fooBar'],
+      ['--foo-bar', '--foo-bar'],
+      ['--foo-100', '--foo-100']
+    ])(
+      'does not modify string if it does not need to be camelCased',
+      (input, expected) => {
+        expect(camelCase(input)).toBe(expected);
+      }
+    );
 
-    it('camelCases a string', () => {
-      [
-        ['foo-bar', 'fooBar'],
-        ['foo-bar-baz', 'fooBarBaz'],
-        ['CAMEL-CASE', 'camelCase']
-      ].forEach(testCase => {
-        expect(camelCase(testCase[0])).toBe(testCase[1]);
-      });
+    it.each([
+      ['foo-bar', 'fooBar'],
+      ['foo-bar-baz', 'fooBarBaz'],
+      ['CAMEL-CASE', 'camelCase']
+    ])('camelCases a string', (input, expected) => {
+      expect(camelCase(input)).toBe(expected);
     });
   });
 
   describe('invertObject', () => {
-    [undefined, null, 'foo', 1337].forEach(value => {
-      it(`throws an error if the first argument is ${value}`, () => {
+    it.each([undefined, null, 'string', 0, 1, () => {}])(
+      `throws an error if the first argument is %p`,
+      input => {
         expect(() => {
-          invertObject(value);
+          invertObject(input);
         }).toThrow(TypeError);
-      });
-    });
+      }
+    );
 
     it('swaps key with value', () => {
       expect(
