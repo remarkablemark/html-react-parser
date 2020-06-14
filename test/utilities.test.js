@@ -1,4 +1,3 @@
-const assert = require('assert');
 const React = require('react');
 const {
   PRESERVE_CUSTOM_ATTRIBUTES,
@@ -11,9 +10,9 @@ describe('utilities', () => {
   describe('camelCase', () => {
     [undefined, null, 1337, {}, []].forEach(value => {
       it(`throws an error if first argument is ${value}`, () => {
-        assert.throws(() => {
+        expect(() => {
           camelCase(value);
-        }, TypeError);
+        }).toThrow(TypeError);
       });
     });
 
@@ -26,7 +25,7 @@ describe('utilities', () => {
         ['--foo-bar', '--foo-bar'],
         ['--foo-100', '--foo-100']
       ].forEach(testCase => {
-        assert.strictEqual(camelCase(testCase[0]), testCase[1]);
+        expect(camelCase(testCase[0])).toBe(testCase[1]);
       });
     });
 
@@ -36,7 +35,7 @@ describe('utilities', () => {
         ['foo-bar-baz', 'fooBarBaz'],
         ['CAMEL-CASE', 'camelCase']
       ].forEach(testCase => {
-        assert.strictEqual(camelCase(testCase[0]), testCase[1]);
+        expect(camelCase(testCase[0])).toBe(testCase[1]);
       });
     });
   });
@@ -44,78 +43,77 @@ describe('utilities', () => {
   describe('invertObject', () => {
     [undefined, null, 'foo', 1337].forEach(value => {
       it(`throws an error if the first argument is ${value}`, () => {
-        assert.throws(() => {
+        expect(() => {
           invertObject(value);
-        }, TypeError);
+        }).toThrow(TypeError);
       });
     });
 
     it('swaps key with value', () => {
-      assert.deepEqual(invertObject({ foo: 'bar', baz: 'qux' }), {
+      expect(
+        invertObject({
+          foo: 'bar',
+          baz: 'qux'
+        })
+      ).toEqual({
         bar: 'foo',
         qux: 'baz'
       });
     });
 
     it('swaps key with value if value is string', () => {
-      assert.deepEqual(
+      expect(
         invertObject({
           $: 'dollar',
           _: 'underscore',
           num: 1,
           u: undefined,
           n: null
-        }),
-        {
-          dollar: '$',
-          underscore: '_'
-        }
-      );
+        })
+      ).toEqual({
+        dollar: '$',
+        underscore: '_'
+      });
     });
 
     describe('options', () => {
       it('applies override if provided', () => {
-        assert.deepEqual(
+        expect(
           invertObject({ foo: 'bar', baz: 'qux' }, key => {
             if (key === 'foo') {
               return ['key', 'value'];
             }
-          }),
-          { key: 'value', qux: 'baz' }
-        );
+          })
+        ).toEqual({ key: 'value', qux: 'baz' });
       });
 
       it('does not apply override if invalid', () => {
-        assert.deepEqual(
+        expect(
           invertObject({ foo: 'bar', baz: 'qux' }, key => {
             if (key === 'foo') {
               return ['key'];
             } else if (key === 'baz') {
               return { key: 'value' };
             }
-          }),
-          { bar: 'foo', qux: 'baz' }
-        );
+          })
+        ).toEqual({ bar: 'foo', qux: 'baz' });
       });
     });
   });
 
   describe('isCustomComponent', () => {
     it('returns true if the tag contains a hyphen and is not in the whitelist', () => {
-      assert.strictEqual(isCustomComponent('my-custom-element'), true);
+      expect(isCustomComponent('my-custom-element')).toBe(true);
     });
 
     it('returns false if the tag is in the whitelist', () => {
-      assert.strictEqual(isCustomComponent('annotation-xml'), false);
-      assert.strictEqual(isCustomComponent('color-profile'), false);
-      assert.strictEqual(isCustomComponent('font-face'), false);
+      expect(isCustomComponent('annotation-xml')).toBe(false);
+      expect(isCustomComponent('color-profile')).toBe(false);
+      expect(isCustomComponent('font-face')).toBe(false);
     });
 
     it('returns true if the props contains an `is` key', () => {
-      assert.strictEqual(
-        isCustomComponent('button', { is: 'custom-button' }),
-        true
-      );
+      expect(isCustomComponent('button', { is: 'custom-button' })).toBe(true);
     });
   });
 
@@ -124,7 +122,7 @@ describe('utilities', () => {
       parseInt(React.version.match(/^\d./)[0], 10) >= 16;
 
     it(`is ${isReactGreaterThan15} when React.version="${React.version}"`, () => {
-      assert.strictEqual(PRESERVE_CUSTOM_ATTRIBUTES, isReactGreaterThan15);
+      expect(PRESERVE_CUSTOM_ATTRIBUTES).toBe(isReactGreaterThan15);
     });
   });
 });
