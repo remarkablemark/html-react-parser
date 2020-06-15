@@ -19,7 +19,7 @@
   "files": [
     "index.d.ts",
     "lib/dom-to-react.d.ts",
-    "test/types/index.test.tsx",
-    "test/types/lib/dom-to-react.test.tsx"
+    "test/types/index.tsx",
+    "test/types/lib/dom-to-react.tsx"
   ]
 }

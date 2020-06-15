@@ -1,139 +1,128 @@
-const assert = require('assert');
 const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
 describe('attributes to props', () => {
   describe('HTML', () => {
     it('converts attributes to React props', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           class: 'ic',
           for: 'tran',
           'http-equiv': 'refresh'
-        }),
-        {
-          className: 'ic',
-          htmlFor: 'tran',
-          httpEquiv: 'refresh'
-        }
-      );
+        })
+      ).toEqual({
+        className: 'ic',
+        htmlFor: 'tran',
+        httpEquiv: 'refresh'
+      });
     });
 
     it('converts standard attributes to React props', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           allowfullscreen: true,
           charset: 'utf-8',
           tabindex: 1
-        }),
-        {
-          allowFullScreen: true,
-          charSet: 'utf-8',
-          tabIndex: 1
-        }
-      );
+        })
+      ).toEqual({
+        allowFullScreen: true,
+        charSet: 'utf-8',
+        tabIndex: 1
+      });
     });
 
     it('converts RDFa attributes to React props', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           property: 'foo',
           typeof: 'bar'
-        }),
-        {
-          property: 'foo',
-          typeof: 'bar'
-        }
-      );
+        })
+      ).toEqual({
+        property: 'foo',
+        typeof: 'bar'
+      });
     });
 
     it('converts non-standard attributes to React props', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           itemscope: true,
           itemid: 1337
-        }),
-        {
-          itemScope: true,
-          itemID: 1337
-        }
-      );
+        })
+      ).toEqual({
+        itemScope: true,
+        itemID: 1337
+      });
     });
 
     it('keeps `data-*` and `aria-*` attributes as is', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           'data-foo': 'bar',
           'aria-live': 'polite'
-        }),
-        {
-          'data-foo': 'bar',
-          'aria-live': 'polite'
-        }
-      );
+        })
+      ).toEqual({
+        'data-foo': 'bar',
+        'aria-live': 'polite'
+      });
     });
 
     it('converts attributes with weird capitalization', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           'ACCEPT-CHARSET': 'ISO-8859-1',
           formNOvalidate: true,
           sEcUrItY: 'restricted',
           'data-FOO': 'bar'
-        }),
-        {
-          acceptCharset: 'ISO-8859-1',
-          formNoValidate: true,
-          security: 'restricted',
-          'data-FOO': 'bar'
-        }
-      );
+        })
+      ).toEqual({
+        acceptCharset: 'ISO-8859-1',
+        formNoValidate: true,
+        security: 'restricted',
+        'data-FOO': 'bar'
+      });
     });
 
     it('converts boolean attributes', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           readonly: ''
-        }),
-        {
-          readOnly: true
-        }
-      );
+        })
+      ).toEqual({
+        readOnly: true
+      });
 
-      assert.deepEqual(
+      expect(
         attributesToProps({
           disabled: 'disabled'
-        }),
-        {
-          disabled: true
-        }
-      );
+        })
+      ).toEqual({
+        disabled: true
+      });
     });
 
     it('converts overloaded boolean attributes', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           download: ''
-        }),
-        {
-          download: true
-        }
-      );
+        })
+      ).toEqual({
+        download: true
+      });
 
-      assert.deepEqual(
+      expect(
         attributesToProps({
           download: 'filename'
-        }),
-        {
-          download: 'filename'
-        }
-      );
+        })
+      ).toEqual({
+        download: 'filename'
+      });
     });
   });
 
   describe('SVG', () => {
     it('converts attributes to React props', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           edgeMode: 'edgeMode',
           'fill-opacity': '0.42',
@@ -142,97 +131,91 @@ describe('attributes to props', () => {
           'horiz-adv-x': '9001',
           stroke: 'none',
           'xml:base': 'http://example.org'
-        }),
-        {
-          edgeMode: 'edgeMode',
-          fillOpacity: '0.42',
-          fillRule: 'evenodd',
-          glyphOrientationVertical: 'auto',
-          horizAdvX: '9001',
-          stroke: 'none',
-          xmlBase: 'http://example.org'
-        }
-      );
+        })
+      ).toEqual({
+        edgeMode: 'edgeMode',
+        fillOpacity: '0.42',
+        fillRule: 'evenodd',
+        glyphOrientationVertical: 'auto',
+        horizAdvX: '9001',
+        stroke: 'none',
+        xmlBase: 'http://example.org'
+      });
     });
 
     it('keeps incorrectly capitalized attributes', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           'XLINK:HREF': '#',
           YChannelSelector: 'G',
           ZoomAndPan: 'disable'
-        }),
-        {
-          'XLINK:HREF': '#',
-          YChannelSelector: 'G',
-          ZoomAndPan: 'disable'
-        }
-      );
+        })
+      ).toEqual({
+        'XLINK:HREF': '#',
+        YChannelSelector: 'G',
+        ZoomAndPan: 'disable'
+      });
     });
   });
 
   // cssToJs
   describe('style', () => {
     it('parses empty inline style to object', () => {
-      assert.deepEqual(attributesToProps({ style: '' }), { style: {} });
+      expect(attributesToProps({ style: '' })).toEqual({ style: {} });
     });
 
     it('does not parse CSS comment', () => {
-      assert.deepEqual(attributesToProps({ style: '/* comment */' }), {
+      expect(attributesToProps({ style: '/* comment */' })).toEqual({
         style: {}
       });
     });
 
     it('parses inline style to object', () => {
-      assert.deepEqual(
+      expect(
         attributesToProps({
           style:
             'color: #f00; font-size: 42px; z-index: -1; -moz-border-radius-topright: 10px; background: url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
-        }),
-        {
-          style: {
-            color: '#f00',
-            fontSize: '42px',
-            zIndex: '-1',
-            MozBorderRadiusTopright: '10px',
-            background:
-              'url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
-          }
+        })
+      ).toEqual({
+        style: {
+          color: '#f00',
+          fontSize: '42px',
+          zIndex: '-1',
+          MozBorderRadiusTopright: '10px',
+          background:
+            'url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
         }
-      );
+      });
 
-      assert.deepEqual(
+      expect(
         attributesToProps({
           style:
             'border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
-        }),
-        {
-          style: {
-            borderBottomLeftRadius: '1em',
-            borderRightStyle: 'solid',
-            zIndex: '-1',
-            MozBorderRadiusBottomleft: '20px'
-          }
+        })
+      ).toEqual({
+        style: {
+          borderBottomLeftRadius: '1em',
+          borderRightStyle: 'solid',
+          zIndex: '-1',
+          MozBorderRadiusBottomleft: '20px'
         }
-      );
+      });
 
-      assert.deepEqual(
+      expect(
         attributesToProps({
           style: null
-        }),
-        {
-          style: null
-        }
-      );
+        })
+      ).toEqual({
+        style: null
+      });
 
-      assert.deepEqual(
+      expect(
         attributesToProps({
           style: undefined
-        }),
-        {
-          style: undefined
-        }
-      );
+        })
+      ).toEqual({
+        style: undefined
+      });
     });
   });
 
@@ -253,38 +236,37 @@ describe('attributes to props', () => {
         toString: '',
         valueOf: ''
       };
-      assert.deepEqual(attributesToProps(attributes), attributes);
+
+      expect(attributesToProps(attributes)).toEqual(attributes);
     });
 
     describe('when utilties.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
       const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-      before(() => {
+      beforeAll(() => {
         utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
       });
 
-      after(() => {
+      afterAll(() => {
         utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
       });
 
       it('omits unknown attributes', () => {
-        assert.deepEqual(
+        expect(
           attributesToProps({
             unknownAttribute: 'someValue'
-          }),
-          {}
-        );
+          })
+        ).toEqual({});
       });
 
       it('omits incorrectly capitalized attributes', () => {
-        assert.deepEqual(
+        expect(
           attributesToProps({
             'XLINK:HREF': '#',
             YChannelSelector: 'G',
             ZoomAndPan: 'disable'
-          }),
-          {}
-        );
+          })
+        ).toEqual({});
       });
     });
   });

@@ -1,4 +1,3 @@
-const assert = require('assert');
 const React = require('react');
 const htmlToDOM = require('html-dom-parser');
 const domToReact = require('../lib/dom-to-react');
@@ -10,23 +9,18 @@ describe('DOM to React', () => {
     const html = data.html.single;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
-    assert.deepEqual(reactElement, React.createElement('p', {}, 'foo'));
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('converts multiple DOM nodes to React', () => {
     const html = data.html.multiple;
     const reactElements = domToReact(htmlToDOM(html));
 
-    reactElements.forEach(reactElement => {
-      assert(React.isValidElement(reactElement));
-      assert(reactElement.key);
+    reactElements.forEach((reactElement, index) => {
+      expect(reactElement.key).toBe(String(index));
     });
 
-    assert.deepEqual(reactElements, [
-      React.createElement('p', { key: 0 }, 'foo'),
-      React.createElement('p', { key: 1 }, 'bar')
-    ]);
+    expect(reactElements).toMatchSnapshot();
   });
 
   // https://reactjs.org/docs/forms.html#the-textarea-tag
@@ -34,69 +28,36 @@ describe('DOM to React', () => {
     const html = data.html.textarea;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'textarea',
-        {
-          defaultValue: 'foo'
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not escape <script> content', () => {
     const html = data.html.script;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'script',
-        {
-          dangerouslySetInnerHTML: {
-            __html: 'alert(1 < 2);'
-          }
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not escape <style> content', () => {
     const html = data.html.style;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert(React.isValidElement(reactElement));
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'style',
-        {
-          dangerouslySetInnerHTML: {
-            __html: 'body > .foo { color: #f00; }'
-          }
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not have `children` for void elements', () => {
     const html = data.html.img;
     const reactElement = domToReact(htmlToDOM(html));
-    assert(!reactElement.props.children);
+
+    expect(reactElement.props.children).toBe(null);
   });
 
   it('does not throw an error for void elements', () => {
     const html = data.html.void;
     const reactElements = domToReact(htmlToDOM(html));
-    assert.doesNotThrow(() => {
+    expect(() => {
       render(React.createElement('div', {}, reactElements));
-    });
+    }).not.toThrow();
   });
 
   it('skips doctype and comments', () => {
@@ -106,19 +67,12 @@ describe('DOM to React', () => {
       data.html.comment,
       data.html.single
     ].join('');
-
     const reactElements = domToReact(htmlToDOM(html));
-    reactElements.forEach(reactElement => {
-      assert(React.isValidElement(reactElement));
-      assert(reactElement.key);
-    });
 
-    assert.deepEqual(reactElements, [
-      // doctype
-      React.createElement('p', { key: 1 }, 'foo'),
-      // comment is in the middle
-      React.createElement('p', { key: 3 }, 'foo')
-    ]);
+    expect(reactElements).toHaveLength(2);
+    expect(reactElements[0].key).toBe('1');
+    expect(reactElements[1].key).toBe('3');
+    expect(reactElements).toMatchSnapshot();
   });
 
   it('converts SVG element with viewBox attribute', () => {
@@ -127,51 +81,47 @@ describe('DOM to React', () => {
       htmlToDOM(html, { lowerCaseAttributeNames: false })
     );
 
-    assert.deepEqual(
-      reactElement,
-      React.createElement('svg', { viewBox: '0 0 512 512', id: 'foo' }, 'Inner')
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('does not modify attributes on custom elements', () => {
     const html = data.html.customElement;
     const reactElement = domToReact(htmlToDOM(html));
 
-    assert.deepEqual(
-      reactElement,
-      React.createElement(
-        'custom-button',
-        {
-          class: 'myClass',
-          'custom-attribute': 'value'
-        },
-        null
-      )
-    );
+    expect(reactElement).toMatchSnapshot();
   });
 
   describe('library', () => {
     const Preact = require('preact');
 
+    it('converts with React (default)', () => {
+      const html = data.html.single;
+      const reactElement = domToReact(htmlToDOM(html));
+
+      expect(React.isValidElement(reactElement)).toBe(true);
+      expect(reactElement).toEqual(React.createElement('p', {}, 'foo'));
+    });
+
     it('converts with Preact instead of React', () => {
       const html = data.html.single;
       const preactElement = domToReact(htmlToDOM(html), { library: Preact });
 
-      assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+      expect(Preact.isValidElement(preactElement)).toBe(true);
+      expect(preactElement).toEqual(Preact.createElement('p', {}, 'foo'));
     });
   });
 
   describe('replace', () => {
-    it("does not set key if there's 1 node", () => {
+    it("does not set key if there's a single node", () => {
       const replaceElement = React.createElement('p');
       const reactElement = domToReact(htmlToDOM(data.html.single), {
         replace: () => replaceElement
       });
-      assert.deepEqual(reactElement, replaceElement);
+      expect(reactElement.key).toBe(null);
     });
 
     it("does not modify keys if it's already set", () => {
-      const html = [data.html.single, data.html.customElement].join('');
+      const html = data.html.single + data.html.customElement;
 
       const reactElements = domToReact(htmlToDOM(html), {
         replace: node => {
@@ -192,40 +142,36 @@ describe('DOM to React', () => {
         }
       });
 
-      assert.deepEqual(reactElements, [
-        React.createElement('p', { key: 0 }, 'replaced foo'),
-        React.createElement(
-          'custom-button',
-          {
-            key: 'myKey',
-            class: 'myClass',
-            'custom-attribute': 'replaced value'
-          },
-          null
-        )
-      ]);
+      expect(reactElements[0].key).toBe('0');
+      expect(reactElements[1].key).toBe('myKey');
+    });
+  });
+
+  describe('when React >=16', () => {
+    it('preserves unknown attributes', () => {
+      const html = data.html.customElement;
+      const reactElement = domToReact(htmlToDOM(html));
+
+      expect(reactElement).toMatchSnapshot();
     });
   });
 
   describe('when React <16', () => {
     const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
-    before(() => {
+    beforeAll(() => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
     });
 
-    after(() => {
+    afterAll(() => {
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
     });
 
-    it('modifies attributes on custom elements', () => {
+    it('removes unknown attributes', () => {
       const html = data.html.customElement;
       const reactElement = domToReact(htmlToDOM(html));
 
-      assert.deepEqual(
-        reactElement,
-        React.createElement('custom-button', { className: 'myClass' }, null)
-      );
+      expect(reactElement).toMatchSnapshot();
     });
   });
 });

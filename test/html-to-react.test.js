@@ -1,4 +1,3 @@
-const assert = require('assert');
 const React = require('react');
 const parse = require('..');
 const { data, render } = require('./helpers/');
@@ -6,86 +5,94 @@ const { data, render } = require('./helpers/');
 describe('HTML to React', () => {
   describe('exports', () => {
     it('has default ES Module', () => {
-      assert.strictEqual(parse.default, parse);
+      expect(parse.default).toBe(parse);
     });
 
     it('has domToReact', () => {
-      assert.strictEqual(parse.domToReact, require('../lib/dom-to-react'));
+      expect(parse.domToReact).toBe(require('../lib/dom-to-react'));
     });
 
     it('has htmlToDOM', () => {
-      assert.strictEqual(parse.htmlToDOM, require('html-dom-parser'));
+      expect(parse.htmlToDOM).toBe(require('html-dom-parser'));
     });
   });
 
   describe('parser', () => {
-    [undefined, null, {}, [], 42].forEach(value => {
-      it(`throws an error if first argument is ${value}`, () => {
-        assert.throws(() => {
-          parse(value);
-        }, TypeError);
-      });
-    });
+    it.each([undefined, null, {}, [], 0, 1, () => {}, new Date()])(
+      'throws an error if first argument is %p',
+      input => {
+        expect(() => {
+          parse(input);
+        }).toThrow(TypeError);
+      }
+    );
 
     it('converts empty string to empty array', () => {
-      assert.deepEqual(parse(''), []);
+      expect(parse('')).toEqual([]);
     });
 
     it('returns string if it cannot be parsed as HTML', () => {
-      assert.strictEqual(parse('foo'), 'foo');
+      expect(parse('foo')).toBe('foo');
     });
 
     it('converts single HTML element to React', () => {
       const html = data.html.single;
       const reactElement = parse(html);
-      assert.strictEqual(render(reactElement), html);
+
+      expect(render(reactElement)).toBe(html);
     });
 
     it('converts single HTML element and ignores comment', () => {
       const html = data.html.single;
       // comment should be ignored
       const reactElement = parse(html + data.html.comment);
-      assert.strictEqual(render(reactElement), html);
+
+      expect(render(reactElement)).toBe(html);
     });
 
     it('converts multiple HTML elements to React', () => {
       const html = data.html.multiple;
       const reactElements = parse(html);
-      assert.strictEqual(
-        render(React.createElement('div', {}, reactElements)),
-        '<div>' + html + '</div>'
-      );
+
+      expect(
+        render(React.createElement(React.Fragment, {}, reactElements))
+      ).toBe(html);
     });
 
     it('converts complex HTML to React', () => {
       const html = data.html.complex;
       const reactElement = parse(data.html.doctype + html);
-      assert.strictEqual(render(reactElement), html);
+
+      expect(render(reactElement)).toBe(html);
     });
 
     it('converts empty <script> to React', () => {
       const html = '<script></script>';
       const reactElement = parse(html);
-      assert.strictEqual(render(reactElement), html);
+
+      expect(render(reactElement)).toBe(html);
     });
 
     it('converts empty <style> to React', () => {
       const html = '<style></style>';
       const reactElement = parse(html);
-      assert.strictEqual(render(reactElement), html);
+
+      expect(render(reactElement)).toBe(html);
     });
 
     it('converts SVG to React', () => {
       const svg = data.svg.complex;
       const reactElement = parse(svg);
-      assert.strictEqual(render(reactElement), svg);
+
+      expect(render(reactElement)).toBe(svg);
     });
 
     it('decodes HTML entities', () => {
       const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
       const decodedEntities = "asdf & ÿ ü '";
       const reactElement = parse('<i>' + encodedEntities + '</i>');
-      assert.strictEqual(reactElement.props.children, decodedEntities);
+
+      expect(reactElement.props.children).toBe(decodedEntities);
     });
   });
 
@@ -100,15 +107,15 @@ describe('HTML to React', () => {
             }
           }
         });
-        assert.strictEqual(
-          render(reactElement),
+
+        expect(render(reactElement)).toBe(
           html.replace('<title>Title</title>', '<title>Replaced Title</title>')
         );
       });
 
       it('does not override the element if an invalid React element is returned', () => {
         const html = data.html.complex;
-        const reactElement = parse(html, {
+        const options = {
           replace: node => {
             if (node.attribs && node.attribs.id === 'header') {
               return {
@@ -117,14 +124,10 @@ describe('HTML to React', () => {
               };
             }
           }
-        });
-        assert.notEqual(
-          render(reactElement),
-          html.replace(
-            '<header id="header">Header</header>',
-            '<h1>Heading</h1>'
-          )
-        );
+        };
+        const reactElement = parse(html, options);
+
+        expect(render(reactElement)).toBe(html);
       });
     });
 
@@ -134,7 +137,8 @@ describe('HTML to React', () => {
         const html = data.html.single;
         const options = { library: Preact };
         const preactElement = parse(html, options);
-        assert.deepEqual(preactElement, Preact.createElement('p', {}, 'foo'));
+
+        expect(preactElement).toEqual(Preact.createElement('p', {}, 'foo'));
       });
     });
 
@@ -146,10 +150,8 @@ describe('HTML to React', () => {
         const html = '<ul><li/><li/></ul>';
         const options = { htmlparser2: { xmlMode: true } };
         const reactElements = parse(html, options);
-        assert.strictEqual(
-          render(reactElements),
-          '<ul><li></li><li></li></ul>'
-        );
+
+        expect(render(reactElements)).toBe('<ul><li></li><li></li></ul>');
       });
     });
 
@@ -160,7 +162,8 @@ describe('HTML to React', () => {
   </tbody>
 </table>`;
         const reactElement = parse(html);
-        assert.strictEqual(render(reactElement), html);
+
+        expect(render(reactElement)).toBe(html);
       });
 
       it('removes whitespace text nodes when enabled', () => {
@@ -168,8 +171,8 @@ describe('HTML to React', () => {
       <tbody><tr><td> text </td><td> </td>\t</tr>\r</tbody>\n</table>`;
         const options = { trim: true };
         const reactElement = parse(html, options);
-        assert.strictEqual(
-          render(reactElement),
+
+        expect(render(reactElement)).toBe(
           '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>'
         );
       });
