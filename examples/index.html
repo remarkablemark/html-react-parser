@@ -1,0 +1,36 @@
+<textarea cols="50" rows="5"><p>Hello, world!</p></textarea>
+<pre><code></code></pre>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="../dist/html-react-parser.min.js"></script>
+<script>
+  var code = document.querySelector('code');
+  var textarea = document.querySelector('textarea');
+
+  function renderOutput(event) {
+    cache = [];
+    code.innerText = JSON.stringify(
+      window.HTMLReactParser(event.target.value),
+      replacer,
+      2
+    );
+  }
+
+  textarea.addEventListener('input', renderOutput);
+  renderOutput({ target: textarea });
+
+  /**
+   * @see {@link https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json}
+   */
+  var cache;
+  function replacer(key, value) {
+    if (typeof value === 'object' && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // duplicate reference found
+        return '[Circular]';
+      }
+      // store value in our collection
+      cache.push(value);
+    }
+    return value;
+  }
+</script>
