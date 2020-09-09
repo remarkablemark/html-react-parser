@@ -1,4 +1,5 @@
 var domToReact = require('./lib/dom-to-react');
+var attributesToProps = require('./lib/attributes-to-props');
 var htmlToDOM = require('html-dom-parser');
 
 // decode HTML entities by default for `htmlparser2`
@@ -30,6 +31,7 @@ function HTMLReactParser(html, options) {
 
 HTMLReactParser.domToReact = domToReact;
 HTMLReactParser.htmlToDOM = htmlToDOM;
+HTMLReactParser.attributesToProps = attributesToProps;
 
 // support CommonJS and ES Modules
 module.exports = HTMLReactParser;
