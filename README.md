@@ -176,13 +176,31 @@ const options = {
 console.log(renderToStaticMarkup(parse(html, options)));
 ```
 
+Use the exported attributesToProps method to convert DOM attributes to React Props:
+
+```jsx
+import React from 'react';
+import parse, { attributesToProps } from 'html-react-parser';
+
+const html = `
+  <hr class="prettify" style="background:#fff;text-align:center" />
+`;
+
+const options = {
+  replace: node => {
+    if (node.attribs && node.name === 'hr') {
+      const props = attributesToProps(node.attribs);
+      return <hr {...props} />;
+    }
+  }
+};
+```
+
 Output:
 
 ```html
 <h1 style="font-size:42px">
-  <span style="color:hotpink">
-    keep me and make me pretty!
-  </span>
+  <span style="color:hotpink"> keep me and make me pretty! </span>
 </h1>
 ```
 
