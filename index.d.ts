@@ -2,6 +2,7 @@
 
 import { DomElement, ParserOptions } from 'htmlparser2';
 import domToReact from './lib/dom-to-react';
+import attributesToProps from './lib/attributes-to-props';
 import htmlToDOM from 'html-dom-parser';
 
 export interface HTMLReactParserOptions {
@@ -37,6 +38,6 @@ declare function HTMLReactParser(
   options?: HTMLReactParserOptions
 ): ReturnType<typeof domToReact>;
 
-export { DomElement, ParserOptions, domToReact, htmlToDOM };
+export { DomElement, ParserOptions, domToReact, htmlToDOM, attributesToProps };
 
 export default HTMLReactParser;

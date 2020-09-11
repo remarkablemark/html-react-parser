@@ -129,6 +129,36 @@ describe('HTML to React', () => {
 
         expect(render(reactElement)).toBe(html);
       });
+
+      it('use attributesToProps to converts attributes to React props', () => {
+        const { attributesToProps } = parse;
+        const html = data.html.attributes;
+
+        let props;
+        const options = {
+          replace: node => {
+            if (node.attribs && node.name === 'hr') {
+              props = attributesToProps(node.attribs);
+              return {
+                type: 'hr',
+                props
+              };
+            }
+          }
+        };
+        const reactElement = parse(html, options);
+
+        expect(props).toEqual({
+          id: 'foo',
+          className: 'bar baz',
+          style: {
+            background: '#fff',
+            textAlign: 'center'
+          },
+          ['data-foo']: 'bar'
+        });
+        expect(render(reactElement)).toBe(html);
+      });
     });
 
     describe('library', () => {
