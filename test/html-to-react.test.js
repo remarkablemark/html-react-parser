@@ -15,6 +15,12 @@ describe('HTML to React', () => {
     it('has htmlToDOM', () => {
       expect(parse.htmlToDOM).toBe(require('html-dom-parser'));
     });
+
+    it('has attributesToProps', () => {
+      expect(parse.attributesToProps).toBe(
+        require('../lib/attributes-to-props')
+      );
+    });
   });
 
   describe('parser', () => {
