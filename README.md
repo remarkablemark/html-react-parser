@@ -244,7 +244,7 @@ parse('<br>', {
 
 ### htmlparser2
 
-This library passes the following options to [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1) on the server-side:
+The default options passed to [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1) are:
 
 ```js
 {
@@ -253,9 +253,9 @@ This library passes the following options to [htmlparser2](https://github.com/fb
 }
 ```
 
-By passing your own options, the default library options will be **replaced** (not merged).
+Since [v0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0), you can override the default options by passing [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options).
 
-As a result, to enable `decodeEntities` and `xmlMode`, you need to do the following:
+Here's an example in which [`decodeEntities`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-decodeentities) and [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) are enabled:
 
 ```js
 parse('<p /><p />', {
@@ -266,9 +266,7 @@ parse('<p /><p />', {
 });
 ```
 
-See [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options).
-
-> **Warning**: By overriding htmlparser2 options, there's a chance of breaking universal rendering. Do this at your own risk.
+> **Warning**: `htmlparser2` is only applicable on the _server-side_ (Node.js) and not applicable on the _client-side_ (browser). By overriding `htmlparser2` options, there's a chance that universal rendering breaks. Do this at your own _risk_.
 
 ### trim
 
