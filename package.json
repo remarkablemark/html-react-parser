@@ -62,7 +62,7 @@
     "typescript": "^3.9.3"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^15 || ^16"
+    "react": "^0.14 || ^15 || ^16 || ^17"
   },
   "files": [
     "/dist",
