@@ -57,7 +57,7 @@
     "react-dom": "^16",
     "rimraf": "^3.0.2",
     "rollup": "^2.12.1",
-    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-terser": "^7.0.2",
     "standard-version": "5",
     "typescript": "^3.9.3"
   },
