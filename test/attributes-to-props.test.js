@@ -160,62 +160,30 @@ describe('attributes to props', () => {
 
   // cssToJs
   describe('style', () => {
-    it('parses empty inline style to object', () => {
-      expect(attributesToProps({ style: '' })).toEqual({ style: {} });
+    const propsEmptyStyle = { style: {} };
+
+    it.each([undefined, null])('does not parse invalid value: %s', style => {
+      expect(attributesToProps({ style })).toEqual({ style });
     });
 
     it('does not parse CSS comment', () => {
-      expect(attributesToProps({ style: '/* comment */' })).toEqual({
-        style: {}
-      });
+      const style = '/* comment */';
+      expect(attributesToProps({ style })).toEqual(propsEmptyStyle);
     });
 
-    it('parses inline style to object', () => {
-      expect(
-        attributesToProps({
-          style:
-            'color: #f00; font-size: 42px; z-index: -1; -moz-border-radius-topright: 10px; background: url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
-        })
-      ).toEqual({
-        style: {
-          color: '#f00',
-          fontSize: '42px',
-          zIndex: '-1',
-          MozBorderRadiusTopright: '10px',
-          background:
-            'url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)'
-        }
-      });
+    it('parses "" to {}', () => {
+      const style = '';
+      expect(attributesToProps({ style })).toEqual(propsEmptyStyle);
+    });
 
-      expect(
-        attributesToProps({
-          style:
-            'border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
-        })
-      ).toEqual({
-        style: {
-          borderBottomLeftRadius: '1em',
-          borderRightStyle: 'solid',
-          zIndex: '-1',
-          MozBorderRadiusBottomleft: '20px'
-        }
-      });
-
-      expect(
-        attributesToProps({
-          style: null
-        })
-      ).toEqual({
-        style: null
-      });
-
-      expect(
-        attributesToProps({
-          style: undefined
-        })
-      ).toEqual({
-        style: undefined
-      });
+    it('parses CSS to JS', () => {
+      const style = `
+        color: #f00; font-size: 42px; z-index: -1; -webkit-border-top-right-radius: 10rem; background: url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif);
+        /* display: block;  */
+        --custom-property: #f00;
+        border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
+      `;
+      expect(attributesToProps({ style })).toMatchSnapshot();
     });
   });
 

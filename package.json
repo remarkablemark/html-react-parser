@@ -35,7 +35,7 @@
     "@types/htmlparser2": "3.10.1",
     "html-dom-parser": "0.3.0",
     "react-property": "1.0.1",
-    "style-to-object": "0.3.0"
+    "style-to-js": "1.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
