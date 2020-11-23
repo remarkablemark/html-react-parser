@@ -1,45 +1,11 @@
 const React = require('react');
 const {
   PRESERVE_CUSTOM_ATTRIBUTES,
-  camelCase,
   invertObject,
   isCustomComponent
 } = require('../lib/utilities');
 
 describe('utilities', () => {
-  describe('camelCase', () => {
-    it.each([undefined, null, {}, [], 0, 1, () => {}, new Date()])(
-      'throws an error if first argument is %p',
-      input => {
-        expect(() => {
-          camelCase(input);
-        }).toThrow(TypeError);
-      }
-    );
-
-    it.each([
-      ['', ''],
-      ['foo', 'foo'],
-      ['fooBar', 'fooBar'],
-      ['--fooBar', '--fooBar'],
-      ['--foo-bar', '--foo-bar'],
-      ['--foo-100', '--foo-100']
-    ])(
-      'does not modify string if it does not need to be camelCased',
-      (input, expected) => {
-        expect(camelCase(input)).toBe(expected);
-      }
-    );
-
-    it.each([
-      ['foo-bar', 'fooBar'],
-      ['foo-bar-baz', 'fooBarBaz'],
-      ['CAMEL-CASE', 'camelCase']
-    ])('camelCases a string', (input, expected) => {
-      expect(camelCase(input)).toBe(expected);
-    });
-  });
-
   describe('invertObject', () => {
     it.each([undefined, null, 'string', 0, 1, () => {}])(
       `throws an error if the first argument is %p`,
