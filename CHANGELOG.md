@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.2"></a>
+## [0.14.2](https://github.com/remarkablemark/html-react-parser/compare/v0.14.1...v0.14.2) (2020-11-23)
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/remarkablemark/html-react-parser/compare/v0.14.0...v0.14.1) (2020-11-03)
 
