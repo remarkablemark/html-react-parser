@@ -95,19 +95,27 @@ describe('DOM to React', () => {
     const Preact = require('preact');
 
     it('converts with React (default)', () => {
-      const html = data.html.single;
-      const reactElement = domToReact(htmlToDOM(html));
+      const reactElement = domToReact(htmlToDOM(data.html.single));
 
       expect(React.isValidElement(reactElement)).toBe(true);
+      expect(Preact.isValidElement(reactElement)).toBe(false);
+
       expect(reactElement).toEqual(React.createElement('p', {}, 'foo'));
     });
 
     it('converts with Preact instead of React', () => {
-      const html = data.html.single;
-      const preactElement = domToReact(htmlToDOM(html), { library: Preact });
+      const parsedElement = domToReact(htmlToDOM(data.html.single), {
+        library: Preact
+      });
+      const preactElement = Preact.createElement('p', {}, 'foo');
 
-      expect(Preact.isValidElement(preactElement)).toBe(true);
-      expect(preactElement).toEqual(Preact.createElement('p', {}, 'foo'));
+      expect(React.isValidElement(parsedElement)).toBe(false);
+      expect(Preact.isValidElement(parsedElement)).toBe(true);
+
+      // remove `__v` key since it's causing test equality to fail
+      delete parsedElement.__v;
+      delete preactElement.__v;
+      expect(parsedElement).toEqual(preactElement);
     });
   });
 

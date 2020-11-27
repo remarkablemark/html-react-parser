@@ -168,13 +168,19 @@ describe('HTML to React', () => {
     });
 
     describe('library', () => {
-      it('converts with Preact instead of React', () => {
-        const Preact = require('preact');
-        const html = data.html.single;
-        const options = { library: Preact };
-        const preactElement = parse(html, options);
+      const Preact = require('preact');
 
-        expect(preactElement).toEqual(Preact.createElement('p', {}, 'foo'));
+      it('converts with Preact instead of React', () => {
+        const parsedElement = parse(data.html.single, { library: Preact });
+        const preactElement = Preact.createElement('p', {}, 'foo');
+
+        expect(React.isValidElement(parsedElement)).toBe(false);
+        expect(Preact.isValidElement(parsedElement)).toBe(true);
+
+        // remove `__v` key since it's causing test equality to fail
+        delete parsedElement.__v;
+        delete preactElement.__v;
+        expect(parsedElement).toEqual(preactElement);
       });
     });
 
