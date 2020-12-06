@@ -1,6 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`attributes to props style parses CSS to JS 1`] = `
+exports[`attributesToProps with HTML attribute converts RDFa attributes to React props 1`] = `
+Object {
+  "property": "foo",
+  "typeof": "bar",
+}
+`;
+
+exports[`attributesToProps with HTML attribute converts attributes to React props 1`] = `
+Object {
+  "className": "ic",
+  "htmlFor": "tran",
+  "httpEquiv": "refresh",
+}
+`;
+
+exports[`attributesToProps with HTML attribute converts attributes with weird capitalization 1`] = `
+Object {
+  "acceptCharset": "ISO-8859-1",
+  "data-FOO": "bar",
+  "formNoValidate": true,
+  "security": "restricted",
+}
+`;
+
+exports[`attributesToProps with HTML attribute converts boolean attributes 1`] = `
+Object {
+  "allowFullScreen": true,
+  "allowpaymentrequest": "",
+  "async": true,
+  "autoFocus": true,
+  "autoPlay": true,
+  "checked": true,
+  "controls": true,
+  "default": true,
+  "disabled": true,
+  "formNoValidate": true,
+  "hidden": true,
+  "ismap": "",
+  "itemScope": true,
+  "loop": true,
+  "multiple": true,
+  "muted": true,
+  "noValidate": true,
+  "nomodule": "",
+  "open": true,
+  "playsInline": true,
+  "readOnly": true,
+  "required": true,
+  "reversed": true,
+  "selected": true,
+  "truespeed": "",
+}
+`;
+
+exports[`attributesToProps with HTML attribute converts non-standard attributes to React props 1`] = `
+Object {
+  "itemID": 1337,
+  "itemScope": true,
+}
+`;
+
+exports[`attributesToProps with HTML attribute converts standard attributes to React props 1`] = `
+Object {
+  "allowFullScreen": true,
+  "charSet": "utf-8",
+  "tabIndex": 1,
+}
+`;
+
+exports[`attributesToProps with HTML attribute keeps \`data-*\` and \`aria-*\` attributes as is 1`] = `
+Object {
+  "aria-live": "polite",
+  "data-foo": "bar",
+}
+`;
+
+exports[`attributesToProps with SVG attribute converts attributes to React props 1`] = `
+Object {
+  "edgeMode": "edgeMode",
+  "fillOpacity": "0.42",
+  "fillRule": "evenodd",
+  "glyphOrientationVertical": "auto",
+  "horizAdvX": "9001",
+  "stroke": "none",
+  "xmlBase": "http://example.org",
+}
+`;
+
+exports[`attributesToProps with SVG attribute keeps incorrectly capitalized attributes 1`] = `
+Object {
+  "XLINK:HREF": "#",
+  "YChannelSelector": "G",
+  "ZoomAndPan": "disable",
+}
+`;
+
+exports[`attributesToProps with custom attribute converts attributes named after Object properties 1`] = `
+Object {
+  "__defineGetter__": "",
+  "__defineSetter__": "",
+  "__lookupGetter__": "",
+  "__lookupSetter__": "",
+  "constructor": "",
+  "hasOwnProperty": "",
+  "isPrototypeOf": "",
+  "propertyIsEnumerable": "",
+  "toLocaleString": "",
+  "toString": "",
+  "valueOf": "",
+}
+`;
+
+exports[`attributesToProps with style attribute parses CSS style to JS object 1`] = `
 Object {
   "style": Object {
     "--custom-property": "#f00",
