@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DOM to React converts <textarea> correctly 1`] = `
+exports[`domToReact converts <textarea> correctly 1`] = `
 <textarea
   defaultValue="foo"
 />
 `;
 
-exports[`DOM to React converts SVG element with viewBox attribute 1`] = `
+exports[`domToReact converts SVG element with viewBox attribute 1`] = `
 <svg
   id="foo"
   viewBox="0 0 512 512"
@@ -15,7 +15,7 @@ exports[`DOM to React converts SVG element with viewBox attribute 1`] = `
 </svg>
 `;
 
-exports[`DOM to React converts multiple DOM nodes to React 1`] = `
+exports[`domToReact converts multiple DOM nodes to React 1`] = `
 Array [
   <p>
     foo
@@ -26,13 +26,13 @@ Array [
 ]
 `;
 
-exports[`DOM to React converts single DOM node to React 1`] = `
+exports[`domToReact converts single DOM node to React 1`] = `
 <p>
   foo
 </p>
 `;
 
-exports[`DOM to React does not escape <script> content 1`] = `
+exports[`domToReact does not escape <script> content 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {
@@ -42,7 +42,7 @@ exports[`DOM to React does not escape <script> content 1`] = `
 />
 `;
 
-exports[`DOM to React does not escape <style> content 1`] = `
+exports[`domToReact does not escape <style> content 1`] = `
 <style
   dangerouslySetInnerHTML={
     Object {
@@ -52,14 +52,14 @@ exports[`DOM to React does not escape <style> content 1`] = `
 />
 `;
 
-exports[`DOM to React does not modify attributes on custom elements 1`] = `
+exports[`domToReact does not modify attributes on custom elements 1`] = `
 <custom-button
   class="myClass"
   custom-attribute="value"
 />
 `;
 
-exports[`DOM to React skips doctype and comments 1`] = `
+exports[`domToReact skips doctype and comments 1`] = `
 Array [
   <p>
     foo
@@ -70,13 +70,13 @@ Array [
 ]
 `;
 
-exports[`DOM to React when React <16 removes unknown attributes 1`] = `
+exports[`domToReact when React <16 removes unknown attributes 1`] = `
 <custom-button
   className="myClass"
 />
 `;
 
-exports[`DOM to React when React >=16 preserves unknown attributes 1`] = `
+exports[`domToReact when React >=16 preserves unknown attributes 1`] = `
 <custom-button
   class="myClass"
   custom-attribute="value"
