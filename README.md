@@ -17,16 +17,16 @@ HTMLReactParser(string[, options])
 
 It converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements). There's also an option to [replace an element](#replacedomnode) with your own.
 
-#### Example:
+Example:
 
 ```js
-var parse = require('html-react-parser');
+const parse = require('html-react-parser');
 parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
 ```
 
-[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
-## Installation
+## Install
 
 [NPM](https://www.npmjs.com/package/html-react-parser):
 
@@ -53,7 +53,7 @@ $ yarn add html-react-parser
 
 ## Usage
 
-Import the module:
+Import or require the module:
 
 ```js
 // ES Modules
@@ -296,33 +296,33 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 ## FAQ
 
-#### Is this library XSS safe?
+#### Is this XSS safe?
 
 No, this library is _**not**_ [XSS (cross-site scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
 
-#### Does this library sanitize invalid HTML?
+#### Does invalid HTML get sanitized?
 
-No, this library does _**not**_ perform HTML sanitization. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141).
+No, this library does _**not**_ sanitize HTML. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141).
 
 #### Are `<script>` tags parsed?
 
 Although `<script>` tags and their contents are rendered on the server-side, they're not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
 
-#### Why aren't my HTML attributes getting called?
+#### Attributes aren't getting called
 
-This is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) like `onclick` are parsed as a _string_ instead of a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
+The reason why your HTML attributes aren't getting called is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ rather than a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
 
-#### The parser throws an error.
+#### Parser throws an error
 
-Check if your arguments are valid. Also, see ["Does this library sanitize invalid HTML?"](https://github.com/remarkablemark/html-react-parser#does-this-library-sanitize-invalid-html).
+If the parser throws an erorr, check if your arguments are valid. See ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized).
 
-#### Does this library support SSR?
+#### Is SSR supported?
 
-Yes, this library supports server-side rendering on Node.js. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
+Yes, server-side rendering on Node.js is supported by this library. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
 
-#### Why are my elements nested incorrectly?
+#### Elements aren't nested correctly
 
-Make sure your [HTML markup is valid](https://validator.w3.org/). The HTML to DOM parsing will be affected if you're using self-closing syntax (`/>`) on non-void elements:
+If your elements are nested incorrectly, check to make sure your [HTML markup is valid](https://validator.w3.org/). The HTML to DOM parsing will be affected if you're using self-closing syntax (`/>`) on non-void elements:
 
 ```js
 parse('<div /><div />'); // returns single element instead of array of elements
@@ -330,13 +330,13 @@ parse('<div /><div />'); // returns single element instead of array of elements
 
 See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
 
-#### I get "Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table."
+#### Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table
 
-Enable the [trim](https://github.com/remarkablemark/html-react-parser#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
+Enable the [trim](#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
 
-#### Don't change case of tags.
+#### Don't change case of tags
 
-Tags are lowercased by default. To prevent that from happening, pass the [htmlparser2 option](https://github.com/remarkablemark/html-react-parser#htmlparser2):
+Tags are lowercased by default. To prevent that from happening, pass the [htmlparser2 option](#htmlparser2):
 
 ```js
 const options = {
@@ -403,10 +403,10 @@ Support this project with your organization. Your logo will show up here with a 
 ## Support
 
 - [GitHub Sponsors](https://b.remarkabl.org/github-sponsors)
-- [Patreon](https://b.remarkabl.org/patreon)
 - [Open Collective](https://b.remarkabl.org/open-collective-html-react-parser)
-- [Ko-fi](https://b.remarkabl.org/ko-fi)
 - [Tidelift](https://b.remarkabl.org/tidelift-html-react-parser)
+- [Patreon](https://b.remarkabl.org/patreon)
+- [Ko-fi](https://b.remarkabl.org/ko-fi)
 - [Liberapay](https://b.remarkabl.org/liberapay)
 - [Teepsring](https://b.remarkabl.org/teespring)
 
