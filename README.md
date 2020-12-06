@@ -26,6 +26,37 @@ parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text
 
 [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
+<details>
+<summary>Table of Contents</summary>
+
+- [Install](#install)
+- [Usage](#usage)
+  - [Options](#options)
+    - [replace(domNode)](#replacedomnode)
+  - [library](#library)
+  - [htmlparser2](#htmlparser2)
+  - [trim](#trim)
+- [FAQ](#faq)
+  - [Is this XSS safe?](#is-this-xss-safe)
+  - [Does invalid HTML get sanitized?](#does-invalid-html-get-sanitized)
+  - [Are `<script>` tags parsed?](#are-script-tags-parsed)
+  - [Attributes aren't getting called](#attributes-arent-getting-called)
+  - [Parser throws an error](#parser-throws-an-error)
+  - [Is SSR supported?](#is-ssr-supported)
+  - [Elements aren't nested correctly](#elements-arent-nested-correctly)
+  - [Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table](#warning-validatedomnesting-whitespace-text-nodes-cannot-appear-as-a-child-of-table)
+  - [Don't change case of tags](#dont-change-case-of-tags)
+- [Benchmarks](#benchmarks)
+- [Contributors](#contributors)
+  - [Code Contributors](#code-contributors)
+  - [Financial Contributors](#financial-contributors)
+    - [Individuals](#individuals)
+    - [Organizations](#organizations)
+- [Support](#support)
+- [License](#license)
+
+</details>
+
 ## Install
 
 [NPM](https://www.npmjs.com/package/html-react-parser):
