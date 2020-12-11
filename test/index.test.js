@@ -40,48 +40,32 @@ describe('HTMLReactParser', () => {
   });
 
   it('parses single HTML element', () => {
-    const html = data.html.single;
-    const reactElement = parse(html);
-    expect(render(reactElement)).toBe(html);
+    expect(parse(data.html.single)).toMatchSnapshot();
   });
 
   it('parses single HTML element with comment', () => {
-    const html = data.html.single;
     // comment should be ignored
-    const reactElement = parse(html + data.html.comment);
-    expect(render(reactElement)).toBe(html);
+    expect(parse(data.html.single + data.html.comment)).toMatchSnapshot();
   });
 
   it('parses multiple HTML elements', () => {
-    const html = data.html.multiple;
-    const reactElements = parse(html);
-    expect(render(React.createElement(React.Fragment, {}, reactElements))).toBe(
-      html
-    );
+    expect(parse(data.html.multiple)).toMatchSnapshot();
   });
 
-  it('parses complex HTML', () => {
-    const html = data.html.complex;
-    const reactElement = parse(data.html.doctype + html);
-    expect(render(reactElement)).toBe(html);
+  it('parses complex HTML with doctype', () => {
+    expect(parse(data.html.doctype + data.html.complex)).toMatchSnapshot();
   });
 
   it('parses empty <script>', () => {
-    const html = '<script></script>';
-    const reactElement = parse(html);
-    expect(render(reactElement)).toBe(html);
+    expect(parse('<script></script>')).toMatchSnapshot();
   });
 
   it('parses empty <style>', () => {
-    const html = '<style></style>';
-    const reactElement = parse(html);
-    expect(render(reactElement)).toBe(html);
+    expect(parse('<style></style>')).toMatchSnapshot();
   });
 
   it('parses SVG', () => {
-    const svg = data.svg.complex;
-    const reactElement = parse(svg);
-    expect(render(reactElement)).toBe(svg);
+    expect(parse(data.svg.complex)).toMatchSnapshot();
   });
 
   it('decodes HTML entities', () => {
@@ -94,7 +78,6 @@ describe('HTMLReactParser', () => {
 
 describe('replace option', () => {
   it('replaces the element if a valid React element is returned', () => {
-    const html = data.html.complex;
     const options = {
       replace: node => {
         if (node.name === 'title') {
@@ -102,14 +85,10 @@ describe('replace option', () => {
         }
       }
     };
-    const reactElement = parse(html, options);
-    expect(render(reactElement)).toBe(
-      html.replace('<title>Title</title>', '<title>Replaced Title</title>')
-    );
+    expect(parse(data.html.complex, options)).toMatchSnapshot();
   });
 
   it('does not replace the element if an invalid React element is returned', () => {
-    const html = data.html.complex;
     const options = {
       replace: node => {
         if (node.attribs && node.attribs.id === 'header') {
@@ -120,8 +99,7 @@ describe('replace option', () => {
         }
       }
     };
-    const reactElement = parse(html, options);
-    expect(render(reactElement)).toBe(html);
+    expect(parse(data.html.complex, options)).toMatchSnapshot();
   });
 });
 
@@ -145,10 +123,8 @@ describe('htmlparser2 option', () => {
     // using self-closing syntax (`/>`) for non-void elements is invalid
     // which causes elements to nest instead of being rendered correctly
     // enabling htmlparser2 option xmlMode resolves this issue
-    const html = '<ul><li/><li/></ul>';
     const options = { htmlparser2: { xmlMode: true } };
-    const reactElements = parse(html, options);
-    expect(render(reactElements)).toBe('<ul><li></li><li></li></ul>');
+    expect(parse('<ul><li/><li/></ul>', options)).toMatchSnapshot();
   });
 });
 
