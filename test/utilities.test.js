@@ -2,7 +2,8 @@ const React = require('react');
 const {
   PRESERVE_CUSTOM_ATTRIBUTES,
   invertObject,
-  isCustomComponent
+  isCustomComponent,
+  setStyleProp
 } = require('../lib/utilities');
 
 describe('invertObject', () => {
@@ -89,5 +90,31 @@ describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
 
   it(`is ${isReactGreaterThan15} when React.version="${React.version}"`, () => {
     expect(PRESERVE_CUSTOM_ATTRIBUTES).toBe(isReactGreaterThan15);
+  });
+});
+
+describe('setStyleProp', () => {
+  it.each([undefined, null])(
+    'does not set props.style when style=%p',
+    style => {
+      const props = {};
+      expect(setStyleProp(style, props)).toBe(undefined);
+      expect(props).toEqual({});
+    }
+  );
+
+  it('sets props.style', () => {
+    const style = `
+      color: red;
+      background-color: #bada55;
+      -webkit-user-select: none;
+      line-height: 1;
+      background-image:
+        linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+        url('https://mdn.mozillademos.org/files/7693/catfront.png');
+    `;
+    const props = { style: { foo: 'bar' }, width: 100 };
+    expect(setStyleProp(style, props)).toBe(undefined);
+    expect(props).toMatchSnapshot();
   });
 });
