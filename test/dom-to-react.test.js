@@ -68,7 +68,7 @@ describe('domToReact', () => {
     expect(reactElement).toMatchSnapshot();
   });
 
-  it('does not modify attributes on custom elements', () => {
+  it('converts custom element with attributes', () => {
     const reactElement = domToReact(htmlToDOM(data.html.customElement));
     expect(reactElement).toMatchSnapshot();
   });
@@ -115,7 +115,7 @@ describe('domToReact replace option', () => {
         if (node.name === 'p') {
           return React.createElement('p', {}, 'replaced foo');
         }
-        if (node.name === 'custom-button') {
+        if (node.name === 'custom-element') {
           return React.createElement(
             'custom-button',
             {

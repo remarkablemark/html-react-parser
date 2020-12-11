@@ -17,7 +17,7 @@ module.exports.html = {
   comment: '<!-- comment -->',
   doctype: '<!DOCTYPE html>',
   customElement:
-    '<custom-button class="myClass" custom-attribute="value"></custom-button>'
+    '<custom-element class="myClass" custom-attribute="value" style="-o-transition: all .5s; line-height: 1;"></custom-element>'
 };
 
 /**
