@@ -1,6 +1,7 @@
 const React = require('react');
 const parse = require('..');
-const { data, render } = require('./helpers/');
+const { html, svg } = require('./data');
+const { render } = require('./helpers');
 
 describe('module', () => {
   it('exports default', () => {
@@ -40,20 +41,20 @@ describe('HTMLReactParser', () => {
   });
 
   it('parses single HTML element', () => {
-    expect(parse(data.html.single)).toMatchSnapshot();
+    expect(parse(html.single)).toMatchSnapshot();
   });
 
   it('parses single HTML element with comment', () => {
     // comment should be ignored
-    expect(parse(data.html.single + data.html.comment)).toMatchSnapshot();
+    expect(parse(html.single + html.comment)).toMatchSnapshot();
   });
 
   it('parses multiple HTML elements', () => {
-    expect(parse(data.html.multiple)).toMatchSnapshot();
+    expect(parse(html.multiple)).toMatchSnapshot();
   });
 
   it('parses complex HTML with doctype', () => {
-    expect(parse(data.html.doctype + data.html.complex)).toMatchSnapshot();
+    expect(parse(html.doctype + html.complex)).toMatchSnapshot();
   });
 
   it('parses empty <script>', () => {
@@ -65,7 +66,7 @@ describe('HTMLReactParser', () => {
   });
 
   it('parses SVG', () => {
-    expect(parse(data.svg.complex)).toMatchSnapshot();
+    expect(parse(svg.complex)).toMatchSnapshot();
   });
 
   it('decodes HTML entities', () => {
@@ -85,7 +86,7 @@ describe('replace option', () => {
         }
       }
     };
-    expect(parse(data.html.complex, options)).toMatchSnapshot();
+    expect(parse(html.complex, options)).toMatchSnapshot();
   });
 
   it('does not replace the element if an invalid React element is returned', () => {
@@ -99,7 +100,7 @@ describe('replace option', () => {
         }
       }
     };
-    expect(parse(data.html.complex, options)).toMatchSnapshot();
+    expect(parse(html.complex, options)).toMatchSnapshot();
   });
 });
 
@@ -107,7 +108,7 @@ describe('library option', () => {
   const Preact = require('preact');
 
   it('converts with Preact instead of React', () => {
-    const parsedElement = parse(data.html.single, { library: Preact });
+    const parsedElement = parse(html.single, { library: Preact });
     const preactElement = Preact.createElement('p', {}, 'foo');
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
