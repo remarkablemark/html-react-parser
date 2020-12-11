@@ -1,6 +1,10 @@
 const attributesToProps = require('../lib/attributes-to-props');
 const utilities = require('../lib/utilities');
 
+it('returns empty object is argument is undefined', () => {
+  expect(attributesToProps()).toEqual({});
+});
+
 describe('attributesToProps with HTML attribute', () => {
   it('converts attributes to React props', () => {
     const attributes = {
