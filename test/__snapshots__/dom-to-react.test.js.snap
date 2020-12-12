@@ -19,7 +19,12 @@ exports[`domToReact converts custom element with attributes 1`] = `
 <custom-element
   class="myClass"
   custom-attribute="value"
-  style="-o-transition: all .5s; line-height: 1;"
+  style={
+    Object {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
 />
 `;
 
@@ -87,6 +92,11 @@ exports[`domToReact when React >=16 preserves unknown attributes 1`] = `
 <custom-element
   class="myClass"
   custom-attribute="value"
-  style="-o-transition: all .5s; line-height: 1;"
+  style={
+    Object {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
 />
 `;
