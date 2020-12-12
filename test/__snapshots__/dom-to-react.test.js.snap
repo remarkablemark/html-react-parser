@@ -15,6 +15,14 @@ exports[`domToReact converts SVG element with viewBox attribute 1`] = `
 </svg>
 `;
 
+exports[`domToReact converts custom element with attributes 1`] = `
+<custom-element
+  class="myClass"
+  custom-attribute="value"
+  style="-o-transition: all .5s; line-height: 1;"
+/>
+`;
+
 exports[`domToReact converts multiple DOM nodes to React 1`] = `
 Array [
   <p>
@@ -52,13 +60,6 @@ exports[`domToReact does not escape <style> content 1`] = `
 />
 `;
 
-exports[`domToReact does not modify attributes on custom elements 1`] = `
-<custom-button
-  class="myClass"
-  custom-attribute="value"
-/>
-`;
-
 exports[`domToReact skips doctype and comments 1`] = `
 Array [
   <p>
@@ -71,14 +72,21 @@ Array [
 `;
 
 exports[`domToReact when React <16 removes unknown attributes 1`] = `
-<custom-button
+<custom-element
   className="myClass"
+  style={
+    Object {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
 />
 `;
 
 exports[`domToReact when React >=16 preserves unknown attributes 1`] = `
-<custom-button
+<custom-element
   class="myClass"
   custom-attribute="value"
+  style="-o-transition: all .5s; line-height: 1;"
 />
 `;
