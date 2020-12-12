@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.3](https://github.com/remarkablemark/html-react-parser/compare/v0.14.2...v0.14.3) (2020-12-12)
+
+
+### Bug Fixes
+
+* **dom-to-react:** transform style to object for Web Components ([83efbce](https://github.com/remarkablemark/html-react-parser/commit/83efbce1123d3fb6d28b066cf60559a769e9a138)), closes [#188](https://github.com/remarkablemark/html-react-parser/issues/188)
+
+
+
 <a name="0.14.2"></a>
 ## [0.14.2](https://github.com/remarkablemark/html-react-parser/compare/v0.14.1...v0.14.2) (2020-11-23)
 
