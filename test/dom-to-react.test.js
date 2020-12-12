@@ -8,6 +8,18 @@ const { render } = require('./helpers');
 const { html, svg } = require('./data');
 
 describe('domToReact', () => {
+  it.each([
+    ['comment', html.comment],
+    ['doctype', html.doctype]
+  ])('skips %s', (type, value) => {
+    expect(domToReact(htmlToDOM(value))).toEqual([]);
+  });
+
+  it('converts "text" to "text"', () => {
+    const text = 'text';
+    expect(domToReact(htmlToDOM(text))).toBe(text);
+  });
+
   it('converts single DOM node to React', () => {
     const reactElement = domToReact(htmlToDOM(html.single));
     expect(reactElement).toMatchSnapshot();
