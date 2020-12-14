@@ -15,14 +15,16 @@ HTML to React parser that works on both the server (Node.js) and the client (bro
 HTMLReactParser(string[, options])
 ```
 
-It converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements). There's also an option to [replace an element](#replacedomnode) with your own.
-
-Example:
+The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements):
 
 ```js
 const parse = require('html-react-parser');
 parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
 ```
+
+To replace an element with a custom element, check out the [replace option](#replacedomnode).
+
+Demos:
 
 [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
@@ -75,7 +77,7 @@ $ yarn add html-react-parser
 
 ```html
 <!-- HTMLReactParser depends on React -->
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
 <script>
   window.HTMLReactParser(/* string */);
@@ -106,7 +108,7 @@ Parse multiple elements:
 parse('<li>Item 1</li><li>Item 2</li>');
 ```
 
-Since adjacent elements are parsed as an array, make sure to render them under a parent node:
+Make sure to render parsed adjacent elements under a parent element:
 
 ```jsx
 <ul>
@@ -135,13 +137,13 @@ parse(
 
 #### replace(domNode)
 
-The `replace` callback allows you to swap an element with another React element.
+The `replace` option allows you to replace an element with another React element.
 
-The first argument is an object with the same output as [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1)'s [domhandler](https://github.com/fb55/domhandler#example):
+The `replace` callback's 1st argument is a [domhandler](https://github.com/fb55/domhandler#example) node:
 
 ```js
 parse('<br>', {
-  replace: function (domNode) {
+  replace: domNode => {
     console.dir(domNode, { depth: null });
   }
 });
@@ -150,32 +152,33 @@ parse('<br>', {
 Console output:
 
 ```js
-{ type: 'tag',
-  name: 'br',
-  attribs: {},
-  children: [],
-  next: null,
+Element {
+  parent: null,
   prev: null,
-  parent: null }
+  next: null,
+  startIndex: null,
+  endIndex: null,
+  children: [],
+  name: 'br',
+  attribs: {}
+}
 ```
 
-The element is replaced only if a _valid_ React element is returned:
+The element is replaced if a **valid** React element is returned:
 
-```js
+```jsx
 parse('<p id="replace">text</p>', {
   replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
-      return React.createElement('span', {}, 'replaced');
+      return <span>replaced</span>;
     }
   }
 });
 ```
 
-Here's an [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) that modifies an element but keeps the children:
+The following [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) modifies the element along with its children:
 
 ```jsx
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import parse, { domToReact } from 'html-react-parser';
 
 const html = `
@@ -188,7 +191,9 @@ const html = `
 
 const options = {
   replace: ({ attribs, children }) => {
-    if (!attribs) return;
+    if (!attribs) {
+      return;
+    }
 
     if (attribs.id === 'main') {
       return <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>;
@@ -204,50 +209,69 @@ const options = {
   }
 };
 
-console.log(renderToStaticMarkup(parse(html, options)));
+parse(html, options);
 ```
 
-Use the exported attributesToProps method to convert DOM attributes to React Props:
+HTML output:
 
-```jsx
-import React from 'react';
-import parse, { attributesToProps } from 'html-react-parser';
-
-const html = `
-  <hr class="prettify" style="background:#fff;text-align:center" />
-`;
-
-const options = {
-  replace: node => {
-    if (node.attribs && node.name === 'hr') {
-      const props = attributesToProps(node.attribs);
-      return <hr {...props} />;
-    }
-  }
-};
-```
-
-Output:
+<!-- prettier-ignore-start -->
 
 ```html
 <h1 style="font-size:42px">
-  <span style="color:hotpink"> keep me and make me pretty! </span>
+  <span style="color:hotpink">
+    keep me and make me pretty!
+  </span>
 </h1>
 ```
 
-Here's an [example](https://repl.it/@remarkablemark/html-react-parser-56) that excludes an element:
+<!-- prettier-ignore-end -->
+
+Convert DOM attributes to React props with `attributesToProps`:
+
+```jsx
+import parse, { attributesToProps } from 'html-react-parser';
+
+const html = `
+  <main class="prettify" style="background: #fff; text-align: center;" />
+`;
+
+const options = {
+  replace: domNode => {
+    if (domNode.attribs && domNode.name === 'main') {
+      const props = attributesToProps(domNode.attribs);
+      return <div {...props} />;
+    }
+  }
+};
+
+parse(html, options);
+```
+
+HTML output:
+
+```html
+<div class="prettify" style="background:#fff;text-align:center"></div>
+```
+
+[Exclude](https://repl.it/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
 
 ```jsx
 parse('<p><br id="remove"></p>', {
-  replace: ({ attribs }) => attribs && attribs.id === 'remove' && <Fragment />
+  replace: ({ attribs }) => attribs && attribs.id === 'remove' && <></>
 });
+```
+
+HTML output:
+
+```html
+<p></p>
 ```
 
 ### library
 
-The `library` option allows you to specify which component library is used to create elements. React is used by default if this option is not specified.
+This option specifies the library that creates elements. The default library is **React**.
 
-Here's an example showing how to use Preact:
+To use Preact:
 
 ```js
 parse('<br>', {
@@ -255,7 +279,7 @@ parse('<br>', {
 });
 ```
 
-Or, using a custom library:
+Or a custom library:
 
 ```js
 parse('<br>', {
@@ -275,7 +299,7 @@ parse('<br>', {
 
 ### htmlparser2
 
-The default options passed to [htmlparser2](https://github.com/fb55/htmlparser2/tree/v3.10.1) are:
+The default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options) are:
 
 ```js
 {
@@ -284,9 +308,9 @@ The default options passed to [htmlparser2](https://github.com/fb55/htmlparser2/
 }
 ```
 
-Since [v0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0), you can override the default options by passing [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options).
+Since [v0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0), the htmlparser2 options can be overridden.
 
-Here's an example in which [`decodeEntities`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-decodeentities) and [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) are enabled:
+The following example enables [`decodeEntities`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-decodeentities) and [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode):
 
 ```js
 parse('<p /><p />', {
@@ -297,7 +321,7 @@ parse('<p /><p />', {
 });
 ```
 
-> **Warning**: `htmlparser2` is only applicable on the _server-side_ (Node.js) and not applicable on the _client-side_ (browser). By overriding `htmlparser2` options, there's a chance that universal rendering breaks. Do this at your own _risk_.
+> **WARNING**: `htmlparser2` options do not apply on the _client-side_ (browser). The options only apply on the _server-side_ (Node.js). By overriding `htmlparser2` options, universal rendering can break. Do this at your own risk.
 
 ### trim
 
@@ -307,19 +331,19 @@ Normally, whitespace is preserved:
 parse('<br>\n'); // [React.createElement('br'), '\n']
 ```
 
-By enabling the `trim` option, whitespace text nodes will be skipped:
+Enable the `trim` option to remove whitespace:
 
 ```js
 parse('<br>\n', { trim: true }); // React.createElement('br')
 ```
 
-This addresses the warning:
+This fixes the warning:
 
 ```
 Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of <table>. Make sure you don't have any extra whitespace between tags on each line of your source code.
 ```
 
-However, this option may strip out intentional whitespace:
+However, intentional whitespace may be stripped out:
 
 ```js
 parse('<p> </p>', { trim: true }); // React.createElement('p')
