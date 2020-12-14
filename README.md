@@ -48,7 +48,7 @@ Demos:
   - [Elements aren't nested correctly](#elements-arent-nested-correctly)
   - [Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table](#warning-validatedomnesting-whitespace-text-nodes-cannot-appear-as-a-child-of-table)
   - [Don't change case of tags](#dont-change-case-of-tags)
-- [Benchmarks](#benchmarks)
+- [Performance](#performance)
 - [Contributors](#contributors)
   - [Code Contributors](#code-contributors)
   - [Financial Contributors](#financial-contributors)
@@ -410,18 +410,26 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 
 See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://repl.it/@remarkablemark/html-react-parser-62).
 
-## Benchmarks
+## Performance
+
+Run benchmark:
 
 ```sh
 $ npm run test:benchmark
 ```
 
-Here's an example output of the benchmarks run on a MacBook Pro 2017:
+Output of benchmark run on MacBook Pro 2017:
 
 ```
 html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
 html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
 html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
+```
+
+Run [Size Limit](https://github.com/ai/size-limit):
+
+```sh
+$ npx size-limit
 ```
 
 ## Contributors
