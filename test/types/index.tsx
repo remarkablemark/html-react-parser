@@ -3,53 +3,54 @@ import parse, {
   domToReact,
   htmlToDOM
 } from 'html-react-parser';
+import { Element } from 'domhandler';
 import * as React from 'react';
 
 // $ExpectError
 parse();
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('string');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<p>text</p>');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<li>1</li><li>2</li>');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<br id="replace">', {
   replace: domNode => {
-    if (domNode.attribs && domNode.attribs.id === 'replace') {
+    if (domNode instanceof Element && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
   }
 });
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<br id="remove">', {
-  replace({ attribs }) {
-    return attribs && attribs.id === 'remove' && <></>;
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'remove') {
+      return <></>;
+    }
   }
 });
 
-let options: HTMLReactParserOptions;
-
-options = {
-  replace: node => {
-    if (node.attribs && node.attribs.id === 'header') {
+const options: HTMLReactParserOptions = {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'header') {
       return;
     }
   }
 };
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<a id="header" href="#">Heading</a>', options);
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<hr>', {
   library: {
     cloneElement: (element, props, children) =>
@@ -60,7 +61,7 @@ parse('<hr>', {
   }
 });
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('<p/><p/>', {
   htmlparser2: {
     xmlMode: true,
@@ -72,11 +73,11 @@ parse('<p/><p/>', {
   }
 });
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 parse('\t<p>text \r</p>\n', { trim: true });
 
-// $ExpectType DomElement[]
+// $ExpectType DOMNode[]
 const domNodes = htmlToDOM('<div>text</div>');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 domToReact(domNodes);

@@ -1,43 +1,46 @@
-import { DomElement } from 'domhandler';
+import { Element } from 'domhandler';
 import { HTMLReactParserOptions } from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 import * as React from 'react';
 import htmlToDOM from 'html-dom-parser';
 
-// $ExpectType DomElement[]
+// $ExpectType DOMNode[]
 htmlToDOM('<div>text</div>');
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
+domToReact(htmlToDOM('string'));
+
+// $ExpectType string | Element | Element[]
 domToReact(htmlToDOM('<div>text</div>'));
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 domToReact(htmlToDOM('<p id="replace">text</p>'), {
   replace: domNode => {
-    if (domNode.attribs && domNode.attribs.id === 'replace') {
+    if (domNode instanceof Element && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
   }
 });
 
-let options: HTMLReactParserOptions;
-
-options = {
-  replace({ attribs }) {
-    return attribs && attribs.id === 'remove' && <></>;
+const options: HTMLReactParserOptions = {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'remove') {
+      return <></>;
+    }
   }
 };
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 domToReact(htmlToDOM('<p><br id="remove"></p>'), options);
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 domToReact(htmlToDOM('<a id="header" href="#">Heading</a>'), {
-  replace: node => {
-    if (node.attribs && node.attribs.id === 'header') {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'header') {
       return;
     }
   }
 });
 
-// $ExpectType Element | Element[]
+// $ExpectType string | Element | Element[]
 domToReact(htmlToDOM('\t<p>text \r</p>\n'), { trim: true });
