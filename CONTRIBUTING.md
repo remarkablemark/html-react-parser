@@ -26,6 +26,16 @@ Make your change. Add tests and/or documentation. Ensure all tests and lint pass
 ```sh
 $ npm test
 $ npm run lint
+$ npm run lint:dts
+```
+
+Write a commit message that follows the [Conventional Commits][commit] specification.
+
+The commit message will be linted during the pre-commit Git hook.
+To manually lint the most recent commit message:
+
+```sh
+$ git log -1 --pretty=format:"%s" | npx commitlint
 ```
 
 Push to your fork and [submit a pull request][pr].
@@ -42,27 +52,20 @@ Things that will improve the chance that your pull request will be accepted:
 - [ ] Write good documentation.
 - [ ] Write a [good commit message][commit].
 
-[ci]: https://travis-ci.org/remarkablemark/html-react-parser
+[ci]: https://github.com/remarkablemark/html-react-parser/actions?query=workflow%3Abuild
 [commit]: https://www.conventionalcommits.org/
 
 ## Test
 
-Run tests:
+Run tests with coverage:
 
 ```sh
 $ npm test
 ```
 
-Run tests with coverage:
-
-```sh
-$ npm run test:coverage
-```
-
 View coverage report in your browser:
 
 ```sh
-$ npm run test:coverage:report
 $ open coverage/index.html
 ```
 
@@ -80,7 +83,7 @@ Fix lint errors:
 $ npm run lint:fix
 ```
 
-Test TypeScript declaration file for style and correctness:
+Test TypeScript declaration files for style and correctness:
 
 ```sh
 $ npm run lint:dts
@@ -92,5 +95,5 @@ Only collaborators with credentials can release and publish:
 
 ```sh
 $ npm run release
-$ npm publish && git push --follow-tags
+$ git push --follow-tags && npm publish
 ```
