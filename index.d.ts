@@ -1,12 +1,24 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
-import { DomElement, ParserOptions } from 'htmlparser2';
-import domToReact from './lib/dom-to-react';
-import attributesToProps from './lib/attributes-to-props';
+import { ParserOptions } from 'htmlparser2';
+import {
+  Comment,
+  DomHandlerOptions,
+  Element,
+  ProcessingInstruction,
+  Text
+} from 'domhandler';
 import htmlToDOM from 'html-dom-parser';
 
+import attributesToProps from './lib/attributes-to-props';
+import domToReact from './lib/dom-to-react';
+
+export { attributesToProps, domToReact, htmlToDOM };
+export type HTMLParser2Options = ParserOptions & DomHandlerOptions;
+export type DOMNode = Comment | Element | ProcessingInstruction | Text;
+
 export interface HTMLReactParserOptions {
-  htmlparser2?: ParserOptions;
+  htmlparser2?: HTMLParser2Options;
 
   library?: {
     cloneElement: (
@@ -20,7 +32,7 @@ export interface HTMLReactParserOptions {
   };
 
   replace?: (
-    domNode: DomElement
+    domNode: DOMNode
   ) => JSX.Element | object | void | undefined | null | false;
 
   trim?: boolean;
@@ -33,11 +45,7 @@ export interface HTMLReactParserOptions {
  * @param  options - Parser options.
  * @return         - JSX element(s), empty array, or string.
  */
-declare function HTMLReactParser(
+export default function HTMLReactParser(
   html: string,
   options?: HTMLReactParserOptions
 ): ReturnType<typeof domToReact>;
-
-export { DomElement, ParserOptions, domToReact, htmlToDOM, attributesToProps };
-
-export default HTMLReactParser;

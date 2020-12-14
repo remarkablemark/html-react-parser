@@ -32,8 +32,7 @@
     "dom"
   ],
   "dependencies": {
-    "@types/htmlparser2": "3.10.2",
-    "html-dom-parser": "0.3.0",
+    "html-dom-parser": "0.5.0",
     "react-property": "1.0.1",
     "style-to-js": "1.1.0"
   },

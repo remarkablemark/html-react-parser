@@ -1,16 +1,17 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
-import { HTMLReactParserOptions } from '..';
-import { DomElement } from 'domhandler';
+import { DOMNode, HTMLReactParserOptions } from '..';
+
+export { DOMNode, HTMLReactParserOptions };
 
 /**
  * Converts DOM nodes to JSX element(s).
  *
- * @param nodes   - DOM nodes.
- * @param options - Parser options.
- * @returns       - JSX element(s).
+ * @param  nodes   - DOM nodes.
+ * @param  options - Parser options.
+ * @return         - JSX element(s).
  */
 export default function domToReact(
-  nodes: DomElement[],
+  nodes: DOMNode[],
   options?: HTMLReactParserOptions
-): JSX.Element | JSX.Element[];
+): string | JSX.Element | JSX.Element[];
