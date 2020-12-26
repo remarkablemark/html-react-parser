@@ -15,6 +15,7 @@ import domToReact from './lib/dom-to-react';
 
 export { attributesToProps, domToReact, htmlToDOM };
 export type HTMLParser2Options = ParserOptions & DomHandlerOptions;
+export { Comment, Element, ProcessingInstruction, Text };
 export type DOMNode = Comment | Element | ProcessingInstruction | Text;
 
 export interface HTMLReactParserOptions {
