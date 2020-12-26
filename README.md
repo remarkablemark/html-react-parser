@@ -15,29 +15,30 @@ HTML to React parser that works on both the server (Node.js) and the client (bro
 HTMLReactParser(string[, options])
 ```
 
-The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements):
-
-```js
-const parse = require('html-react-parser');
-parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
-```
+The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements).
 
 To replace an element with a custom element, check out the [replace option](#replacedomnode).
 
-Demos:
+#### Example
 
-[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+```js
+const parse = require('html-react-parser');
+parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
+```
+
+[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [CodeSandbox (TypeScript)](https://codesandbox.io/s/html-react-parser-z0kp6) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 <details>
 <summary>Table of Contents</summary>
 
 - [Install](#install)
 - [Usage](#usage)
-  - [Options](#options)
-    - [replace(domNode)](#replacedomnode)
+  - [replace(domNode)](#replacedomnode)
   - [library](#library)
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
+- [Migration](#migration)
+  - [v1.0.0](#v100)
 - [FAQ](#faq)
   - [Is this XSS safe?](#is-this-xss-safe)
   - [Does invalid HTML get sanitized?](#does-invalid-html-get-sanitized)
@@ -48,6 +49,7 @@ Demos:
   - [Elements aren't nested correctly](#elements-arent-nested-correctly)
   - [Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table](#warning-validatedomnesting-whitespace-text-nodes-cannot-appear-as-a-child-of-table)
   - [Don't change case of tags](#dont-change-case-of-tags)
+  - [TS Error: Property 'attribs' does not exist on type 'DOMNode'](#ts-error-property-attribs-does-not-exist-on-type-domnode)
 - [Performance](#performance)
 - [Contributors](#contributors)
   - [Code Contributors](#code-contributors)
@@ -133,9 +135,7 @@ parse(
 );
 ```
 
-### Options
-
-#### replace(domNode)
+### replace(domNode)
 
 The `replace` option allows you to replace an element with another React element.
 
@@ -170,6 +170,20 @@ The element is replaced if a **valid** React element is returned:
 parse('<p id="replace">text</p>', {
   replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
+      return <span>replaced</span>;
+    }
+  }
+});
+```
+
+For TypeScript projects, check that `domNode` is an instance of domhandler's `Element`:
+
+```tsx
+import parse, { Element } from 'html-react-parser';
+
+parse('<p id="replace">text</p>', {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
   }
@@ -349,33 +363,53 @@ However, intentional whitespace may be stripped out:
 parse('<p> </p>', { trim: true }); // React.createElement('p')
 ```
 
+## Migration
+
+### v1.0.0
+
+TypeScript projects will need to check the types in [v1.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.0.0).
+
+For `replace` option:
+
+```tsx
+import parse, { Element } from 'html-react-parser';
+
+parse('<br class="remove">', {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.class === 'remove') {
+      return <></>;
+    }
+  }
+});
+```
+
 ## FAQ
 
-#### Is this XSS safe?
+### Is this XSS safe?
 
 No, this library is _**not**_ [XSS (cross-site scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
 
-#### Does invalid HTML get sanitized?
+### Does invalid HTML get sanitized?
 
 No, this library does _**not**_ sanitize HTML. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141).
 
-#### Are `<script>` tags parsed?
+### Are `<script>` tags parsed?
 
 Although `<script>` tags and their contents are rendered on the server-side, they're not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
 
-#### Attributes aren't getting called
+### Attributes aren't getting called
 
 The reason why your HTML attributes aren't getting called is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ rather than a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
 
-#### Parser throws an error
+### Parser throws an error
 
 If the parser throws an erorr, check if your arguments are valid. See ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized).
 
-#### Is SSR supported?
+### Is SSR supported?
 
 Yes, server-side rendering on Node.js is supported by this library. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
 
-#### Elements aren't nested correctly
+### Elements aren't nested correctly
 
 If your elements are nested incorrectly, check to make sure your [HTML markup is valid](https://validator.w3.org/). The HTML to DOM parsing will be affected if you're using self-closing syntax (`/>`) on non-void elements:
 
@@ -385,11 +419,11 @@ parse('<div /><div />'); // returns single element instead of array of elements
 
 See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
 
-#### Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table
+### Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table
 
 Enable the [trim](#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
 
-#### Don't change case of tags
+### Don't change case of tags
 
 Tags are lowercased by default. To prevent that from happening, pass the [htmlparser2 option](#htmlparser2):
 
@@ -409,6 +443,10 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 > ```
 
 See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://repl.it/@remarkablemark/html-react-parser-62).
+
+### TS Error: Property 'attribs' does not exist on type 'DOMNode'
+
+The TypeScript error happens because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
 ## Performance
 

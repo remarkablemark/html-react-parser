@@ -1,9 +1,9 @@
 import parse, {
+  Element,
   HTMLReactParserOptions,
   domToReact,
   htmlToDOM
 } from 'html-react-parser';
-import { Element } from 'domhandler';
 import * as React from 'react';
 
 // $ExpectError
