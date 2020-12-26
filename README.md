@@ -176,18 +176,19 @@ parse('<p id="replace">text</p>', {
 });
 ```
 
-For TypeScript projects, check that `domNode` is an instance of domhandler's `Element`:
+For TypeScript projects, you may need to check that `domNode` is an instance of domhandler's `Element`:
 
 ```tsx
-import parse, { Element } from 'html-react-parser';
+import { HTMLReactParserOptions } from 'html-react-parser';
+import { Element } from 'domhandler/lib/node';
 
-parse('<p id="replace">text</p>', {
+const options: HTMLReactParserOptions = {
   replace: domNode => {
-    if (domNode instanceof Element && domNode.attribs.id === 'replace') {
-      return <span>replaced</span>;
+    if (domNode instanceof Element && domNode.attribs) {
+      // ...
     }
   }
-});
+};
 ```
 
 The following [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) modifies the element along with its children:
@@ -367,12 +368,12 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 ### v1.0.0
 
-TypeScript projects will need to check the types in [v1.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.0.0).
+TypeScript projects will need to update the types in [v1.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.0.0).
 
-For `replace` option:
+For the `replace` option, you may need to do the following:
 
 ```tsx
-import parse, { Element } from 'html-react-parser';
+import { Element } from 'domhandler/lib/node';
 
 parse('<br class="remove">', {
   replace: domNode => {
@@ -446,7 +447,7 @@ See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [ex
 
 ### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
-The TypeScript error happens because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
+The TypeScript error occurs because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
 ## Performance
 
