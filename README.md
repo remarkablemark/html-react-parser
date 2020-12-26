@@ -15,16 +15,16 @@ HTML to React parser that works on both the server (Node.js) and the client (bro
 HTMLReactParser(string[, options])
 ```
 
-The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements):
-
-```js
-const parse = require('html-react-parser');
-parse('<div>text</div>'); // equivalent to `React.createElement('div', {}, 'text')`
-```
+The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements).
 
 To replace an element with a custom element, check out the [replace option](#replacedomnode).
 
-Demos:
+#### Example
+
+```js
+const parse = require('html-react-parser');
+parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
+```
 
 [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
@@ -170,6 +170,20 @@ The element is replaced if a **valid** React element is returned:
 parse('<p id="replace">text</p>', {
   replace: domNode => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
+      return <span>replaced</span>;
+    }
+  }
+});
+```
+
+For TypeScript projects, check that `domNode` is an instance of domhandler's `Element`:
+
+```tsx
+import { Element } from 'domhandler/lib/node';
+
+parse('<p id="replace">text</p>', {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
   }
@@ -349,6 +363,26 @@ However, intentional whitespace may be stripped out:
 parse('<p> </p>', { trim: true }); // React.createElement('p')
 ```
 
+## Migration
+
+### 1.0.0
+
+TypeScript projects will need to check the types in [v1.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.0.0).
+
+For `replace` option:
+
+```tsx
+import { Element } from 'domhandler/lib/node';
+
+parse('<br class="remove">', {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.class === 'remove') {
+      return <></>;
+    }
+  }
+});
+```
+
 ## FAQ
 
 #### Is this XSS safe?
@@ -409,6 +443,10 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 > ```
 
 See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://repl.it/@remarkablemark/html-react-parser-62).
+
+#### TS Error: Property 'attribs' does not exist on type 'DOMNode'
+
+The TypeScript error happens because `DOMNode` needs be an instance of domhandler's `Element`. See [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
 ## Performance
 
