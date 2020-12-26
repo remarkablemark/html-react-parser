@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.1.0](https://github.com/remarkablemark/html-react-parser/compare/v1.0.0...v1.1.0) (2020-12-26)
+
+
+### Features
+
+* **index:** export `domhandler` node types ([dfa0c19](https://github.com/remarkablemark/html-react-parser/commit/dfa0c1978684f42cdcabd32e95379dfb52ef1d0c))
 
 # [1.0.0](https://github.com/remarkablemark/html-react-parser/compare/v0.14.3...v1.0.0) (2020-12-14)
 
