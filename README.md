@@ -179,7 +179,7 @@ parse('<p id="replace">text</p>', {
 For TypeScript projects, check that `domNode` is an instance of domhandler's `Element`:
 
 ```tsx
-import { Element } from 'domhandler/lib/node';
+import parse, { Element } from 'html-react-parser';
 
 parse('<p id="replace">text</p>', {
   replace: domNode => {
@@ -372,7 +372,7 @@ TypeScript projects will need to check the types in [v1.0.0](https://github.com/
 For `replace` option:
 
 ```tsx
-import { Element } from 'domhandler/lib/node';
+import parse, { Element } from 'html-react-parser';
 
 parse('<br class="remove">', {
   replace: domNode => {
@@ -446,7 +446,7 @@ See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [ex
 
 #### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
-The TypeScript error happens because `DOMNode` needs be an instance of domhandler's `Element`. See [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
+The TypeScript error happens because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
 ## Performance
 
