@@ -382,6 +382,8 @@ parse('<br class="remove">', {
 });
 ```
 
+Since [v1.1.1](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.1.1), Internet Explorer 9 (IE9) is no longer supported.
+
 ## FAQ
 
 ### Is this XSS safe?
