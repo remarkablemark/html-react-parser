@@ -2,8 +2,7 @@ var domToReact = require('./lib/dom-to-react');
 var attributesToProps = require('./lib/attributes-to-props');
 var htmlToDOM = require('html-dom-parser');
 
-// decode HTML entities by default for `htmlparser2`
-var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
+var domParserOptions = { lowerCaseAttributeNames: false };
 
 /**
  * Converts HTML string to React elements.
