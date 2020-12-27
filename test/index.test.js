@@ -75,6 +75,10 @@ describe('HTMLReactParser', () => {
     const reactElement = parse('<i>' + encodedEntities + '</i>');
     expect(reactElement.props.children).toBe(decodedEntities);
   });
+
+  it('escapes tags inside of <title>', () => {
+    expect(parse(html.title)).toMatchSnapshot();
+  });
 });
 
 describe('replace option', () => {
