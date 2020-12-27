@@ -314,23 +314,21 @@ parse('<br>', {
 
 ### htmlparser2
 
-The default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options) are:
+Along with the default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode), the parser also sets:
 
-```js
+```json
 {
-  decodeEntities: true,
-  lowerCaseAttributeNames: false
+  "lowerCaseAttributeNames": false
 }
 ```
 
 Since [v0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0), the htmlparser2 options can be overridden.
 
-The following example enables [`decodeEntities`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-decodeentities) and [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode):
+The following example enables [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) but disables [`lowerCaseAttributeNames`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-lowercaseattributenames):
 
 ```js
 parse('<p /><p />', {
   htmlparser2: {
-    decodeEntities: true,
     xmlMode: true
   }
 });

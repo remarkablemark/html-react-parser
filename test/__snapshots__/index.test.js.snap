@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`HTMLReactParser escapes tags inside of <title> 1`] = `
+<title>
+  &lt;em&gt;text&lt;/em&gt;
+</title>
+`;
+
 exports[`HTMLReactParser parses SVG 1`] = `
 <svg
   height="400"

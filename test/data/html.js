@@ -13,6 +13,7 @@ module.exports = {
   void: '<link/><meta/><img/><br/><hr/><input/>',
   comment: '<!-- comment -->',
   doctype: '<!DOCTYPE html>',
+  title: '<title><em>text</em></title>',
   customElement:
     '<custom-element class="myClass" custom-attribute="value" style="-o-transition: all .5s; line-height: 1;"></custom-element>'
 };
