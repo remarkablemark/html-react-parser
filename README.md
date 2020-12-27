@@ -26,7 +26,7 @@ const parse = require('html-react-parser');
 parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 ```
 
-[CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [CodeSandbox (TypeScript)](https://codesandbox.io/s/html-react-parser-z0kp6) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+CodeSandbox ([JavaScript](https://codesandbox.io/s/940pov1l4w) / [TypeScript](https://codesandbox.io/s/html-react-parser-z0kp6)) | [Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 <details>
 <summary>Table of Contents</summary>
