@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/remarkablemark/html-react-parser/compare/v1.1.0...v1.1.1) (2020-12-27)
+
+
+### Bug Fixes
+
+* escape tags inside of `<title>` (html-dom-parser@1.0.0) ([07e1055](https://github.com/remarkablemark/html-react-parser/commit/07e10551f5febfa70075df22255cb2eb1dec5f54)), closes [#202](https://github.com/remarkablemark/html-react-parser/issues/202)
+
 ## [1.1.0](https://github.com/remarkablemark/html-react-parser/compare/v1.0.0...v1.1.0) (2020-12-26)
 
 
