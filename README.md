@@ -449,6 +449,10 @@ See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [ex
 
 The TypeScript error occurs because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
+### Can I enable `trim` for certain elements?
+
+Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replacedomnode) option. See [#205](https://github.com/remarkablemark/html-react-parser/issues/205).
+
 ## Performance
 
 Run benchmark:
