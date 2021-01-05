@@ -154,6 +154,7 @@ Console output:
 
 ```js
 Element {
+  type: 'tag',
   parent: null,
   prev: null,
   next: null,
