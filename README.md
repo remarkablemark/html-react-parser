@@ -17,7 +17,7 @@ HTMLReactParser(string[, options])
 
 The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements).
 
-To replace an element with a custom element, check out the [replace option](#replacedomnode).
+To replace an element with another element, check out the [`replace`](#replace) option.
 
 #### Example
 
@@ -33,7 +33,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 
 - [Install](#install)
 - [Usage](#usage)
-  - [replace(domNode)](#replacedomnode)
+  - [replace](#replace)
   - [library](#library)
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
@@ -136,11 +136,11 @@ parse(
 );
 ```
 
-### replace(domNode)
+### replace
 
-The `replace` option allows you to replace an element with another React element.
+The `replace` option allows you to replace an element with another element.
 
-The `replace` callback's 1st argument is a [domhandler](https://github.com/fb55/domhandler#example) node:
+The `replace` callback's first argument is [domhandler](https://github.com/fb55/domhandler#example)'s node:
 
 ```js
 parse('<br>', {
@@ -452,7 +452,7 @@ The TypeScript error occurs because `DOMNode` needs be an instance of domhandler
 
 ### Can I enable `trim` for certain elements?
 
-Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replacedomnode) option. See [#205](https://github.com/remarkablemark/html-react-parser/issues/205).
+Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replace) option. See [#205](https://github.com/remarkablemark/html-react-parser/issues/205).
 
 ## Performance
 
