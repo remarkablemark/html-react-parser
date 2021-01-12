@@ -5,6 +5,7 @@ import {
   Comment,
   DomHandlerOptions,
   Element,
+  Node,
   ProcessingInstruction,
   Text
 } from 'domhandler';
@@ -15,8 +16,8 @@ import domToReact from './lib/dom-to-react';
 
 export { attributesToProps, domToReact, htmlToDOM };
 export type HTMLParser2Options = ParserOptions & DomHandlerOptions;
-export { Comment, Element, ProcessingInstruction, Text };
-export type DOMNode = Comment | Element | ProcessingInstruction | Text;
+export { Comment, Element, Node, ProcessingInstruction, Text };
+export type DOMNode = Comment | Element | Node | ProcessingInstruction | Text;
 
 export interface HTMLReactParserOptions {
   htmlparser2?: HTMLParser2Options;

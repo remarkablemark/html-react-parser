@@ -39,10 +39,20 @@ parse('<br id="remove">', {
   }
 });
 
-const options: HTMLReactParserOptions = {
+let options: HTMLReactParserOptions;
+
+options = {
   replace: domNode => {
     if (domNode instanceof Element && domNode.attribs.id === 'header') {
       return;
+    }
+  }
+};
+
+options = {
+  replace: domNode => {
+    if (domNode instanceof Element) {
+      return <>{domToReact(domNode.children)}</>;
     }
   }
 };
@@ -76,7 +86,7 @@ parse('<p/><p/>', {
 // $ExpectType string | Element | Element[]
 parse('\t<p>text \r</p>\n', { trim: true });
 
-// $ExpectType DOMNode[]
+// $ExpectType (Comment | Element | ProcessingInstruction | Text)[]
 const domNodes = htmlToDOM('<div>text</div>');
 
 // $ExpectType string | Element | Element[]
