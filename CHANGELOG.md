@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/remarkablemark/html-react-parser/compare/v1.1.1...v1.1.2) (2021-01-12)
+
+
+### Bug Fixes
+
+* **index:** include domhandler `Node` in `DOMNode` type ([ac4aff3](https://github.com/remarkablemark/html-react-parser/commit/ac4aff3e094254d985124759c590d14eaa506168)), closes [#207](https://github.com/remarkablemark/html-react-parser/issues/207)
+
 ### [1.1.1](https://github.com/remarkablemark/html-react-parser/compare/v1.1.0...v1.1.1) (2020-12-27)
 
 
