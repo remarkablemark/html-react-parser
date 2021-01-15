@@ -69,7 +69,8 @@
   "files": [
     "/dist",
     "/lib",
-    "index.d.ts"
+    "index.d.ts",
+    "index.mjs"
   ],
   "collective": {
     "type": "opencollective",
