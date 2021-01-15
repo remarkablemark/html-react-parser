@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/remarkablemark/html-react-parser/compare/v1.1.2...v1.2.0) (2021-01-15)
+
+
+### Features
+
+* **package:** add es module entry point ([ca0340a](https://github.com/remarkablemark/html-react-parser/commit/ca0340a25e9c9c56758656b3352267ade7e37a21))
+
 ### [1.1.2](https://github.com/remarkablemark/html-react-parser/compare/v1.1.1...v1.1.2) (2021-01-12)
 
 
