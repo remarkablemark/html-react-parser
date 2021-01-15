@@ -2,73 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.2.1](https://github.com/remarkablemark/html-react-parser/compare/v1.2.0...v1.2.1) (2021-01-15)
-
+## [1.2.1](https://github.com/remarkablemark/html-react-parser/compare/v1.2.0...v1.2.1) (2021-01-15)
 
 ### Bug Fixes
 
-* **package:** add missing file ([70cdb4c](https://github.com/remarkablemark/html-react-parser/commit/70cdb4c65ecc4fd84241ef67949a0efd18b3e5e7))
+- **package:** add missing file ([70cdb4c](https://github.com/remarkablemark/html-react-parser/commit/70cdb4c65ecc4fd84241ef67949a0efd18b3e5e7))
 
 ## [1.2.0](https://github.com/remarkablemark/html-react-parser/compare/v1.1.2...v1.2.0) (2021-01-15)
 
-
 ### Features
 
-* **package:** add es module entry point ([ca0340a](https://github.com/remarkablemark/html-react-parser/commit/ca0340a25e9c9c56758656b3352267ade7e37a21))
+- **package:** add es module entry point ([ca0340a](https://github.com/remarkablemark/html-react-parser/commit/ca0340a25e9c9c56758656b3352267ade7e37a21))
 
-### [1.1.2](https://github.com/remarkablemark/html-react-parser/compare/v1.1.1...v1.1.2) (2021-01-12)
-
-
-### Bug Fixes
-
-* **index:** include domhandler `Node` in `DOMNode` type ([ac4aff3](https://github.com/remarkablemark/html-react-parser/commit/ac4aff3e094254d985124759c590d14eaa506168)), closes [#207](https://github.com/remarkablemark/html-react-parser/issues/207)
-
-### [1.1.1](https://github.com/remarkablemark/html-react-parser/compare/v1.1.0...v1.1.1) (2020-12-27)
-
+## [1.1.2](https://github.com/remarkablemark/html-react-parser/compare/v1.1.1...v1.1.2) (2021-01-12)
 
 ### Bug Fixes
 
-* escape tags inside of `<title>` (html-dom-parser@1.0.0) ([07e1055](https://github.com/remarkablemark/html-react-parser/commit/07e10551f5febfa70075df22255cb2eb1dec5f54)), closes [#202](https://github.com/remarkablemark/html-react-parser/issues/202)
+- **index:** include domhandler `Node` in `DOMNode` type ([ac4aff3](https://github.com/remarkablemark/html-react-parser/commit/ac4aff3e094254d985124759c590d14eaa506168)), closes [#207](https://github.com/remarkablemark/html-react-parser/issues/207)
+
+## [1.1.1](https://github.com/remarkablemark/html-react-parser/compare/v1.1.0...v1.1.1) (2020-12-27)
+
+### Bug Fixes
+
+- escape tags inside of `<title>` (html-dom-parser@1.0.0) ([07e1055](https://github.com/remarkablemark/html-react-parser/commit/07e10551f5febfa70075df22255cb2eb1dec5f54)), closes [#202](https://github.com/remarkablemark/html-react-parser/issues/202)
 
 ## [1.1.0](https://github.com/remarkablemark/html-react-parser/compare/v1.0.0...v1.1.0) (2020-12-26)
 
-
 ### Features
 
-* **index:** export `domhandler` node types ([dfa0c19](https://github.com/remarkablemark/html-react-parser/commit/dfa0c1978684f42cdcabd32e95379dfb52ef1d0c))
+- **index:** export `domhandler` node types ([dfa0c19](https://github.com/remarkablemark/html-react-parser/commit/dfa0c1978684f42cdcabd32e95379dfb52ef1d0c))
 
-# [1.0.0](https://github.com/remarkablemark/html-react-parser/compare/v0.14.3...v1.0.0) (2020-12-14)
-
+## [1.0.0](https://github.com/remarkablemark/html-react-parser/compare/v0.14.3...v1.0.0) (2020-12-14)
 
 ### Build System
 
-* **package:** upgrade dependency `html-dom-parser` to 0.5.0 ([5568ed7](https://github.com/remarkablemark/html-react-parser/commit/5568ed72fb2c31c1924eac114f38d6294c3ba342))
-
+- **package:** upgrade dependency `html-dom-parser` to 0.5.0 ([5568ed7](https://github.com/remarkablemark/html-react-parser/commit/5568ed72fb2c31c1924eac114f38d6294c3ba342))
 
 ### BREAKING CHANGES
 
-* **package:** upgrade dependency `html-dom-parser` to 0.5.0
-
-
+- **package:** upgrade dependency `html-dom-parser` to 0.5.0
 
 ## [0.14.3](https://github.com/remarkablemark/html-react-parser/compare/v0.14.2...v0.14.3) (2020-12-12)
 
-
 ### Bug Fixes
 
-* **dom-to-react:** transform style to object for Web Components ([83efbce](https://github.com/remarkablemark/html-react-parser/commit/83efbce1123d3fb6d28b066cf60559a769e9a138)), closes [#188](https://github.com/remarkablemark/html-react-parser/issues/188)
+- **dom-to-react:** transform style to object for Web Components ([83efbce](https://github.com/remarkablemark/html-react-parser/commit/83efbce1123d3fb6d28b066cf60559a769e9a138)), closes [#188](https://github.com/remarkablemark/html-react-parser/issues/188)
 
-
-
-<a name="0.14.2"></a>
 ## [0.14.2](https://github.com/remarkablemark/html-react-parser/compare/v0.14.1...v0.14.2) (2020-11-23)
 
-
-
-<a name="0.14.1"></a>
 ## [0.14.1](https://github.com/remarkablemark/html-react-parser/compare/v0.14.0...v0.14.1) (2020-11-03)
-
-
 
 ## [0.14.0](https://github.com/remarkablemark/html-react-parser/compare/v0.13.0...v0.14.0) (2020-09-11)
 
