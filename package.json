@@ -14,8 +14,9 @@
     "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run lint && npm run lint:dts && npm run test:ci && npm run clean && npm run build",
     "release": "standard-version --no-verify",
-    "test": "jest --coverage",
+    "test": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:ci": "npm test -- --ci",
+    "test:integration": "npm run build && jest test/integration/",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
