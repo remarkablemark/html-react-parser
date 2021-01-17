@@ -7,7 +7,7 @@
   "module": "index.mjs",
   "scripts": {
     "benchmark": "node benchmark",
-    "build": "rollup --config",
+    "build": "rollup --config --failAfterWarnings",
     "clean": "rimraf dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern /examples/ .",
     "lint:dts": "dtslint .",
