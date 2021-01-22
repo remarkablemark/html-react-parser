@@ -3,11 +3,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
-  "dependencies": {
+  "devDependencies": {
     "html-react-parser": "../../",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1"
   },
   "eslintConfig": {
     "extends": "react-app"
