@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/remarkablemark/html-react-parser/compare/v1.2.1...v1.2.2) (2021-01-28)
+
+
+### Bug Fixes
+
+* **index:** export without const in `index.mjs` ([9639afb](https://github.com/remarkablemark/html-react-parser/commit/9639afbdf9ddf121af8d030660e63a472763c028)), closes [#214](https://github.com/remarkablemark/html-react-parser/issues/214) [#213](https://github.com/remarkablemark/html-react-parser/issues/213)
+
 ## [1.2.1](https://github.com/remarkablemark/html-react-parser/compare/v1.2.0...v1.2.1) (2021-01-15)
 
 ### Bug Fixes
