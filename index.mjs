@@ -1,4 +1,1 @@
-import HTMLReactParser from './index.js';
-
-export default HTMLReactParser;
-export const { domToReact, htmlToDOM, attributesToProps } = HTMLReactParser;
+export { default, domToReact, htmlToDOM, attributesToProps } from './index.js';
