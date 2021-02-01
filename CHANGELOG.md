@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/remarkablemark/html-react-parser/compare/v1.2.3...v1.2.4) (2021-02-01)
+
+
+### Bug Fixes
+
+* **index:** refactor ES module from ES6 to ES5 syntax ([9112250](https://github.com/remarkablemark/html-react-parser/commit/911225089fbebea5f5cfcf0e06b7b3fac76f624a)), closes [#222](https://github.com/remarkablemark/html-react-parser/issues/222)
+
 ## [1.2.3](https://github.com/remarkablemark/html-react-parser/compare/v1.2.2...v1.2.3) (2021-01-28)
 
 ### Bug Fixes
