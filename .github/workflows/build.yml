@@ -19,6 +19,7 @@ jobs:
       - run: npm run lint
       - run: npm run lint:dts
       - run: npm run test:ci
+      - run: npm run test:module
       - run: npm run test:integration
       - run: npm run benchmark
       - name: Coveralls
