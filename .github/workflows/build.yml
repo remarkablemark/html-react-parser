@@ -1,27 +1,60 @@
 name: build
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     strategy:
       matrix:
         node-version: [14]
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npx commitlint --from=HEAD~1
-      - run: npm run lint
-      - run: npm run lint:dts
-      - run: npm run test:ci
-      - run: npm run test:module
-      - run: npm run test:integration
-      - run: npm run benchmark
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint commit message
+        run: npx commitlint --from=HEAD~1
+
+      - name: Lint JavaScript files
+        run: npm run lint
+
+      - name: Lint TypeScript declaration files
+        run: npm run lint:dts
+
+      - name: Run unit tests
+        run: npm run test:ci
+
+      - name: Run ES modules tests
+        run: npm run test:module
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+      - name: Run benchmark
+        run: npm run benchmark
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
