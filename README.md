@@ -178,6 +178,8 @@ parse('<p id="replace">text</p>', {
 });
 ```
 
+#### replace with TypeScript
+
 For TypeScript projects, you may need to check that `domNode` is an instance of domhandler's `Element`:
 
 ```tsx
@@ -193,7 +195,13 @@ const options: HTMLReactParserOptions = {
 };
 ```
 
-The following [example](https://repl.it/@remarkablemark/html-react-parser-replace-example) modifies the element along with its children:
+If you're having issues with `domNode instanceof Element`, try this [alternative solution](https://github.com/remarkablemark/html-react-parser/issues/221#issuecomment-771600574).
+
+#### replace examples
+
+##### replace element and children
+
+Replace the element and its children (see [demo](https://repl.it/@remarkablemark/html-react-parser-replace-example)):
 
 ```jsx
 import parse, { domToReact } from 'html-react-parser';
@@ -243,6 +251,8 @@ HTML output:
 
 <!-- prettier-ignore-end -->
 
+##### replace element attributes
+
 Convert DOM attributes to React props with `attributesToProps`:
 
 ```jsx
@@ -269,6 +279,8 @@ HTML output:
 ```html
 <div class="prettify" style="background:#fff;text-align:center"></div>
 ```
+
+##### replace and remove element
 
 [Exclude](https://repl.it/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
 
