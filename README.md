@@ -286,7 +286,7 @@ HTML output:
 
 ### library
 
-This option specifies the library that creates elements. The default library is **React**.
+The `library` option specifies the UI library. The default library is **React**.
 
 To use Preact:
 
@@ -316,17 +316,11 @@ parse('<br>', {
 
 ### htmlparser2
 
-Along with the default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode), the parser also sets:
+> `htmlparser2` options **do not work on the client-side** (browser) and **only works on the server-side** (Node.js). By overriding `htmlparser2` options, universal rendering can break.
 
-```json
-{
-  "lowerCaseAttributeNames": false
-}
-```
+Default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) can be overridden in >=[0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0).
 
-Since [v0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0), the htmlparser2 options can be overridden.
-
-The following example enables [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) but disables [`lowerCaseAttributeNames`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-lowercaseattributenames):
+To enable [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode):
 
 ```js
 parse('<p /><p />', {
@@ -336,17 +330,15 @@ parse('<p /><p />', {
 });
 ```
 
-> **WARNING**: `htmlparser2` options do not apply on the _client-side_ (browser). The options only apply on the _server-side_ (Node.js). By overriding `htmlparser2` options, universal rendering can break. Do this at your own risk.
-
 ### trim
 
-Normally, whitespace is preserved:
+By default, whitespace is preserved:
 
 ```js
 parse('<br>\n'); // [React.createElement('br'), '\n']
 ```
 
-Enable the `trim` option to remove whitespace:
+To remove whitespace, enable the `trim` option:
 
 ```js
 parse('<br>\n', { trim: true }); // React.createElement('br')
