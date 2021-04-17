@@ -35,10 +35,9 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 - [Usage](#usage)
   - [replace](#replace)
     - [replace with TypeScript](#replace-with-typescript)
-    - [replace examples](#replace-examples)
-      - [replace element and children](#replace-element-and-children)
-      - [replace element attributes](#replace-element-attributes)
-      - [replace and remove element](#replace-and-remove-element)
+    - [replace element and children](#replace-element-and-children)
+    - [replace element attributes](#replace-element-attributes)
+    - [replace and remove element](#replace-and-remove-element)
   - [library](#library)
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
@@ -202,9 +201,7 @@ const options: HTMLReactParserOptions = {
 
 If you're having issues with `domNode instanceof Element`, try this [alternative solution](https://github.com/remarkablemark/html-react-parser/issues/221#issuecomment-771600574).
 
-#### replace examples
-
-##### replace element and children
+#### replace element and children
 
 Replace the element and its children (see [demo](https://repl.it/@remarkablemark/html-react-parser-replace-example)):
 
@@ -256,7 +253,7 @@ HTML output:
 
 <!-- prettier-ignore-end -->
 
-##### replace element attributes
+#### replace element attributes
 
 Convert DOM attributes to React props with `attributesToProps`:
 
@@ -285,7 +282,7 @@ HTML output:
 <div class="prettify" style="background:#fff;text-align:center"></div>
 ```
 
-##### replace and remove element
+#### replace and remove element
 
 [Exclude](https://repl.it/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
 
