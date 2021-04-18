@@ -20,6 +20,7 @@
     "index.d.ts",
     "lib/dom-to-react.d.ts",
     "test/types/index.tsx",
+    "test/types/lib/attributes-to-props.ts",
     "test/types/lib/dom-to-react.tsx"
   ]
 }
