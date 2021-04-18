@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.6](https://github.com/remarkablemark/html-react-parser/compare/v1.2.5...v1.2.6) (2021-04-18)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** correct attributes-to-props type `Props` ([1bd1824](https://github.com/remarkablemark/html-react-parser/commit/1bd182464773e39cf1865f48231ad55df95d42f9)), closes [#242](https://github.com/remarkablemark/html-react-parser/issues/242)
+
 ## [1.2.5](https://github.com/remarkablemark/html-react-parser/compare/v1.2.4...v1.2.5) (2021-04-13)
 
 ### Bug Fixes
