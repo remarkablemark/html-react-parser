@@ -1,7 +1,10 @@
 // TypeScript Version: 4.1
 
 export type Attributes = Record<string, string>;
-export type Props = Attributes;
+
+export type Props = Record<string, string> & {
+  style: Record<string, string>;
+};
 
 /**
  * Converts HTML/SVG DOM attributes to React props.
