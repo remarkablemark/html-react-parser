@@ -55,6 +55,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [Don't change case of tags](#dont-change-case-of-tags)
   - [TS Error: Property 'attribs' does not exist on type 'DOMNode'](#ts-error-property-attribs-does-not-exist-on-type-domnode)
   - [Can I enable `trim` for certain elements?](#can-i-enable-trim-for-certain-elements)
+  - [Webpack build warnings](#webpack-build-warnings)
 - [Performance](#performance)
 - [Contributors](#contributors)
   - [Code Contributors](#code-contributors)
@@ -460,6 +461,28 @@ The TypeScript error occurs because `DOMNode` needs be an instance of domhandler
 ### Can I enable `trim` for certain elements?
 
 Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replace) option. See [#205](https://github.com/remarkablemark/html-react-parser/issues/205).
+
+### Webpack build warnings
+
+If you see the Webpack build warning:
+
+```
+export 'default' (imported as 'parse') was not found in 'html-react-parser'
+```
+
+Then update your Webpack config to:
+
+```js
+// webpack.config.js
+module.exports = {
+  // ...
+  resolve: {
+    mainFields: ['browser', 'main', 'module'],
+  },
+};
+```
+
+See [#238](https://github.com/remarkablemark/html-react-parser/issues/238) and [#213](https://github.com/remarkablemark/html-react-parser/issues/213).
 
 ## Performance
 
