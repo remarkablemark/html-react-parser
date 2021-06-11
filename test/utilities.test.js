@@ -117,4 +117,11 @@ describe('setStyleProp', () => {
     expect(setStyleProp(style, props)).toBe(undefined);
     expect(props).toMatchSnapshot();
   });
+
+  it('does not set props.style when style attribute corrupt', () => {
+    const style = `font - size: 1em`;
+    const props = {};
+    expect(setStyleProp(style, props)).toBe(undefined);
+    expect(props).toEqual({style: {}});
+  });
 });
