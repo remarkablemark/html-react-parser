@@ -19,7 +19,7 @@
     "test": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:ci": "npm test -- --ci",
     "test:module": "node --experimental-modules test/module/index.mjs",
-    "test:integration": "npm run build && jest test/integration/",
+    "test:integration": "npm run build && jest --env=jsdom test/integration/",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
