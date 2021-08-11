@@ -154,8 +154,8 @@ describe('trim option', () => {
   });
 });
 
-describe('corrupted styles', () => {
-  it('copes with corrupted styles', () => {
+describe('invalid styles', () => {
+  it('copes with invalid styles', () => {
     const html = '<p style="font - size: 1em">X</p>';
     const options = {};
     const reactElement = parse(html, options);
