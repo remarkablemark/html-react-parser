@@ -159,8 +159,6 @@ describe('corrupted styles', () => {
     const html = '<p style="font - size: 1em">X</p>';
     const options = {};
     const reactElement = parse(html, options);
-    expect(render(reactElement)).toBe(
-      '<p>X</p>'
-    );
+    expect(render(reactElement)).toBe('<p>X</p>');
   });
-})
+});

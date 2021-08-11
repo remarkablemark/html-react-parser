@@ -122,6 +122,6 @@ describe('setStyleProp', () => {
     const style = `font - size: 1em`;
     const props = {};
     expect(setStyleProp(style, props)).toBe(undefined);
-    expect(props).toEqual({style: {}});
+    expect(props).toEqual({ style: {} });
   });
 });
