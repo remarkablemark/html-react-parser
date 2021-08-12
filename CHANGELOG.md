@@ -2,13 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.2.8](https://github.com/remarkablemark/html-react-parser/compare/v1.2.7...v1.2.8) (2021-08-12)
-
+## [1.2.8](https://github.com/remarkablemark/html-react-parser/compare/v1.2.7...v1.2.8) (2021-08-12)
 
 ### Bug Fixes
 
-* rename unit test per feedback ([f39cf38](https://github.com/remarkablemark/html-react-parser/commit/f39cf387cdf1d4866b7ff9538189cb1e1c862199))
-* **utilities:** skip corrupted style attributes ([509486e](https://github.com/remarkablemark/html-react-parser/commit/509486e94a45477b17630850b35c0db1faf0a31e)), closes [#256](https://github.com/remarkablemark/html-react-parser/issues/256)
+- rename unit test per feedback ([f39cf38](https://github.com/remarkablemark/html-react-parser/commit/f39cf387cdf1d4866b7ff9538189cb1e1c862199))
+- **utilities:** skip corrupted style attributes ([509486e](https://github.com/remarkablemark/html-react-parser/commit/509486e94a45477b17630850b35c0db1faf0a31e)), closes [#256](https://github.com/remarkablemark/html-react-parser/issues/256)
 
 ## [1.2.7](https://github.com/remarkablemark/html-react-parser/compare/v1.2.6...v1.2.7) (2021-06-19)
 
