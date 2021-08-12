@@ -72,13 +72,13 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 [NPM](https://www.npmjs.com/package/html-react-parser):
 
 ```sh
-$ npm install html-react-parser --save
+npm install html-react-parser --save
 ```
 
 [Yarn](https://yarnpkg.com/package/html-react-parser):
 
 ```sh
-$ yarn add html-react-parser
+yarn add html-react-parser
 ```
 
 [CDN](https://unpkg.com/html-react-parser/):
@@ -489,7 +489,7 @@ See [#238](https://github.com/remarkablemark/html-react-parser/issues/238) and [
 Run benchmark:
 
 ```sh
-$ npm run test:benchmark
+npm run test:benchmark
 ```
 
 Output of benchmark run on MacBook Pro 2017:
@@ -503,7 +503,7 @@ html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
 Run [Size Limit](https://github.com/ai/size-limit):
 
 ```sh
-$ npx size-limit
+npx size-limit
 ```
 
 ## Contributors
