@@ -4,7 +4,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
 [![Build Status](https://github.com/remarkablemark/html-react-parser/workflows/build/badge.svg?branch=master)](https://github.com/remarkablemark/html-react-parser/actions?query=workflow%3Abuild)
-[![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-react-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-react-parser?branch=master)
+[![codecov](https://codecov.io/gh/remarkablemark/html-react-parser/branch/master/graph/badge.svg?token=wosFd1DBIR)](https://codecov.io/gh/remarkablemark/html-react-parser)
 [![Dependency status](https://david-dm.org/remarkablemark/html-react-parser.svg)](https://david-dm.org/remarkablemark/html-react-parser)
 [![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
 [![Discord](https://img.shields.io/discord/422421589582282752.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/njExwXdrRJ)
@@ -477,8 +477,8 @@ Then update your Webpack config to:
 module.exports = {
   // ...
   resolve: {
-    mainFields: ['browser', 'main', 'module'],
-  },
+    mainFields: ['browser', 'main', 'module']
+  }
 };
 ```
 
