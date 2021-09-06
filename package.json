@@ -37,9 +37,9 @@
     "dom"
   ],
   "dependencies": {
-    "domhandler": "4.2.0",
-    "html-dom-parser": "1.0.1",
-    "react-property": "1.0.1",
+    "domhandler": "4.2.2",
+    "html-dom-parser": "1.0.2",
+    "react-property": "1.0.2",
     "style-to-js": "1.1.0"
   },
   "devDependencies": {
