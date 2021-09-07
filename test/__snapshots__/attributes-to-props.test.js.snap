@@ -35,6 +35,7 @@ Object {
   "controls": true,
   "default": true,
   "disabled": true,
+  "draggable": "false",
   "formNoValidate": true,
   "hidden": true,
   "ismap": "",
@@ -42,8 +43,8 @@ Object {
   "loop": true,
   "multiple": true,
   "muted": true,
+  "noModule": true,
   "noValidate": true,
-  "nomodule": "",
   "open": true,
   "playsInline": true,
   "readOnly": true,
@@ -88,21 +89,12 @@ Object {
 }
 `;
 
-exports[`attributesToProps with SVG attribute keeps incorrectly capitalized attributes 1`] = `
-Object {
-  "XLINK:HREF": "#",
-  "YChannelSelector": "G",
-  "ZoomAndPan": "disable",
-}
-`;
-
 exports[`attributesToProps with custom attribute converts attributes named after Object properties 1`] = `
 Object {
   "__defineGetter__": "",
   "__defineSetter__": "",
   "__lookupGetter__": "",
   "__lookupSetter__": "",
-  "constructor": "",
   "hasOwnProperty": "",
   "isPrototypeOf": "",
   "propertyIsEnumerable": "",
