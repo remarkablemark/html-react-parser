@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.9...v1.3.0) (2021-09-07)
+
+
+### Features
+
+* upgrade `react-property` to get react-dom 17 DOM/SVG properties ([f0fbbff](https://www.github.com/remarkablemark/html-react-parser/commit/f0fbbffa7b14262b696fb7ec33f050701bdf2e37))
+
 ### [1.2.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.8...v1.2.9) (2021-09-06)
 
 
