@@ -75,6 +75,7 @@ describe('attributesToProps with HTML attribute', () => {
       checked: 'true',
       controls: '',
       default: '',
+      draggable: 'false',
       disabled: 'disabled',
       formnovalidate: 'true',
       hidden: 'true',
@@ -118,13 +119,22 @@ describe('attributesToProps with SVG attribute', () => {
     expect(attributesToProps(attributes)).toMatchSnapshot();
   });
 
-  it('keeps incorrectly capitalized attributes', () => {
+  /**
+   * SVG elements and attributes should all be entered in the case shown here since XML is case-sensitive (unlike HTML).
+   *
+   * @see {@link https://developer.mozilla.org/docs/Web/SVG/Tutorial/Introduction#before_you_start}
+   */
+  it('fixes incorrectly capitalized attributes', () => {
     const attributes = {
       'XLINK:HREF': '#',
       YChannelSelector: 'G',
       ZoomAndPan: 'disable'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toEqual({
+      xlinkHref: '#',
+      yChannelSelector: 'G',
+      zoomAndPan: 'disable'
+    });
   });
 });
 
@@ -164,7 +174,6 @@ describe('attributesToProps with custom attribute', () => {
       __lookupGetter__: '',
       __lookupSetter__: '',
       __proto__: '',
-      constructor: '',
       hasOwnProperty: '',
       isPrototypeOf: '',
       propertyIsEnumerable: '',
@@ -191,15 +200,6 @@ describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
   it('omits unknown attributes', () => {
     const attributes = {
       unknownAttribute: 'someValue'
-    };
-    expect(attributesToProps(attributes)).toEqual(emptyProps);
-  });
-
-  it('omits incorrectly capitalized attributes', () => {
-    const attributes = {
-      'XLINK:HREF': '#',
-      YChannelSelector: 'G',
-      ZoomAndPan: 'disable'
     };
     expect(attributesToProps(attributes)).toEqual(emptyProps);
   });
