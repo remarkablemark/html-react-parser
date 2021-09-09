@@ -16,6 +16,7 @@
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable && npm run lint && npm run lint:dts && npm run test:ci && npm run clean && npm run build",
     "release": "standard-version --no-verify",
+    "size-limit": "size-limit",
     "test": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:ci": "npm test -- --ci",
     "test:module": "node --experimental-modules test/module/index.mjs",
