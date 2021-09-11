@@ -1,5 +1,14 @@
 # Contributing
 
+<details>
+<summary>Table of Contents</summary>
+
+- [Test](#test)
+- [Lint](#lint)
+- [Release](#release)
+
+</details>
+
 All pull requests are welcome! By participating in this project, you
 agree to abide by our **[code of conduct]**.
 
@@ -11,22 +20,21 @@ agree to abide by our **[code of conduct]**.
 
 ```sh
 # replace `<user>` with your username
-$ git clone git@github.com:<user>/html-react-parser.git
-$ cd html-react-parser
+git clone git@github.com:<user>/html-react-parser.git && cd html-react-parser
 ```
 
 Install package dependencies:
 
 ```sh
-$ npm install
+npm install
 ```
 
 Make your change. Add tests and/or documentation. Ensure all tests and lint pass:
 
 ```sh
-$ npm test
-$ npm run lint
-$ npm run lint:dts
+npm test
+npm run lint
+npm run lint:dts
 ```
 
 Write a commit message that follows the [Conventional Commits][commit] specification.
@@ -35,7 +43,7 @@ The commit message will be linted during the pre-commit Git hook.
 To manually lint the most recent commit message:
 
 ```sh
-$ git log -1 --pretty=format:"%s" | npx commitlint
+git log -1 --pretty=format:"%s" | npx commitlint
 ```
 
 Push to your fork and [submit a pull request][pr].
@@ -60,13 +68,13 @@ Things that will improve the chance that your pull request will be accepted:
 Run tests with coverage:
 
 ```sh
-$ npm test
+npm test
 ```
 
 View coverage report in your browser:
 
 ```sh
-$ open coverage/index.html
+open coverage/lcov-report/index.html
 ```
 
 ## Lint
@@ -74,26 +82,21 @@ $ open coverage/index.html
 Lint codebase:
 
 ```sh
-$ npm run lint
+npm run lint
 ```
 
 Fix lint errors:
 
 ```sh
-$ npm run lint:fix
+npm run lint:fix
 ```
 
 Test TypeScript declaration files for style and correctness:
 
 ```sh
-$ npm run lint:dts
+npm run lint:dts
 ```
 
 ## Release
 
-Only collaborators with credentials can release and publish:
-
-```sh
-$ npm run release
-$ git push --follow-tags && npm publish
-```
+Release is automated by [Release Please](https://github.com/googleapis/release-please).
