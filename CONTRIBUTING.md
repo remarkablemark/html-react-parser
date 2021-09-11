@@ -16,7 +16,7 @@ agree to abide by our **[code of conduct]**.
 
 [Fork], then clone the repository:
 
-[fork]: https://github.com/remarkablemark/html-react-parser/fork
+[Fork]: https://github.com/remarkablemark/html-react-parser/fork
 
 ```sh
 # replace `<user>` with your username
@@ -60,7 +60,7 @@ Things that will improve the chance that your pull request will be accepted:
 - [ ] Write good documentation.
 - [ ] Write a [good commit message][commit].
 
-[ci]: https://github.com/remarkablemark/html-react-parser/actions?query=workflow%3Abuild
+[CI]: https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml
 [commit]: https://www.conventionalcommits.org/
 
 ## Test
@@ -99,4 +99,6 @@ npm run lint:dts
 
 ## Release
 
-Release is automated by [Release Please](https://github.com/googleapis/release-please).
+Release is automated by [Release Please].
+
+[Release Please]: https://github.com/googleapis/release-please
