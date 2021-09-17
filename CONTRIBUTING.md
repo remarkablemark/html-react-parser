@@ -99,6 +99,6 @@ npm run lint:dts
 
 ## Release
 
-Release is automated by [Release Please].
+Release is automated with [Release Please].
 
 [Release Please]: https://github.com/googleapis/release-please
