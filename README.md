@@ -188,8 +188,7 @@ parse('<p id="replace">text</p>', {
 For TypeScript projects, you may need to check that `domNode` is an instance of domhandler's `Element`:
 
 ```tsx
-import { HTMLReactParserOptions } from 'html-react-parser';
-import { Element } from 'domhandler/lib/node';
+import { HTMLReactParserOptions, Element } from 'html-react-parser';
 
 const options: HTMLReactParserOptions = {
   replace: domNode => {
