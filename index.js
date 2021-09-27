@@ -1,7 +1,6 @@
 var domToReact = require('./lib/dom-to-react');
 var attributesToProps = require('./lib/attributes-to-props');
 var htmlToDOM = require('html-dom-parser');
-var { Element } = require('domhandler/lib/node');
 
 var domParserOptions = { lowerCaseAttributeNames: false };
 
@@ -32,7 +31,7 @@ function HTMLReactParser(html, options) {
 HTMLReactParser.domToReact = domToReact;
 HTMLReactParser.htmlToDOM = htmlToDOM;
 HTMLReactParser.attributesToProps = attributesToProps;
-HTMLReactParser.Element = Element;
+HTMLReactParser.Element = require('domhandler/lib/node').Element;
 
 // support CommonJS and ES Modules
 module.exports = HTMLReactParser;
