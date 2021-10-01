@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.3.0...v1.4.0) (2021-10-01)
+
+
+### Features
+
+* added CRA typescript example ([42f42e5](https://www.github.com/remarkablemark/html-react-parser/commit/42f42e519c05c382476a14a73d45b5f700fecdbb))
+* export domhandler's Element ([0473e83](https://www.github.com/remarkablemark/html-react-parser/commit/0473e832ac65b3e8ce5f8da69c740cbd84f62863))
+
 ## [1.3.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.9...v1.3.0) (2021-09-07)
 
 
