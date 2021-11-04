@@ -48,7 +48,7 @@
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.0.6",
     "@size-limit/preset-big-lib": "5.0.3",
-    "@types/react": "17.0.33",
+    "@types/react": "17.0.34",
     "@typescript-eslint/parser": "5.3.0",
     "benchmark": "2.1.4",
     "dtslint": "4.2.0",
