@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
-    "@commitlint/config-conventional": "14.1.0",
+    "@commitlint/config-conventional": "15.0.0",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.0.6",
     "@size-limit/preset-big-lib": "5.0.3",
