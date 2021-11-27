@@ -2,36 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.4.1](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.0...v1.4.1) (2021-11-27)
-
+## [1.4.1](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.0...v1.4.1) (2021-11-27)
 
 ### Performance Improvements
 
-* upgrade dependency html-dom-parser to v1.0.3 ([8987efb](https://www.github.com/remarkablemark/html-react-parser/commit/8987efb0aaf43a013bfa7aa37a9f2c404b47dedc))
+- upgrade dependency html-dom-parser to v1.0.3 ([8987efb](https://www.github.com/remarkablemark/html-react-parser/commit/8987efb0aaf43a013bfa7aa37a9f2c404b47dedc))
 
 ## [1.4.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.3.0...v1.4.0) (2021-10-01)
 
-
 ### Features
 
-* added CRA typescript example ([42f42e5](https://www.github.com/remarkablemark/html-react-parser/commit/42f42e519c05c382476a14a73d45b5f700fecdbb))
-* export domhandler's Element ([0473e83](https://www.github.com/remarkablemark/html-react-parser/commit/0473e832ac65b3e8ce5f8da69c740cbd84f62863))
+- added CRA typescript example ([42f42e5](https://www.github.com/remarkablemark/html-react-parser/commit/42f42e519c05c382476a14a73d45b5f700fecdbb))
+- export domhandler's Element ([0473e83](https://www.github.com/remarkablemark/html-react-parser/commit/0473e832ac65b3e8ce5f8da69c740cbd84f62863))
 
 ## [1.3.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.9...v1.3.0) (2021-09-07)
 
-
 ### Features
 
-* upgrade `react-property` to get react-dom 17 DOM/SVG properties ([f0fbbff](https://www.github.com/remarkablemark/html-react-parser/commit/f0fbbffa7b14262b696fb7ec33f050701bdf2e37))
+- upgrade `react-property` to get react-dom 17 DOM/SVG properties ([f0fbbff](https://www.github.com/remarkablemark/html-react-parser/commit/f0fbbffa7b14262b696fb7ec33f050701bdf2e37))
 
 ### [1.2.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.8...v1.2.9) (2021-09-06)
 
-
 ### Build System
 
-* **deps:** bump domhandler from 4.2.0 to 4.2.2 ([cac7ddf](https://www.github.com/remarkablemark/html-react-parser/commit/cac7ddfb370fb0fdf8daaec02dfb2a3c3a3f77c6))
-* **deps:** bump html-dom-parser from 1.0.1 to 1.0.2 ([72cccad](https://www.github.com/remarkablemark/html-react-parser/commit/72cccad24661b0c2e74370f183b96cdfb5da98d0))
-* **deps:** bump react-property from 1.0.1 to 1.0.2 ([9feedd7](https://www.github.com/remarkablemark/html-react-parser/commit/9feedd722db49bd1752b38476b0e14ca93ea41c1))
+- **deps:** bump domhandler from 4.2.0 to 4.2.2 ([cac7ddf](https://www.github.com/remarkablemark/html-react-parser/commit/cac7ddfb370fb0fdf8daaec02dfb2a3c3a3f77c6))
+- **deps:** bump html-dom-parser from 1.0.1 to 1.0.2 ([72cccad](https://www.github.com/remarkablemark/html-react-parser/commit/72cccad24661b0c2e74370f183b96cdfb5da98d0))
+- **deps:** bump react-property from 1.0.1 to 1.0.2 ([9feedd7](https://www.github.com/remarkablemark/html-react-parser/commit/9feedd722db49bd1752b38476b0e14ca93ea41c1))
 
 ## [1.2.8](https://github.com/remarkablemark/html-react-parser/compare/v1.2.7...v1.2.8) (2021-08-12)
 
