@@ -21,6 +21,7 @@ Feel free to remove any item that is irrelevant to your changes.
 To check an item, place an "x" in the box like so: `- [x] Tests`
 -->
 
+- [ ] [Conventional Commits](https://www.conventionalcommits.org/)
 - [ ] Tests
 - [ ] Documentation
 - [ ] Types
