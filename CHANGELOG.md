@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.0...v1.4.1) (2021-11-27)
+
+
+### Performance Improvements
+
+* upgrade dependency html-dom-parser to v1.0.3 ([8987efb](https://www.github.com/remarkablemark/html-react-parser/commit/8987efb0aaf43a013bfa7aa37a9f2c404b47dedc))
+
 ## [1.4.0](https://www.github.com/remarkablemark/html-react-parser/compare/v1.3.0...v1.4.0) (2021-10-01)
 
 
