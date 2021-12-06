@@ -25,7 +25,7 @@ const parse = require('html-react-parser');
 parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 ```
 
-[Repl.it](https://repl.it/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [TypeScript](https://codesandbox.io/s/html-react-parser-z0kp6) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+[Replit](https://replit.com/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [CodeSandbox](https://codesandbox.io/s/940pov1l4w) | [TypeScript](https://codesandbox.io/s/html-react-parser-z0kp6) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 <details>
 <summary>Table of Contents</summary>
@@ -202,7 +202,7 @@ If you're having issues take a look at our [Create React App example](./examples
 
 #### replace element and children
 
-Replace the element and its children (see [demo](https://repl.it/@remarkablemark/html-react-parser-replace-example)):
+Replace the element and its children (see [demo](https://replit.com/@remarkablemark/html-react-parser-replace-example)):
 
 ```jsx
 import parse, { domToReact } from 'html-react-parser';
@@ -283,7 +283,7 @@ HTML output:
 
 #### replace and remove element
 
-[Exclude](https://repl.it/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
+[Exclude](https://replit.com/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
 
 ```jsx
 parse('<p><br id="remove"></p>', {
@@ -415,7 +415,7 @@ If the parser throws an erorr, check if your arguments are valid. See ["Does inv
 
 ### Is SSR supported?
 
-Yes, server-side rendering on Node.js is supported by this library. See [demo](https://repl.it/@remarkablemark/html-react-parser-SSR).
+Yes, server-side rendering on Node.js is supported by this library. See [demo](https://replit.com/@remarkablemark/html-react-parser-SSR).
 
 ### Elements aren't nested correctly
 
@@ -450,7 +450,7 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 > Warning: <CustomElement> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
 > ```
 
-See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://repl.it/@remarkablemark/html-react-parser-62).
+See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://replit.com/@remarkablemark/html-react-parser-62).
 
 ### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
