@@ -103,6 +103,18 @@ describe('attributesToProps with HTML attribute', () => {
   ])('converts overloaded boolean attribute: %p', (attributes, props) => {
     expect(attributesToProps(attributes)).toEqual(props);
   });
+
+  it.each([
+    [{ checked: '' }, { defaultChecked: true }],
+    [{ checked: 'checked' }, { defaultChecked: true }],
+    [{ value: '' }, { defaultValue: '' }],
+    [{ value: 'foo' }, { defaultValue: 'foo' }]
+  ])(
+    'converts form attribute to uncontrolled component property',
+    (attributes, props) => {
+      expect(attributesToProps(attributes)).toEqual(props);
+    }
+  );
 });
 
 describe('attributesToProps with SVG attribute', () => {
