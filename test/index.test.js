@@ -65,6 +65,10 @@ describe('HTMLReactParser', () => {
     expect(parse('<style></style>')).toMatchSnapshot();
   });
 
+  it('parses form', () => {
+    expect(parse(html.form)).toMatchSnapshot();
+  });
+
   it('parses SVG', () => {
     expect(parse(svg.complex)).toMatchSnapshot();
   });
