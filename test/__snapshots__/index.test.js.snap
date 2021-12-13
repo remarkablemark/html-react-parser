@@ -110,6 +110,14 @@ exports[`HTMLReactParser parses empty <script> 1`] = `<script />`;
 
 exports[`HTMLReactParser parses empty <style> 1`] = `<style />`;
 
+exports[`HTMLReactParser parses form 1`] = `
+<input
+  defaultChecked={true}
+  defaultValue="foo"
+  type="text"
+/>
+`;
+
 exports[`HTMLReactParser parses multiple HTML elements 1`] = `
 Array [
   <p>
