@@ -138,13 +138,16 @@ describe('htmlparser2 option', () => {
 });
 
 describe('trim option', () => {
-  it('preserves whitespace text nodes when disabled (default)', () => {
+  it('preserves whitespace text nodes when disabled if valid in parent (default)', () => {
     const html = `<table>
   <tbody>
+    <tr><td>\n</td>\t</tr>\r
   </tbody>
 </table>`;
     const reactElement = parse(html);
-    expect(render(reactElement)).toBe(html);
+    expect(render(reactElement)).toBe(
+      '<table><tbody><tr><td>\n</td></tr></tbody></table>'
+    );
   });
 
   it('removes whitespace text nodes when enabled', () => {
