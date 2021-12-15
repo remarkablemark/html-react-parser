@@ -130,7 +130,7 @@ describe('setStyleProp', () => {
 
 describe('canTextBeChildOfNode', () => {
   it.each(Array.from(elementsWithNoTextChildren))(
-    'returns false since text node can not be child of %s',
+    'returns false since text node cannot be child of %s',
     nodeName => {
       const node = {
         name: nodeName
