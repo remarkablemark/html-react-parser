@@ -148,6 +148,18 @@ describe('trim option', () => {
     expect(render(reactElement)).toBe(
       '<table><tbody><tr><td>\n</td></tr></tbody></table>'
     );
+    expect(reactElement).toMatchInlineSnapshot(`
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `);
   });
 
   it('removes whitespace text nodes when enabled', () => {
