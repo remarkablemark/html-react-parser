@@ -141,12 +141,12 @@ describe('trim option', () => {
   it('preserves whitespace text nodes when disabled if valid in parent (default)', () => {
     const html = `<table>
   <tbody>
-    <tr><td>\n</td>\t</tr>\r
+    <tr><td>\n</td><td>&nbsp;</td>\t</tr>\r
   </tbody>
 </table>`;
     const reactElement = parse(html);
     expect(render(reactElement)).toBe(
-      '<table><tbody><tr><td>\n</td></tr></tbody></table>'
+      '<table><tbody><tr><td>\n</td><td>\u00a0</td></tr></tbody></table>'
     );
     expect(reactElement).toMatchInlineSnapshot(`
       <table>
@@ -155,6 +155,9 @@ describe('trim option', () => {
             <td>
               
 
+            </td>
+            <td>
+              \u00a0
             </td>
           </tr>
         </tbody>
