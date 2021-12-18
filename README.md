@@ -50,7 +50,6 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [Parser throws an error](#parser-throws-an-error)
   - [Is SSR supported?](#is-ssr-supported)
   - [Elements aren't nested correctly](#elements-arent-nested-correctly)
-  - [Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table](#warning-validatedomnesting-whitespace-text-nodes-cannot-appear-as-a-child-of-table)
   - [Don't change case of tags](#dont-change-case-of-tags)
   - [TS Error: Property 'attribs' does not exist on type 'DOMNode'](#ts-error-property-attribs-does-not-exist-on-type-domnode)
   - [Can I enable `trim` for certain elements?](#can-i-enable-trim-for-certain-elements)
@@ -351,10 +350,10 @@ By default, whitespace is preserved:
 parse('<br>\n'); // [React.createElement('br'), '\n']
 ```
 
-However, whitespace that are invalid under certain nodes like `<table>` will be stripped out.
+But certain elements like `<table>` will strip out invalid whitespace:
 
 ```js
-parse('<table>\n</table>'); // [React.createElement('table')]
+parse('<table>\n</table>'); // React.createElement('table')
 ```
 
 To remove whitespace, enable the `trim` option:
