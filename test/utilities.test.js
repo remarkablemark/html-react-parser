@@ -3,7 +3,9 @@ const {
   PRESERVE_CUSTOM_ATTRIBUTES,
   invertObject,
   isCustomComponent,
-  setStyleProp
+  setStyleProp,
+  elementsWithNoTextChildren,
+  canTextBeChildOfNode
 } = require('../lib/utilities');
 
 describe('invertObject', () => {
@@ -123,5 +125,24 @@ describe('setStyleProp', () => {
     const props = {};
     expect(setStyleProp(style, props)).toBe(undefined);
     expect(props).toEqual({ style: {} });
+  });
+});
+
+describe('canTextBeChildOfNode', () => {
+  it.each(Array.from(elementsWithNoTextChildren))(
+    'returns false since text node cannot be child of %s',
+    nodeName => {
+      const node = {
+        name: nodeName
+      };
+      expect(canTextBeChildOfNode(node)).toBe(false);
+    }
+  );
+
+  it('returns true if text can be child of <td/>', () => {
+    const node = {
+      name: 'td'
+    };
+    expect(canTextBeChildOfNode(node)).toBe(true);
   });
 });

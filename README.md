@@ -50,7 +50,6 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [Parser throws an error](#parser-throws-an-error)
   - [Is SSR supported?](#is-ssr-supported)
   - [Elements aren't nested correctly](#elements-arent-nested-correctly)
-  - [Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table](#warning-validatedomnesting-whitespace-text-nodes-cannot-appear-as-a-child-of-table)
   - [Don't change case of tags](#dont-change-case-of-tags)
   - [TS Error: Property 'attribs' does not exist on type 'DOMNode'](#ts-error-property-attribs-does-not-exist-on-type-domnode)
   - [Can I enable `trim` for certain elements?](#can-i-enable-trim-for-certain-elements)
@@ -351,16 +350,16 @@ By default, whitespace is preserved:
 parse('<br>\n'); // [React.createElement('br'), '\n']
 ```
 
+But certain elements like `<table>` will strip out invalid whitespace:
+
+```js
+parse('<table>\n</table>'); // React.createElement('table')
+```
+
 To remove whitespace, enable the `trim` option:
 
 ```js
 parse('<br>\n', { trim: true }); // React.createElement('br')
-```
-
-This fixes the warning:
-
-```
-Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of <table>. Make sure you don't have any extra whitespace between tags on each line of your source code.
 ```
 
 However, intentional whitespace may be stripped out:
@@ -426,10 +425,6 @@ parse('<div /><div />'); // returns single element instead of array of elements
 ```
 
 See [#158](https://github.com/remarkablemark/html-react-parser/issues/158).
-
-### Warning: validateDOMNesting(...): Whitespace text nodes cannot appear as a child of table
-
-Enable the [trim](#trim) option. See [#155](https://github.com/remarkablemark/html-react-parser/issues/155).
 
 ### Don't change case of tags
 
