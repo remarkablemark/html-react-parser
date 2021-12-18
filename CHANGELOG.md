@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.4](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.3...v1.4.4) (2021-12-18)
+
+
+### Bug Fixes
+
+* **dom-to-react:** trim whitespaces if it is not valid in parent ([523e292](https://www.github.com/remarkablemark/html-react-parser/commit/523e292c67ee137fd95d345b10d8071de3b3ae9d))
+* grammar and doc strings ([87b0cd4](https://www.github.com/remarkablemark/html-react-parser/commit/87b0cd40e305b164deadd1526323755a1622fe1a))
+* improved language in README.md and removed TOC item ([4126592](https://www.github.com/remarkablemark/html-react-parser/commit/4126592955b6ab5745c92832d34c98c0bb63f92c))
+* remove #document from list of node names ([d6e3554](https://www.github.com/remarkablemark/html-react-parser/commit/d6e355432414cf611ad42b8560d9a6327bba6404))
+
 ### [1.4.3](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.2...v1.4.3) (2021-12-13)
 
 
