@@ -108,7 +108,15 @@ describe('attributesToProps with HTML attribute', () => {
     [{ checked: '' }, { defaultChecked: true }],
     [{ checked: 'checked' }, { defaultChecked: true }],
     [{ value: '' }, { defaultValue: '' }],
-    [{ value: 'foo' }, { defaultValue: 'foo' }]
+    [{ value: 'foo' }, { defaultValue: 'foo' }],
+    [
+      { value: 'foo', type: 'submit' },
+      { value: 'foo', type: 'submit' }
+    ],
+    [
+      { value: 'foo', type: 'reset' },
+      { value: 'foo', type: 'reset' }
+    ]
   ])(
     'converts form attribute to uncontrolled component property',
     (attributes, props) => {
