@@ -12,9 +12,9 @@ updates:
       interval: 'daily'
 
     # Optional
-    assignees:
-      - 'remarkablemark'
+    # assignees:
+    #   - 'remarkablemark'
     labels:
       - 'dependencies'
-    reviewers:
-      - 'remarkablemark'
+    # reviewers:
+    #   - 'remarkablemark'
