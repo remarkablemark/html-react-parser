@@ -5,6 +5,10 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "module": "index.mjs",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.js"
+  },
   "scripts": {
     "benchmark": "node benchmark",
     "build": "rollup --config --failAfterWarnings",
