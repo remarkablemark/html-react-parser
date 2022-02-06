@@ -2,6 +2,11 @@ var domToReact = require('./lib/dom-to-react');
 var attributesToProps = require('./lib/attributes-to-props');
 var htmlToDOM = require('html-dom-parser');
 
+// support backwards compatibility for ES Module
+htmlToDOM =
+  /* istanbul ignore next */
+  typeof htmlToDOM.default === 'function' ? htmlToDOM.default : htmlToDOM;
+
 var domParserOptions = { lowerCaseAttributeNames: false };
 
 /**

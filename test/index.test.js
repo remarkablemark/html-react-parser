@@ -6,18 +6,23 @@ const { render } = require('./helpers');
 describe('module', () => {
   it('exports default', () => {
     expect(parse.default).toBe(parse);
+    expect(parse.default).toBeInstanceOf(Function);
   });
 
   it('exports domToReact', () => {
     expect(parse.domToReact).toBe(require('../lib/dom-to-react'));
+    expect(parse.domToReact).toBeInstanceOf(Function);
   });
 
   it('exports htmlToDOM', () => {
     expect(parse.htmlToDOM).toBe(require('html-dom-parser'));
+    expect(parse.htmlToDOM).toBeInstanceOf(Function);
+    expect(parse.htmlToDOM.default).toBe(undefined);
   });
 
   it('exports attributesToProps', () => {
     expect(parse.attributesToProps).toBe(require('../lib/attributes-to-props'));
+    expect(parse.attributesToProps).toBeInstanceOf(Function);
   });
 });
 
