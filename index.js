@@ -4,6 +4,7 @@ var htmlToDOM = require('html-dom-parser');
 
 // support backwards compatibility for ES Module
 htmlToDOM =
+  /* istanbul ignore next */
   typeof htmlToDOM.default === 'function' ? htmlToDOM.default : htmlToDOM;
 
 var domParserOptions = { lowerCaseAttributeNames: false };
