@@ -60,7 +60,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "husky": "7.0.4",
     "jest": "27.5.1",
-    "lint-staged": "12.3.6",
+    "lint-staged": "12.3.7",
     "pinst": "3.0.0",
     "preact": "10.6.6",
     "prettier": "2.6.0",
