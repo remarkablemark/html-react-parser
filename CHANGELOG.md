@@ -2,57 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.4.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.8...v1.4.9) (2022-03-20)
-
-
-### Miscellaneous Chores
-
-* release 1.4.9 ([a25cc33](https://www.github.com/remarkablemark/html-react-parser/commit/a25cc33eeaafbad0450c79ce698b2f63ea5fc45e))
-
-### [1.4.8](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.7...v1.4.8) (2022-02-06)
-
-
-### Bug Fixes
-
-* ensure backwards compatibility for html-dom-parser's ES Module ([1d9ab19](https://www.github.com/remarkablemark/html-react-parser/commit/1d9ab1971d1316d4b237c0e8f1b03dd2b7f158a0)), closes [#445](https://www.github.com/remarkablemark/html-react-parser/issues/445)
-
-### [1.4.7](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.6...v1.4.7) (2022-02-05)
-
+## [1.4.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.8...v1.4.9) (2022-03-20)
 
 ### Build System
 
-* **package:** upgrade html-dom-parser from 1.0.4 to 1.1.0 ([750f5e6](https://www.github.com/remarkablemark/html-react-parser/commit/750f5e67436ede39601ddf8789088f179dd8cf18))
+- **package:** upgrade domhandler@4.3.1 and html-dom-parser@1.1.1 ([20e7fd8c](https://www.github.com/remarkablemark/html-react-parser/commit/20e7fd8c2651379bc3cc02206b3c776ba6f1aacc))
 
-### [1.4.6](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.5...v1.4.6) (2022-01-28)
-
-
-### Bug Fixes
-
-* add exports main field ([03bb4d9](https://www.github.com/remarkablemark/html-react-parser/commit/03bb4d97630c0eabf60528c90ca801a06ca08e2b))
-
-### [1.4.5](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.4...v1.4.5) (2022-01-05)
-
+## [1.4.8](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.7...v1.4.8) (2022-02-06)
 
 ### Bug Fixes
 
-* make reset and submit input types retain value attribs ([b9613f4](https://www.github.com/remarkablemark/html-react-parser/commit/b9613f47bf6538ad83d077a93e5234465bfae94b))
+- ensure backwards compatibility for html-dom-parser's ES Module ([1d9ab19](https://www.github.com/remarkablemark/html-react-parser/commit/1d9ab1971d1316d4b237c0e8f1b03dd2b7f158a0)), closes [#445](https://www.github.com/remarkablemark/html-react-parser/issues/445)
 
-### [1.4.4](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.3...v1.4.4) (2021-12-18)
+## [1.4.7](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.6...v1.4.7) (2022-02-05)
 
+### Build System
 
-### Bug Fixes
+- **package:** upgrade html-dom-parser from 1.0.4 to 1.1.0 ([750f5e6](https://www.github.com/remarkablemark/html-react-parser/commit/750f5e67436ede39601ddf8789088f179dd8cf18))
 
-* **dom-to-react:** trim whitespaces if it is not valid in parent ([523e292](https://www.github.com/remarkablemark/html-react-parser/commit/523e292c67ee137fd95d345b10d8071de3b3ae9d))
-* grammar and doc strings ([87b0cd4](https://www.github.com/remarkablemark/html-react-parser/commit/87b0cd40e305b164deadd1526323755a1622fe1a))
-* improved language in README.md and removed TOC item ([4126592](https://www.github.com/remarkablemark/html-react-parser/commit/4126592955b6ab5745c92832d34c98c0bb63f92c))
-* remove #document from list of node names ([d6e3554](https://www.github.com/remarkablemark/html-react-parser/commit/d6e355432414cf611ad42b8560d9a6327bba6404))
-
-### [1.4.3](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.2...v1.4.3) (2021-12-13)
-
+## [1.4.6](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.5...v1.4.6) (2022-01-28)
 
 ### Bug Fixes
 
-* **attributes-to-props:** convert attrib to uncontrolled component prop ([6786046](https://www.github.com/remarkablemark/html-react-parser/commit/67860462486e5434a26aeb9850ba5ed6a61c8f89)), closes [#321](https://www.github.com/remarkablemark/html-react-parser/issues/321)
+- add exports main field ([03bb4d9](https://www.github.com/remarkablemark/html-react-parser/commit/03bb4d97630c0eabf60528c90ca801a06ca08e2b))
+
+## [1.4.5](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.4...v1.4.5) (2022-01-05)
+
+### Bug Fixes
+
+- make reset and submit input types retain value attribs ([b9613f4](https://www.github.com/remarkablemark/html-react-parser/commit/b9613f47bf6538ad83d077a93e5234465bfae94b))
+
+## [1.4.4](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.3...v1.4.4) (2021-12-18)
+
+### Bug Fixes
+
+- **dom-to-react:** trim whitespaces if it is not valid in parent ([523e292](https://www.github.com/remarkablemark/html-react-parser/commit/523e292c67ee137fd95d345b10d8071de3b3ae9d))
+- grammar and doc strings ([87b0cd4](https://www.github.com/remarkablemark/html-react-parser/commit/87b0cd40e305b164deadd1526323755a1622fe1a))
+- improved language in README.md and removed TOC item ([4126592](https://www.github.com/remarkablemark/html-react-parser/commit/4126592955b6ab5745c92832d34c98c0bb63f92c))
+- remove #document from list of node names ([d6e3554](https://www.github.com/remarkablemark/html-react-parser/commit/d6e355432414cf611ad42b8560d9a6327bba6404))
+
+## [1.4.3](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.2...v1.4.3) (2021-12-13)
+
+### Bug Fixes
+
+- **attributes-to-props:** convert attrib to uncontrolled component prop ([6786046](https://www.github.com/remarkablemark/html-react-parser/commit/67860462486e5434a26aeb9850ba5ed6a61c8f89)), closes [#321](https://www.github.com/remarkablemark/html-react-parser/issues/321)
 
 ## [1.4.2](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.1...v1.4.2) (2021-12-06)
 
@@ -79,7 +72,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 - upgrade `react-property` to get react-dom 17 DOM/SVG properties ([f0fbbff](https://www.github.com/remarkablemark/html-react-parser/commit/f0fbbffa7b14262b696fb7ec33f050701bdf2e37))
 
-### [1.2.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.8...v1.2.9) (2021-09-06)
+## [1.2.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.2.8...v1.2.9) (2021-09-06)
 
 ### Build System
 
