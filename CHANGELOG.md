@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.8...v1.4.9) (2022-03-20)
+
+
+### Miscellaneous Chores
+
+* release 1.4.9 ([a25cc33](https://www.github.com/remarkablemark/html-react-parser/commit/a25cc33eeaafbad0450c79ce698b2f63ea5fc45e))
+
 ### [1.4.8](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.7...v1.4.8) (2022-02-06)
 
 
