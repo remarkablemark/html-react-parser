@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.10](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.9...v1.4.10) (2022-03-30)
+
+
+### Build System
+
+* **package:** add support for React 18 ([2816c53](https://www.github.com/remarkablemark/html-react-parser/commit/2816c53da9754f349b0b9b431481ef42606be403))
+
 ## [1.4.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.8...v1.4.9) (2022-03-20)
 
 ### Build System
