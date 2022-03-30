@@ -1,4 +1,4 @@
-// TypeScript Version: 4.1
+// TypeScript Version: 4.7
 
 export type Attributes = Record<string, string>;
 

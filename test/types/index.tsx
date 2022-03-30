@@ -86,7 +86,7 @@ parse('<p/><p/>', {
 // $ExpectType string | Element | Element[]
 parse('\t<p>text \r</p>\n', { trim: true });
 
-// $ExpectType (Comment | Element | ProcessingInstruction | Text)[]
+// $ExpectType (Text | Comment | ProcessingInstruction | Element)[]
 const domNodes = htmlToDOM('<div>text</div>');
 
 // $ExpectType string | Element | Element[]
