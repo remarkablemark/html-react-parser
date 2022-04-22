@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.12](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.11...v1.4.12) (2022-04-22)
+
+
+### Bug Fixes
+
+* package.json not defined by exports warning ([4456f6a](https://www.github.com/remarkablemark/html-react-parser/commit/4456f6a126c4bcbf8be8b663b5b4e5b3a38a0e4d))
+
 ### [1.4.11](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.10...v1.4.11) (2022-04-15)
 
 
