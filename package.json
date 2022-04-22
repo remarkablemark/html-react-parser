@@ -6,8 +6,11 @@
   "main": "index.js",
   "module": "index.mjs",
   "exports": {
-    "import": "./index.mjs",
-    "require": "./index.js"
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "benchmark": "node benchmark",
