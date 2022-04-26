@@ -11,30 +11,25 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
 
     steps:
-      - name: Read package name
-        run: echo ::set-output name=NAME::$(jq -r .name package.json)
-        id: package
-
       - name: Release Please
-        id: release
-        uses: GoogleCloudPlatform/release-please-action@v2
+        uses: google-github-actions/release-please-action@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: ${{ steps.package.outputs.NAME }}
+        id: release
 
   publish:
     needs: release-please
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created }}
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm install
