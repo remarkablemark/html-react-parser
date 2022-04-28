@@ -50,7 +50,7 @@
     "style-to-js": "1.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.3",
+    "@commitlint/cli": "16.2.4",
     "@commitlint/config-conventional": "16.2.1",
     "@rollup/plugin-commonjs": "22.0.0",
     "@rollup/plugin-node-resolve": "13.2.1",
