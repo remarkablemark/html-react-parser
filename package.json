@@ -65,7 +65,7 @@
     "jest": "27.5.1",
     "lint-staged": "12.4.1",
     "pinst": "3.0.0",
-    "preact": "10.7.1",
+    "preact": "10.7.2",
     "prettier": "2.6.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
