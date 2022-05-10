@@ -61,7 +61,7 @@
     "dtslint": "4.2.1",
     "eslint": "8.15.0",
     "eslint-plugin-prettier": "4.0.0",
-    "husky": "8.0.0",
+    "husky": "8.0.1",
     "jest": "27.5.1",
     "lint-staged": "12.4.1",
     "pinst": "3.0.0",
