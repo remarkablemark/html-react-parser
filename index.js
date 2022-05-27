@@ -36,7 +36,7 @@ function HTMLReactParser(html, options) {
 HTMLReactParser.domToReact = domToReact;
 HTMLReactParser.htmlToDOM = htmlToDOM;
 HTMLReactParser.attributesToProps = attributesToProps;
-HTMLReactParser.Element = require('domhandler/lib/node').Element;
+HTMLReactParser.Element = require('domhandler').Element;
 
 // support CommonJS and ES Modules
 module.exports = HTMLReactParser;
