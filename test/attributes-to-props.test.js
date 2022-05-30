@@ -253,19 +253,21 @@ describe('attributesToProps with style attribute', () => {
         color: #f00; font-size: 42px; z-index: -1; -webkit-border-top-right-radius: 10rem; background: url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif);
         /* display: block;  */
         --custom-property: #f00;
-        border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
+        border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px;
+        -ms-transform: none;
       `;
     expect(attributesToProps({ style })).toMatchInlineSnapshot(`
       Object {
         "style": Object {
           "--custom-property": "#f00",
-          "MozBorderRadiusBottomleft": "20px'",
+          "MozBorderRadiusBottomleft": "20px",
           "WebkitBorderTopRightRadius": "10rem",
           "background": "url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)",
           "borderBottomLeftRadius": "1em",
           "borderRightStyle": "solid",
           "color": "#f00",
           "fontSize": "42px",
+          "msTransform": "none",
           "zIndex": "-1",
         },
       }
