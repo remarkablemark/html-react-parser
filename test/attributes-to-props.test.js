@@ -12,7 +12,13 @@ describe('attributesToProps with HTML attribute', () => {
       for: 'tran',
       'http-equiv': 'refresh'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "className": "ic",
+        "htmlFor": "tran",
+        "httpEquiv": "refresh",
+      }
+    `);
   });
 
   it('converts standard attributes to React props', () => {
@@ -21,7 +27,13 @@ describe('attributesToProps with HTML attribute', () => {
       charset: 'utf-8',
       tabindex: 1
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "allowFullScreen": true,
+        "charSet": "utf-8",
+        "tabIndex": 1,
+      }
+    `);
   });
 
   it('converts RDFa attributes to React props', () => {
@@ -29,7 +41,12 @@ describe('attributesToProps with HTML attribute', () => {
       property: 'foo',
       typeof: 'bar'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "property": "foo",
+        "typeof": "bar",
+      }
+    `);
   });
 
   it('converts non-standard attributes to React props', () => {
@@ -37,7 +54,12 @@ describe('attributesToProps with HTML attribute', () => {
       itemscope: true,
       itemid: 1337
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "itemID": 1337,
+        "itemScope": true,
+      }
+    `);
   });
 
   it('keeps `data-*` and `aria-*` attributes as is', () => {
@@ -45,7 +67,12 @@ describe('attributesToProps with HTML attribute', () => {
       'data-foo': 'bar',
       'aria-live': 'polite'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "aria-live": "polite",
+        "data-foo": "bar",
+      }
+    `);
   });
 
   it('converts attributes with weird capitalization', () => {
@@ -55,7 +82,14 @@ describe('attributesToProps with HTML attribute', () => {
       sEcUrItY: 'restricted',
       'data-FOO': 'bar'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "acceptCharset": "ISO-8859-1",
+        "data-FOO": "bar",
+        "formNoValidate": true,
+        "security": "restricted",
+      }
+    `);
   });
 
   /**
@@ -94,7 +128,36 @@ describe('attributesToProps with HTML attribute', () => {
       selected: '',
       truespeed: ''
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "allowFullScreen": true,
+        "allowpaymentrequest": "",
+        "async": true,
+        "autoFocus": true,
+        "autoPlay": true,
+        "controls": true,
+        "default": true,
+        "defaultChecked": true,
+        "disabled": true,
+        "draggable": "false",
+        "formNoValidate": true,
+        "hidden": true,
+        "ismap": "",
+        "itemScope": true,
+        "loop": true,
+        "multiple": true,
+        "muted": true,
+        "noModule": true,
+        "noValidate": true,
+        "open": true,
+        "playsInline": true,
+        "readOnly": true,
+        "required": true,
+        "reversed": true,
+        "selected": true,
+        "truespeed": "",
+      }
+    `);
   });
 
   it.each([
@@ -136,7 +199,17 @@ describe('attributesToProps with SVG attribute', () => {
       stroke: 'none',
       'xml:base': 'http://example.org'
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "edgeMode": "edgeMode",
+        "fillOpacity": "0.42",
+        "fillRule": "evenodd",
+        "glyphOrientationVertical": "auto",
+        "horizAdvX": "9001",
+        "stroke": "none",
+        "xmlBase": "http://example.org",
+      }
+    `);
   });
 
   /**
@@ -182,7 +255,21 @@ describe('attributesToProps with style attribute', () => {
         --custom-property: #f00;
         border-bottom-left-radius:1em;border-right-style:solid;Z-Index:-1;-moz-border-radius-bottomleft:20px'
       `;
-    expect(attributesToProps({ style })).toMatchSnapshot();
+    expect(attributesToProps({ style })).toMatchInlineSnapshot(`
+      Object {
+        "style": Object {
+          "--custom-property": "#f00",
+          "MozBorderRadiusBottomleft": "20px'",
+          "WebkitBorderTopRightRadius": "10rem",
+          "background": "url(data:image/png; base64,ivborw0kggoaaaansaaaabgdbtueaalgpc/xhbqaaaafzmuexurczmzpf399fx1+bm5mzy9avzxbesmgces5/p8/t9furvcrmu73jwlzosgsiizurcjo/ad+eqjjb4hv8bft+idpqocx1wjosbfhh2xssxeiyn3uli/6mnree07uiwjev8u8czwyuqdlkpg1bkb4nnm+veanfhqn1k4+gpt6ugqcvu2h2ovuif)",
+          "borderBottomLeftRadius": "1em",
+          "borderRightStyle": "solid",
+          "color": "#f00",
+          "fontSize": "42px",
+          "zIndex": "-1",
+        },
+      }
+    `);
   });
 });
 
@@ -201,7 +288,20 @@ describe('attributesToProps with custom attribute', () => {
       toString: '',
       valueOf: ''
     };
-    expect(attributesToProps(attributes)).toMatchSnapshot();
+    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+      Object {
+        "__defineGetter__": "",
+        "__defineSetter__": "",
+        "__lookupGetter__": "",
+        "__lookupSetter__": "",
+        "hasOwnProperty": "",
+        "isPrototypeOf": "",
+        "propertyIsEnumerable": "",
+        "toLocaleString": "",
+        "toString": "",
+        "valueOf": "",
+      }
+    `);
   });
 });
 

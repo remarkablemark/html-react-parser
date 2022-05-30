@@ -117,7 +117,19 @@ describe('setStyleProp', () => {
     `;
     const props = { style: { foo: 'bar' }, width: 100 };
     expect(setStyleProp(style, props)).toBe(undefined);
-    expect(props).toMatchSnapshot();
+    expect(props).toMatchInlineSnapshot(`
+      Object {
+        "style": Object {
+          "WebkitUserSelect": "none",
+          "backgroundColor": "#bada55",
+          "backgroundImage": "linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+              url('https://mdn.mozillademos.org/files/7693/catfront.png')",
+          "color": "red",
+          "lineHeight": "1",
+        },
+        "width": 100,
+      }
+    `);
   });
 
   it('does not set props.style when style attribute corrupt', () => {

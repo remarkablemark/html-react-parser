@@ -22,7 +22,11 @@ describe('domToReact', () => {
 
   it('converts single DOM node to React', () => {
     const reactElement = domToReact(htmlToDOM(html.single));
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <p>
+        foo
+      </p>
+    `);
   });
 
   it('converts multiple DOM nodes to React', () => {
@@ -30,23 +34,52 @@ describe('domToReact', () => {
     reactElements.forEach((reactElement, index) => {
       expect(reactElement.key).toBe(String(index));
     });
-    expect(reactElements).toMatchSnapshot();
+    expect(reactElements).toMatchInlineSnapshot(`
+      Array [
+        <p>
+          foo
+        </p>,
+        <p>
+          bar
+        </p>,
+      ]
+    `);
   });
 
   it('converts <textarea> correctly', () => {
     // https://reactjs.org/docs/forms.html#the-textarea-tag
     const reactElement = domToReact(htmlToDOM(html.textarea));
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <textarea
+        defaultValue="foo"
+      />
+    `);
   });
 
   it('does not escape <script> content', () => {
     const reactElement = domToReact(htmlToDOM(html.script));
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <script
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "alert(1 < 2);",
+          }
+        }
+      />
+    `);
   });
 
   it('does not escape <style> content', () => {
     const reactElement = domToReact(htmlToDOM(html.style));
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "body > .foo { color: #f00; }",
+          }
+        }
+      />
+    `);
   });
 
   it('does not have `children` for void elements', () => {
@@ -68,19 +101,46 @@ describe('domToReact', () => {
     expect(reactElements).toHaveLength(2);
     expect(reactElements[0].key).toBe('1');
     expect(reactElements[1].key).toBe('3');
-    expect(reactElements).toMatchSnapshot();
+    expect(reactElements).toMatchInlineSnapshot(`
+      Array [
+        <p>
+          foo
+        </p>,
+        <p>
+          foo
+        </p>,
+      ]
+    `);
   });
 
   it('converts SVG element with viewBox attribute', () => {
     const reactElement = domToReact(
       htmlToDOM(svg.simple, { lowerCaseAttributeNames: false })
     );
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <svg
+        id="foo"
+        viewBox="0 0 512 512"
+      >
+        Inner
+      </svg>
+    `);
   });
 
   it('converts custom element with attributes', () => {
     const reactElement = domToReact(htmlToDOM(html.customElement));
-    expect(reactElement).toMatchSnapshot();
+    expect(reactElement).toMatchInlineSnapshot(`
+      <custom-element
+        class="myClass"
+        custom-attribute="value"
+        style={
+          Object {
+            "OTransition": "all .5s",
+            "lineHeight": "1",
+          }
+        }
+      />
+    `);
   });
 });
 
@@ -150,7 +210,18 @@ describe('domToReact', () => {
   describe('when React >=16', () => {
     it('preserves unknown attributes', () => {
       const reactElement = domToReact(htmlToDOM(html.customElement));
-      expect(reactElement).toMatchSnapshot();
+      expect(reactElement).toMatchInlineSnapshot(`
+        <custom-element
+          class="myClass"
+          custom-attribute="value"
+          style={
+            Object {
+              "OTransition": "all .5s",
+              "lineHeight": "1",
+            }
+          }
+        />
+      `);
     });
   });
 
@@ -167,7 +238,17 @@ describe('domToReact', () => {
 
     it('removes unknown attributes', () => {
       const reactElement = domToReact(htmlToDOM(html.customElement));
-      expect(reactElement).toMatchSnapshot();
+      expect(reactElement).toMatchInlineSnapshot(`
+        <custom-element
+          className="myClass"
+          style={
+            Object {
+              "OTransition": "all .5s",
+              "lineHeight": "1",
+            }
+          }
+        />
+      `);
     });
   });
 });

@@ -46,36 +46,155 @@ describe('HTMLReactParser', () => {
   });
 
   it('parses single HTML element', () => {
-    expect(parse(html.single)).toMatchSnapshot();
+    expect(parse(html.single)).toMatchInlineSnapshot(`
+      <p>
+        foo
+      </p>
+    `);
   });
 
   it('parses single HTML element with comment', () => {
     // comment should be ignored
-    expect(parse(html.single + html.comment)).toMatchSnapshot();
+    expect(parse(html.single + html.comment)).toMatchInlineSnapshot(`
+      <p>
+        foo
+      </p>
+    `);
   });
 
   it('parses multiple HTML elements', () => {
-    expect(parse(html.multiple)).toMatchSnapshot();
+    expect(parse(html.multiple)).toMatchInlineSnapshot(`
+      Array [
+        <p>
+          foo
+        </p>,
+        <p>
+          bar
+        </p>,
+      ]
+    `);
   });
 
   it('parses complex HTML with doctype', () => {
-    expect(parse(html.doctype + html.complex)).toMatchSnapshot();
+    expect(parse(html.doctype + html.complex)).toMatchInlineSnapshot(`
+      <html>
+        <head>
+          <meta
+            charSet="utf-8"
+          />
+          <title>
+            Title
+          </title>
+          <link
+            href="style.css"
+            rel="stylesheet"
+          />
+        </head>
+        <body>
+          <header
+            id="header"
+          >
+            Header
+          </header>
+          <h1
+            style={
+              Object {
+                "color": "#000",
+                "fontSize": "42px",
+              }
+            }
+          >
+            Heading
+          </h1>
+          <hr />
+          <p>
+            Paragraph
+          </p>
+          <img
+            src="image.jpg"
+          />
+          <div
+            className="class1 class2"
+          >
+            Some 
+            <em>
+              text
+            </em>
+            .
+          </div>
+          <script
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "alert();",
+              }
+            }
+          />
+        </body>
+      </html>
+    `);
   });
 
   it('parses empty <script>', () => {
-    expect(parse('<script></script>')).toMatchSnapshot();
+    expect(parse('<script></script>')).toMatchInlineSnapshot(`<script />`);
   });
 
   it('parses empty <style>', () => {
-    expect(parse('<style></style>')).toMatchSnapshot();
+    expect(parse('<style></style>')).toMatchInlineSnapshot(`<style />`);
   });
 
   it('parses form', () => {
-    expect(parse(html.form)).toMatchSnapshot();
+    expect(parse(html.form)).toMatchInlineSnapshot(`
+      <input
+        defaultChecked={true}
+        defaultValue="foo"
+        type="text"
+      />
+    `);
   });
 
   it('parses SVG', () => {
-    expect(parse(svg.complex)).toMatchSnapshot();
+    expect(parse(svg.complex)).toMatchInlineSnapshot(`
+      <svg
+        height="400"
+        width="450"
+      >
+        <path
+          d="M 100 350 l 150 -300"
+          fill="none"
+          id="lineAB"
+          stroke="red"
+          strokeWidth="3"
+        />
+        <g
+          fill="black"
+          stroke="black"
+          strokeWidth="3"
+        >
+          <circle
+            cx="100"
+            cy="350"
+            id="pointA"
+            r="3"
+          />
+        </g>
+        <g
+          fill="black"
+          fontFamily="sans-serif"
+          fontSize="30"
+          stroke="none"
+          textAnchor="middle"
+        >
+          <text
+            dx="-30"
+            x="100"
+            y="350"
+          >
+            A
+          </text>
+        </g>
+        Your browser does not support inline SVG.
+      </svg>
+    `);
   });
 
   it('decodes HTML entities', () => {
@@ -86,7 +205,11 @@ describe('HTMLReactParser', () => {
   });
 
   it('escapes tags inside of <title>', () => {
-    expect(parse(html.title)).toMatchSnapshot();
+    expect(parse(html.title)).toMatchInlineSnapshot(`
+      <title>
+        &lt;em&gt;text&lt;/em&gt;
+      </title>
+    `);
   });
 });
 
@@ -99,7 +222,62 @@ describe('replace option', () => {
         }
       }
     };
-    expect(parse(html.complex, options)).toMatchSnapshot();
+    expect(parse(html.complex, options)).toMatchInlineSnapshot(`
+      <html>
+        <head>
+          <meta
+            charSet="utf-8"
+          />
+          <title>
+            Replaced Title
+          </title>
+          <link
+            href="style.css"
+            rel="stylesheet"
+          />
+        </head>
+        <body>
+          <header
+            id="header"
+          >
+            Header
+          </header>
+          <h1
+            style={
+              Object {
+                "color": "#000",
+                "fontSize": "42px",
+              }
+            }
+          >
+            Heading
+          </h1>
+          <hr />
+          <p>
+            Paragraph
+          </p>
+          <img
+            src="image.jpg"
+          />
+          <div
+            className="class1 class2"
+          >
+            Some 
+            <em>
+              text
+            </em>
+            .
+          </div>
+          <script
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "alert();",
+              }
+            }
+          />
+        </body>
+      </html>
+    `);
   });
 
   it('does not replace the element if an invalid React element is returned', () => {
@@ -113,7 +291,62 @@ describe('replace option', () => {
         }
       }
     };
-    expect(parse(html.complex, options)).toMatchSnapshot();
+    expect(parse(html.complex, options)).toMatchInlineSnapshot(`
+      <html>
+        <head>
+          <meta
+            charSet="utf-8"
+          />
+          <title>
+            Title
+          </title>
+          <link
+            href="style.css"
+            rel="stylesheet"
+          />
+        </head>
+        <body>
+          <header
+            id="header"
+          >
+            Header
+          </header>
+          <h1
+            style={
+              Object {
+                "color": "#000",
+                "fontSize": "42px",
+              }
+            }
+          >
+            Heading
+          </h1>
+          <hr />
+          <p>
+            Paragraph
+          </p>
+          <img
+            src="image.jpg"
+          />
+          <div
+            className="class1 class2"
+          >
+            Some 
+            <em>
+              text
+            </em>
+            .
+          </div>
+          <script
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "alert();",
+              }
+            }
+          />
+        </body>
+      </html>
+    `);
   });
 });
 
@@ -138,7 +371,12 @@ describe('htmlparser2 option', () => {
     // which causes elements to nest instead of being rendered correctly
     // enabling htmlparser2 option xmlMode resolves this issue
     const options = { htmlparser2: { xmlMode: true } };
-    expect(parse('<ul><li/><li/></ul>', options)).toMatchSnapshot();
+    expect(parse('<ul><li/><li/></ul>', options)).toMatchInlineSnapshot(`
+      <ul>
+        <li />
+        <li />
+      </ul>
+    `);
   });
 });
 
