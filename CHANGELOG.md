@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.14](https://github.com/remarkablemark/html-react-parser/compare/v1.4.13...v1.4.14) (2022-05-30)
+
+
+### Bug Fixes
+
+* bump style-to-js to 1.1.1; don't capitalize ms vendor prefix ([3df9a29](https://github.com/remarkablemark/html-react-parser/commit/3df9a29c4b38b88bdbbe630b2095b513370b6a12))
+
 ### [1.4.13](https://github.com/remarkablemark/html-react-parser/compare/v1.4.12...v1.4.13) (2022-05-27)
 
 
