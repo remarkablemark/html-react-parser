@@ -12,12 +12,12 @@ var domParserOptions = { lowerCaseAttributeNames: false };
 /**
  * Converts HTML string to React elements.
  *
- * @param  {String}   html                    - HTML string.
- * @param  {Object}   [options]               - Parser options.
- * @param  {Object}   [options.htmlparser2]   - htmlparser2 options.
- * @param  {Object}   [options.library]       - Library for React, Preact, etc.
- * @param  {Function} [options.replace]       - Replace method.
- * @return {JSX.Element|JSX.Element[]|String} - React element(s), empty array, or string.
+ * @param {string} html - HTML string.
+ * @param {object} [options] - Parser options.
+ * @param {object} [options.htmlparser2] - htmlparser2 options.
+ * @param {object} [options.library] - Library for React, Preact, etc.
+ * @param {Function} [options.replace] - Replace method.
+ * @returns {JSX.Element|JSX.Element[]|string} - React element(s), empty array, or string.
  */
 function HTMLReactParser(html, options) {
   if (typeof html !== 'string') {

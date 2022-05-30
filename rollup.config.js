@@ -5,8 +5,8 @@ import { terser } from 'rollup-plugin-terser';
 /**
  * Build rollup config for development (default) or production (minify = true).
  *
- * @param {Boolean} [minify=false]
- * @return {Object}
+ * @param {boolean} [minify=false]
+ * @returns - Rollup config.
  */
 const getConfig = (minify = false) => ({
   external: ['react'],
