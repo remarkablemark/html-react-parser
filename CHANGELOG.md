@@ -2,40 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.4.14](https://github.com/remarkablemark/html-react-parser/compare/v1.4.13...v1.4.14) (2022-05-30)
-
-
-### Bug Fixes
-
-* bump style-to-js to 1.1.1; don't capitalize ms vendor prefix ([3df9a29](https://github.com/remarkablemark/html-react-parser/commit/3df9a29c4b38b88bdbbe630b2095b513370b6a12))
-
-### [1.4.13](https://github.com/remarkablemark/html-react-parser/compare/v1.4.12...v1.4.13) (2022-05-27)
-
+## [1.4.14](https://github.com/remarkablemark/html-react-parser/compare/v1.4.13...v1.4.14) (2022-05-30)
 
 ### Bug Fixes
 
-* export domhandler' Element ([095b6a2](https://github.com/remarkablemark/html-react-parser/commit/095b6a20b8a7dc666a59c7f95d8431ebf1f4fd5b))
+- bump style-to-js to 1.1.1; don't capitalize ms vendor prefix ([3df9a29](https://github.com/remarkablemark/html-react-parser/commit/3df9a29c4b38b88bdbbe630b2095b513370b6a12))
 
-### [1.4.12](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.11...v1.4.12) (2022-04-22)
-
+## [1.4.13](https://github.com/remarkablemark/html-react-parser/compare/v1.4.12...v1.4.13) (2022-05-27)
 
 ### Bug Fixes
 
-* package.json not defined by exports warning ([4456f6a](https://www.github.com/remarkablemark/html-react-parser/commit/4456f6a126c4bcbf8be8b663b5b4e5b3a38a0e4d))
+- export domhandler' Element ([095b6a2](https://github.com/remarkablemark/html-react-parser/commit/095b6a20b8a7dc666a59c7f95d8431ebf1f4fd5b))
 
-### [1.4.11](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.10...v1.4.11) (2022-04-15)
+## [1.4.12](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.11...v1.4.12) (2022-04-22)
 
+### Bug Fixes
+
+- package.json not defined by exports warning ([4456f6a](https://www.github.com/remarkablemark/html-react-parser/commit/4456f6a126c4bcbf8be8b663b5b4e5b3a38a0e4d))
+
+## [1.4.11](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.10...v1.4.11) (2022-04-15)
 
 ### Build System
 
-* upgrade html-dom-parser to add support for react-native ([50eafcc](https://www.github.com/remarkablemark/html-react-parser/commit/50eafccdae3be905d691b7b70759cd289cd99726))
+- upgrade html-dom-parser to add support for react-native ([50eafcc](https://www.github.com/remarkablemark/html-react-parser/commit/50eafccdae3be905d691b7b70759cd289cd99726))
 
-### [1.4.10](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.9...v1.4.10) (2022-03-30)
-
+## [1.4.10](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.9...v1.4.10) (2022-03-30)
 
 ### Build System
 
-* **package:** add support for React 18 ([2816c53](https://www.github.com/remarkablemark/html-react-parser/commit/2816c53da9754f349b0b9b431481ef42606be403))
+- **package:** add support for React 18 ([2816c53](https://www.github.com/remarkablemark/html-react-parser/commit/2816c53da9754f349b0b9b431481ef42606be403))
 
 ## [1.4.9](https://www.github.com/remarkablemark/html-react-parser/compare/v1.4.8...v1.4.9) (2022-03-20)
 
