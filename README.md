@@ -83,7 +83,7 @@ yarn add html-react-parser
 
 ```html
 <!-- HTMLReactParser depends on React -->
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
 <script>
   window.HTMLReactParser(/* string */);
