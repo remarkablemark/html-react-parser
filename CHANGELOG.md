@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/remarkablemark/html-react-parser/compare/v1.4.14...v2.0.0) (2022-06-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **package:** remove Internet Explorer (IE) support
+
+### Build System
+
+* **package:** bump html-dom-parser from 1.2.0 to 2.0.0 ([6eeb156](https://github.com/remarkablemark/html-react-parser/commit/6eeb15606f1e83c988b9cd1303e7db698cec3c97))
+
 ## [1.4.14](https://github.com/remarkablemark/html-react-parser/compare/v1.4.13...v1.4.14) (2022-05-30)
 
 ### Bug Fixes
