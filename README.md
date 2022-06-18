@@ -41,6 +41,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
 - [Migration](#migration)
+  - [v2.0.0](#v200)
   - [v1.0.0](#v100)
 - [FAQ](#faq)
   - [Is this XSS safe?](#is-this-xss-safe)
@@ -369,6 +370,10 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 ```
 
 ## Migration
+
+### v2.0.0
+
+Since [v2.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v2.0.0), Internet Explorer (IE) is no longer supported.
 
 ### v1.0.0
 
