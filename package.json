@@ -50,9 +50,9 @@
     "style-to-js": "1.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.2",
-    "@commitlint/config-conventional": "17.0.2",
-    "@rollup/plugin-commonjs": "22.0.0",
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@rollup/plugin-commonjs": "22.0.1",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@size-limit/preset-big-lib": "7.0.8",
     "@types/react": "18.0.14",
@@ -64,7 +64,7 @@
     "husky": "8.0.1",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
-    "lint-staged": "13.0.2",
+    "lint-staged": "13.0.3",
     "pinst": "3.0.0",
     "preact": "10.8.2",
     "prettier": "2.7.1",
