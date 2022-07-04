@@ -59,7 +59,7 @@
     "@typescript-eslint/parser": "5.30.4",
     "benchmark": "2.1.4",
     "dtslint": "4.2.1",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.1",
     "jest": "28.1.2",
