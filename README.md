@@ -41,6 +41,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
 - [Migration](#migration)
+  - [v3.0.0](#v300)
   - [v2.0.0](#v200)
   - [v1.0.0](#v100)
 - [FAQ](#faq)
@@ -370,6 +371,10 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 ```
 
 ## Migration
+
+### v3.0.0
+
+[domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
 ### v2.0.0
 
