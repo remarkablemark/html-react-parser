@@ -45,7 +45,7 @@
   ],
   "dependencies": {
     "domhandler": "5.0.3",
-    "html-dom-parser": "3.0.0",
+    "html-dom-parser": "3.0.1",
     "react-property": "2.0.0",
     "style-to-js": "1.1.1"
   },
