@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/remarkablemark/html-react-parser/compare/v3.0.0...v3.0.1) (2022-07-10)
+
+
+### Bug Fixes
+
+* parse head/body with newline correctly (bump html-dom-parser) ([d00087a](https://github.com/remarkablemark/html-react-parser/commit/d00087aa5fd7818efd4a21e116b294c533009a55))
+
 ## [3.0.0](https://github.com/remarkablemark/html-react-parser/compare/v2.0.0...v3.0.0) (2022-07-05)
 
 
