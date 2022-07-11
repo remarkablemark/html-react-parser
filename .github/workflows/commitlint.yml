@@ -1,0 +1,15 @@
+name: commitlint
+on: [push, pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint commit message
+        run: npx commitlint --from=HEAD~1
