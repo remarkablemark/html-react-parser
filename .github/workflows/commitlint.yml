@@ -11,5 +11,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json', './package.json') }}
+        id: cache
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install --prefer-offline
+
       - name: Lint commit message
         run: npx commitlint --from=HEAD~1
