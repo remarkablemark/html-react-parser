@@ -4,32 +4,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [3.0.1](https://github.com/remarkablemark/html-react-parser/compare/v3.0.0...v3.0.1) (2022-07-10)
 
-
 ### Bug Fixes
 
-* parse head/body with newline correctly (bump html-dom-parser) ([d00087a](https://github.com/remarkablemark/html-react-parser/commit/d00087aa5fd7818efd4a21e116b294c533009a55))
+- parse head/body with newline correctly (bump html-dom-parser) ([d00087a](https://github.com/remarkablemark/html-react-parser/commit/d00087aa5fd7818efd4a21e116b294c533009a55))
 
 ## [3.0.0](https://github.com/remarkablemark/html-react-parser/compare/v2.0.0...v3.0.0) (2022-07-05)
 
-
 ### ⚠ BREAKING CHANGES
 
-* bump domhandler from 4 to 5, html-dom-parser from 2 to 3
+- bump domhandler from 4 to 5, html-dom-parser from 2 to 3
 
 ### Build System
 
-* upgrade domhandler to 5.0.3 and html-dom-parser to 3.0.0 ([a0f63a2](https://github.com/remarkablemark/html-react-parser/commit/a0f63a2b158efc6f49adbd7cd9f6e5e8ded56680))
+- upgrade domhandler to 5.0.3 and html-dom-parser to 3.0.0 ([a0f63a2](https://github.com/remarkablemark/html-react-parser/commit/a0f63a2b158efc6f49adbd7cd9f6e5e8ded56680))
 
 ## [2.0.0](https://github.com/remarkablemark/html-react-parser/compare/v1.4.14...v2.0.0) (2022-06-18)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **package:** remove Internet Explorer (IE) support
+- **package:** remove Internet Explorer (IE) support
 
 ### Build System
 
-* **package:** bump html-dom-parser from 1.2.0 to 2.0.0 ([6eeb156](https://github.com/remarkablemark/html-react-parser/commit/6eeb15606f1e83c988b9cd1303e7db698cec3c97))
+- **package:** bump html-dom-parser from 1.2.0 to 2.0.0 ([6eeb156](https://github.com/remarkablemark/html-react-parser/commit/6eeb15606f1e83c988b9cd1303e7db698cec3c97))
 
 ## [1.4.14](https://github.com/remarkablemark/html-react-parser/compare/v1.4.13...v1.4.14) (2022-05-30)
 
