@@ -17,7 +17,7 @@ describe('module', () => {
   it('exports htmlToDOM', () => {
     expect(parse.htmlToDOM).toBe(require('html-dom-parser'));
     expect(parse.htmlToDOM).toBeInstanceOf(Function);
-    expect(parse.htmlToDOM.default).toBe(undefined);
+    expect(parse.htmlToDOM.default).toBe(parse.htmlToDOM);
   });
 
   it('exports attributesToProps', () => {
