@@ -118,8 +118,8 @@ describe('setStyleProp', () => {
     const props = { style: { foo: 'bar' }, width: 100 };
     expect(setStyleProp(style, props)).toBe(undefined);
     expect(props).toMatchInlineSnapshot(`
-      Object {
-        "style": Object {
+      {
+        "style": {
           "WebkitUserSelect": "none",
           "backgroundColor": "#bada55",
           "backgroundImage": "linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),

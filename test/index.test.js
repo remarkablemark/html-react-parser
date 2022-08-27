@@ -64,7 +64,7 @@ describe('HTMLReactParser', () => {
 
   it('parses multiple HTML elements', () => {
     expect(parse(html.multiple)).toMatchInlineSnapshot(`
-      Array [
+      [
         <p>
           foo
         </p>,
@@ -98,7 +98,7 @@ describe('HTMLReactParser', () => {
           </header>
           <h1
             style={
-              Object {
+              {
                 "color": "#000",
                 "fontSize": "42px",
               }
@@ -124,7 +124,7 @@ describe('HTMLReactParser', () => {
           </div>
           <script
             dangerouslySetInnerHTML={
-              Object {
+              {
                 "__html": "alert();",
               }
             }
@@ -244,7 +244,7 @@ describe('replace option', () => {
           </header>
           <h1
             style={
-              Object {
+              {
                 "color": "#000",
                 "fontSize": "42px",
               }
@@ -270,7 +270,7 @@ describe('replace option', () => {
           </div>
           <script
             dangerouslySetInnerHTML={
-              Object {
+              {
                 "__html": "alert();",
               }
             }
@@ -313,7 +313,7 @@ describe('replace option', () => {
           </header>
           <h1
             style={
-              Object {
+              {
                 "color": "#000",
                 "fontSize": "42px",
               }
@@ -339,7 +339,7 @@ describe('replace option', () => {
           </div>
           <script
             dangerouslySetInnerHTML={
-              Object {
+              {
                 "__html": "alert();",
               }
             }
