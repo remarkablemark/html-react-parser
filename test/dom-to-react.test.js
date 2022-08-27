@@ -35,7 +35,7 @@ describe('domToReact', () => {
       expect(reactElement.key).toBe(String(index));
     });
     expect(reactElements).toMatchInlineSnapshot(`
-      Array [
+      [
         <p>
           foo
         </p>,
@@ -61,7 +61,7 @@ describe('domToReact', () => {
     expect(reactElement).toMatchInlineSnapshot(`
       <script
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "alert(1 < 2);",
           }
         }
@@ -74,7 +74,7 @@ describe('domToReact', () => {
     expect(reactElement).toMatchInlineSnapshot(`
       <style
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": "body > .foo { color: #f00; }",
           }
         }
@@ -102,7 +102,7 @@ describe('domToReact', () => {
     expect(reactElements[0].key).toBe('1');
     expect(reactElements[1].key).toBe('3');
     expect(reactElements).toMatchInlineSnapshot(`
-      Array [
+      [
         <p>
           foo
         </p>,
@@ -134,7 +134,7 @@ describe('domToReact', () => {
         class="myClass"
         custom-attribute="value"
         style={
-          Object {
+          {
             "OTransition": "all .5s",
             "lineHeight": "1",
           }
@@ -215,7 +215,7 @@ describe('domToReact', () => {
           class="myClass"
           custom-attribute="value"
           style={
-            Object {
+            {
               "OTransition": "all .5s",
               "lineHeight": "1",
             }
@@ -242,7 +242,7 @@ describe('domToReact', () => {
         <custom-element
           className="myClass"
           style={
-            Object {
+            {
               "OTransition": "all .5s",
               "lineHeight": "1",
             }

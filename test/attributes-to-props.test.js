@@ -13,7 +13,7 @@ describe('attributesToProps with HTML attribute', () => {
       'http-equiv': 'refresh'
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "className": "ic",
         "htmlFor": "tran",
         "httpEquiv": "refresh",
@@ -28,7 +28,7 @@ describe('attributesToProps with HTML attribute', () => {
       tabindex: 1
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "allowFullScreen": true,
         "charSet": "utf-8",
         "tabIndex": 1,
@@ -42,7 +42,7 @@ describe('attributesToProps with HTML attribute', () => {
       typeof: 'bar'
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "property": "foo",
         "typeof": "bar",
       }
@@ -55,7 +55,7 @@ describe('attributesToProps with HTML attribute', () => {
       itemid: 1337
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "itemID": 1337,
         "itemScope": true,
       }
@@ -68,7 +68,7 @@ describe('attributesToProps with HTML attribute', () => {
       'aria-live': 'polite'
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "aria-live": "polite",
         "data-foo": "bar",
       }
@@ -83,7 +83,7 @@ describe('attributesToProps with HTML attribute', () => {
       'data-FOO': 'bar'
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "acceptCharset": "ISO-8859-1",
         "data-FOO": "bar",
         "formNoValidate": true,
@@ -129,7 +129,7 @@ describe('attributesToProps with HTML attribute', () => {
       truespeed: ''
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "allowFullScreen": true,
         "allowpaymentrequest": "",
         "async": true,
@@ -200,7 +200,7 @@ describe('attributesToProps with SVG attribute', () => {
       'xml:base': 'http://example.org'
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "edgeMode": "edgeMode",
         "fillOpacity": "0.42",
         "fillRule": "evenodd",
@@ -257,8 +257,8 @@ describe('attributesToProps with style attribute', () => {
         -ms-transform: none;
       `;
     expect(attributesToProps({ style })).toMatchInlineSnapshot(`
-      Object {
-        "style": Object {
+      {
+        "style": {
           "--custom-property": "#f00",
           "MozBorderRadiusBottomleft": "20px",
           "WebkitBorderTopRightRadius": "10rem",
@@ -291,7 +291,7 @@ describe('attributesToProps with custom attribute', () => {
       valueOf: ''
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
-      Object {
+      {
         "__defineGetter__": "",
         "__defineSetter__": "",
         "__lookupGetter__": "",
