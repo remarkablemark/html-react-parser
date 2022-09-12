@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/html-react-parser.png)](https://nodei.co/npm/html-react-parser/)
 
 [![NPM version](https://img.shields.io/npm/v/html-react-parser.svg)](https://www.npmjs.com/package/html-react-parser)
-[![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/html-react-parser)](https://bundlephobia.com/package/html-react-parser)
+[![Bundlephobia minified + gzip](https://img.shields.io/bundlephobia/minzip/html-react-parser)](https://bundlephobia.com/package/html-react-parser)
 [![Build Status](https://github.com/remarkablemark/html-react-parser/workflows/build/badge.svg?branch=master)](https://github.com/remarkablemark/html-react-parser/actions?query=workflow%3Abuild)
 [![codecov](https://codecov.io/gh/remarkablemark/html-react-parser/branch/master/graph/badge.svg?token=wosFd1DBIR)](https://codecov.io/gh/remarkablemark/html-react-parser)
 [![NPM downloads](https://img.shields.io/npm/dm/html-react-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-react-parser)
