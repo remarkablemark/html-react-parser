@@ -53,7 +53,7 @@
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
     "@rollup/plugin-commonjs": "23.0.0",
-    "@rollup/plugin-node-resolve": "14.1.0",
+    "@rollup/plugin-node-resolve": "15.0.0",
     "@size-limit/preset-big-lib": "7.0.8",
     "@types/react": "18.0.21",
     "@typescript-eslint/parser": "5.39.0",
