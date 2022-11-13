@@ -57,6 +57,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [TS Error: Property 'attribs' does not exist on type 'DOMNode'](#ts-error-property-attribs-does-not-exist-on-type-domnode)
   - [Can I enable `trim` for certain elements?](#can-i-enable-trim-for-certain-elements)
   - [Webpack build warnings](#webpack-build-warnings)
+  - [TypeScript error](#typescript-error)
 - [Performance](#performance)
 - [Contributors](#contributors)
   - [Code Contributors](#code-contributors)
@@ -378,6 +379,8 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 [domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
+Also, it's recommended to upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript).
+
 ### v2.0.0
 
 Since [v2.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v2.0.0), Internet Explorer (IE) is no longer supported.
@@ -488,6 +491,19 @@ module.exports = {
 ```
 
 See [#238](https://github.com/remarkablemark/html-react-parser/issues/238) and [#213](https://github.com/remarkablemark/html-react-parser/issues/213).
+
+### TypeScript error
+
+If you see the TypeScript error:
+
+```
+node_modules/htmlparser2/lib/index.d.ts:2:23 - error TS1005: ',' expected.
+
+2 export { Parser, type ParserOptions };
+                         ~~~~~~~~~~~~~
+```
+
+Then upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript). See [#748](https://github.com/remarkablemark/html-react-parser/issues/748).
 
 ## Performance
 
