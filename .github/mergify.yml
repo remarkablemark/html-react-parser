@@ -1,8 +1,10 @@
 pull_request_rules:
   - name: automatic merge for Dependabot pull requests
     conditions:
-      - author~=^dependabot(|-preview)\[bot\]$
+      - author=dependabot[bot]
       - check-success=build
+      - check-success=commitlint
+      - check-success=size
       - 'title~=^build\(deps-dev\): bump '
     actions:
       merge:
