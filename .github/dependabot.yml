@@ -5,16 +5,12 @@
 
 version: 2
 updates:
-  # Required
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'daily'
 
-    # Optional
-    # assignees:
-    #   - 'remarkablemark'
-    labels:
-      - 'dependencies'
-    # reviewers:
-    #   - 'remarkablemark'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
