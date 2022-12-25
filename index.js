@@ -42,7 +42,6 @@ HTMLReactParser.attributesToProps = attributesToProps;
 // domhandler
 HTMLReactParser.Comment = domhandler.Comment;
 HTMLReactParser.Element = domhandler.Element;
-HTMLReactParser.Node = domhandler.Node;
 HTMLReactParser.ProcessingInstruction = domhandler.ProcessingInstruction;
 HTMLReactParser.Text = domhandler.Text;
 

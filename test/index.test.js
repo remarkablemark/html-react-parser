@@ -27,7 +27,7 @@ describe('module', () => {
   });
 
   describe('domhandler', () => {
-    it.each(['Comment', 'Element', 'Node', 'ProcessingInstruction', 'Text'])(
+    it.each(['Comment', 'Element', 'ProcessingInstruction', 'Text'])(
       'exports %s',
       name => {
         expect(parse[name]).toBeInstanceOf(Function);
