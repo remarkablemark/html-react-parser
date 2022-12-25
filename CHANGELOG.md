@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.5](https://github.com/remarkablemark/html-react-parser/compare/v3.0.4...v3.0.5) (2022-12-25)
+
+
+### Bug Fixes
+
+* **index:** don't export unused domhandler class Node ([7a9c207](https://github.com/remarkablemark/html-react-parser/commit/7a9c207ae87a83cd1530a7b80097d321478cfb5a))
+* **index:** export domhandler classes ([4fc3a73](https://github.com/remarkablemark/html-react-parser/commit/4fc3a73697dd4039ca04b75ece2a92f29d663b1a))
+
 ## [3.0.4](https://github.com/remarkablemark/html-react-parser/compare/v3.0.3...v3.0.4) (2022-08-23)
 
 
