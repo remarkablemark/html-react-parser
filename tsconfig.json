@@ -16,11 +16,6 @@
     },
     "jsx": "react"
   },
-  "files": [
-    "index.d.ts",
-    "lib/dom-to-react.d.ts",
-    "test/types/index.tsx",
-    "test/types/lib/attributes-to-props.ts",
-    "test/types/lib/dom-to-react.tsx"
-  ]
+  "files": ["index.d.ts", "lib/dom-to-react.d.ts"],
+  "include": ["test/types/**/*.ts", "test/types/**/*.tsx"]
 }
