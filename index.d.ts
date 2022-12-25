@@ -1,22 +1,23 @@
 // TypeScript Version: 4.7
+/* eslint-disable no-undef, no-unused-vars */
 
-import { ParserOptions } from 'htmlparser2';
 import {
   Comment,
-  DomHandlerOptions,
   Element,
   Node,
   ProcessingInstruction,
-  Text
+  Text,
+  type DomHandlerOptions
 } from 'domhandler';
 import htmlToDOM from 'html-dom-parser';
+import { ParserOptions } from 'htmlparser2';
 
 import attributesToProps from './lib/attributes-to-props';
 import domToReact from './lib/dom-to-react';
 
 export { attributesToProps, domToReact, htmlToDOM };
 export type HTMLParser2Options = ParserOptions & DomHandlerOptions;
-export { Comment, Element, Node, ProcessingInstruction, Text };
+export { Comment, Element, ProcessingInstruction, Text };
 export type DOMNode = Comment | Element | Node | ProcessingInstruction | Text;
 
 export interface HTMLReactParserOptions {
