@@ -1,4 +1,5 @@
 const React = require('react');
+const domhandler = require('domhandler');
 const parse = require('..');
 const { html, svg } = require('./data');
 const { render } = require('./helpers');
@@ -23,6 +24,16 @@ describe('module', () => {
   it('exports attributesToProps', () => {
     expect(parse.attributesToProps).toBe(require('../lib/attributes-to-props'));
     expect(parse.attributesToProps).toBeInstanceOf(Function);
+  });
+
+  describe('domhandler', () => {
+    it.each(['Comment', 'Element', 'Node', 'ProcessingInstruction', 'Text'])(
+      'exports %s',
+      name => {
+        expect(parse[name]).toBeInstanceOf(Function);
+        expect(parse[name]).toBe(domhandler[name]);
+      }
+    );
   });
 });
 
