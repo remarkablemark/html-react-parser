@@ -1,3 +1,9 @@
+---
+name: Bug Report
+about: Report a bug
+labels: bug
+---
+
 ## Expected Behavior
 
 <!-- What should happen. -->
@@ -26,3 +32,7 @@ Creating a bug demo will help speed up the process of resolving the issue:
 - Platform:
 - Browser:
 - OS:
+
+## Keywords
+
+<!-- Include keywords that might help others with the same problem find this issue. -->
