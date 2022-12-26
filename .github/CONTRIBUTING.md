@@ -12,7 +12,7 @@
 All pull requests are welcome! By participating in this project, you
 agree to abide by our **[code of conduct]**.
 
-[code of conduct]: https://github.com/remarkablemark/html-react-parser/blob/master/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/remarkablemark/html-react-parser/blob/master/.github/CODE_OF_CONDUCT.md
 
 [Fork], then clone the repository:
 
