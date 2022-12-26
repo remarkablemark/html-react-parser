@@ -1,10 +1,3 @@
-<!--
-Is this a bug report?
-
-* Yes: Continue filling out the template.
-* No: Delete the template and write in free form. (Apply a label to the issue if applicable.)
--->
-
 ## Expected Behavior
 
 <!-- What should happen. -->
@@ -32,3 +25,4 @@ Creating a bug demo will help speed up the process of resolving the issue:
 - Version:
 - Platform:
 - Browser:
+- OS:
