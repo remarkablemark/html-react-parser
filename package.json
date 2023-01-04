@@ -61,7 +61,7 @@
     "dtslint": "4.2.1",
     "eslint": "8.31.0",
     "eslint-plugin-prettier": "4.2.1",
-    "husky": "8.0.2",
+    "husky": "8.0.3",
     "jest": "29.3.1",
     "jest-environment-jsdom": "29.3.1",
     "lint-staged": "13.1.0",
