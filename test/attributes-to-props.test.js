@@ -187,7 +187,7 @@ describe('attributesToProps with HTML attribute', () => {
     }
   );
 
-  it('preserve value of option element', () => {
+  it('preserves value of option element', () => {
     expect(attributesToProps({ value: 'foo' }, 'option')).toEqual({
       value: 'foo'
     });
