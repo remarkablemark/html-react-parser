@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.7](https://github.com/remarkablemark/html-react-parser/compare/v3.0.6...v3.0.7) (2023-01-05)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** don't convert value of option tag ([#790](https://github.com/remarkablemark/html-react-parser/issues/790)) ([bb4bf49](https://github.com/remarkablemark/html-react-parser/commit/bb4bf49b150be992917958813a7b17d1d7cef31c))
+
 ## [3.0.6](https://github.com/remarkablemark/html-react-parser/compare/v3.0.5...v3.0.6) (2022-12-25)
 
 
