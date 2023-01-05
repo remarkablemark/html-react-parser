@@ -12,4 +12,7 @@ export type Props = Record<string, string> & {
  * @param attributes - HTML/SVG DOM attributes.
  * @returns - React props.
  */
-export default function attributesToProps(attributes: Attributes): Props;
+export default function attributesToProps(
+  attributes: Attributes,
+  nodeName: string
+): Props;

@@ -186,6 +186,12 @@ describe('attributesToProps with HTML attribute', () => {
       expect(attributesToProps(attributes)).toEqual(props);
     }
   );
+
+  it('preserve value of option element', () => {
+    expect(attributesToProps({ value: 'foo' }, 'option')).toEqual({
+      value: 'foo'
+    });
+  });
 });
 
 describe('attributesToProps with SVG attribute', () => {
