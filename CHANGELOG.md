@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.8](https://github.com/remarkablemark/html-react-parser/compare/v3.0.7...v3.0.8) (2023-01-17)
+
+
+### Bug Fixes
+
+* **package:** include types in exports to support TypeScript ESM node16 ([39844c4](https://github.com/remarkablemark/html-react-parser/commit/39844c486e696f85a5f86b1c6cd8a4a198636209))
+
+
+### Build System
+
+* **package:** bump html-dom-parser from 3.1.2 to 3.1.3 ([bfe970a](https://github.com/remarkablemark/html-react-parser/commit/bfe970a3a80d5185682371cf279a01a80884bd96))
+* **package:** bump style-to-js from 1.1.2 to 1.1.3 ([7cf5b99](https://github.com/remarkablemark/html-react-parser/commit/7cf5b9974013ff2830eef78bd62176fb290689f6))
+
 ## [3.0.7](https://github.com/remarkablemark/html-react-parser/compare/v3.0.6...v3.0.7) (2023-01-05)
 
 
