@@ -2,6 +2,7 @@
 name: Feature Request
 about: Suggest improvements or new features
 labels: feature
+assignees: remarkablemark
 ---
 
 ## Problem

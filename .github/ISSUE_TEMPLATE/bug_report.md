@@ -2,6 +2,7 @@
 name: Bug Report
 about: Report a bug
 labels: bug
+assignees: remarkablemark
 ---
 
 ## Expected Behavior

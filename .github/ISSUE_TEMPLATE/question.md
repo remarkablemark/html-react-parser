@@ -2,6 +2,7 @@
 name: Question
 about: Ask a question
 labels: question
+assignees: remarkablemark
 ---
 
 ## Question
