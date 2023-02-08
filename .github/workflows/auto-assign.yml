@@ -4,10 +4,10 @@ on: pull_request_target
 jobs:
   auto-assign:
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]' && github.event.action == 'opened
+    if: github.actor != 'dependabot[bot]' && github.event.action == 'opened'
 
     steps:
-    - name: Auto assign
-      run: gh pr edit ${{ github.event.pull_request.html_url }} --add-assignee ${{ github.event.pull_request.user.login }} --add-reviewer remarkablemark
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      - name: Auto assign
+        run: gh pr edit ${{ github.event.pull_request.html_url }} --add-assignee ${{ github.event.pull_request.user.login }} --add-reviewer remarkablemark
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
