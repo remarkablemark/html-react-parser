@@ -4,7 +4,7 @@ on: pull_request_target
 jobs:
   auto-assign:
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]' && github.event.action == 'opened'
+    if: endsWith(github.actor, '[bot]') == false && github.event.action == 'opened'
 
     steps:
       - name: Auto assign
