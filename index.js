@@ -47,4 +47,4 @@ HTMLReactParser.Text = domhandler.Text;
 
 // support CommonJS and ES Modules
 module.exports = HTMLReactParser;
-module.exports.default = HTMLReactParser;
+HTMLReactParser.default = HTMLReactParser;
