@@ -7,21 +7,20 @@
   window.requirejs.config({
     paths: {
       'html-react-parser': '../../dist/html-react-parser.min',
-      react: 'https://unpkg.com/react@16/umd/react.development',
-      'react-dom': 'https://unpkg.com/react-dom@16/umd/react-dom.development'
+      react: 'https://unpkg.com/react@18/umd/react.development',
+      'react-dom': 'https://unpkg.com/react-dom@18/umd/react-dom.development'
     }
   });
 
   window.requirejs(
     ['html-react-parser', 'react-dom'],
     function (HTMLReactParser, ReactDOM) {
-      ReactDOM.render(
+      ReactDOM.createRoot(document.getElementById('root')).render(
         HTMLReactParser(
-          '<h2 style="font-family:\'Lucida Grande\';">' +
+          '<h2 style="font-family: \'Lucida Grande\', sans-serif;">' +
             'HTMLReactParser loaded with RequireJS' +
             '<\/h2>'
-        ),
-        document.getElementById('root')
+        )
       );
     }
   );

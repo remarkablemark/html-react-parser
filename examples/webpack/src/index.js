@@ -1,8 +1,6 @@
+import ReactDOM from 'react-dom/client';
 import parse from 'html-react-parser';
 
-import('react-dom').then(function (ReactDOM) {
-  ReactDOM.render(
-    parse('<h1>HTMLReactParser loaded with webpack</h1>'),
-    document.getElementById('root')
-  );
-});
+ReactDOM.createRoot(document.getElementById('root')).render(
+  parse('<h1>HTMLReactParser loaded with Webpack</h1>')
+);

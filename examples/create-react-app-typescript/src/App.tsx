@@ -1,4 +1,3 @@
-import React from 'react';
 import parse, { domToReact, htmlToDOM, Element } from 'html-react-parser';
 import './App.css';
 
@@ -18,10 +17,10 @@ export default function App() {
   return (
     <div className="App">
       {parser(`
-          <h2 style="font-family: 'Lucida Grande';">
-            HTMLReactParser<br class="remove"> loaded withCreate React App
-          </h2>
-        `)}
+        <h2 style="font-family: 'Lucida Grande';">
+          HTMLReactParser<br class="remove"> with Create React App (TypeScript)
+        </h2>
+      `)}
     </div>
   );
 }
