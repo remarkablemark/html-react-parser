@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.9](https://github.com/remarkablemark/html-react-parser/compare/v3.0.8...v3.0.9) (2023-02-11)
+
+
+### Bug Fixes
+
+* **index:** fix exports for UMD build (CDN script) ([6225395](https://github.com/remarkablemark/html-react-parser/commit/6225395c264d9db132be50656cd1af779fe8657b)), closes [#828](https://github.com/remarkablemark/html-react-parser/issues/828)
+
 ## [3.0.8](https://github.com/remarkablemark/html-react-parser/compare/v3.0.7...v3.0.8) (2023-01-17)
 
 
