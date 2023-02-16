@@ -63,7 +63,7 @@
     "eslint": "8.34.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
-    "jest": "29.4.2",
+    "jest": "29.4.3",
     "jest-environment-jsdom": "29.4.2",
     "lint-staged": "13.1.2",
     "pinst": "3.0.0",
