@@ -57,7 +57,7 @@
     "@rollup/plugin-node-resolve": "15.0.1",
     "@size-limit/preset-big-lib": "8.1.0",
     "@types/react": "18.0.28",
-    "@typescript-eslint/parser": "5.52.0",
+    "@typescript-eslint/parser": "5.53.0",
     "benchmark": "2.1.4",
     "dtslint": "4.2.1",
     "eslint": "8.34.0",
