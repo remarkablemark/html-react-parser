@@ -67,7 +67,7 @@
     "jest-environment-jsdom": "29.4.3",
     "lint-staged": "13.1.2",
     "pinst": "3.0.0",
-    "preact": "10.12.1",
+    "preact": "10.13.0",
     "prettier": "2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
