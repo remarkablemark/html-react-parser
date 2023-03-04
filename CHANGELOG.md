@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.10](https://github.com/remarkablemark/html-react-parser/compare/v3.0.9...v3.0.10) (2023-03-04)
+
+
+### Bug Fixes
+
+* upgrade html-dom-parser@3.1.4 to fix template parsing ([7632fc0](https://github.com/remarkablemark/html-react-parser/commit/7632fc0747a1a390e050da17efa4c42cf5829dfc)), closes [#849](https://github.com/remarkablemark/html-react-parser/issues/849)
+
 ## [3.0.9](https://github.com/remarkablemark/html-react-parser/compare/v3.0.8...v3.0.9) (2023-02-11)
 
 
