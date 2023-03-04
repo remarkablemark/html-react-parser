@@ -163,6 +163,21 @@ describe('HTMLReactParser', () => {
     `);
   });
 
+  it('parses list', () => {
+    expect(parse(html.list)).toMatchInlineSnapshot(`
+      <ol>
+        <li>
+          One
+        </li>
+        <li
+          value="2"
+        >
+          Two
+        </li>
+      </ol>
+    `);
+  });
+
   it('parses template', () => {
     expect(parse(html.template)).toMatchInlineSnapshot(`
       <template>
