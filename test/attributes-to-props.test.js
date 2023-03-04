@@ -5,6 +5,30 @@ it('returns empty object is argument is undefined', () => {
   expect(attributesToProps()).toEqual({});
 });
 
+it.each(['input', 'select', 'textarea'])(
+  'converts uncontrolled component attributes',
+  nodeName => {
+    expect(
+      attributesToProps({ value: 'foo', checked: false }, nodeName)
+    ).toEqual({
+      defaultValue: 'foo',
+      defaultChecked: true
+    });
+  }
+);
+
+it.each(['button', 'data', 'li', 'meter', 'option', 'progress', 'param'])(
+  'converts non-uncontrolled component attributes',
+  nodeName => {
+    expect(
+      attributesToProps({ value: 'foo', checked: false }, nodeName)
+    ).toEqual({
+      value: 'foo',
+      checked: true
+    });
+  }
+);
+
 describe('attributesToProps with HTML attribute', () => {
   it('converts attributes to React props', () => {
     const attributes = {
@@ -128,7 +152,7 @@ describe('attributesToProps with HTML attribute', () => {
       selected: '',
       truespeed: ''
     };
-    expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
+    expect(attributesToProps(attributes, 'select')).toMatchInlineSnapshot(`
       {
         "allowFullScreen": true,
         "allowpaymentrequest": "",
@@ -183,7 +207,7 @@ describe('attributesToProps with HTML attribute', () => {
   ])(
     'converts form attribute to uncontrolled component property',
     (attributes, props) => {
-      expect(attributesToProps(attributes)).toEqual(props);
+      expect(attributesToProps(attributes, 'input')).toEqual(props);
     }
   );
 

@@ -17,5 +17,6 @@ module.exports = {
   customElement:
     '<custom-element class="myClass" custom-attribute="value" style="-o-transition: all .5s; line-height: 1;"></custom-element>',
   form: '<input type="text" value="foo" checked="checked">',
+  list: '<ol><li>One</li><li value="2">Two</li></ol>',
   template: '<template><article><p>Test</p></article></template>'
 };
