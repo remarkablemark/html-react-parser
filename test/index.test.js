@@ -163,6 +163,18 @@ describe('HTMLReactParser', () => {
     `);
   });
 
+  it('parses template', () => {
+    expect(parse(html.template)).toMatchInlineSnapshot(`
+      <template>
+        <article>
+          <p>
+            Test
+          </p>
+        </article>
+      </template>
+    `);
+  });
+
   it('parses SVG', () => {
     expect(parse(svg.complex)).toMatchInlineSnapshot(`
       <svg
