@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.11](https://github.com/remarkablemark/html-react-parser/compare/v3.0.10...v3.0.11) (2023-03-04)
+
+
+### Bug Fixes
+
+* **attributes-to-props:** don't convert non-uncontrolled component props ([76eab7c](https://github.com/remarkablemark/html-react-parser/commit/76eab7c0f22acef2209c8c556218a92461a224a6)), closes [#839](https://github.com/remarkablemark/html-react-parser/issues/839)
+
 ## [3.0.10](https://github.com/remarkablemark/html-react-parser/compare/v3.0.9...v3.0.10) (2023-03-04)
 
 
