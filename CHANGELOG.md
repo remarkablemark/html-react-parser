@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.13](https://github.com/remarkablemark/html-react-parser/compare/v3.0.12...v3.0.13) (2023-03-22)
+
+
+### Bug Fixes
+
+* bump html-dom-parser to 3.1.6 to fix feGaussianBlur misspelling ([81bfeba](https://github.com/remarkablemark/html-react-parser/commit/81bfebaa87564cc88a00bebd030d0d22b5b5dd46)), closes [#734](https://github.com/remarkablemark/html-react-parser/issues/734)
+
 ## [3.0.12](https://github.com/remarkablemark/html-react-parser/compare/v3.0.11...v3.0.12) (2023-03-06)
 
 
