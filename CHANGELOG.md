@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.14](https://github.com/remarkablemark/html-react-parser/compare/v3.0.13...v3.0.14) (2023-03-24)
+
+
+### Bug Fixes
+
+* **types:** fix "Type error: ',' expected." in index.d.ts ([d9c608d](https://github.com/remarkablemark/html-react-parser/commit/d9c608d591c7e4c05a7c2165121b232f06288fad)), closes [#871](https://github.com/remarkablemark/html-react-parser/issues/871)
+
 ## [3.0.13](https://github.com/remarkablemark/html-react-parser/compare/v3.0.12...v3.0.13) (2023-03-22)
 
 
