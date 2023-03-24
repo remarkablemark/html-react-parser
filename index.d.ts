@@ -1,4 +1,4 @@
-// TypeScript Version: 4.7
+// TypeScript Version: 5.0
 /* eslint-disable no-undef, no-unused-vars */
 
 import {
@@ -6,9 +6,9 @@ import {
   Element,
   Node,
   ProcessingInstruction,
-  Text,
-  type DomHandlerOptions
+  Text
 } from 'domhandler';
+import type { DomHandlerOptions } from 'domhandler';
 import htmlToDOM from 'html-dom-parser';
 import { ParserOptions } from 'htmlparser2';
 

@@ -1,4 +1,5 @@
-// TypeScript Version: 4.7
+// TypeScript Version: 5.0
+/* eslint-disable no-undef, no-unused-vars */
 
 import { DOMNode, HTMLReactParserOptions } from '..';
 
