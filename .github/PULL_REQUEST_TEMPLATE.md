@@ -25,7 +25,6 @@ To check an item, place an "x" in the box like so: `- [x] Tests`
 - [ ] Tests
 - [ ] Documentation
 - [ ] Types
-- [ ] Request review from @remarkablemark
 
 <!--
 Any other comments? Thank you for contributing!
