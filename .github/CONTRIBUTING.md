@@ -3,8 +3,8 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [Test](#test)
 - [Fork](#fork)
+- [Test](#test)
 - [Lint](#lint)
 - [Release](#release)
 
