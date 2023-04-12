@@ -8,4 +8,4 @@ pull_request_rules:
       - 'title~=^build\(deps-dev\): bump '
     actions:
       merge:
-        method: merge
+        method: squash
