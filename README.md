@@ -425,7 +425,7 @@ The reason why your HTML attributes aren't getting called is because [inline eve
 
 ### Parser throws an error
 
-If the parser throws an erorr, check if your arguments are valid. See ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized).
+If the parser throws an error, check if your arguments are valid. See ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized).
 
 ### Is SSR supported?
 
@@ -464,7 +464,7 @@ See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [ex
 
 ### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
-The TypeScript error occurs because `DOMNode` needs be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
+The TypeScript error occurs because `DOMNode` needs to be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
 
 ### Can I enable `trim` for certain elements?
 
