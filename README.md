@@ -64,7 +64,6 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [Financial Contributors](#financial-contributors)
     - [Individuals](#individuals)
     - [Organizations](#organizations)
-- [Enterprise](#enterprise)
 - [Support](#support)
 - [License](#license)
 
@@ -559,12 +558,6 @@ Support this project with your organization. Your logo will show up here with a 
 [![Financial Contributors - Organization 7](https://opencollective.com/html-react-parser/organization/7/avatar.svg)](https://opencollective.com/html-react-parser/organization/7/website)
 [![Financial Contributors - Organization 8](https://opencollective.com/html-react-parser/organization/8/avatar.svg)](https://opencollective.com/html-react-parser/organization/8/website)
 [![Financial Contributors - Organization 9](https://opencollective.com/html-react-parser/organization/9/avatar.svg)](https://opencollective.com/html-react-parser/organization/9/website)
-
-## Enterprise
-
-Available as part of the Tidelift Subscription.
-
-The maintainers of html-react-parser and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-html-react-parser?utm_source=npm-html-react-parser&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
 
 ## Support
 
