@@ -97,13 +97,15 @@ yarn add html-react-parser
 
 ## Usage
 
-Import or require the module:
+Import ES module:
 
 ```js
-// ES Modules
 import parse from 'html-react-parser';
+```
 
-// CommonJS
+Or require CommonJS module:
+
+```js
 const parse = require('html-react-parser');
 ```
 
