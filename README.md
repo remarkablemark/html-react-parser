@@ -42,9 +42,10 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
 - [Migration](#migration)
-  - [v3.0.0](#v300)
-  - [v2.0.0](#v200)
-  - [v1.0.0](#v100)
+  - [v4](#v4)
+  - [v3](#v3)
+  - [v2](#v2)
+  - [v1](#v1)
 - [FAQ](#faq)
   - [Is this XSS safe?](#is-this-xss-safe)
   - [Does invalid HTML get sanitized?](#does-invalid-html-get-sanitized)
@@ -376,17 +377,21 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 ## Migration
 
-### v3.0.0
+### v4
+
+[htmlparser2](https://github.com/fb55/htmlparser2) has been upgraded to [v9](https://github.com/fb55/htmlparser2/releases/tag/v9.0.0).
+
+### v3
 
 [domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
-Also, it's recommended to upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript).
+Also, it's recommended to upgrade to the latest version of [TypeScript](https://www.npmjs.com/package/typescript).
 
-### v2.0.0
+### v2
 
 Since [v2.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v2.0.0), Internet Explorer (IE) is no longer supported.
 
-### v1.0.0
+### v1
 
 TypeScript projects will need to update the types in [v1.0.0](https://github.com/remarkablemark/html-react-parser/releases/tag/v1.0.0).
 
