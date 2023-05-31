@@ -6,7 +6,6 @@ on:
 jobs:
   size:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     env:
       CI_JOB_NUMBER: 1
 
