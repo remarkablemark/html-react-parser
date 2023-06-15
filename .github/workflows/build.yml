@@ -24,10 +24,10 @@ jobs:
       - name: Lint TypeScript declaration files
         run: npm run lint:dts
 
-      - name: Run unit tests
+      - name: Run tests
         run: npm run test:ci
 
-      - name: Run ES modules tests
+      - name: Run module tests
         run: npm run test:module
 
       - name: Run integration tests

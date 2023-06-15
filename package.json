@@ -26,7 +26,7 @@
     "size-limit": "size-limit",
     "test": "jest --coverage --testPathIgnorePatterns test/integration/",
     "test:ci": "npm test -- --ci --colors",
-    "test:module": "node --experimental-modules test/module/index.mjs",
+    "test:module": "node --test test/module/",
     "test:integration": "npm run build && jest --env=jsdom test/integration/",
     "test:watch": "npm test -- --watch"
   },
