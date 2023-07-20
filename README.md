@@ -38,6 +38,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
     - [replace element and children](#replace-element-and-children)
     - [replace element attributes](#replace-element-attributes)
     - [replace and remove element](#replace-and-remove-element)
+  - [transform](#transform)
   - [library](#library)
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
@@ -301,6 +302,21 @@ HTML output:
 
 ```html
 <p></p>
+```
+
+### transform
+
+The `transform` option allows you to transform each element individually after it's parsed.
+
+The `transform` callback's first argument is the React element:
+
+```jsx
+parse('<br>', {
+  transform: (reactNode, domNode, index) => {
+    // this will wrap every element in a div
+    return <div>{reactNode}</div>;
+  }
+});
 ```
 
 ### library

@@ -206,6 +206,43 @@ describe('domToReact replace option', () => {
   });
 });
 
+describe('domToReact transform option', () => {
+  it('can wrap all elements', () => {
+    const options = {
+      transform: (reactNode, domNode, i) => {
+        return React.createElement('div', { key: i }, reactNode);
+      }
+    };
+
+    const reactElement = domToReact(htmlToDOM(html.list), options);
+    expect(reactElement.key).toBe('0');
+    expect(reactElement.props.children.props.children[0].key).toBe('0');
+    expect(reactElement.props.children.props.children[1].key).toBe('1');
+    expect(reactElement).toMatchInlineSnapshot(`
+      <div>
+        <ol>
+          <div>
+            <li>
+              <div>
+                One
+              </div>
+            </li>
+          </div>
+          <div>
+            <li
+              value="2"
+            >
+              <div>
+                Two
+              </div>
+            </li>
+          </div>
+        </ol>
+      </div>
+    `);
+  });
+});
+
 describe('domToReact', () => {
   describe('when React >=16', () => {
     it('preserves unknown attributes', () => {
