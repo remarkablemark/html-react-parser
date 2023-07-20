@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/remarkablemark/html-react-parser/compare/v4.0.0...v4.1.0) (2023-07-20)
+
+
+### Features
+
+* add transform option ([259eca1](https://github.com/remarkablemark/html-react-parser/commit/259eca1644682d3a37a2dd6c8cd31ed87aa6a942))
+
 ## [4.0.0](https://github.com/remarkablemark/html-react-parser/compare/v3.0.16...v4.0.0) (2023-05-31)
 
 
