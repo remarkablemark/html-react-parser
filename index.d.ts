@@ -38,6 +38,12 @@ export interface HTMLReactParserOptions {
     domNode: DOMNode
   ) => JSX.Element | object | void | undefined | null | false;
 
+  transform?: (
+    reactNode: JSX.Element | string,
+    domNode: DOMNode,
+    index: number
+  ) => JSX.Element | string | null;
+
   trim?: boolean;
 }
 
