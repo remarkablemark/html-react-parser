@@ -11,6 +11,10 @@
       "import": "./index.mjs",
       "require": "./index.js"
     },
+    "./lib/*": {
+      "types": "./lib/*.d.ts",
+      "default": "./lib/*.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
