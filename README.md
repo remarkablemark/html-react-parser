@@ -161,7 +161,9 @@ parse('<br>', {
 });
 ```
 
-Console output:
+<details>
+<summary>Console output</summary>
+<p>
 
 ```js
 Element {
@@ -176,6 +178,9 @@ Element {
   attribs: {}
 }
 ```
+
+</p>
+</details>
 
 The element is replaced if a **valid** React element is returned:
 
@@ -245,7 +250,9 @@ const options = {
 parse(html, options);
 ```
 
-HTML output:
+<details>
+<summary>HTML output</summary>
+<p>
 
 <!-- prettier-ignore-start -->
 
@@ -258,6 +265,9 @@ HTML output:
 ```
 
 <!-- prettier-ignore-end -->
+
+</p>
+</details>
 
 #### replace element attributes
 
@@ -282,11 +292,16 @@ const options = {
 parse(html, options);
 ```
 
-HTML output:
+<details>
+<summary>HTML output</summary>
+<p>
 
 ```html
 <div class="prettify" style="background:#fff;text-align:center"></div>
 ```
+
+</p>
+</details>
 
 #### replace and remove element
 
@@ -298,11 +313,16 @@ parse('<p><br id="remove"></p>', {
 });
 ```
 
-HTML output:
+<details>
+<summary>HTML output</summary>
+<p>
 
 ```html
 <p></p>
 ```
+
+</p>
+</details>
 
 ### transform
 
@@ -522,7 +542,7 @@ If you see the TypeScript error:
 node_modules/htmlparser2/lib/index.d.ts:2:23 - error TS1005: ',' expected.
 
 2 export { Parser, type ParserOptions };
-                         ~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~
 ```
 
 Then upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript). See [#748](https://github.com/remarkablemark/html-react-parser/issues/748).
