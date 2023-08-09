@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.1](https://github.com/remarkablemark/html-react-parser/compare/v4.2.0...v4.2.1) (2023-08-09)
+
+
+### Bug Fixes
+
+* **utilities:** fix ELEMENTS_WITH_NO_TEXT_CHILDREN naming ([9ec5ba1](https://github.com/remarkablemark/html-react-parser/commit/9ec5ba146cf077c2757b24d9626d649f8a63676e))
+
 ## [4.2.0](https://github.com/remarkablemark/html-react-parser/compare/v4.1.0...v4.2.0) (2023-07-21)
 
 
