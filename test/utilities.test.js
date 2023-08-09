@@ -1,10 +1,10 @@
 const React = require('react');
 const {
   PRESERVE_CUSTOM_ATTRIBUTES,
+  ELEMENTS_WITH_NO_TEXT_CHILDREN,
   invertObject,
   isCustomComponent,
   setStyleProp,
-  elementsWithNoTextChildren,
   canTextBeChildOfNode
 } = require('../lib/utilities');
 
@@ -141,7 +141,7 @@ describe('setStyleProp', () => {
 });
 
 describe('canTextBeChildOfNode', () => {
-  it.each(Array.from(elementsWithNoTextChildren))(
+  it.each(Array.from(ELEMENTS_WITH_NO_TEXT_CHILDREN))(
     'returns false since text node cannot be child of %s',
     nodeName => {
       const node = {
