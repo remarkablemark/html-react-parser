@@ -29,7 +29,7 @@ describe('module', () => {
   describe('domhandler', () => {
     it.each(['Comment', 'Element', 'ProcessingInstruction', 'Text'])(
       'exports %s',
-      name => {
+      (name) => {
         expect(parse[name]).toBeInstanceOf(Function);
         expect(parse[name]).toBe(domhandler[name]);
       }
@@ -40,7 +40,7 @@ describe('module', () => {
 describe('HTMLReactParser', () => {
   it.each([undefined, null, {}, [], true, false, 0, 1, () => {}, new Date()])(
     'throws error for value: %p',
-    value => {
+    (value) => {
       expect(() => {
         parse(value);
       }).toThrow(TypeError);
@@ -254,7 +254,7 @@ describe('HTMLReactParser', () => {
 describe('replace option', () => {
   it('replaces the element if a valid React element is returned', () => {
     const options = {
-      replace: node => {
+      replace: (node) => {
         if (node.name === 'title') {
           return React.createElement('title', {}, 'Replaced Title');
         }
@@ -320,7 +320,7 @@ describe('replace option', () => {
 
   it('does not replace the element if an invalid React element is returned', () => {
     const options = {
-      replace: node => {
+      replace: (node) => {
         if (node.attribs && node.attribs.id === 'header') {
           return {
             type: 'h1',

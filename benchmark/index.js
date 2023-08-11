@@ -14,7 +14,7 @@ suite
   .add('html-to-react - Complex', () => {
     Parser(data.html.complex);
   })
-  .on('cycle', event => {
+  .on('cycle', (event) => {
     process.stdout.write(String(event.target) + '\n');
   })
   .run({

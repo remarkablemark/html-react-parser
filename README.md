@@ -155,7 +155,7 @@ The `replace` callback's first argument is [domhandler](https://github.com/fb55/
 
 ```js
 parse('<br>', {
-  replace: domNode => {
+  replace: (domNode) => {
     console.dir(domNode, { depth: null });
   }
 });
@@ -186,7 +186,7 @@ The element is replaced if a **valid** React element is returned:
 
 ```jsx
 parse('<p id="replace">text</p>', {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
@@ -202,7 +202,7 @@ For TypeScript projects, you may need to check that `domNode` is an instance of 
 import { HTMLReactParserOptions, Element } from 'html-react-parser';
 
 const options: HTMLReactParserOptions = {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs) {
       // ...
     }
@@ -281,7 +281,7 @@ const html = `
 `;
 
 const options = {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode.attribs && domNode.name === 'main') {
       const props = attributesToProps(domNode.attribs);
       return <div {...props} />;
@@ -437,7 +437,7 @@ For the `replace` option, you may need to do the following:
 import { Element } from 'domhandler/lib/node';
 
 parse('<br class="remove">', {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs.class === 'remove') {
       return <></>;
     }

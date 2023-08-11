@@ -15,7 +15,7 @@ describe.each([
   describe('internal', () => {
     it.each(['attributesToProps', 'domToReact', 'htmlToDOM'])(
       'exports %s',
-      name => {
+      (name) => {
         expect(parse[name]).toBeInstanceOf(Function);
       }
     );
@@ -24,7 +24,7 @@ describe.each([
   describe('domhandler', () => {
     it.each(['Comment', 'Element', 'ProcessingInstruction', 'Text'])(
       'exports %s',
-      name => {
+      (name) => {
         expect(parse[name]).toBeInstanceOf(Function);
       }
     );

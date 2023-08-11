@@ -7,7 +7,7 @@ it('returns empty object is argument is undefined', () => {
 
 it.each(['input', 'select', 'textarea'])(
   'converts uncontrolled component attributes',
-  nodeName => {
+  (nodeName) => {
     expect(
       attributesToProps({ value: 'foo', checked: false }, nodeName)
     ).toEqual({
@@ -19,7 +19,7 @@ it.each(['input', 'select', 'textarea'])(
 
 it.each(['button', 'data', 'li', 'meter', 'option', 'progress', 'param'])(
   'converts non-uncontrolled component attributes',
-  nodeName => {
+  (nodeName) => {
     expect(
       attributesToProps({ value: 'foo', checked: false }, nodeName)
     ).toEqual({
@@ -264,7 +264,7 @@ describe('attributesToProps with SVG attribute', () => {
 describe('attributesToProps with style attribute', () => {
   const propsEmptyStyle = { style: {} };
 
-  it.each([undefined, null])('does not parse invalid value: %s', style => {
+  it.each([undefined, null])('does not parse invalid value: %s', (style) => {
     expect(attributesToProps({ style })).toEqual({ style });
   });
 

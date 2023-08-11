@@ -179,7 +179,7 @@ describe('domToReact replace option', () => {
 
   it("does not modify keys if they're already set", () => {
     const options = {
-      replace: node => {
+      replace: (node) => {
         if (node.name === 'p') {
           return React.createElement('p', {}, 'replaced foo');
         }

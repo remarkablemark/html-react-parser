@@ -11,7 +11,7 @@ const {
 describe('invertObject', () => {
   it.each([undefined, null, '', 'test', 0, 1, true, false, () => {}])(
     'throws error for value: %p',
-    value => {
+    (value) => {
       expect(() => {
         invertObject(value);
       }).toThrow(TypeError);
@@ -48,7 +48,7 @@ describe('invertObject', () => {
   describe('options', () => {
     it('applies override if provided', () => {
       expect(
-        invertObject({ foo: 'bar', baz: 'qux' }, key => {
+        invertObject({ foo: 'bar', baz: 'qux' }, (key) => {
           if (key === 'foo') {
             return ['key', 'value'];
           }
@@ -58,7 +58,7 @@ describe('invertObject', () => {
 
     it('does not apply override if invalid', () => {
       expect(
-        invertObject({ foo: 'bar', baz: 'qux' }, key => {
+        invertObject({ foo: 'bar', baz: 'qux' }, (key) => {
           if (key === 'foo') {
             return ['key'];
           } else if (key === 'baz') {
@@ -98,7 +98,7 @@ describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
 describe('setStyleProp', () => {
   it.each([undefined, null])(
     'does not set props.style when style=%p',
-    style => {
+    (style) => {
       const props = {};
       expect(setStyleProp(style, props)).toBe(undefined);
       expect(props).toEqual({});
@@ -143,7 +143,7 @@ describe('setStyleProp', () => {
 describe('canTextBeChildOfNode', () => {
   it.each(Array.from(ELEMENTS_WITH_NO_TEXT_CHILDREN))(
     'returns false since text node cannot be child of %s',
-    nodeName => {
+    (nodeName) => {
       const node = {
         name: nodeName
       };
