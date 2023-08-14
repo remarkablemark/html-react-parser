@@ -1,6 +1,4 @@
-const React = require('react');
 const {
-  PRESERVE_CUSTOM_ATTRIBUTES,
   ELEMENTS_WITH_NO_TEXT_CHILDREN,
   invertObject,
   isCustomComponent,
@@ -83,15 +81,6 @@ describe('isCustomComponent', () => {
 
   it('returns true if the props contains an `is` key', () => {
     expect(isCustomComponent('button', { is: 'custom-button' })).toBe(true);
-  });
-});
-
-describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
-  const isReactGreaterThan15 =
-    parseInt(React.version.match(/^\d./)[0], 10) >= 16;
-
-  it(`is ${isReactGreaterThan15} when React.version="${React.version}"`, () => {
-    expect(PRESERVE_CUSTOM_ATTRIBUTES).toBe(isReactGreaterThan15);
   });
 });
 

@@ -2,7 +2,6 @@ const React = require('react');
 const htmlToDOM = require('html-dom-parser');
 
 const domToReact = require('../lib/dom-to-react');
-const utilities = require('../lib/utilities');
 
 const { render } = require('./helpers');
 const { html, svg } = require('./data');
@@ -251,33 +250,6 @@ describe('domToReact', () => {
         <custom-element
           class="myClass"
           custom-attribute="value"
-          style={
-            {
-              "OTransition": "all .5s",
-              "lineHeight": "1",
-            }
-          }
-        />
-      `);
-    });
-  });
-
-  describe('when React <16', () => {
-    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
-
-    beforeAll(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
-    });
-
-    afterAll(() => {
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
-    });
-
-    it('removes unknown attributes', () => {
-      const reactElement = domToReact(htmlToDOM(html.customElement));
-      expect(reactElement).toMatchInlineSnapshot(`
-        <custom-element
-          className="myClass"
           style={
             {
               "OTransition": "all .5s",

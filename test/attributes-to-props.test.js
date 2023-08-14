@@ -1,5 +1,4 @@
 const attributesToProps = require('../lib/attributes-to-props');
-const utilities = require('../lib/utilities');
 
 it('returns empty object is argument is undefined', () => {
   expect(attributesToProps()).toEqual({});
@@ -334,25 +333,5 @@ describe('attributesToProps with custom attribute', () => {
         "valueOf": "",
       }
     `);
-  });
-});
-
-describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
-  const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
-  const emptyProps = {};
-
-  beforeAll(() => {
-    utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
-  });
-
-  afterAll(() => {
-    utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
-  });
-
-  it('omits unknown attributes', () => {
-    const attributes = {
-      unknownAttribute: 'someValue'
-    };
-    expect(attributesToProps(attributes)).toEqual(emptyProps);
   });
 });
