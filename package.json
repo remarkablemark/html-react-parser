@@ -72,7 +72,7 @@
     "lint-staged": "14.0.1",
     "pinst": "3.0.0",
     "preact": "10.17.1",
-    "prettier": "3.0.2",
+    "prettier": "3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rimraf": "5.0.1",
