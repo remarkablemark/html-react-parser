@@ -57,6 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
+    "@definitelytyped/dtslint": "^0.0.177",
     "@rollup/plugin-commonjs": "25.0.4",
     "@rollup/plugin-node-resolve": "15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
@@ -64,7 +65,6 @@
     "@types/react": "18.2.21",
     "@typescript-eslint/parser": "6.6.0",
     "benchmark": "2.1.4",
-    "dtslint": "4.2.1",
     "eslint": "8.48.0",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "8.0.3",

@@ -7,7 +7,7 @@ import * as React from 'react';
 
 // $ExpectType string | Element | Element[]
 parse('<br id="replace">', {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
@@ -16,7 +16,7 @@ parse('<br id="replace">', {
 
 // $ExpectType string | Element | Element[]
 parse('<br id="remove">', {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs.id === 'remove') {
       return <></>;
     }
@@ -26,7 +26,7 @@ parse('<br id="remove">', {
 let options: HTMLReactParserOptions;
 
 options = {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element && domNode.attribs.id === 'header') {
       return;
     }
@@ -34,7 +34,7 @@ options = {
 };
 
 options = {
-  replace: domNode => {
+  replace: (domNode) => {
     if (domNode instanceof Element) {
       return <>{domToReact(domNode.children)}</>;
     }

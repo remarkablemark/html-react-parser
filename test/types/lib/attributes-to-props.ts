@@ -1,6 +1,5 @@
 import attributesToProps, {
-  Attributes,
-  Props
+  type Attributes
 } from 'html-react-parser/lib/attributes-to-props';
 
 let attributes: Attributes = {};
@@ -11,7 +10,4 @@ attributes = {
 };
 
 // $ExpectType Props
-const {
-  className,
-  style: { color, lineHeight }
-} = attributesToProps(attributes);
+attributesToProps(attributes);

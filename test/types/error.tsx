@@ -1,4 +1,4 @@
 import parse from 'html-react-parser';
 
-// $ExpectError
+// @ts-expect-error
 parse();

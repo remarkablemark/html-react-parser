@@ -8,6 +8,6 @@ parse('<hr>', {
       React.cloneElement(element, props, children),
     createElement: (type, props, children) =>
       React.createElement(type, props, children),
-    isValidElement: element => React.isValidElement(element)
+    isValidElement: (element) => React.isValidElement(element)
   }
 });
