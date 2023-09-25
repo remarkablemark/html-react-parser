@@ -63,7 +63,7 @@
     "@rollup/plugin-terser": "^0.4.3",
     "@size-limit/preset-big-lib": "9.0.0",
     "@types/react": "18.2.22",
-    "@typescript-eslint/parser": "6.7.2",
+    "@typescript-eslint/parser": "6.7.3",
     "benchmark": "2.1.4",
     "eslint": "8.50.0",
     "eslint-plugin-prettier": "5.0.0",
@@ -75,7 +75,7 @@
     "preact": "10.17.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rimraf": "5.0.1",
+    "rimraf": "5.0.4",
     "rollup": "3.29.3",
     "size-limit": "9.0.0",
     "typescript": "5.2.2"
