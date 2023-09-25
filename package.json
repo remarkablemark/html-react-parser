@@ -65,7 +65,7 @@
     "@types/react": "18.2.22",
     "@typescript-eslint/parser": "6.7.2",
     "benchmark": "2.1.4",
-    "eslint": "8.49.0",
+    "eslint": "8.50.0",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
