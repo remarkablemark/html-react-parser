@@ -75,7 +75,7 @@
     "preact": "10.17.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rimraf": "5.0.4",
+    "rimraf": "5.0.5",
     "rollup": "3.29.3",
     "size-limit": "9.0.0",
     "typescript": "5.2.2"
