@@ -62,7 +62,7 @@
     "@rollup/plugin-node-resolve": "15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
     "@size-limit/preset-big-lib": "9.0.0",
-    "@types/react": "18.2.24",
+    "@types/react": "18.2.25",
     "@typescript-eslint/parser": "6.7.4",
     "benchmark": "2.1.4",
     "eslint": "8.50.0",
