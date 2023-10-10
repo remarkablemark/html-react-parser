@@ -63,7 +63,7 @@
     "@rollup/plugin-terser": "^0.4.3",
     "@size-limit/preset-big-lib": "9.0.0",
     "@types/react": "18.2.27",
-    "@typescript-eslint/parser": "6.7.4",
+    "@typescript-eslint/parser": "6.7.5",
     "benchmark": "2.1.4",
     "eslint": "8.51.0",
     "eslint-plugin-prettier": "5.0.0",
