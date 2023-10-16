@@ -58,7 +58,7 @@
     "@commitlint/cli": "17.8.0",
     "@commitlint/config-conventional": "17.8.0",
     "@definitelytyped/dtslint": "0.0.182",
-    "@rollup/plugin-commonjs": "25.0.5",
+    "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
     "@size-limit/preset-big-lib": "9.0.0",
