@@ -1,5 +1,5 @@
 const React = require('react');
-const htmlToDOM = require('html-dom-parser');
+const htmlToDOM = require('html-dom-parser').default;
 
 const domToReact = require('../lib/dom-to-react');
 const utilities = require('../lib/utilities');
