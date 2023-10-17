@@ -1,5 +1,5 @@
 var domhandler = require('domhandler');
-var htmlToDOM = require('html-dom-parser');
+var htmlToDOM = require('html-dom-parser').default;
 
 var attributesToProps = require('./lib/attributes-to-props');
 var domToReact = require('./lib/dom-to-react');
