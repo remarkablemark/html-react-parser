@@ -1,6 +1,6 @@
 {
   "name": "html-react-parser",
-  "version": "4.2.6",
+  "version": "4.2.7",
   "description": "HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
