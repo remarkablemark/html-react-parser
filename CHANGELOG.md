@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.8](https://github.com/remarkablemark/html-react-parser/compare/v4.2.7...v4.2.8) (2023-10-21)
+
+
+### Miscellaneous Chores
+
+* **utilities:** remove unused function `invertObject` ([7cc8df7](https://github.com/remarkablemark/html-react-parser/commit/7cc8df7ebeae90de23c1953961c1003d3dc756a8))
+
 ## [4.2.7](https://github.com/remarkablemark/html-react-parser/compare/v4.2.6...v4.2.7) (2023-10-20)
 
 
