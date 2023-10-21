@@ -2,73 +2,10 @@ const React = require('react');
 const {
   PRESERVE_CUSTOM_ATTRIBUTES,
   ELEMENTS_WITH_NO_TEXT_CHILDREN,
-  invertObject,
   isCustomComponent,
   setStyleProp,
   canTextBeChildOfNode
 } = require('../lib/utilities');
-
-describe('invertObject', () => {
-  it.each([undefined, null, '', 'test', 0, 1, true, false, () => {}])(
-    'throws error for value: %p',
-    (value) => {
-      expect(() => {
-        invertObject(value);
-      }).toThrow(TypeError);
-    }
-  );
-
-  it('swaps key with value', () => {
-    expect(
-      invertObject({
-        foo: 'bar',
-        baz: 'qux'
-      })
-    ).toEqual({
-      bar: 'foo',
-      qux: 'baz'
-    });
-  });
-
-  it('swaps key with value if value is string', () => {
-    expect(
-      invertObject({
-        $: 'dollar',
-        _: 'underscore',
-        num: 1,
-        u: undefined,
-        n: null
-      })
-    ).toEqual({
-      dollar: '$',
-      underscore: '_'
-    });
-  });
-
-  describe('options', () => {
-    it('applies override if provided', () => {
-      expect(
-        invertObject({ foo: 'bar', baz: 'qux' }, (key) => {
-          if (key === 'foo') {
-            return ['key', 'value'];
-          }
-        })
-      ).toEqual({ key: 'value', qux: 'baz' });
-    });
-
-    it('does not apply override if invalid', () => {
-      expect(
-        invertObject({ foo: 'bar', baz: 'qux' }, (key) => {
-          if (key === 'foo') {
-            return ['key'];
-          } else if (key === 'baz') {
-            return { key: 'value' };
-          }
-        })
-      ).toEqual({ bar: 'foo', qux: 'baz' });
-    });
-  });
-});
 
 describe('isCustomComponent', () => {
   it('returns true if the tag contains a hyphen and is not in the whitelist', () => {
