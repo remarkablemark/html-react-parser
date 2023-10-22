@@ -28,7 +28,7 @@ jobs:
         run: npm run test:ci
 
       - name: Run module tests
-        run: npm run test:module
+        run: npm run test:esm
 
       - name: Run integration tests
         run: npm run test:integration
