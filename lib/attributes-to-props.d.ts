@@ -1,4 +1,4 @@
-// TypeScript Version: 5.0
+// TypeScript Version: 5.3
 /* eslint-disable no-unused-vars */
 
 export type Attributes = Record<string, string>;
