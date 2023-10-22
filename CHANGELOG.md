@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.9](https://github.com/remarkablemark/html-react-parser/compare/v4.2.8...v4.2.9) (2023-10-22)
+
+
+### Build System
+
+* **package:** bump react-property from 2.0.0 to 2.0.2 ([665b30a](https://github.com/remarkablemark/html-react-parser/commit/665b30ae3b218e5096f80ca7510c5ad878d0f6c4))
+
 ## [4.2.8](https://github.com/remarkablemark/html-react-parser/compare/v4.2.7...v4.2.8) (2023-10-21)
 
 
