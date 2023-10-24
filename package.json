@@ -78,7 +78,7 @@
     "react-dom": "18.2.0",
     "rimraf": "5.0.5",
     "rollup": "4.1.4",
-    "size-limit": "9.0.0",
+    "size-limit": "10.0.1",
     "typescript": "5.2.2"
   },
   "peerDependencies": {
