@@ -57,7 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.2.0",
     "@commitlint/config-conventional": "18.1.0",
-    "@definitelytyped/dtslint": "0.0.182",
+    "@definitelytyped/dtslint": "0.0.187",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
