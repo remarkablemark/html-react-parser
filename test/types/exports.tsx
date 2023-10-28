@@ -1,6 +1,6 @@
 import { domToReact, htmlToDOM } from 'html-react-parser';
 
-// $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
+// $ExpectType DOMNode[]
 const domNodes = htmlToDOM('<div>text</div>');
 
 // $ExpectType string | Element | Element[]
