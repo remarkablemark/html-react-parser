@@ -1,18 +1,18 @@
 const Benchmark = require('benchmark');
-const { data } = require('../test/helpers/');
-const Parser = require('..');
+const { html } = require('../test/data');
+const parse = require('..');
 
 const suite = new Benchmark.Suite();
 
 suite
   .add('html-to-react - Single', () => {
-    Parser(data.html.single);
+    parse(html.single);
   })
   .add('html-to-react - Multiple', () => {
-    Parser(data.html.multiple);
+    parse(html.multiple);
   })
   .add('html-to-react - Complex', () => {
-    Parser(data.html.complex);
+    parse(html.complex);
   })
   .on('cycle', (event) => {
     process.stdout.write(String(event.target) + '\n');
