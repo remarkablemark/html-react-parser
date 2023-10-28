@@ -552,15 +552,15 @@ Then upgrade to the latest version of [typescript](https://www.npmjs.com/package
 Run benchmark:
 
 ```sh
-npm run test:benchmark
+npm run benchmark
 ```
 
-Output of benchmark run on MacBook Pro 2017:
+Output of benchmark run on MacBook Pro 2021:
 
 ```
-html-to-react - Single x 415,186 ops/sec ±0.92% (85 runs sampled)
-html-to-react - Multiple x 139,780 ops/sec ±2.32% (87 runs sampled)
-html-to-react - Complex x 8,118 ops/sec ±2.99% (82 runs sampled)
+html-to-react - Single x 1,018,239 ops/sec ±0.43% (94 runs sampled)
+html-to-react - Multiple x 380,037 ops/sec ±0.61% (97 runs sampled)
+html-to-react - Complex x 35,091 ops/sec ±0.50% (96 runs sampled)
 ```
 
 Run [Size Limit](https://github.com/ai/size-limit):
