@@ -4,7 +4,7 @@ import domToReact from 'html-react-parser/lib/dom-to-react';
 import * as React from 'react';
 import htmlToDOM from 'html-dom-parser';
 
-// $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
+// $ExpectType DOMNode[]
 htmlToDOM('<div>text</div>');
 
 // $ExpectType string | Element | Element[]
