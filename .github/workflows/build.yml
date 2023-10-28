@@ -16,16 +16,19 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Install dependencies
-        run: npm install --prefer-offline
+        run: npm ci --prefer-offline
 
-      - name: Lint JavaScript files
+      - name: Run ESLint
         run: npm run lint
 
-      - name: Lint TypeScript declaration files
+      - name: Type check
         run: npm run lint:dts
 
-      - name: Run tests
+      - name: Run unit tests
         run: npm run test:ci
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3
 
       - name: Run module tests
         run: npm run test:esm
@@ -35,6 +38,3 @@ jobs:
 
       - name: Run benchmark
         run: npm run benchmark
-
-      - name: Codecov
-        uses: codecov/codecov-action@v3
