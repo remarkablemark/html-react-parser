@@ -11,5 +11,5 @@
     "outDir": "lib",
     "jsx": "react-jsx"
   },
-  "include": ["benchmark", "src", "test"]
+  "include": ["__tests__", "benchmark", "src"]
 }

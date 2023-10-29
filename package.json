@@ -31,10 +31,10 @@
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable && npm run lint && npm run test:ci && npm run clean && npm run build",
     "size-limit": "size-limit",
-    "test": "jest --testPathIgnorePatterns test/integration",
+    "test": "jest --testPathIgnorePatterns __tests__/integration",
     "test:ci": "CI=true npm test -- --ci --colors",
-    "test:esm": "npm run build:cjs && node --test test/esm",
-    "test:integration": "npm run build && jest --coverage=false --env=jsdom test/integration",
+    "test:esm": "npm run build:cjs && node --test __tests__/esm",
+    "test:integration": "npm run build && jest --coverage=false --env=jsdom __tests__/integration",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
