@@ -1,0 +1,30 @@
+<div id="root" style="padding: 50px"></div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+  integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+<script>
+  requirejs.config({
+    paths: {
+      'html-react-parser': '../../dist/html-react-parser.min',
+      react: 'https://unpkg.com/react@18/umd/react.development',
+      'react-dom': 'https://unpkg.com/react-dom@18/umd/react-dom.development'
+    }
+  });
+
+  requirejs(['html-react-parser', 'react-dom'], (HTMLReactParser, ReactDOM) => {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    root.render(
+      HTMLReactParser(`
+        <h2 style="font-family: 'Lucida Grande', sans-serif;">
+          HTMLReactParser loaded with RequireJS
+        </h2>'
+      `)
+    );
+  });
+</script>
