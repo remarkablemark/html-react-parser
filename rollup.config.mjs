@@ -1,26 +1,34 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
+import typescript from '@rollup/plugin-typescript';
 
-/**
- * Build rollup config for development (default) or production (minify = true).
- *
- * @param {boolean} [minify=false]
- * @returns - Rollup config.
- */
 const getConfig = (minify = false) => ({
   external: ['react'],
-  input: 'index.js',
+
+  input: 'umd/index.ts',
+
   output: {
     file: `dist/html-react-parser${minify ? '.min' : ''}.js`,
     format: 'umd',
     globals: {
-      react: 'React'
+      react: 'React',
     },
     name: 'HTMLReactParser',
-    sourcemap: true
+    sourcemap: true,
   },
-  plugins: [commonjs(), resolve({ browser: true }), minify && terser()]
+
+  plugins: [
+    typescript({
+      declaration: false,
+      declarationMap: false,
+      module: 'esnext',
+      tsconfig: 'tsconfig.build.json',
+    }),
+    commonjs(),
+    resolve({ browser: true }),
+    minify && terser(),
+  ],
 });
 
 export default [getConfig(), getConfig(true)];

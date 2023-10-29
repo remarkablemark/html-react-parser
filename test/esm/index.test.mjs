@@ -10,8 +10,8 @@ import parse, {
   Text,
   attributesToProps,
   domToReact,
-  htmlToDOM
-} from '../../index.mjs';
+  htmlToDOM,
+} from '../../esm/index.mjs';
 
 describe('index', () => {
   it('exports "parse" function', () => {

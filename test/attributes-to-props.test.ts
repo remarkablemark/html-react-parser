@@ -1,5 +1,5 @@
-const attributesToProps = require('../lib/attributes-to-props');
-const utilities = require('../lib/utilities');
+import attributesToProps, { type Attributes } from '../src/attributes-to-props';
+import * as utilities from '../src/utilities';
 
 it('returns empty object is argument is undefined', () => {
   expect(attributesToProps()).toEqual({});
@@ -9,24 +9,36 @@ it.each(['input', 'select', 'textarea'])(
   'converts uncontrolled component attributes',
   (nodeName) => {
     expect(
-      attributesToProps({ value: 'foo', checked: false }, nodeName)
+      attributesToProps(
+        {
+          value: 'foo',
+          checked: false,
+        } as unknown as Attributes,
+        nodeName,
+      ),
     ).toEqual({
       defaultValue: 'foo',
-      defaultChecked: true
+      defaultChecked: true,
     });
-  }
+  },
 );
 
 it.each(['button', 'data', 'li', 'meter', 'option', 'progress', 'param'])(
   'converts non-uncontrolled component attributes',
   (nodeName) => {
     expect(
-      attributesToProps({ value: 'foo', checked: false }, nodeName)
+      attributesToProps(
+        {
+          value: 'foo',
+          checked: false,
+        } as unknown as Attributes,
+        nodeName,
+      ),
     ).toEqual({
       value: 'foo',
-      checked: true
+      checked: true,
     });
-  }
+  },
 );
 
 describe('attributesToProps with HTML attribute', () => {
@@ -34,7 +46,7 @@ describe('attributesToProps with HTML attribute', () => {
     const attributes = {
       class: 'ic',
       for: 'tran',
-      'http-equiv': 'refresh'
+      'http-equiv': 'refresh',
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
@@ -49,8 +61,9 @@ describe('attributesToProps with HTML attribute', () => {
     const attributes = {
       allowfullscreen: true,
       charset: 'utf-8',
-      tabindex: 1
-    };
+      tabindex: 1,
+    } as unknown as Attributes;
+
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
         "allowFullScreen": true,
@@ -63,7 +76,7 @@ describe('attributesToProps with HTML attribute', () => {
   it('converts RDFa attributes to React props', () => {
     const attributes = {
       property: 'foo',
-      typeof: 'bar'
+      typeof: 'bar',
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
@@ -76,8 +89,9 @@ describe('attributesToProps with HTML attribute', () => {
   it('converts non-standard attributes to React props', () => {
     const attributes = {
       itemscope: true,
-      itemid: 1337
-    };
+      itemid: 1337,
+    } as unknown as Attributes;
+
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
         "itemID": 1337,
@@ -89,7 +103,7 @@ describe('attributesToProps with HTML attribute', () => {
   it('keeps `data-*` and `aria-*` attributes as is', () => {
     const attributes = {
       'data-foo': 'bar',
-      'aria-live': 'polite'
+      'aria-live': 'polite',
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
@@ -104,8 +118,9 @@ describe('attributesToProps with HTML attribute', () => {
       'ACCEPT-CHARSET': 'ISO-8859-1',
       formNOvalidate: true,
       sEcUrItY: 'restricted',
-      'data-FOO': 'bar'
-    };
+      'data-FOO': 'bar',
+    } as unknown as Attributes;
+
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
         "acceptCharset": "ISO-8859-1",
@@ -150,7 +165,7 @@ describe('attributesToProps with HTML attribute', () => {
       required: '',
       reversed: '',
       selected: '',
-      truespeed: ''
+      truespeed: '',
     };
     expect(attributesToProps(attributes, 'select')).toMatchInlineSnapshot(`
       {
@@ -186,7 +201,7 @@ describe('attributesToProps with HTML attribute', () => {
 
   it.each([
     [{ download: '' }, { download: true }],
-    [{ download: 'filename' }, { download: 'filename' }]
+    [{ download: 'filename' }, { download: 'filename' }],
   ])('converts overloaded boolean attribute: %p', (attributes, props) => {
     expect(attributesToProps(attributes)).toEqual(props);
   });
@@ -198,22 +213,22 @@ describe('attributesToProps with HTML attribute', () => {
     [{ value: 'foo' }, { defaultValue: 'foo' }],
     [
       { value: 'foo', type: 'submit' },
-      { value: 'foo', type: 'submit' }
+      { value: 'foo', type: 'submit' },
     ],
     [
       { value: 'foo', type: 'reset' },
-      { value: 'foo', type: 'reset' }
-    ]
+      { value: 'foo', type: 'reset' },
+    ],
   ])(
     'converts form attribute to uncontrolled component property',
     (attributes, props) => {
       expect(attributesToProps(attributes, 'input')).toEqual(props);
-    }
+    },
   );
 
   it('preserves value of option element', () => {
     expect(attributesToProps({ value: 'foo' }, 'option')).toEqual({
-      value: 'foo'
+      value: 'foo',
     });
   });
 });
@@ -227,7 +242,7 @@ describe('attributesToProps with SVG attribute', () => {
       'glyph-orientation-vertical': 'auto',
       'horiz-adv-x': '9001',
       stroke: 'none',
-      'xml:base': 'http://example.org'
+      'xml:base': 'http://example.org',
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
@@ -251,12 +266,12 @@ describe('attributesToProps with SVG attribute', () => {
     const attributes = {
       'XLINK:HREF': '#',
       YChannelSelector: 'G',
-      ZoomAndPan: 'disable'
+      ZoomAndPan: 'disable',
     };
     expect(attributesToProps(attributes)).toEqual({
       xlinkHref: '#',
       yChannelSelector: 'G',
-      zoomAndPan: 'disable'
+      zoomAndPan: 'disable',
     });
   });
 });
@@ -264,17 +279,19 @@ describe('attributesToProps with SVG attribute', () => {
 describe('attributesToProps with style attribute', () => {
   const propsEmptyStyle = { style: {} };
 
-  it.each([undefined, null])('does not parse invalid value: %s', (style) => {
-    expect(attributesToProps({ style })).toEqual({ style });
-  });
+  it.each([undefined, null] as unknown as string[])(
+    'does not parse invalid value: %s',
+    (style) => {
+      expect(attributesToProps({ style })).toEqual({ style });
+    },
+  );
 
   it('skips CSS comment', () => {
     const style = '/* comment */';
     expect(attributesToProps({ style })).toEqual(propsEmptyStyle);
   });
 
-  it('parses empty string to empty style object', () => {
-    const style = '';
+  it.each(['', ' '])('parses %p to empty style object', (style) => {
     expect(attributesToProps({ style })).toEqual(propsEmptyStyle);
   });
 
@@ -318,7 +335,7 @@ describe('attributesToProps with custom attribute', () => {
       propertyIsEnumerable: '',
       toLocaleString: '',
       toString: '',
-      valueOf: ''
+      valueOf: '',
     };
     expect(attributesToProps(attributes)).toMatchInlineSnapshot(`
       {
@@ -342,16 +359,20 @@ describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
   const emptyProps = {};
 
   beforeAll(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
   });
 
   afterAll(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
   });
 
   it('omits unknown attributes', () => {
     const attributes = {
-      unknownAttribute: 'someValue'
+      unknownAttribute: 'someValue',
     };
     expect(attributesToProps(attributes)).toEqual(emptyProps);
   });
