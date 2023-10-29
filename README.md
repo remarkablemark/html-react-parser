@@ -437,6 +437,20 @@ Migrated to TypeScript. CommonJS imports require the `.default` key:
 const parse = require('html-react-parser').default;
 ```
 
+If you're getting the error:
+
+```
+Argument of type 'ChildNode[]' is not assignable to parameter of type 'DOMNode[]'.
+```
+
+Then use type assertion:
+
+```ts
+domToReact(domNode.children as DOMNode[], options);
+```
+
+See [#1126](https://github.com/remarkablemark/html-react-parser/issues/1126#issuecomment-1784188447).
+
 ### v4
 
 [htmlparser2](https://github.com/fb55/htmlparser2) has been upgraded to [v9](https://github.com/fb55/htmlparser2/releases/tag/v9.0.0).
