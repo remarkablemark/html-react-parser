@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/remarkablemark/html-react-parser/compare/v4.2.10...v5.0.0) (2023-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* CommonJS imports require the `.default` key
+
+### Code Refactoring
+
+* migrate to TypeScript ([713c548](https://github.com/remarkablemark/html-react-parser/commit/713c548876345a30bac932b9a789e2ab9bec91f9)), closes [#1000](https://github.com/remarkablemark/html-react-parser/issues/1000)
+
 ## [4.2.10](https://github.com/remarkablemark/html-react-parser/compare/v4.2.9...v4.2.10) (2023-10-28)
 
 
