@@ -1,5 +1,6 @@
 import Benchmark from 'benchmark';
-import { html } from '../test/data';
+
+import { html } from '../__tests__/data';
 import parse from '../src';
 
 const suite = new Benchmark.Suite();

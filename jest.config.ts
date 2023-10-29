@@ -11,6 +11,7 @@ const config: Config = {
     },
   },
   preset: 'ts-jest',
+  testMatch: ['**/__tests__/**/*.test.ts?(x)'],
 };
 
 export default config;
