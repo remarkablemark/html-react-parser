@@ -3,35 +3,38 @@
   "version": "4.2.10",
   "description": "HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
-  "main": "index.js",
-  "module": "index.mjs",
+  "main": "./lib/index.js",
+  "module": "./esm/index.mjs",
+  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "import": "./index.mjs",
-      "require": "./index.js"
+      "types": "./lib/index.d.ts",
+      "import": "./esm/index.mjs",
+      "require": "./lib/index.js"
     },
     "./lib/*": {
       "types": "./lib/*.d.ts",
+      "import": "./esm/*.mjs",
       "default": "./lib/*.js"
-    },
-    "./package.json": "./package.json"
+    }
   },
   "scripts": {
-    "benchmark": "node benchmark",
-    "build": "rollup --config --failAfterWarnings",
-    "clean": "rimraf dist",
+    "benchmark": "ts-node benchmark",
+    "build": "npm run build:cjs && npm run build:umd",
+    "build:cjs": "tsc --project tsconfig.build.json",
+    "build:umd": "rollup --config --failAfterWarnings",
+    "clean": "rm -rf coverage lib dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern /examples/ .",
-    "lint:dts": "dtslint .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:tsc": "tsc --noEmit",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable && npm run lint && npm run lint:dts && npm run test:ci && npm run clean && npm run build",
+    "prepublishOnly": "pinst --disable && npm run lint && npm run test:ci && npm run clean && npm run build",
     "size-limit": "size-limit",
-    "test": "jest --coverage --testPathIgnorePatterns test/integration/",
-    "test:ci": "npm test -- --ci --colors",
-    "test:esm": "node --test test/esm",
-    "test:integration": "npm run build && jest --env=jsdom test/integration/",
+    "test": "jest --testPathIgnorePatterns test/integration",
+    "test:ci": "CI=true npm test -- --ci --colors",
+    "test:esm": "npm run build:cjs && node --test test/esm",
+    "test:integration": "npm run build && jest --coverage=false --env=jsdom test/integration",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
@@ -57,12 +60,15 @@
   "devDependencies": {
     "@commitlint/cli": "18.2.0",
     "@commitlint/config-conventional": "18.1.0",
-    "@definitelytyped/dtslint": "0.0.182",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "11.1.5",
     "@size-limit/preset-big-lib": "10.0.1",
+    "@types/benchmark": "2.1.4",
+    "@types/jest": "29.5.6",
     "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
     "@typescript-eslint/eslint-plugin": "6.9.0",
     "@typescript-eslint/parser": "6.9.0",
     "benchmark": "2.1.4",
@@ -76,9 +82,9 @@
     "preact": "10.18.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rimraf": "5.0.5",
     "rollup": "4.1.4",
     "size-limit": "10.0.1",
+    "ts-jest": "29.1.1",
     "typescript": "5.2.2"
   },
   "peerDependencies": {
@@ -86,9 +92,9 @@
   },
   "files": [
     "/dist",
+    "/esm",
     "/lib",
-    "index.d.ts",
-    "index.mjs"
+    "/src"
   ],
   "collective": {
     "type": "opencollective",

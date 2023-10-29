@@ -1,12 +1,7 @@
-describe.each([
-  ['minified', '../../dist/html-react-parser.min'],
-  ['unminified', '../../dist/html-react-parser']
-])('UMD %s', (_type, path) => {
-  const parse = require(path);
+const paths = ['dist/html-react-parser.min.js', 'dist/html-react-parser.js'];
 
-  it('exports parser', () => {
-    expect(parse).toBeInstanceOf(Function);
-  });
+describe.each(paths)('UMD %s', (type) => {
+  const parse = require(`../../${type}`);
 
   it('exports default', () => {
     expect(parse.default).toBeInstanceOf(Function);
@@ -17,7 +12,7 @@ describe.each([
       'exports %s',
       (name) => {
         expect(parse[name]).toBeInstanceOf(Function);
-      }
+      },
     );
   });
 
@@ -26,7 +21,7 @@ describe.each([
       'exports %s',
       (name) => {
         expect(parse[name]).toBeInstanceOf(Function);
-      }
+      },
     );
   });
 });

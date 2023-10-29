@@ -21,8 +21,9 @@ To replace an element with another element, check out the [`replace`](#replace) 
 
 #### Example
 
-```js
-const parse = require('html-react-parser');
+```ts
+import parse from 'html-react-parser';
+
 parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 ```
 
@@ -43,6 +44,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
 - [Migration](#migration)
+  - [v5](#v5)
   - [v4](#v4)
   - [v3](#v3)
   - [v2](#v2)
@@ -100,31 +102,31 @@ yarn add html-react-parser
 
 Import ES module:
 
-```js
+```ts
 import parse from 'html-react-parser';
 ```
 
 Or require CommonJS module:
 
-```js
-const parse = require('html-react-parser');
+```ts
+const parse = require('html-react-parser').default;
 ```
 
 Parse single element:
 
-```js
+```ts
 parse('<h1>single</h1>');
 ```
 
 Parse multiple elements:
 
-```js
+```ts
 parse('<li>Item 1</li><li>Item 2</li>');
 ```
 
 Make sure to render parsed adjacent elements under a parent element:
 
-```jsx
+```tsx
 <ul>
   {parse(`
     <li>Item 1</li>
@@ -135,15 +137,15 @@ Make sure to render parsed adjacent elements under a parent element:
 
 Parse nested elements:
 
-```js
+```ts
 parse('<body><p>Lorem ipsum</p></body>');
 ```
 
 Parse element with attributes:
 
-```js
+```ts
 parse(
-  '<hr id="foo" class="bar" data-attr="baz" custom="qux" style="top:42px;">'
+  '<hr id="foo" class="bar" data-attr="baz" custom="qux" style="top:42px;">',
 );
 ```
 
@@ -153,11 +155,11 @@ The `replace` option allows you to replace an element with another element.
 
 The `replace` callback's first argument is [domhandler](https://github.com/fb55/domhandler#example)'s node:
 
-```js
+```ts
 parse('<br>', {
-  replace: (domNode) => {
+  replace(domNode) {
     console.dir(domNode, { depth: null });
-  }
+  },
 });
 ```
 
@@ -165,7 +167,7 @@ parse('<br>', {
 <summary>Console output</summary>
 <p>
 
-```js
+```ts
 Element {
   type: 'tag',
   parent: null,
@@ -184,29 +186,43 @@ Element {
 
 The element is replaced if a **valid** React element is returned:
 
-```jsx
+```tsx
 parse('<p id="replace">text</p>', {
-  replace: (domNode) => {
+  replace(domNode) {
     if (domNode.attribs && domNode.attribs.id === 'replace') {
       return <span>replaced</span>;
     }
-  }
+  },
 });
 ```
 
 #### replace with TypeScript
 
-For TypeScript projects, you may need to check that `domNode` is an instance of domhandler's `Element`:
+For TypeScript, you'll need to check that `domNode` is an instance of domhandler's `Element`:
 
 ```tsx
 import { HTMLReactParserOptions, Element } from 'html-react-parser';
 
 const options: HTMLReactParserOptions = {
-  replace: (domNode) => {
+  replace(domNode) {
     if (domNode instanceof Element && domNode.attribs) {
       // ...
     }
-  }
+  },
+};
+```
+
+Or use a type assertion:
+
+```tsx
+import { HTMLReactParserOptions, Element } from 'html-react-parser';
+
+const options: HTMLReactParserOptions = {
+  replace(domNode) {
+    if ((domNode as Element).attribs) {
+      // ...
+    }
+  },
 };
 ```
 
@@ -216,7 +232,7 @@ If you're having issues take a look at our [Create React App example](./examples
 
 Replace the element and its children (see [demo](https://replit.com/@remarkablemark/html-react-parser-replace-example)):
 
-```jsx
+```tsx
 import parse, { domToReact } from 'html-react-parser';
 
 const html = `
@@ -228,7 +244,7 @@ const html = `
 `;
 
 const options = {
-  replace: ({ attribs, children }) => {
+  replace({ attribs, children }) {
     if (!attribs) {
       return;
     }
@@ -244,7 +260,7 @@ const options = {
         </span>
       );
     }
-  }
+  },
 };
 
 parse(html, options);
@@ -273,7 +289,7 @@ parse(html, options);
 
 Convert DOM attributes to React props with `attributesToProps`:
 
-```jsx
+```tsx
 import parse, { attributesToProps } from 'html-react-parser';
 
 const html = `
@@ -281,12 +297,12 @@ const html = `
 `;
 
 const options = {
-  replace: (domNode) => {
+  replace(domNode) {
     if (domNode.attribs && domNode.name === 'main') {
       const props = attributesToProps(domNode.attribs);
       return <div {...props} />;
     }
-  }
+  },
 };
 
 parse(html, options);
@@ -307,9 +323,9 @@ parse(html, options);
 
 [Exclude](https://replit.com/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
 
-```jsx
+```tsx
 parse('<p><br id="remove"></p>', {
-  replace: ({ attribs }) => attribs && attribs.id === 'remove' && <></>
+  replace: ({ attribs }) => attribs?.id === 'remove' && <></>,
 });
 ```
 
@@ -330,12 +346,12 @@ The `transform` option allows you to transform each element individually after i
 
 The `transform` callback's first argument is the React element:
 
-```jsx
+```tsx
 parse('<br>', {
-  transform: (reactNode, domNode, index) => {
+  transform(reactNode, domNode, index) {
     // this will wrap every element in a div
     return <div>{reactNode}</div>;
-  }
+  },
 });
 ```
 
@@ -345,15 +361,15 @@ The `library` option specifies the UI library. The default library is **React**.
 
 To use Preact:
 
-```js
+```ts
 parse('<br>', {
-  library: require('preact')
+  library: require('preact'),
 });
 ```
 
 Or a custom library:
 
-```js
+```ts
 parse('<br>', {
   library: {
     cloneElement: () => {
@@ -364,8 +380,8 @@ parse('<br>', {
     },
     isValidElement: () => {
       /* ... */
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -377,11 +393,11 @@ Default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-op
 
 To enable [`xmlMode`](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode):
 
-```js
+```ts
 parse('<p /><p />', {
   htmlparser2: {
-    xmlMode: true
-  }
+    xmlMode: true,
+  },
 });
 ```
 
@@ -389,29 +405,37 @@ parse('<p /><p />', {
 
 By default, whitespace is preserved:
 
-```js
+```ts
 parse('<br>\n'); // [React.createElement('br'), '\n']
 ```
 
 But certain elements like `<table>` will strip out invalid whitespace:
 
-```js
+```ts
 parse('<table>\n</table>'); // React.createElement('table')
 ```
 
 To remove whitespace, enable the `trim` option:
 
-```js
+```ts
 parse('<br>\n', { trim: true }); // React.createElement('br')
 ```
 
 However, intentional whitespace may be stripped out:
 
-```js
+```ts
 parse('<p> </p>', { trim: true }); // React.createElement('p')
 ```
 
 ## Migration
+
+### v5
+
+Migrated to TypeScript. CommonJS imports require the `.default` key:
+
+```ts
+const parse = require('html-react-parser').default;
+```
 
 ### v4
 
@@ -437,11 +461,11 @@ For the `replace` option, you may need to do the following:
 import { Element } from 'domhandler/lib/node';
 
 parse('<br class="remove">', {
-  replace: (domNode) => {
+  replace(domNode) {
     if (domNode instanceof Element && domNode.attribs.class === 'remove') {
       return <></>;
     }
-  }
+  },
 });
 ```
 
@@ -490,8 +514,8 @@ Tags are lowercased by default. To prevent that from happening, pass the [htmlpa
 ```js
 const options = {
   htmlparser2: {
-    lowerCaseTags: false
-  }
+    lowerCaseTags: false,
+  },
 };
 parse('<CustomElement>', options); // React.createElement('CustomElement')
 ```
@@ -527,8 +551,8 @@ Then update your Webpack config to:
 module.exports = {
   // ...
   resolve: {
-    mainFields: ['browser', 'main', 'module']
-  }
+    mainFields: ['browser', 'main', 'module'],
+  },
 };
 ```
 

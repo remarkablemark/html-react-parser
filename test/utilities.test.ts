@@ -1,11 +1,14 @@
-const React = require('react');
-const {
+import * as React from 'react';
+import type { Element } from 'html-dom-parser';
+
+import {
   PRESERVE_CUSTOM_ATTRIBUTES,
   ELEMENTS_WITH_NO_TEXT_CHILDREN,
   isCustomComponent,
   setStyleProp,
-  canTextBeChildOfNode
-} = require('../lib/utilities');
+  canTextBeChildOfNode,
+} from '../src/utilities';
+import type { Props } from '../src/attributes-to-props';
 
 describe('isCustomComponent', () => {
   it('returns true if the tag contains a hyphen and is not in the whitelist', () => {
@@ -25,7 +28,7 @@ describe('isCustomComponent', () => {
 
 describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
   const isReactGreaterThan15 =
-    parseInt(React.version.match(/^\d./)[0], 10) >= 16;
+    parseInt(React.version.match(/^\d./)![0], 10) >= 16;
 
   it(`is ${isReactGreaterThan15} when React.version="${React.version}"`, () => {
     expect(PRESERVE_CUSTOM_ATTRIBUTES).toBe(isReactGreaterThan15);
@@ -33,13 +36,13 @@ describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
 });
 
 describe('setStyleProp', () => {
-  it.each([undefined, null])(
+  it.each([undefined, null] as unknown as string[])(
     'does not set props.style when style=%p',
     (style) => {
       const props = {};
       expect(setStyleProp(style, props)).toBe(undefined);
       expect(props).toEqual({});
-    }
+    },
   );
 
   it('sets props.style', () => {
@@ -52,7 +55,7 @@ describe('setStyleProp', () => {
         linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
         url('https://mdn.mozillademos.org/files/7693/catfront.png');
     `;
-    const props = { style: { foo: 'bar' }, width: 100 };
+    const props = { style: { foo: 'bar' }, width: 100 } as unknown as Props;
     expect(setStyleProp(style, props)).toBe(undefined);
     expect(props).toMatchInlineSnapshot(`
       {
@@ -82,16 +85,16 @@ describe('canTextBeChildOfNode', () => {
     'returns false since text node cannot be child of %s',
     (nodeName) => {
       const node = {
-        name: nodeName
-      };
+        name: nodeName,
+      } as Element;
       expect(canTextBeChildOfNode(node)).toBe(false);
-    }
+    },
   );
 
   it('returns true if text can be child of <td/>', () => {
     const node = {
-      name: 'td'
-    };
+      name: 'td',
+    } as Element;
     expect(canTextBeChildOfNode(node)).toBe(true);
   });
 });

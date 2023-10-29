@@ -1,39 +1,32 @@
-const React = require('react');
-const domhandler = require('domhandler');
-const parse = require('..');
-const { html, svg } = require('./data');
-const { render } = require('./helpers');
+import * as domhandler from 'domhandler';
+import type { Element } from 'html-dom-parser';
+
+import * as HTMLReactParser from '../src';
+import parse from '../src';
+import { html, svg } from './data';
+import { render } from './helpers';
 
 describe('module', () => {
   it('exports default', () => {
-    expect(parse.default).toBe(parse);
-    expect(parse.default).toBeInstanceOf(Function);
+    expect(parse).toBeInstanceOf(Function);
   });
 
-  it('exports domToReact', () => {
-    expect(parse.domToReact).toBe(require('../lib/dom-to-react'));
-    expect(parse.domToReact).toBeInstanceOf(Function);
-  });
+  it.each(['default', 'attributesToProps', 'domToReact', 'htmlToDOM'] as const)(
+    'exports %p',
+    (key) => {
+      expect(HTMLReactParser[key]).toBeInstanceOf(Function);
+    },
+  );
 
-  it('exports htmlToDOM', () => {
-    expect(parse.htmlToDOM).toBe(require('html-dom-parser').default);
-    expect(parse.htmlToDOM).toBeInstanceOf(Function);
-  });
-
-  it('exports attributesToProps', () => {
-    expect(parse.attributesToProps).toBe(require('../lib/attributes-to-props'));
-    expect(parse.attributesToProps).toBeInstanceOf(Function);
-  });
-
-  describe('domhandler', () => {
-    it.each(['Comment', 'Element', 'ProcessingInstruction', 'Text'])(
-      'exports %s',
-      (name) => {
-        expect(parse[name]).toBeInstanceOf(Function);
-        expect(parse[name]).toBe(domhandler[name]);
-      }
-    );
-  });
+  it.each(['Comment', 'Element', 'ProcessingInstruction', 'Text'] as const)(
+    'exports %s',
+    (key) => {
+      expect(HTMLReactParser[key]).toBeInstanceOf(Function);
+      expect(HTMLReactParser[key]).toBe(
+        domhandler[key as keyof typeof domhandler],
+      );
+    },
+  );
 });
 
 describe('HTMLReactParser', () => {
@@ -41,9 +34,9 @@ describe('HTMLReactParser', () => {
     'throws error for value: %p',
     (value) => {
       expect(() => {
-        parse(value);
+        parse(value as string);
       }).toThrow(TypeError);
-    }
+    },
   );
 
   it('parses "" to []', () => {
@@ -237,7 +230,7 @@ describe('HTMLReactParser', () => {
   it('decodes HTML entities', () => {
     const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
     const decodedEntities = "asdf & ÿ ü '";
-    const reactElement = parse('<i>' + encodedEntities + '</i>');
+    const reactElement = parse('<i>' + encodedEntities + '</i>') as JSX.Element;
     expect(reactElement.props.children).toBe(decodedEntities);
   });
 
@@ -252,14 +245,15 @@ describe('HTMLReactParser', () => {
 
 describe('replace option', () => {
   it('replaces the element if a valid React element is returned', () => {
-    const options = {
-      replace: (node) => {
-        if (node.name === 'title') {
-          return React.createElement('title', {}, 'Replaced Title');
-        }
-      }
-    };
-    expect(parse(html.complex, options)).toMatchInlineSnapshot(`
+    expect(
+      parse(html.complex, {
+        replace(domNode) {
+          if ((domNode as Element).name === 'title') {
+            return <title>Replaced Title</title>;
+          }
+        },
+      }),
+    ).toMatchInlineSnapshot(`
       <html>
         <head>
           <meta
@@ -318,17 +312,20 @@ describe('replace option', () => {
   });
 
   it('does not replace the element if an invalid React element is returned', () => {
-    const options = {
-      replace: (node) => {
-        if (node.attribs && node.attribs.id === 'header') {
-          return {
-            type: 'h1',
-            props: { children: 'Heading' }
-          };
-        }
-      }
-    };
-    expect(parse(html.complex, options)).toMatchInlineSnapshot(`
+    expect(
+      parse(html.complex, {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        replace(domNode) {
+          if ((domNode as Element).attribs?.id === 'header') {
+            return {
+              type: 'h1',
+              props: { children: 'Heading' },
+            };
+          }
+        },
+      }),
+    ).toMatchInlineSnapshot(`
       <html>
         <head>
           <meta
@@ -389,6 +386,7 @@ describe('replace option', () => {
 
 describe('library option', () => {
   const Preact = require('preact');
+  const React = require('react');
 
   it('converts with Preact instead of React', () => {
     const parsedElement = parse(html.single, { library: Preact });
@@ -396,6 +394,8 @@ describe('library option', () => {
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
     // remove `__v` key since it's causing test equality to fail
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     delete parsedElement.__v;
     delete preactElement.__v;
     expect(parsedElement).toEqual(preactElement);
@@ -424,9 +424,9 @@ describe('trim option', () => {
     <tr><td>hello</td><td>\n</td><td>&nbsp;</td>\t</tr>\r
   </tbody>
 </table>`;
-    const reactElement = parse(html);
+    const reactElement = parse(html) as JSX.Element;
     expect(render(reactElement)).toBe(
-      '<table><tbody><tr><td>hello</td><td>\n</td><td>\u00a0</td></tr></tbody></table>'
+      '<table><tbody><tr><td>hello</td><td>\n</td><td>\u00a0</td></tr></tbody></table>',
     );
     expect(reactElement).toMatchInlineSnapshot(`
       <table>
@@ -452,9 +452,9 @@ describe('trim option', () => {
     const html = `<table>
       <tbody><tr><td> text </td><td> </td>\t</tr>\r</tbody>\n</table>`;
     const options = { trim: true };
-    const reactElement = parse(html, options);
+    const reactElement = parse(html, options) as JSX.Element;
     expect(render(reactElement)).toBe(
-      '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>'
+      '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>',
     );
   });
 });
@@ -462,8 +462,7 @@ describe('trim option', () => {
 describe('invalid styles', () => {
   it('copes with invalid styles', () => {
     const html = '<p style="font - size: 1em">X</p>';
-    const options = {};
-    const reactElement = parse(html, options);
+    const reactElement = parse(html) as JSX.Element;
     expect(render(reactElement)).toBe('<p>X</p>');
   });
 });

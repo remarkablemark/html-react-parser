@@ -1,16 +1,16 @@
-const React = require('react');
-const htmlToDOM = require('html-dom-parser').default;
+import htmlToDOM from 'html-dom-parser';
 
-const domToReact = require('../lib/dom-to-react');
-const utilities = require('../lib/utilities');
+import domToReact from '../src/dom-to-react';
+import * as utilities from '../src/utilities';
+import { Element } from '../src';
 
-const { render } = require('./helpers');
-const { html, svg } = require('./data');
+import { render } from './helpers';
+import { html, svg } from './data';
 
 describe('domToReact', () => {
   it.each([
     ['comment', html.comment],
-    ['doctype', html.doctype]
+    ['doctype', html.doctype],
   ])('skips %s', (type, value) => {
     expect(domToReact(htmlToDOM(value))).toEqual([]);
   });
@@ -30,7 +30,7 @@ describe('domToReact', () => {
   });
 
   it('converts multiple DOM nodes to React', () => {
-    const reactElements = domToReact(htmlToDOM(html.multiple));
+    const reactElements = domToReact(htmlToDOM(html.multiple)) as JSX.Element[];
     reactElements.forEach((reactElement, index) => {
       expect(reactElement.key).toBe(String(index));
     });
@@ -83,21 +83,21 @@ describe('domToReact', () => {
   });
 
   it('does not have `children` for void elements', () => {
-    const reactElement = domToReact(htmlToDOM(html.img));
+    const reactElement = domToReact(htmlToDOM(html.img)) as JSX.Element;
     expect(reactElement.props.children).toBe(null);
   });
 
   it('does not throw an error for void elements', () => {
     const reactElements = domToReact(htmlToDOM(html.void));
     expect(() => {
-      render(React.createElement('div', {}, reactElements));
+      render(<div>{reactElements}</div>);
     }).not.toThrow();
   });
 
   it('skips doctype and comments', () => {
     const reactElements = domToReact(
-      htmlToDOM(html.doctype + html.single + html.comment + html.single)
-    );
+      htmlToDOM(html.doctype + html.single + html.comment + html.single),
+    ) as JSX.Element[];
     expect(reactElements).toHaveLength(2);
     expect(reactElements[0].key).toBe('1');
     expect(reactElements[1].key).toBe('3');
@@ -115,7 +115,7 @@ describe('domToReact', () => {
 
   it('converts SVG element with viewBox attribute', () => {
     const reactElement = domToReact(
-      htmlToDOM(svg.simple, { lowerCaseAttributeNames: false })
+      htmlToDOM(svg.simple, { lowerCaseAttributeNames: false }),
     );
     expect(reactElement).toMatchInlineSnapshot(`
       <svg
@@ -145,6 +145,7 @@ describe('domToReact', () => {
 });
 
 describe('domToReact with library option', () => {
+  const React = require('react');
   const Preact = require('preact');
 
   it('converts with React by default', () => {
@@ -156,12 +157,14 @@ describe('domToReact with library option', () => {
 
   it('converts with Preact', () => {
     const parsedElement = domToReact(htmlToDOM(html.single), {
-      library: Preact
+      library: Preact,
     });
     const preactElement = Preact.createElement('p', {}, 'foo');
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
     // remove `__v` key since it's causing test equality to fail
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     delete parsedElement.__v;
     delete preactElement.__v;
     expect(parsedElement).toEqual(preactElement);
@@ -170,37 +173,38 @@ describe('domToReact with library option', () => {
 
 describe('domToReact replace option', () => {
   it("does not set key if there's a single node", () => {
-    const replaceElement = React.createElement('p');
     const reactElement = domToReact(htmlToDOM(html.single), {
-      replace: () => replaceElement
-    });
+      replace: () => <div />,
+    }) as JSX.Element;
     expect(reactElement.key).toBe(null);
   });
 
   it("does not modify keys if they're already set", () => {
-    const options = {
-      replace: (node) => {
-        if (node.name === 'p') {
-          return React.createElement('p', {}, 'replaced foo');
-        }
-        if (node.name === 'custom-element') {
-          return React.createElement(
-            'custom-button',
-            {
-              key: 'myKey',
-              class: 'myClass',
-              'custom-attribute': 'replaced value'
-            },
-            null
-          );
-        }
-      }
-    };
-
     const reactElements = domToReact(
       htmlToDOM(html.single + html.customElement),
-      options
-    );
+      {
+        replace(domNode) {
+          const element = domNode as Element;
+
+          if (element.name === 'p') {
+            return <p>replaced foo</p>;
+          }
+
+          if (element.name === 'custom-element') {
+            return (
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              <custom-button
+                key="myKey"
+                class="myClass"
+                custom-attribute="replaced value"
+              />
+            );
+          }
+        },
+      },
+    ) as JSX.Element[];
+
     expect(reactElements[0].key).toBe('0');
     expect(reactElements[1].key).toBe('myKey');
   });
@@ -208,13 +212,12 @@ describe('domToReact replace option', () => {
 
 describe('domToReact transform option', () => {
   it('can wrap all elements', () => {
-    const options = {
-      transform: (reactNode, domNode, i) => {
-        return React.createElement('div', { key: i }, reactNode);
-      }
-    };
+    const reactElement = domToReact(htmlToDOM(html.list), {
+      transform: (reactNode, domNode, index) => {
+        return <div key={index}>{reactNode}</div>;
+      },
+    }) as JSX.Element;
 
-    const reactElement = domToReact(htmlToDOM(html.list), options);
     expect(reactElement.key).toBe('0');
     expect(reactElement.props.children.props.children[0].key).toBe('0');
     expect(reactElement.props.children.props.children[1].key).toBe('1');
@@ -266,10 +269,14 @@ describe('domToReact', () => {
     const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
 
     beforeAll(() => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
     });
 
     afterAll(() => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
     });
 

@@ -1,6 +1,6 @@
-const Benchmark = require('benchmark');
-const { html } = require('../test/data');
-const parse = require('..');
+import Benchmark from 'benchmark';
+import { html } from '../test/data';
+import parse from '../src';
 
 const suite = new Benchmark.Suite();
 
@@ -14,10 +14,10 @@ suite
   .add('html-to-react - Complex', () => {
     parse(html.complex);
   })
-  .on('cycle', (event) => {
+  .on('cycle', (event: Benchmark.Event) => {
     process.stdout.write(String(event.target) + '\n');
   })
   .run({
     minSamples: 100,
-    delay: 2
+    delay: 2,
   });

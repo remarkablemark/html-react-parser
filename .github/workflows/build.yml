@@ -22,7 +22,7 @@ jobs:
         run: npm run lint
 
       - name: Type check
-        run: npm run lint:dts
+        run: npm run lint:tsc
 
       - name: Run unit tests
         run: npm run test:ci

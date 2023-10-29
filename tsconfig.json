@@ -1,21 +1,15 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "module": "commonjs",
-    "lib": ["es6"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "baseUrl": ".",
-    "types": [],
-    "noEmit": true,
-    "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "html-react-parser": ["."],
-      "html-react-parser/lib/*": ["./lib/*"]
-    },
-    "jsx": "react"
+    "lib": ["es5"],
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "lib",
+    "jsx": "react-jsx"
   },
-  "files": ["index.d.ts", "lib/dom-to-react.d.ts"],
-  "include": ["test/types/**/*.ts", "test/types/**/*.tsx"]
+  "include": ["benchmark", "src", "test"]
 }

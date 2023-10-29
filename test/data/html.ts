@@ -1,4 +1,4 @@
-module.exports = {
+export const html = {
   single: '<p>foo</p>',
   multiple: '<p>foo</p><p>bar</p>',
   nested: '<div><p>foo <em>bar</em></p></div>',
@@ -18,5 +18,5 @@ module.exports = {
     '<custom-element class="myClass" custom-attribute="value" style="-o-transition: all .5s; line-height: 1;"></custom-element>',
   form: '<input type="text" value="foo" checked="checked">',
   list: '<ol><li>One</li><li value="2">Two</li></ol>',
-  template: '<template><article><p>Test</p></article></template>'
+  template: '<template><article><p>Test</p></article></template>',
 };
