@@ -84,7 +84,7 @@ describe('domToReact', () => {
 
   it('does not have `children` for void elements', () => {
     const reactElement = domToReact(htmlToDOM(html.img)) as JSX.Element;
-    expect(reactElement.props.children).toBe(null);
+    expect(reactElement.props.children).toBe(undefined);
   });
 
   it('does not throw an error for void elements', () => {
