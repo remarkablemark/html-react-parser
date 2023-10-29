@@ -19,4 +19,4 @@ export const html = {
   form: '<input type="text" value="foo" checked="checked">',
   list: '<ol><li>One</li><li value="2">Two</li></ol>',
   template: '<template><article><p>Test</p></article></template>',
-};
+} as const;
