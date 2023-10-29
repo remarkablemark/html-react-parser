@@ -17,7 +17,9 @@ export interface HTMLReactParserOptions {
     [key: string]: any;
   };
 
-  replace?: (domNode: DOMNode) => JSX.Element | string | null | boolean | void;
+  replace?: (
+    domNode: DOMNode,
+  ) => JSX.Element | string | null | boolean | object | void;
 
   transform?: (
     reactNode: ReactNode,
