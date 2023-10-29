@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.1](https://github.com/remarkablemark/html-react-parser/compare/v5.0.0...v5.0.1) (2023-10-29)
+
+
+### Bug Fixes
+
+* **dom-to-react:** default props.children to undefined instead of null ([a6978c3](https://github.com/remarkablemark/html-react-parser/commit/a6978c31acde279437e502106cd39ef0d0a34b87))
+* **types:** add back `object` to `replace` option return type ([88eea66](https://github.com/remarkablemark/html-react-parser/commit/88eea66dfe8f1a57aeff7ea631eaf64541e0131f))
+
 ## [5.0.0](https://github.com/remarkablemark/html-react-parser/compare/v4.2.10...v5.0.0) (2023-10-29)
 
 
