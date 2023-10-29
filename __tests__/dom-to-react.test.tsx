@@ -172,6 +172,16 @@ describe('library option', () => {
 });
 
 describe('replace option', () => {
+  it.each([undefined, null, 0, 1, true, false, {}])(
+    'does not replace for invalid return value %p',
+    (value) => {
+      const reactElement = domToReact(htmlToDOM('<br>'), {
+        replace: () => value,
+      }) as JSX.Element;
+      expect(reactElement).toEqual(<br />);
+    },
+  );
+
   it("does not set key if there's a single node", () => {
     const reactElement = domToReact(htmlToDOM(html.single), {
       replace: () => <div />,
@@ -213,17 +223,12 @@ describe('replace option', () => {
     const options: HTMLReactParserOptions = {
       replace(domNode) {
         if (domNode instanceof Element) {
-          return <>{domToReact(domNode.children as DOMNode[], options)}</>;
+          return domToReact(domNode.children as DOMNode[], options);
         }
       },
     };
-
-    const reactElement = domToReact(
-      htmlToDOM(html.single),
-      options,
-    ) as JSX.Element;
-
-    expect(reactElement).toBeInstanceOf(Object);
+    const reactElement = domToReact(htmlToDOM('<div>test</div>'), options);
+    expect(reactElement).toEqual(<div>test</div>);
   });
 });
 
