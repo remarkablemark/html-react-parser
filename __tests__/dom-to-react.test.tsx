@@ -2,7 +2,7 @@ import htmlToDOM from 'html-dom-parser';
 
 import domToReact from '../src/dom-to-react';
 import * as utilities from '../src/utilities';
-import { Element } from '../src';
+import { Element, type DOMNode, type HTMLReactParserOptions } from '../src';
 
 import { render } from './helpers';
 import { html, svg } from './data';
@@ -144,7 +144,7 @@ describe('domToReact', () => {
   });
 });
 
-describe('domToReact with library option', () => {
+describe('library option', () => {
   const React = require('react');
   const Preact = require('preact');
 
@@ -171,7 +171,7 @@ describe('domToReact with library option', () => {
   });
 });
 
-describe('domToReact replace option', () => {
+describe('replace option', () => {
   it("does not set key if there's a single node", () => {
     const reactElement = domToReact(htmlToDOM(html.single), {
       replace: () => <div />,
@@ -208,9 +208,26 @@ describe('domToReact replace option', () => {
     expect(reactElements[0].key).toBe('0');
     expect(reactElements[1].key).toBe('myKey');
   });
+
+  it('replaces with children', () => {
+    const options: HTMLReactParserOptions = {
+      replace(domNode) {
+        if (domNode instanceof Element) {
+          return <>{domToReact(domNode.children as DOMNode[], options)}</>;
+        }
+      },
+    };
+
+    const reactElement = domToReact(
+      htmlToDOM(html.single),
+      options,
+    ) as JSX.Element;
+
+    expect(reactElement).toBeInstanceOf(Object);
+  });
 });
 
-describe('domToReact transform option', () => {
+describe('transform option', () => {
   it('can wrap all elements', () => {
     const reactElement = domToReact(htmlToDOM(html.list), {
       transform: (reactNode, domNode, index) => {
