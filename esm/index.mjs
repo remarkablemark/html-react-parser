@@ -10,4 +10,4 @@ export {
   htmlToDOM,
 } from '../lib/index.js';
 
-export default HTMLReactParser.default;
+export default HTMLReactParser.default || HTMLReactParser;
