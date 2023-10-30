@@ -9,8 +9,13 @@ import { PRESERVE_CUSTOM_ATTRIBUTES, setStyleProp } from './utilities';
 
 // https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components
 // https://developer.mozilla.org/docs/Web/HTML/Attributes
-const UNCONTROLLED_COMPONENT_ATTRIBUTES = ['checked', 'value'];
-const UNCONTROLLED_COMPONENT_NAMES = ['input', 'select', 'textarea'];
+const UNCONTROLLED_COMPONENT_ATTRIBUTES = ['checked', 'value'] as const;
+const UNCONTROLLED_COMPONENT_NAMES = ['input', 'select', 'textarea'] as const;
+
+type UncontrolledComponentAttributes =
+  (typeof UNCONTROLLED_COMPONENT_ATTRIBUTES)[number];
+
+type UncontrolledComponentNames = (typeof UNCONTROLLED_COMPONENT_NAMES)[number];
 
 const valueOnlyInputs = {
   reset: true,
@@ -63,8 +68,12 @@ export default function attributesToProps(
 
       // convert attribute to uncontrolled component prop (e.g., `value` to `defaultValue`)
       if (
-        UNCONTROLLED_COMPONENT_ATTRIBUTES.indexOf(propName) !== -1 &&
-        UNCONTROLLED_COMPONENT_NAMES.indexOf(nodeName!) !== -1 &&
+        UNCONTROLLED_COMPONENT_ATTRIBUTES.indexOf(
+          propName as UncontrolledComponentAttributes,
+        ) !== -1 &&
+        UNCONTROLLED_COMPONENT_NAMES.indexOf(
+          nodeName! as UncontrolledComponentNames,
+        ) !== -1 &&
         !isInputValueOnly
       ) {
         propName = getPropName('default' + attributeNameLowerCased);

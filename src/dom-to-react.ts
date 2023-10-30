@@ -37,10 +37,9 @@ export default function domToReact(
   const { cloneElement, createElement, isValidElement } =
     options?.library || React;
 
-  let index = 0;
   const nodesLength = nodes.length;
 
-  for (; index < nodesLength; index++) {
+  for (let index = 0; index < nodesLength; index++) {
     const node = nodes[index];
 
     // replace with custom React element (if present)
