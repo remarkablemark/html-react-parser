@@ -4,23 +4,26 @@ import './App.css';
 console.log(domToReact);
 console.log(htmlToDOM);
 
-const parser = (input: string) =>
-  parse(input, {
-    replace: domNode => {
-      if (domNode instanceof Element && domNode.attribs.class === 'remove') {
-        return <></>;
-      }
-    }
-  });
-
 export default function App() {
   return (
     <div className="App">
-      {parser(`
-        <h2 style="font-family: 'Lucida Grande';">
+      {parse(
+        `
+        <h1 style="font-family: 'Lucida Grande';">
           HTMLReactParser<br class="remove"> with Create React App (TypeScript)
-        </h2>
-      `)}
+        </h1>
+      `,
+        {
+          replace(domNode) {
+            if (
+              domNode instanceof Element &&
+              domNode.attribs.class === 'remove'
+            ) {
+              return <></>;
+            }
+          },
+        }
+      )}
     </div>
   );
 }
