@@ -21,7 +21,7 @@ const domParserOptions = { lowerCaseAttributeNames: false } as const;
 export default function HTMLReactParser(
   html: string,
   options?: HTMLReactParserOptions,
-): JSX.Element | JSX.Element[] | string {
+): ReturnType<typeof domToReact> {
   if (typeof html !== 'string') {
     throw new TypeError('First argument must be a string');
   }
