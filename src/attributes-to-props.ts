@@ -22,14 +22,16 @@ const valueOnlyInputs = {
   submit: true,
 } as const;
 
-export type Attributes = Record<string, string>;
+export type ValueOnlyInputsKeys = keyof typeof valueOnlyInputs;
 
-export type Props = Record<string, string | boolean> & {
+export type Attributes = Record<PropertyKey, string>;
+
+export type Props = Record<PropertyKey, string | boolean> & {
   dangerouslySetInnerHTML?: {
     __html: string;
   };
   key?: string | number;
-  style?: Record<string, string>;
+  style?: Record<PropertyKey, string>;
 };
 
 /**
@@ -46,8 +48,7 @@ export default function attributesToProps(
   const props: Props = {};
 
   const isInputValueOnly = Boolean(
-    attributes.type &&
-      valueOnlyInputs[attributes.type as keyof typeof valueOnlyInputs],
+    attributes.type && valueOnlyInputs[attributes.type as ValueOnlyInputsKeys],
   );
 
   for (const attributeName in attributes) {
