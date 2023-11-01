@@ -13,7 +13,10 @@ const RESERVED_SVG_MATHML_ELEMENTS = new Set([
   'font-face-format',
   'font-face-name',
   'missing-glyph',
-]);
+] as const);
+
+type ReservedSvgMathmlElements =
+  typeof RESERVED_SVG_MATHML_ELEMENTS extends Set<infer T> ? T : never;
 
 /**
  * Check if a tag is a custom component.
@@ -26,7 +29,7 @@ const RESERVED_SVG_MATHML_ELEMENTS = new Set([
  */
 export function isCustomComponent(
   tagName: string,
-  props?: Record<string, any>,
+  props?: Record<PropertyKey, any>,
 ): boolean {
   if (tagName.indexOf('-') === -1) {
     return Boolean(props && typeof props.is === 'string');
@@ -36,7 +39,7 @@ export function isCustomComponent(
   // We don't mind this whitelist too much because we expect it to never grow.
   // The alternative is to track the namespace in a few places which is convoluted.
   // https://w3c.github.io/webcomponents/spec/custom/#custom-elements-core-concepts
-  if (RESERVED_SVG_MATHML_ELEMENTS.has(tagName)) {
+  if (RESERVED_SVG_MATHML_ELEMENTS.has(tagName as ReservedSvgMathmlElements)) {
     return false;
   }
 
@@ -88,7 +91,10 @@ export const ELEMENTS_WITH_NO_TEXT_CHILDREN = new Set([
   'head',
   'html',
   'frameset',
-]);
+] as const);
+
+type ElementsWithNoTextChildren =
+  typeof ELEMENTS_WITH_NO_TEXT_CHILDREN extends Set<infer T> ? T : never;
 
 /**
  * Checks if the given node can contain text nodes
@@ -97,7 +103,7 @@ export const ELEMENTS_WITH_NO_TEXT_CHILDREN = new Set([
  * @returns - Whether the node can contain text nodes.
  */
 export const canTextBeChildOfNode = (node: Element) =>
-  !ELEMENTS_WITH_NO_TEXT_CHILDREN.has(node.name);
+  !ELEMENTS_WITH_NO_TEXT_CHILDREN.has(node.name as ElementsWithNoTextChildren);
 
 /**
  * Returns the first argument as is.
