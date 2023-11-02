@@ -29,9 +29,9 @@ type ReservedSvgMathmlElements =
  */
 export function isCustomComponent(
   tagName: string,
-  props?: Record<PropertyKey, any>,
+  props?: Record<PropertyKey, string>,
 ): boolean {
-  if (tagName.indexOf('-') === -1) {
+  if (!tagName.includes('-')) {
     return Boolean(props && typeof props.is === 'string');
   }
 
