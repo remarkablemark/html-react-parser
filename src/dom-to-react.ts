@@ -95,7 +95,7 @@ export default function domToReact(
       props = attributesToProps(element.attribs, element.name);
     }
 
-    let children;
+    let children: ReturnType<typeof domToReact> | undefined;
 
     switch (node.type) {
       case 'script':
