@@ -55,7 +55,7 @@
     "domhandler": "5.0.3",
     "html-dom-parser": "5.0.4",
     "react-property": "2.0.2",
-    "style-to-js": "1.1.8"
+    "style-to-js": "1.1.9"
   },
   "devDependencies": {
     "@commitlint/cli": "18.2.0",
