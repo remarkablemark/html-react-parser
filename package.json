@@ -66,7 +66,7 @@
     "@rollup/plugin-typescript": "11.1.5",
     "@size-limit/preset-big-lib": "11.0.0",
     "@types/benchmark": "2.1.5",
-    "@types/jest": "29.5.9",
+    "@types/jest": "29.5.10",
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.16",
     "@typescript-eslint/eslint-plugin": "6.12.0",
