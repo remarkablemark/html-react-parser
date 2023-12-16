@@ -534,7 +534,8 @@ const options = {
 parse('<CustomElement>', options); // React.createElement('CustomElement')
 ```
 
-> **Warning**: By preserving case-sensitivity of the tags, you may get rendering warnings like:
+> [!WARNING]
+> By preserving case-sensitivity of the tags, you may get rendering warnings like:
 >
 > ```
 > Warning: <CustomElement> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
