@@ -387,7 +387,8 @@ parse('<br>', {
 
 ### htmlparser2
 
-> **Warning**: `htmlparser2` options _**do not** work on the client-side_ (browser) and the options _**only work** on the server-side_ (Node.js). By overriding the options, it could cause universal rendering to break.
+> [!WARNING]
+> `htmlparser2` options _**do not** work on the client-side_ (browser) and the options _**only work** on the server-side_ (Node.js). By overriding the options, it could cause universal rendering to break.
 
 Default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) can be overridden in >=[0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0).
 
