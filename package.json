@@ -5,15 +5,12 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
-  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
       "import": "./esm/index.mjs",
       "require": "./lib/index.js"
     },
     "./lib/*": {
-      "types": "./lib/*.d.ts",
       "import": "./esm/*.mjs",
       "default": "./lib/*.js"
     }
