@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.10](https://github.com/remarkablemark/html-react-parser/compare/v5.0.9...v5.0.10) (2023-12-18)
+
+
+### Bug Fixes
+
+* **esm:** make ESM exports explicit in index.mjs and utilities.mjs ([3e0fd2b](https://github.com/remarkablemark/html-react-parser/commit/3e0fd2b31ad602e3f791fef22ec5cd220aa4dd74))
+
 ## [5.0.9](https://github.com/remarkablemark/html-react-parser/compare/v5.0.8...v5.0.9) (2023-12-18)
 
 
