@@ -1,4 +1,4 @@
-name: release
+name: release-please
 on:
   push:
     branches:
@@ -32,7 +32,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline
 
       - name: Publish
         run: npm publish
