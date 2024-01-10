@@ -19,6 +19,7 @@ export interface HTMLReactParserOptions {
 
   replace?: (
     domNode: DOMNode,
+    index: number,
   ) => JSX.Element | string | null | boolean | object | void;
 
   transform?: (

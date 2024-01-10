@@ -44,7 +44,7 @@ export default function domToReact(
 
     // replace with custom React element (if present)
     if (hasReplace) {
-      let replaceElement = options.replace!(node) as JSX.Element;
+      let replaceElement = options.replace!(node, index) as JSX.Element;
 
       if (isValidElement(replaceElement)) {
         // set "key" prop for sibling elements

@@ -182,14 +182,14 @@ describe('replace option', () => {
     },
   );
 
-  it("does not set key if there's a single node", () => {
+  it('does not set key for a single node', () => {
     const reactElement = domToReact(htmlToDOM(html.single), {
       replace: () => <div />,
     }) as JSX.Element;
     expect(reactElement.key).toBe(null);
   });
 
-  it("does not modify keys if they're already set", () => {
+  it('does not modify keys if they are already set', () => {
     const reactElements = domToReact(
       htmlToDOM(html.single + html.customElement),
       {
@@ -229,6 +229,15 @@ describe('replace option', () => {
     };
     const reactElement = domToReact(htmlToDOM('<div>test</div>'), options);
     expect(reactElement).toEqual(<div>test</div>);
+  });
+
+  it('passes index as the 2nd argument', () => {
+    const reactElement = domToReact(htmlToDOM('<li>one</li><li>two</li>'), {
+      replace(domNode, index) {
+        expect(typeof index).toBe('number');
+      },
+    });
+    expect(reactElement).toHaveLength(2);
   });
 });
 

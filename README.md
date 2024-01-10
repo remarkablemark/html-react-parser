@@ -196,6 +196,19 @@ parse('<p id="replace">text</p>', {
 });
 ```
 
+The second argument is the index:
+
+```ts
+parse('<br>', {
+  replace(domNode, index) {
+    console.assert(typeof index === 'number');
+  },
+});
+```
+
+> [!NOTE]
+> The index will restart at 0 when traversing the node's children so don't rely on index being a unique key.
+
 #### replace with TypeScript
 
 For TypeScript, you'll need to check that `domNode` is an instance of domhandler's `Element`:
