@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/remarkablemark/html-react-parser/compare/v5.0.11...v5.1.0) (2024-01-10)
+
+
+### Features
+
+* **dom-to-react:** pass index as 2nd argument to `replace` option ([b27d30c](https://github.com/remarkablemark/html-react-parser/commit/b27d30c5699f6de68ef05c8134589cd6a58d1a5f)), closes [#1240](https://github.com/remarkablemark/html-react-parser/issues/1240)
+
 ## [5.0.11](https://github.com/remarkablemark/html-react-parser/compare/v5.0.10...v5.0.11) (2023-12-20)
 
 
