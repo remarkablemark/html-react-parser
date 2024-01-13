@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.1](https://github.com/remarkablemark/html-react-parser/compare/v5.1.0...v5.1.1) (2024-01-13)
+
+
+### Build System
+
+* **deps:** bump html-dom-parser from 5.0.6 to 5.0.7 ([#1264](https://github.com/remarkablemark/html-react-parser/issues/1264)) ([521f7ad](https://github.com/remarkablemark/html-react-parser/commit/521f7ad0b1fd306a2dccd158d689d194d8a31b4b))
+
 ## [5.1.0](https://github.com/remarkablemark/html-react-parser/compare/v5.0.11...v5.1.0) (2024-01-10)
 
 
