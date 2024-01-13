@@ -207,7 +207,7 @@ parse('<br>', {
 ```
 
 > [!NOTE]
-> The index will restart at 0 when traversing the node's children so don't rely on index being a unique key.
+> The index will restart at 0 when traversing the node's children so don't rely on index being a unique key. See [#1259](https://github.com/remarkablemark/html-react-parser/issues/1259#issuecomment-1889574133).
 
 #### replace with TypeScript
 
