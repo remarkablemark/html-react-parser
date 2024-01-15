@@ -4,15 +4,14 @@ on: pull_request_target
 jobs:
   assign-reviewer:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Assign reviewer
         if: >
           startsWith(github.event.pull_request.title, 'build(deps-dev): bump ') == false &&
           contains(github.event.action, 'opened')
-        run: gh pr edit ${{ github.event.number }} --add-assignee ${{ github.event.pull_request.user.login }} --add-reviewer remarkablemark
+        run: >
+          gh pr edit ${{ github.event.pull_request.html_url }}
+          --add-assignee ${{ github.event.pull_request.user.login }}
+          --add-reviewer remarkablemark
         env:
           GITHUB_TOKEN: ${{ github.token }}
