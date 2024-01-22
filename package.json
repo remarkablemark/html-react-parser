@@ -2,7 +2,7 @@
   "name": "html-react-parser",
   "version": "5.1.1",
   "description": "HTML to React parser.",
-  "author": "Mark <mark@remarkablemark.org>",
+  "author": "Mark <mark@remarkablemark.org> (https://remarkablemark.org)",
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
   "exports": {
