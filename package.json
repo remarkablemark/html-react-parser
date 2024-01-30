@@ -66,7 +66,7 @@
     "@types/jest": "29.5.11",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/eslint-plugin": "6.20.0",
     "@typescript-eslint/parser": "6.19.1",
     "benchmark": "2.1.4",
     "eslint": "8.56.0",
