@@ -10,9 +10,13 @@ export interface HTMLReactParserOptions {
     cloneElement: (
       element: JSX.Element,
       props?: object,
-      ...children: any
+      ...children: any[]
     ) => JSX.Element;
-    createElement: (type: any, props?: object, ...children: any) => JSX.Element;
+    createElement: (
+      type: any,
+      props?: object,
+      ...children: any[]
+    ) => JSX.Element;
     isValidElement: (element: any) => boolean;
     [key: string]: any;
   };
