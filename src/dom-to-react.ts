@@ -28,14 +28,14 @@ const React = {
  */
 export default function domToReact(
   nodes: DOMNode[],
-  options?: HTMLReactParserOptions,
+  options: HTMLReactParserOptions = {},
 ): string | JSX.Element | JSX.Element[] {
   const reactElements = [];
 
-  const hasReplace = typeof options?.replace === 'function';
-  const transform = options?.transform || returnFirstArg;
+  const hasReplace = typeof options.replace === 'function';
+  const transform = options.transform || returnFirstArg;
   const { cloneElement, createElement, isValidElement } =
-    options?.library || React;
+    options.library || React;
 
   const nodesLength = nodes.length;
 
@@ -75,7 +75,7 @@ export default function domToReact(
 
       // Trim is enabled and we have a whitespace node
       // so skip it
-      if (options?.trim && isWhitespace) {
+      if (options.trim && isWhitespace) {
         continue;
       }
 
