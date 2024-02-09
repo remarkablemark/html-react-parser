@@ -11,6 +11,10 @@ const config: Config = {
     },
   },
   preset: 'ts-jest',
+  reporters:
+    process.env.CI === 'true'
+      ? [['github-actions', { silent: false }], 'summary']
+      : undefined,
   testMatch: ['**/__tests__/**/*.test.ts?(x)'],
 };
 
