@@ -1,4 +1,5 @@
 import { cloneElement, createElement, isValidElement } from 'react';
+import type { JSX } from 'react';
 import type { Element, DOMNode, Text } from 'html-dom-parser';
 
 import attributesToProps from './attributes-to-props';
