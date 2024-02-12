@@ -30,7 +30,9 @@ describe('domToReact', () => {
   });
 
   it('converts multiple DOM nodes to React', () => {
-    const reactElements = domToReact(htmlToDOM(html.multiple)) as JSX.Element[];
+    const reactElements = domToReact(
+      htmlToDOM(html.multiple),
+    ) as React.JSX.Element[];
     reactElements.forEach((reactElement, index) => {
       expect(reactElement.key).toBe(String(index));
     });
@@ -83,7 +85,7 @@ describe('domToReact', () => {
   });
 
   it('does not have `children` for void elements', () => {
-    const reactElement = domToReact(htmlToDOM(html.img)) as JSX.Element;
+    const reactElement = domToReact(htmlToDOM(html.img)) as React.JSX.Element;
     expect(reactElement.props.children).toBe(undefined);
   });
 
@@ -97,7 +99,7 @@ describe('domToReact', () => {
   it('skips doctype and comments', () => {
     const reactElements = domToReact(
       htmlToDOM(html.doctype + html.single + html.comment + html.single),
-    ) as JSX.Element[];
+    ) as React.JSX.Element[];
     expect(reactElements).toHaveLength(2);
     expect(reactElements[0].key).toBe('1');
     expect(reactElements[1].key).toBe('3');
@@ -177,7 +179,7 @@ describe('replace option', () => {
     (value) => {
       const reactElement = domToReact(htmlToDOM('<br>'), {
         replace: () => value,
-      }) as JSX.Element;
+      }) as React.JSX.Element;
       expect(reactElement).toEqual(<br />);
     },
   );
@@ -185,7 +187,7 @@ describe('replace option', () => {
   it('does not set key for a single node', () => {
     const reactElement = domToReact(htmlToDOM(html.single), {
       replace: () => <div />,
-    }) as JSX.Element;
+    }) as React.JSX.Element;
     expect(reactElement.key).toBe(null);
   });
 
@@ -213,7 +215,7 @@ describe('replace option', () => {
           }
         },
       },
-    ) as JSX.Element[];
+    ) as React.JSX.Element[];
 
     expect(reactElements[0].key).toBe('0');
     expect(reactElements[1].key).toBe('myKey');
@@ -247,7 +249,7 @@ describe('transform option', () => {
       transform: (reactNode, domNode, index) => {
         return <div key={index}>{reactNode}</div>;
       },
-    }) as JSX.Element;
+    }) as React.JSX.Element;
 
     expect(reactElement.key).toBe('0');
     expect(reactElement.props.children.props.children[0].key).toBe('0');
