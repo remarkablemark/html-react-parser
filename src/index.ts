@@ -7,7 +7,8 @@ import type { HTMLReactParserOptions } from './types';
 export { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 export type { DOMNode } from 'html-dom-parser';
 
-export { HTMLReactParserOptions, attributesToProps, domToReact, htmlToDOM };
+export type { HTMLReactParserOptions };
+export { attributesToProps, domToReact, htmlToDOM };
 
 const domParserOptions = { lowerCaseAttributeNames: false } as const;
 
