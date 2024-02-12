@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.4](https://github.com/remarkablemark/html-react-parser/compare/v5.1.3...v5.1.4) (2024-02-12)
+
+
+### Bug Fixes
+
+* **esm:** fix exported types ([7a94d61](https://github.com/remarkablemark/html-react-parser/commit/7a94d61a64d9dcb14c65a94a3abe97ab0194be6c)), closes [#1305](https://github.com/remarkablemark/html-react-parser/issues/1305)
+* **types:** use `React.JSX` instead of the global `JSX` namespace ([a25f41c](https://github.com/remarkablemark/html-react-parser/commit/a25f41ca608b85caba8f2517c81e88e4a0c246be))
+
 ## [5.1.3](https://github.com/remarkablemark/html-react-parser/compare/v5.1.2...v5.1.3) (2024-02-12)
 
 
