@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.5](https://github.com/remarkablemark/html-react-parser/compare/v5.1.4...v5.1.5) (2024-02-14)
+
+
+### Bug Fixes
+
+* **esm:** fix attributes-to-props and dom-to-react exported types ([e3c7931](https://github.com/remarkablemark/html-react-parser/commit/e3c7931d4918d158d02286a7f8b30d53c521dcb4))
+* **package:** move `@types/react` from devDependencies to dependencies ([78b7a8e](https://github.com/remarkablemark/html-react-parser/commit/78b7a8e8a52b23676a5d86ef60ee9c57683839e3)), closes [#1313](https://github.com/remarkablemark/html-react-parser/issues/1313)
+
 ## [5.1.4](https://github.com/remarkablemark/html-react-parser/compare/v5.1.3...v5.1.4) (2024-02-12)
 
 
