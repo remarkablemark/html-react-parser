@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.6](https://github.com/remarkablemark/html-react-parser/compare/v5.1.5...v5.1.6) (2024-02-16)
+
+
+### Bug Fixes
+
+* **esm:** fix any type ([#1317](https://github.com/remarkablemark/html-react-parser/issues/1317)) ([56549f1](https://github.com/remarkablemark/html-react-parser/commit/56549f12668d9dfcfc5fa47ec6a6cfb2977d7c36))
+
 ## [5.1.5](https://github.com/remarkablemark/html-react-parser/compare/v5.1.4...v5.1.5) (2024-02-14)
 
 
