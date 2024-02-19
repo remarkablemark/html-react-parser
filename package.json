@@ -48,7 +48,7 @@
     "dom"
   ],
   "dependencies": {
-    "@types/react": "18.2.55",
+    "@types/react": "17 || 18",
     "domhandler": "5.0.3",
     "html-dom-parser": "5.0.8",
     "react-property": "2.0.2",
