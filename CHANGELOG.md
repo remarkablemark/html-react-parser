@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.8](https://github.com/remarkablemark/html-react-parser/compare/v5.1.7...v5.1.8) (2024-02-27)
+
+
+### Build System
+
+* **package:** make @types/react an optional peerDependency ([8be504c](https://github.com/remarkablemark/html-react-parser/commit/8be504c92239c45b3e9d55094e6554124858ae39))
+
 ## [5.1.7](https://github.com/remarkablemark/html-react-parser/compare/v5.1.6...v5.1.7) (2024-02-19)
 
 
