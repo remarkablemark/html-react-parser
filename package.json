@@ -48,7 +48,6 @@
     "dom"
   ],
   "dependencies": {
-    "@types/react": "17 || 18",
     "domhandler": "5.0.3",
     "html-dom-parser": "5.0.8",
     "react-property": "2.0.2",
@@ -64,6 +63,7 @@
     "@size-limit/preset-big-lib": "11.0.2",
     "@types/benchmark": "2.1.5",
     "@types/jest": "29.5.12",
+    "@types/react": "18.2.59",
     "@types/react-dom": "18.2.19",
     "@typescript-eslint/eslint-plugin": "7.1.0",
     "@typescript-eslint/parser": "7.1.0",
@@ -84,7 +84,13 @@
     "typescript": "5.3.3"
   },
   "peerDependencies": {
+    "@types/react": "17 || 18",
     "react": "0.14 || 15 || 16 || 17 || 18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "files": [
     "/dist",
