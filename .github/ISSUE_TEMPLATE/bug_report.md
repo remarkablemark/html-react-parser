@@ -22,7 +22,7 @@ assignees: remarkablemark
 <!--
 Creating a bug demo will help speed up the process of resolving the issue:
 
-* Stackblitz: https://stackblitz.com/edit/html-react-parser
+* StackBlitz: https://stackblitz.com/edit/html-react-parser
 * TypeScript: https://stackblitz.com/edit/html-react-parser-typescript
 * JSFiddle: https://jsfiddle.net/remarkablemark/7v86d800/
 * Replit: https://replit.com/@remarkablemark/html-react-parser
