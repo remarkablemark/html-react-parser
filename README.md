@@ -27,7 +27,7 @@ import parse from 'html-react-parser';
 parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 ```
 
-[Replit](https://replit.com/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [JavaScript](https://stackblitz.com/edit/html-react-parser) | [TypeScript](https://stackblitz.com/edit/html-react-parser-typescript) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+[Replit](https://replit.com/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [StackBlitz](https://stackblitz.com/edit/html-react-parser) | [TypeScript](https://stackblitz.com/edit/html-react-parser-typescript) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 <details>
 <summary>Table of Contents</summary>
