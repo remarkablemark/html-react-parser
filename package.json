@@ -78,7 +78,7 @@
     "preact": "10.19.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "4.12.1",
+    "rollup": "4.13.0",
     "size-limit": "11.0.3",
     "ts-jest": "29.1.2",
     "typescript": "5.4.2"
