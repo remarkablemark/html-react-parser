@@ -64,9 +64,9 @@ Write a commit message that follows the [Conventional Commits](https://www.conve
 - **fix**: A bug fix
 - **perf**: A code change that improves performance
 - **refactor**: A code change that neither fixes a bug nor adds a feature
-- **test**: Adding missing tests or correcting existing tests
+- **test**: Add missing tests or correct existing tests
 - **build**: Changes that affect the build system or external dependencies
-- **ci**: Changes to our CI configuration files and scripts
+- **ci**: Updates configuration files and scripts for continuous integration
 - **docs**: Documentation only changes
 
 The commit message will be linted during the pre-commit Git hook.
