@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.11](https://github.com/remarkablemark/html-react-parser/compare/v5.1.10...v5.1.11) (2024-07-17)
+
+
+### Bug Fixes
+
+* **package:** match allowed peer dependency ranges of react and @types/react ([#1463](https://github.com/remarkablemark/html-react-parser/issues/1463)) ([0809ac5](https://github.com/remarkablemark/html-react-parser/commit/0809ac5d7710d7f91e8d670deed1ba1461f876ec)), closes [#1462](https://github.com/remarkablemark/html-react-parser/issues/1462)
+
 ## [5.1.10](https://github.com/remarkablemark/html-react-parser/compare/v5.1.9...v5.1.10) (2024-03-28)
 
 
