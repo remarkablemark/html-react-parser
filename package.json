@@ -81,7 +81,7 @@
     "rollup": "4.19.0",
     "size-limit": "11.1.4",
     "ts-jest": "29.2.3",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   },
   "peerDependencies": {
     "@types/react": "0.14 || 15 || 16 || 17 || 18",
