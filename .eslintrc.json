@@ -17,5 +17,13 @@
     "no-console": "error",
     "no-debugger": "error",
     "prettier/prettier": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["__tests__/**"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    }
+  ]
 }

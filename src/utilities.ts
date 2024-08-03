@@ -68,6 +68,7 @@ export function setStyleProp(style: string, props: Props): void {
 
   try {
     props.style = StyleToJS(style, styleOptions);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     props.style = {};
   }
