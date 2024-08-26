@@ -18,8 +18,11 @@ jobs:
           release-type: node
 
   publish:
-    needs: release-please
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
 
     steps:
@@ -36,6 +39,6 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Publish
-        run: npm publish
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
