@@ -1,11 +1,10 @@
 import htmlToDOM from 'html-dom-parser';
 
+import { type DOMNode, Element, type HTMLReactParserOptions } from '../src';
 import domToReact from '../src/dom-to-react';
 import * as utilities from '../src/utilities';
-import { Element, type DOMNode, type HTMLReactParserOptions } from '../src';
-
-import { render } from './helpers';
 import { html, svg } from './data';
+import { render } from './helpers';
 
 describe('domToReact', () => {
   it.each([

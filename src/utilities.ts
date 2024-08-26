@@ -1,6 +1,6 @@
+import type { Element } from 'html-dom-parser';
 import { version } from 'react';
 import StyleToJS from 'style-to-js';
-import type { Element } from 'html-dom-parser';
 
 import type { Props } from './attributes-to-props';
 

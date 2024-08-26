@@ -1,18 +1,17 @@
-import { cloneElement, createElement, isValidElement } from 'react';
+import type { DOMNode, Element, Text } from 'html-dom-parser';
 import type { JSX } from 'react';
-import type { Element, DOMNode, Text } from 'html-dom-parser';
+import { cloneElement, createElement, isValidElement } from 'react';
 
-import attributesToProps from './attributes-to-props';
 import type { Props } from './attributes-to-props';
+import attributesToProps from './attributes-to-props';
+import type { HTMLReactParserOptions } from './types';
 import {
-  PRESERVE_CUSTOM_ATTRIBUTES,
   canTextBeChildOfNode,
   isCustomComponent,
+  PRESERVE_CUSTOM_ATTRIBUTES,
   returnFirstArg,
   setStyleProp,
 } from './utilities';
-
-import type { HTMLReactParserOptions } from './types';
 
 const React = {
   cloneElement,

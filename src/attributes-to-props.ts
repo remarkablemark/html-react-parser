@@ -1,10 +1,11 @@
 import {
   BOOLEAN,
-  OVERLOADED_BOOLEAN,
   getPropertyInfo,
   isCustomAttribute,
+  OVERLOADED_BOOLEAN,
   possibleStandardNames,
 } from 'react-property';
+
 import { PRESERVE_CUSTOM_ATTRIBUTES, setStyleProp } from './utilities';
 
 // https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components

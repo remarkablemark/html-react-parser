@@ -4,13 +4,13 @@ import assert from 'assert';
 import { isValidElement } from 'react';
 
 import parse, {
+  attributesToProps,
   Comment,
+  domToReact,
   Element,
+  htmlToDOM,
   ProcessingInstruction,
   Text,
-  attributesToProps,
-  domToReact,
-  htmlToDOM,
 } from '../../esm/index.mjs';
 
 describe('index', () => {

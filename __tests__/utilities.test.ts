@@ -1,14 +1,14 @@
-import * as React from 'react';
 import type { Element } from 'html-dom-parser';
+import * as React from 'react';
 
+import type { Props } from '../src/attributes-to-props';
 import {
-  PRESERVE_CUSTOM_ATTRIBUTES,
+  canTextBeChildOfNode,
   ELEMENTS_WITH_NO_TEXT_CHILDREN,
   isCustomComponent,
+  PRESERVE_CUSTOM_ATTRIBUTES,
   setStyleProp,
-  canTextBeChildOfNode,
 } from '../src/utilities';
-import type { Props } from '../src/attributes-to-props';
 
 describe('isCustomComponent', () => {
   it('returns true if the tag contains a hyphen and is not in the whitelist', () => {
