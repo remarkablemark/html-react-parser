@@ -13,6 +13,9 @@ updates:
       commitlint:
         patterns:
           - '@commitlint/*'
+      eslint:
+        patterns:
+          - '@eslint/*'
       prettier:
         patterns:
           - prettier
