@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.13](https://github.com/remarkablemark/html-react-parser/compare/v5.1.12...v5.1.13) (2024-08-26)
+
+
+### Continuous Integration
+
+* **github:** publish package to npm registry with provenance ([e098038](https://github.com/remarkablemark/html-react-parser/commit/e09803894547b1374bc06c962696e3fdcdc55327))
+
 ## [5.1.12](https://github.com/remarkablemark/html-react-parser/compare/v5.1.11...v5.1.12) (2024-07-18)
 
 
