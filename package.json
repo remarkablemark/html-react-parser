@@ -25,7 +25,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "prepublishOnly": "npm run lint && npm run test:ci && npm run clean && npm run build",
+    "prepublishOnly": "npm run lint && npm run lint:tsc && npm run test:ci && npm run clean && npm run build",
     "size-limit": "size-limit",
     "test": "jest --testPathIgnorePatterns __tests__/integration",
     "test:ci": "CI=true npm test -- --ci --colors",
