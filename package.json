@@ -63,7 +63,7 @@
     "@rollup/plugin-node-resolve": "15.3.0",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "11.1.6",
-    "@size-limit/preset-big-lib": "11.1.5",
+    "@size-limit/preset-big-lib": "11.1.6",
     "@types/benchmark": "2.1.5",
     "@types/jest": "29.5.13",
     "@types/node": "22.7.4",
