@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.18](https://github.com/remarkablemark/html-react-parser/compare/v5.1.17...v5.1.18) (2024-10-06)
+
+
+### Bug Fixes
+
+* **deps:** bump style-to-js from 1.1.15 to 1.1.16 ([#1561](https://github.com/remarkablemark/html-react-parser/issues/1561)) ([4892aa2](https://github.com/remarkablemark/html-react-parser/commit/4892aa2d7433977df5f6bf8972e1c5222ecab787))
+
 ## [5.1.17](https://github.com/remarkablemark/html-react-parser/compare/v5.1.16...v5.1.17) (2024-10-03)
 
 
