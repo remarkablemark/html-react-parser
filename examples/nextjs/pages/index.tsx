@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import parse from 'html-react-parser';
+import parse, { Element } from 'html-react-parser';
 
 export default function Home() {
   return (
@@ -10,10 +10,23 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          {parse(`
+          {parse(
+            `
             Welcome to <a href="https://nextjs.org">Next.js</a>
             and HTMLReactParser!
-          `)}
+          `,
+            {
+              replace(domNode) {
+                if (domNode instanceof Element && domNode.name === 'a') {
+                  return (
+                    <a href="https://nextjs.org" rel="noopener noreferrer">
+                      Next.js
+                    </a>
+                  );
+                }
+              },
+            },
+          )}
         </h1>
       </main>
 
