@@ -24,6 +24,9 @@ const getConfig = (minify = false) => ({
       declarationMap: false,
       module: 'esnext',
       tsconfig: 'tsconfig.build.json',
+      compilerOptions: {
+        outDir: 'dist',
+      },
     }),
     commonjs(),
     resolve({ browser: true }),
