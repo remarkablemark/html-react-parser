@@ -39,13 +39,30 @@ describe('HTMLReactParser', () => {
     },
   );
 
-  it('parses "" to []', () => {
+  it('parses empty string to empty array', () => {
     expect(parse('')).toEqual([]);
   });
 
-  it("returns string if it's not HTML", () => {
-    const string = 'text';
-    expect(parse(string)).toBe(string);
+  it.each(['a', 'text'])('parses string', (text) => {
+    expect(parse(text)).toBe(text);
+  });
+
+  it.each(['\n', '\r', '\n\r', 'foo\nbar', 'foo\rbar', 'foo\n\rbar\r'])(
+    'parses string with newlines %p',
+    (text) => {
+      expect(parse(text)).toBe(text);
+    },
+  );
+
+  it.each([
+    '\n<br>',
+    '<br>\r',
+    '\n<br>\r',
+    '<p>foo\nbar\r</p>',
+    '<p>foo</p>\rbar',
+    'foo<p>\n\rbar</p>\r',
+  ])('parses HTML with newlines', (html) => {
+    expect(parse(html)).toMatchSnapshot();
   });
 
   it('parses single HTML element', () => {
