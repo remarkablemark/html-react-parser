@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HTMLReactParser parses HTML with newlines 1`] = `
+[
+  "
+",
+  <br />,
+]
+`;
+
+exports[`HTMLReactParser parses HTML with newlines 2`] = `
+[
+  <br />,
+  "
+",
+]
+`;
+
+exports[`HTMLReactParser parses HTML with newlines 3`] = `
+[
+  "
+",
+  <br />,
+  "
+",
+]
+`;
+
+exports[`HTMLReactParser parses HTML with newlines 4`] = `
+<p>
+  foo
+bar
+</p>
+`;
+
+exports[`HTMLReactParser parses HTML with newlines 5`] = `
+[
+  <p>
+    foo
+  </p>,
+  "
+bar",
+]
+`;
+
+exports[`HTMLReactParser parses HTML with newlines 6`] = `
+[
+  "foo",
+  <p>
+    
+
+bar
+  </p>,
+  "
+",
+]
+`;
