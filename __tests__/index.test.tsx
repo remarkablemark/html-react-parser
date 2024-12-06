@@ -1,5 +1,6 @@
 import * as domhandler from 'domhandler';
 import type { Element } from 'html-dom-parser';
+import type { JSX } from 'react';
 
 import * as HTMLReactParser from '../src';
 import parse from '../src';
@@ -66,182 +67,44 @@ describe('HTMLReactParser', () => {
   });
 
   it('parses single HTML element', () => {
-    expect(parse(html.single)).toMatchInlineSnapshot(`
-      <p>
-        foo
-      </p>
-    `);
+    expect(parse(html.single)).toMatchSnapshot();
   });
 
   it('parses single HTML element with comment', () => {
     // comment should be ignored
-    expect(parse(html.single + html.comment)).toMatchInlineSnapshot(`
-      <p>
-        foo
-      </p>
-    `);
+    expect(parse(html.single + html.comment)).toMatchSnapshot();
   });
 
   it('parses multiple HTML elements', () => {
-    expect(parse(html.multiple)).toMatchInlineSnapshot(`
-      [
-        <p>
-          foo
-        </p>,
-        <p>
-          bar
-        </p>,
-      ]
-    `);
+    expect(parse(html.multiple)).toMatchSnapshot();
   });
 
   it('parses complex HTML with doctype', () => {
-    expect(parse(html.doctype + html.complex)).toMatchInlineSnapshot(`
-      <html>
-        <head>
-          <meta
-            charSet="utf-8"
-          />
-          <title>
-            Title
-          </title>
-          <link
-            href="style.css"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <header
-            id="header"
-          >
-            Header
-          </header>
-          <h1
-            style={
-              {
-                "color": "#000",
-                "fontSize": "42px",
-              }
-            }
-          >
-            Heading
-          </h1>
-          <hr />
-          <p>
-            Paragraph
-          </p>
-          <img
-            src="image.jpg"
-          />
-          <div
-            className="class1 class2"
-          >
-            Some 
-            <em>
-              text
-            </em>
-            .
-          </div>
-          <script
-            dangerouslySetInnerHTML={
-              {
-                "__html": "alert();",
-              }
-            }
-          />
-        </body>
-      </html>
-    `);
+    expect(parse(html.doctype + html.complex)).toMatchSnapshot();
   });
 
   it('parses empty <script>', () => {
-    expect(parse('<script></script>')).toMatchInlineSnapshot(`<script />`);
+    expect(parse('<script></script>')).toMatchSnapshot();
   });
 
   it('parses empty <style>', () => {
-    expect(parse('<style></style>')).toMatchInlineSnapshot(`<style />`);
+    expect(parse('<style></style>')).toMatchSnapshot();
   });
 
   it('parses form', () => {
-    expect(parse(html.form)).toMatchInlineSnapshot(`
-      <input
-        defaultChecked={true}
-        defaultValue="foo"
-        type="text"
-      />
-    `);
+    expect(parse(html.form)).toMatchSnapshot();
   });
 
   it('parses list', () => {
-    expect(parse(html.list)).toMatchInlineSnapshot(`
-      <ol>
-        <li>
-          One
-        </li>
-        <li
-          value="2"
-        >
-          Two
-        </li>
-      </ol>
-    `);
+    expect(parse(html.list)).toMatchSnapshot();
   });
 
   it('parses template', () => {
-    expect(parse(html.template)).toMatchInlineSnapshot(`
-      <template>
-        <article>
-          <p>
-            Test
-          </p>
-        </article>
-      </template>
-    `);
+    expect(parse(html.template)).toMatchSnapshot();
   });
 
   it('parses SVG', () => {
-    expect(parse(svg.complex)).toMatchInlineSnapshot(`
-      <svg
-        height="400"
-        width="450"
-      >
-        <path
-          d="M 100 350 l 150 -300"
-          fill="none"
-          id="lineAB"
-          stroke="red"
-          strokeWidth="3"
-        />
-        <g
-          fill="black"
-          stroke="black"
-          strokeWidth="3"
-        >
-          <circle
-            cx="100"
-            cy="350"
-            id="pointA"
-            r="3"
-          />
-        </g>
-        <g
-          fill="black"
-          fontFamily="sans-serif"
-          fontSize="30"
-          stroke="none"
-          textAnchor="middle"
-        >
-          <text
-            dx="-30"
-            x="100"
-            y="350"
-          >
-            A
-          </text>
-        </g>
-        Your browser does not support inline SVG.
-      </svg>
-    `);
+    expect(parse(svg.complex)).toMatchSnapshot();
   });
 
   it('decodes HTML entities', () => {
@@ -252,11 +115,7 @@ describe('HTMLReactParser', () => {
   });
 
   it('escapes tags inside of <title>', () => {
-    expect(parse(html.title)).toMatchInlineSnapshot(`
-      <title>
-        &lt;em&gt;text&lt;/em&gt;
-      </title>
-    `);
+    expect(parse(html.title)).toMatchSnapshot();
   });
 });
 
@@ -270,69 +129,12 @@ describe('replace option', () => {
           }
         },
       }),
-    ).toMatchInlineSnapshot(`
-      <html>
-        <head>
-          <meta
-            charSet="utf-8"
-          />
-          <title>
-            Replaced Title
-          </title>
-          <link
-            href="style.css"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <header
-            id="header"
-          >
-            Header
-          </header>
-          <h1
-            style={
-              {
-                "color": "#000",
-                "fontSize": "42px",
-              }
-            }
-          >
-            Heading
-          </h1>
-          <hr />
-          <p>
-            Paragraph
-          </p>
-          <img
-            src="image.jpg"
-          />
-          <div
-            className="class1 class2"
-          >
-            Some 
-            <em>
-              text
-            </em>
-            .
-          </div>
-          <script
-            dangerouslySetInnerHTML={
-              {
-                "__html": "alert();",
-              }
-            }
-          />
-        </body>
-      </html>
-    `);
+    ).toMatchSnapshot();
   });
 
   it('does not replace the element if an invalid React element is returned', () => {
     expect(
       parse(html.complex, {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         replace(domNode) {
           if ((domNode as Element).attribs?.id === 'header') {
             return {
@@ -342,62 +144,7 @@ describe('replace option', () => {
           }
         },
       }),
-    ).toMatchInlineSnapshot(`
-      <html>
-        <head>
-          <meta
-            charSet="utf-8"
-          />
-          <title>
-            Title
-          </title>
-          <link
-            href="style.css"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <header
-            id="header"
-          >
-            Header
-          </header>
-          <h1
-            style={
-              {
-                "color": "#000",
-                "fontSize": "42px",
-              }
-            }
-          >
-            Heading
-          </h1>
-          <hr />
-          <p>
-            Paragraph
-          </p>
-          <img
-            src="image.jpg"
-          />
-          <div
-            className="class1 class2"
-          >
-            Some 
-            <em>
-              text
-            </em>
-            .
-          </div>
-          <script
-            dangerouslySetInnerHTML={
-              {
-                "__html": "alert();",
-              }
-            }
-          />
-        </body>
-      </html>
-    `);
+    ).toMatchSnapshot();
   });
 });
 
@@ -411,8 +158,7 @@ describe('library option', () => {
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
     // remove `__v` key since it's causing test equality to fail
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error Property '__v' does not exist on type 'string | Element | Element[]'. Property '__v' does not exist on type 'string'.
     delete parsedElement.__v;
     delete preactElement.__v;
     expect(parsedElement).toEqual(preactElement);
@@ -425,12 +171,7 @@ describe('htmlparser2 option', () => {
     // which causes elements to nest instead of being rendered correctly
     // enabling htmlparser2 option xmlMode resolves this issue
     const options = { htmlparser2: { xmlMode: true } };
-    expect(parse('<ul><li/><li/></ul>', options)).toMatchInlineSnapshot(`
-      <ul>
-        <li />
-        <li />
-      </ul>
-    `);
+    expect(parse('<ul><li/><li/></ul>', options)).toMatchSnapshot();
   });
 });
 
@@ -445,24 +186,7 @@ describe('trim option', () => {
     expect(render(reactElement)).toBe(
       '<table><tbody><tr><td>hello</td><td>\n</td><td>\u00a0</td></tr></tbody></table>',
     );
-    expect(reactElement).toMatchInlineSnapshot(`
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              hello
-            </td>
-            <td>
-              
-
-            </td>
-            <td>
-              \u00a0
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    `);
+    expect(reactElement).toMatchSnapshot();
   });
 
   it('removes whitespace text nodes when enabled', () => {

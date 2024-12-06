@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`HTMLReactParser escapes tags inside of <title> 1`] = `
+<title>
+  &lt;em&gt;text&lt;/em&gt;
+</title>
+`;
+
 exports[`HTMLReactParser parses HTML with newlines 1`] = `
 [
   "
@@ -54,4 +60,302 @@ bar
   "
 ",
 ]
+`;
+
+exports[`HTMLReactParser parses SVG 1`] = `
+<svg
+  height="400"
+  width="450"
+>
+  <path
+    d="M 100 350 l 150 -300"
+    fill="none"
+    id="lineAB"
+    stroke="red"
+    strokeWidth="3"
+  />
+  <g
+    fill="black"
+    stroke="black"
+    strokeWidth="3"
+  >
+    <circle
+      cx="100"
+      cy="350"
+      id="pointA"
+      r="3"
+    />
+  </g>
+  <g
+    fill="black"
+    fontFamily="sans-serif"
+    fontSize="30"
+    stroke="none"
+    textAnchor="middle"
+  >
+    <text
+      dx="-30"
+      x="100"
+      y="350"
+    >
+      A
+    </text>
+  </g>
+  Your browser does not support inline SVG.
+</svg>
+`;
+
+exports[`HTMLReactParser parses complex HTML with doctype 1`] = `
+<html>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <title>
+      Title
+    </title>
+    <link
+      href="style.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header
+      id="header"
+    >
+      Header
+    </header>
+    <h1
+      style={
+        {
+          "color": "#000",
+          "fontSize": "42px",
+        }
+      }
+    >
+      Heading
+    </h1>
+    <hr />
+    <p>
+      Paragraph
+    </p>
+    <img
+      src="image.jpg"
+    />
+    <div
+      className="class1 class2"
+    >
+      Some 
+      <em>
+        text
+      </em>
+      .
+    </div>
+    <script
+      dangerouslySetInnerHTML={
+        {
+          "__html": "alert();",
+        }
+      }
+    />
+  </body>
+</html>
+`;
+
+exports[`HTMLReactParser parses empty <script> 1`] = `<script />`;
+
+exports[`HTMLReactParser parses empty <style> 1`] = `<style />`;
+
+exports[`HTMLReactParser parses form 1`] = `
+<input
+  defaultChecked={true}
+  defaultValue="foo"
+  type="text"
+/>
+`;
+
+exports[`HTMLReactParser parses list 1`] = `
+<ol>
+  <li>
+    One
+  </li>
+  <li
+    value="2"
+  >
+    Two
+  </li>
+</ol>
+`;
+
+exports[`HTMLReactParser parses multiple HTML elements 1`] = `
+[
+  <p>
+    foo
+  </p>,
+  <p>
+    bar
+  </p>,
+]
+`;
+
+exports[`HTMLReactParser parses single HTML element 1`] = `
+<p>
+  foo
+</p>
+`;
+
+exports[`HTMLReactParser parses single HTML element with comment 1`] = `
+<p>
+  foo
+</p>
+`;
+
+exports[`HTMLReactParser parses template 1`] = `
+<template>
+  <article>
+    <p>
+      Test
+    </p>
+  </article>
+</template>
+`;
+
+exports[`htmlparser2 option parses XHTML with xmlMode enabled 1`] = `
+<ul>
+  <li />
+  <li />
+</ul>
+`;
+
+exports[`replace option does not replace the element if an invalid React element is returned 1`] = `
+<html>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <title>
+      Title
+    </title>
+    <link
+      href="style.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header
+      id="header"
+    >
+      Header
+    </header>
+    <h1
+      style={
+        {
+          "color": "#000",
+          "fontSize": "42px",
+        }
+      }
+    >
+      Heading
+    </h1>
+    <hr />
+    <p>
+      Paragraph
+    </p>
+    <img
+      src="image.jpg"
+    />
+    <div
+      className="class1 class2"
+    >
+      Some 
+      <em>
+        text
+      </em>
+      .
+    </div>
+    <script
+      dangerouslySetInnerHTML={
+        {
+          "__html": "alert();",
+        }
+      }
+    />
+  </body>
+</html>
+`;
+
+exports[`replace option replaces the element if a valid React element is returned 1`] = `
+<html>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <title>
+      Replaced Title
+    </title>
+    <link
+      href="style.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header
+      id="header"
+    >
+      Header
+    </header>
+    <h1
+      style={
+        {
+          "color": "#000",
+          "fontSize": "42px",
+        }
+      }
+    >
+      Heading
+    </h1>
+    <hr />
+    <p>
+      Paragraph
+    </p>
+    <img
+      src="image.jpg"
+    />
+    <div
+      className="class1 class2"
+    >
+      Some 
+      <em>
+        text
+      </em>
+      .
+    </div>
+    <script
+      dangerouslySetInnerHTML={
+        {
+          "__html": "alert();",
+        }
+      }
+    />
+  </body>
+</html>
+`;
+
+exports[`trim option preserves whitespace text nodes when disabled if valid in parent (default) 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        hello
+      </td>
+      <td>
+        
+
+      </td>
+      <td>
+         
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;

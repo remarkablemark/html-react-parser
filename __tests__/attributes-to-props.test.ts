@@ -359,14 +359,12 @@ describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
   const emptyProps = {};
 
   beforeAll(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
     utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
   });
 
   afterAll(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
     utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
   });
 
