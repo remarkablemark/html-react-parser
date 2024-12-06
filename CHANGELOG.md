@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://github.com/remarkablemark/html-react-parser/compare/v5.1.19...v5.2.0) (2024-12-06)
+
+
+### Features
+
+* **package:** add react 19 to package.json peerDependencies ([8b6506c](https://github.com/remarkablemark/html-react-parser/commit/8b6506cfbacd6fb4987130473258ce3d7c4cb165)), closes [#1455](https://github.com/remarkablemark/html-react-parser/issues/1455) [#1501](https://github.com/remarkablemark/html-react-parser/issues/1501)
+
 ## [5.1.19](https://github.com/remarkablemark/html-react-parser/compare/v5.1.18...v5.1.19) (2024-12-04)
 
 
