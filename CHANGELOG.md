@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.1](https://github.com/remarkablemark/html-react-parser/compare/v5.2.0...v5.2.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* **package:** bump html-dom-parser to 5.0.12 so that `\\r` isn't escaped ([#1642](https://github.com/remarkablemark/html-react-parser/issues/1642)) ([a1ef928](https://github.com/remarkablemark/html-react-parser/commit/a1ef928cbe13768a8460a31386b7676f016ede4c)), closes [#1634](https://github.com/remarkablemark/html-react-parser/issues/1634)
+
 ## [5.2.0](https://github.com/remarkablemark/html-react-parser/compare/v5.1.19...v5.2.0) (2024-12-06)
 
 
