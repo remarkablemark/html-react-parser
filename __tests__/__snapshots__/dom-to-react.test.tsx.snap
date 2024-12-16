@@ -6,6 +6,18 @@ exports[`domToReact converts <textarea> correctly 1`] = `
 />
 `;
 
+exports[`domToReact converts LaTeX 1`] = `
+[
+  <span
+    className="math"
+  >
+    \\left(\\right)\\rD\\rightarrow\\reals\\ni
+  </span>,
+  "
+",
+]
+`;
+
 exports[`domToReact converts SVG element with viewBox attribute 1`] = `
 <svg
   id="foo"

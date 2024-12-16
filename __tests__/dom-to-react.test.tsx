@@ -56,9 +56,8 @@ describe('domToReact', () => {
   });
 
   it('does not throw an error for void elements', () => {
-    const reactElements = domToReact(htmlToDOM(html.void));
     expect(() => {
-      render(<div>{reactElements}</div>);
+      render(<div>{domToReact(htmlToDOM(html.void))}</div>);
     }).not.toThrow();
   });
 
@@ -80,8 +79,11 @@ describe('domToReact', () => {
   });
 
   it('converts custom element with attributes', () => {
-    const reactElement = domToReact(htmlToDOM(html.customElement));
-    expect(reactElement).toMatchSnapshot();
+    expect(domToReact(htmlToDOM(html.customElement))).toMatchSnapshot();
+  });
+
+  it('converts LaTeX', () => {
+    expect(domToReact(htmlToDOM(html.latex))).toMatchSnapshot();
   });
 });
 
@@ -104,7 +106,7 @@ describe('library option', () => {
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
     // remove `__v` key since it's causing test equality to fail
-    // @ts-expect-error Property '__v' does not exist on type '...roperty '__v' does not exist on type 'string'.
+    // @ts-expect-error Property '__v' does not exist on type 'string'.
     delete parsedElement.__v;
     delete preactElement.__v;
     expect(parsedElement).toEqual(preactElement);
