@@ -4,7 +4,7 @@
 
 [![NPM version](https://badgen.net/npm/v/html-react-parser)](https://www.npmjs.com/package/html-react-parser)
 [![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/html-react-parser)](https://bundlephobia.com/package/html-react-parser)
-[![Build Status](https://github.com/remarkablemark/html-react-parser/workflows/build/badge.svg?branch=master)](https://github.com/remarkablemark/html-react-parser/actions?query=workflow%3Abuild)
+[![build](https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/html-react-parser/branch/master/graph/badge.svg?token=wosFd1DBIR)](https://codecov.io/gh/remarkablemark/html-react-parser)
 [![NPM downloads](https://badgen.net/npm/dm/html-react-parser)](https://www.npmjs.com/package/html-react-parser)
 [![Discord](https://badgen.net/discord/online-members/zkS3QDV?cache=300&icon=discord)](https://b.remarkabl.org/discord)
