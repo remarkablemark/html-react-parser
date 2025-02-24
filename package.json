@@ -86,7 +86,7 @@
     "react-dom": "18.3.1",
     "rollup": "4.34.8",
     "size-limit": "11.2.0",
-    "ts-jest": "29.2.5",
+    "ts-jest": "29.2.6",
     "ts-node": "10.9.2",
     "typescript": "5.7.3"
   },
