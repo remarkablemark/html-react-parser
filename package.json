@@ -66,7 +66,7 @@
     "@size-limit/preset-big-lib": "11.2.0",
     "@types/benchmark": "2.1.5",
     "@types/jest": "29.5.14",
-    "@types/node": "22.13.8",
+    "@types/node": "22.13.9",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
     "@typescript-eslint/eslint-plugin": "8.25.0",
