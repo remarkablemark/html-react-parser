@@ -12,8 +12,7 @@
 
 </details>
 
-Pull requests are welcome! By participating in this project, you
-agree to abide by our [code of conduct](https://github.com/remarkablemark/.github/blob/master/CODE_OF_CONDUCT.md).
+Pull requests are welcome! By participating in this project, you agree to abide by our [code of conduct](https://github.com/remarkablemark/.github/blob/master/CODE_OF_CONDUCT.md).
 
 ## Fork
 
@@ -69,8 +68,7 @@ Write a commit message that follows the [Conventional Commits](https://www.conve
 - **ci**: Updates configuration files and scripts for continuous integration
 - **docs**: Documentation only changes
 
-The commit message will be linted during the pre-commit Git hook.
-To manually lint the most recent commit message:
+The commit message will be linted during the pre-commit Git hook. To manually lint the most recent commit message:
 
 ```sh
 git log -1 --pretty=format:"%s" | npx commitlint
@@ -78,13 +76,12 @@ git log -1 --pretty=format:"%s" | npx commitlint
 
 Push to your fork and create a [pull request](https://github.com/remarkablemark/html-react-parser/compare/).
 
-At this point, wait for us to review your pull request. We'll try to review pull requests within
-1-3 business days. We may suggest changes, improvements, and/or alternatives.
+At this point, wait for us to review your pull request. We'll try to review pull requests within 1-3 business days. We may suggest changes, improvements, and/or alternatives.
 
 Things that will improve the chance that your pull request will be accepted:
 
 - [ ] Write tests that pass [CI](https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml).
-- [ ] Write good documentation.
+- [ ] Write solid documentation.
 - [ ] Write a good [commit message](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit).
 
 ## Test
