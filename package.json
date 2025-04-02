@@ -82,8 +82,8 @@
     "jest-watch-typeahead": "2.2.2",
     "lint-staged": "15.5.0",
     "preact": "10.26.4",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "rollup": "4.38.0",
     "size-limit": "11.2.0",
     "ts-jest": "29.3.1",
@@ -97,6 +97,11 @@
   "peerDependenciesMeta": {
     "@types/react": {
       "optional": true
+    }
+  },
+  "overrides": {
+    "pretty-format": {
+      "react-is": "19.1.0"
     }
   },
   "files": [
