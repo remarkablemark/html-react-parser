@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.3](https://github.com/remarkablemark/html-react-parser/compare/v5.2.2...v5.2.3) (2025-04-02)
+
+
+### Documentation
+
+* **readme:** replace legacy React docs site link ([7761bab](https://github.com/remarkablemark/html-react-parser/commit/7761bab5783dcb3b6fc0eb7f7fcefc4d3b8cccc2))
+
 ## [5.2.2](https://github.com/remarkablemark/html-react-parser/compare/v5.2.1...v5.2.2) (2024-12-25)
 
 
