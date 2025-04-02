@@ -15,7 +15,7 @@ HTML to React parser that works on both the server (Node.js) and the client (bro
 HTMLReactParser(string[, options])
 ```
 
-The parser converts an HTML string to one or more [React elements](https://reactjs.org/docs/react-api.html#creating-react-elements).
+The parser converts an HTML string to one or more [React elements](https://react.dev/reference/react/createElement).
 
 To replace an element with another element, check out the [`replace`](#replace) option.
 
