@@ -101,7 +101,7 @@
   },
   "overrides": {
     "pretty-format": {
-      "react-is": "19.1.0"
+      "react-is": "$react"
     }
   },
   "files": [
