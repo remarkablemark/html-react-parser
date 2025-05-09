@@ -49,7 +49,7 @@
   ],
   "dependencies": {
     "domhandler": "5.0.3",
-    "html-dom-parser": "5.0.13",
+    "html-dom-parser": "5.1.0",
     "react-property": "2.0.2",
     "style-to-js": "1.1.16"
   },
