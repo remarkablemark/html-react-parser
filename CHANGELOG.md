@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.5](https://github.com/remarkablemark/html-react-parser/compare/v5.2.4...v5.2.5) (2025-05-12)
+
+
+### Build System
+
+* **deps:** bump html-dom-parser from 5.1.0 to 5.1.1 ([#1795](https://github.com/remarkablemark/html-react-parser/issues/1795)) ([d2fdc58](https://github.com/remarkablemark/html-react-parser/commit/d2fdc5812dcd6c8027704744a03475154ac5722a))
+
 ## [5.2.4](https://github.com/remarkablemark/html-react-parser/compare/v5.2.3...v5.2.4) (2025-05-09)
 
 
