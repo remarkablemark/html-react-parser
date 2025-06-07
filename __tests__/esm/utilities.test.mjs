@@ -33,6 +33,6 @@ describe('utilities', () => {
   });
 
   it('exports "returnFirstArg" function', () => {
-    assert.strictEqual(typeof returnFirstArg, 'function');
+    assert.strictEqual(returnFirstArg('arg'), 'arg');
   });
 });

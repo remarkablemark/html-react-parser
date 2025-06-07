@@ -7,18 +7,23 @@ export interface HTMLReactParserOptions {
   htmlparser2?: ParserOptions & DomHandlerOptions;
 
   library?: {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     cloneElement: (
       element: JSX.Element,
       props?: object,
       ...children: any[]
     ) => JSX.Element;
+
     createElement: (
       type: any,
       props?: object,
       ...children: any[]
     ) => JSX.Element;
+
     isValidElement: (element: any) => boolean;
+
     [key: string]: any;
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   };
 
   replace?: (

@@ -7,6 +7,7 @@ import {
   ELEMENTS_WITH_NO_TEXT_CHILDREN,
   isCustomComponent,
   PRESERVE_CUSTOM_ATTRIBUTES,
+  returnFirstArg,
   setStyleProp,
 } from '../src/utilities';
 
@@ -96,5 +97,11 @@ describe('canTextBeChildOfNode', () => {
       name: 'td',
     } as Element;
     expect(canTextBeChildOfNode(node)).toBe(true);
+  });
+});
+
+describe('returnFirstArg', () => {
+  it('returns first argument', () => {
+    expect(returnFirstArg('arg')).toBe('arg');
   });
 });

@@ -112,4 +112,4 @@ export const canTextBeChildOfNode = (node: Element) =>
  * @param arg - The argument to be returned.
  * @returns - The input argument `arg`.
  */
-export const returnFirstArg = (arg: any) => arg;
+export const returnFirstArg = (arg: any) => arg; // eslint-disable-line @typescript-eslint/no-explicit-any
