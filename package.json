@@ -67,7 +67,7 @@
     "@types/benchmark": "2.1.5",
     "@types/jest": "29.5.14",
     "@types/node": "24.0.1",
-    "@types/react": "19.1.7",
+    "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "benchmark": "2.1.4",
     "eslint": "9.28.0",
