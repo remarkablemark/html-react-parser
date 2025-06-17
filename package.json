@@ -87,7 +87,7 @@
     "ts-jest": "29.4.0",
     "ts-node": "10.9.2",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.34.0"
+    "typescript-eslint": "8.34.1"
   },
   "peerDependencies": {
     "@types/react": "0.14 || 15 || 16 || 17 || 18 || 19",
