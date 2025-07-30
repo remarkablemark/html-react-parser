@@ -23,8 +23,8 @@ updates:
           - eslint-plugin-prettier
       react:
         patterns:
-          - @types/react
-          - @types/react-dom
+          - '@types/react'
+          - '@types/react-dom'
           - react
           - react-dom
       typescript-eslint:
