@@ -78,7 +78,7 @@
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
     "jest-watch-typeahead": "3.0.1",
-    "lint-staged": "16.1.4",
+    "lint-staged": "16.1.5",
     "preact": "10.27.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
