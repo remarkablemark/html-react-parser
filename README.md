@@ -27,7 +27,7 @@ import parse from 'html-react-parser';
 parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
 ```
 
-[Replit](https://replit.com/@remarkablemark/html-react-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [StackBlitz](https://stackblitz.com/edit/html-react-parser) | [TypeScript](https://stackblitz.com/edit/html-react-parser-typescript) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
+[StackBlitz](https://stackblitz.com/edit/html-react-parser) | [TypeScript](https://stackblitz.com/edit/html-react-parser-typescript) | [JSFiddle](https://jsfiddle.net/remarkablemark/7v86d800/) | [Examples](https://github.com/remarkablemark/html-react-parser/tree/master/examples)
 
 <details>
 <summary>Table of Contents</summary>
@@ -207,6 +207,7 @@ parse('<br>', {
 ```
 
 > [!NOTE]
+>
 > The index will restart at 0 when traversing the node's children so don't rely on index being a unique key. See [#1259](https://github.com/remarkablemark/html-react-parser/issues/1259#issuecomment-1889574133).
 
 #### replace with TypeScript
@@ -401,7 +402,8 @@ parse('<br>', {
 ### htmlparser2
 
 > [!WARNING]
-> `htmlparser2` options _**don't work** on the client-side_ (browser); they _**only work** on the server-side_ (Node.js). By overriding the options, it can break universal rendering.
+>
+> `htmlparser2` options _**do not work** on the client-side_ (browser); they _**only work** on the server-side_ (Node.js). By overriding the options, it can break universal rendering.
 
 Default [htmlparser2 options](https://github.com/fb55/htmlparser2/wiki/Parser-options#option-xmlmode) can be overridden in >=[0.12.0](https://github.com/remarkablemark/html-react-parser/tree/v0.12.0).
 
@@ -549,6 +551,7 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 ```
 
 > [!WARNING]
+>
 > By preserving case-sensitivity of the tags, you may get rendering warnings like:
 >
 > ```
