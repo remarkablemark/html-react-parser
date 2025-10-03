@@ -41,5 +41,8 @@ jobs:
       - name: Run integration tests
         run: npm run test:integration
 
+      - name: Lint package
+        run: npm run lint:package
+
       - name: Run benchmark
         run: npm run benchmark

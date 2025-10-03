@@ -23,6 +23,7 @@
     "clean": "rm -rf coverage lib dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:package": "publint",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
     "prepublishOnly": "npm run lint && npm run lint:tsc && npm run test:ci && npm run clean && npm run build",
