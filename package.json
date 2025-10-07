@@ -67,7 +67,7 @@
     "@size-limit/preset-big-lib": "11.2.0",
     "@types/benchmark": "2.1.5",
     "@types/jest": "30.0.0",
-    "@types/node": "24.6.2",
+    "@types/node": "24.7.0",
     "@types/react": "19.2.1",
     "@types/react-dom": "19.2.0",
     "benchmark": "2.1.4",
