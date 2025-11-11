@@ -12,7 +12,7 @@
 
 </details>
 
-Pull requests are welcome! By participating in this project, you agree to abide by our [code of conduct](https://github.com/remarkablemark/.github/blob/master/CODE_OF_CONDUCT.md).
+Pull requests are welcome! By participating in this project, you agree to abide by our [code of conduct](https://github.com/remarkablemark/html-react-parser?tab=coc-ov-file).
 
 ## Fork
 
