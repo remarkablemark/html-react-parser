@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.9](https://github.com/remarkablemark/html-react-parser/compare/v5.2.8...v5.2.9) (2025-11-15)
+
+
+### Documentation
+
+* **readme:** replace badgen.net with shields.io status badges ([5f16985](https://github.com/remarkablemark/html-react-parser/commit/5f169856af86b39bd08edebcd8a480f2dd4d70c7))
+
 ## [5.2.8](https://github.com/remarkablemark/html-react-parser/compare/v5.2.7...v5.2.8) (2025-11-04)
 
 
