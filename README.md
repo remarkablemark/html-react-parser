@@ -1,12 +1,12 @@
 # html-react-parser
 
-[![NPM](https://nodei.co/npm/html-react-parser.png)](https://nodei.co/npm/html-react-parser/)
+[![NPM](https://nodei.co/npm/html-react-parser.svg)](https://b.remarkabl.org/html-react-parser)
 
-[![NPM version](https://img.shields.io/npm/v/html-react-parser)](https://www.npmjs.com/package/html-react-parser)
+[![NPM version](https://img.shields.io/npm/v/html-react-parser)](https://b.remarkabl.org/html-react-parser)
 [![NPM bundle size](https://img.shields.io/bundlephobia/minzip/html-react-parser)](https://bundlephobia.com/package/html-react-parser)
 [![build](https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/html-react-parser/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/html-react-parser/branch/master/graph/badge.svg?token=wosFd1DBIR)](https://codecov.io/gh/remarkablemark/html-react-parser)
-[![NPM downloads](https://img.shields.io/npm/dm/html-react-parser)](https://www.npmjs.com/package/html-react-parser)
+[![NPM downloads](https://img.shields.io/npm/dm/html-react-parser)](https://b.remarkabl.org/html-react-parser)
 [![Discord](https://img.shields.io/discord/422421589582282752?logo=discord&logoColor=white&color=%237289da&cacheSeconds=300)](https://b.remarkabl.org/discord)
 
 HTML to React parser that works on both the server (Node.js) and the client (browser):
