@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.11](https://github.com/remarkablemark/html-react-parser/compare/v5.2.10...v5.2.11) (2025-12-20)
+
+
+### Continuous Integration
+
+* **github:** remove npm token and publish with OIDC ([ba9692d](https://github.com/remarkablemark/html-react-parser/commit/ba9692d03001aec8c5bceeace739d9f19e5153b1))
+
 ## [5.2.10](https://github.com/remarkablemark/html-react-parser/compare/v5.2.9...v5.2.10) (2025-11-16)
 
 
