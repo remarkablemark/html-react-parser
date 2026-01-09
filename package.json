@@ -55,8 +55,8 @@
     "style-to-js": "1.1.21"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.3.0",
-    "@commitlint/config-conventional": "20.3.0",
+    "@commitlint/cli": "20.3.1",
+    "@commitlint/config-conventional": "20.3.1",
     "@eslint/compat": "2.0.0",
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
