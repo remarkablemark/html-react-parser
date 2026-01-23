@@ -1,117 +1,107 @@
 # Changelog
 
-## [5.2.11](https://github.com/remarkablemark/html-react-parser/compare/v5.2.10...v5.2.11) (2025-12-20)
+## [5.2.12](https://github.com/remarkablemark/html-react-parser/compare/v5.2.11...v5.2.12) (2026-01-23)
 
+### Performance Improvements
+
+- **deps:** bump html-dom-parser from 5.1.2 to 5.1.4 ([#2084](https://github.com/remarkablemark/html-react-parser/issues/2084)) ([7ebfae1](https://github.com/remarkablemark/html-react-parser/commit/7ebfae18b432811483d645450d41a6b62584d7bc))
+
+## [5.2.11](https://github.com/remarkablemark/html-react-parser/compare/v5.2.10...v5.2.11) (2025-12-20)
 
 ### Continuous Integration
 
-* **github:** remove npm token and publish with OIDC ([ba9692d](https://github.com/remarkablemark/html-react-parser/commit/ba9692d03001aec8c5bceeace739d9f19e5153b1))
+- **github:** remove npm token and publish with OIDC ([ba9692d](https://github.com/remarkablemark/html-react-parser/commit/ba9692d03001aec8c5bceeace739d9f19e5153b1))
 
 ## [5.2.10](https://github.com/remarkablemark/html-react-parser/compare/v5.2.9...v5.2.10) (2025-11-16)
 
-
 ### Build System
 
-* **deps:** bump html-dom-parser from 5.1.1 to 5.1.2 ([#2024](https://github.com/remarkablemark/html-react-parser/issues/2024)) ([9257ca3](https://github.com/remarkablemark/html-react-parser/commit/9257ca3e1abb98101e0e8ca669438e54f3dcf38c))
-* **deps:** bump style-to-js from 1.1.19 to 1.1.21 ([#2023](https://github.com/remarkablemark/html-react-parser/issues/2023)) ([6f68425](https://github.com/remarkablemark/html-react-parser/commit/6f68425cf135793fdaa5ccef9555c570ddf0bace))
+- **deps:** bump html-dom-parser from 5.1.1 to 5.1.2 ([#2024](https://github.com/remarkablemark/html-react-parser/issues/2024)) ([9257ca3](https://github.com/remarkablemark/html-react-parser/commit/9257ca3e1abb98101e0e8ca669438e54f3dcf38c))
+- **deps:** bump style-to-js from 1.1.19 to 1.1.21 ([#2023](https://github.com/remarkablemark/html-react-parser/issues/2023)) ([6f68425](https://github.com/remarkablemark/html-react-parser/commit/6f68425cf135793fdaa5ccef9555c570ddf0bace))
 
 ## [5.2.9](https://github.com/remarkablemark/html-react-parser/compare/v5.2.8...v5.2.9) (2025-11-15)
 
-
 ### Documentation
 
-* **readme:** replace badgen.net with shields.io status badges ([5f16985](https://github.com/remarkablemark/html-react-parser/commit/5f169856af86b39bd08edebcd8a480f2dd4d70c7))
+- **readme:** replace badgen.net with shields.io status badges ([5f16985](https://github.com/remarkablemark/html-react-parser/commit/5f169856af86b39bd08edebcd8a480f2dd4d70c7))
 
 ## [5.2.8](https://github.com/remarkablemark/html-react-parser/compare/v5.2.7...v5.2.8) (2025-11-04)
 
-
 ### Build System
 
-* **deps:** bump style-to-js from 1.1.18 to 1.1.19 ([#2011](https://github.com/remarkablemark/html-react-parser/issues/2011)) ([b1a7f4a](https://github.com/remarkablemark/html-react-parser/commit/b1a7f4a0ed889bc6644fe0ec54f8cca051391d4b))
+- **deps:** bump style-to-js from 1.1.18 to 1.1.19 ([#2011](https://github.com/remarkablemark/html-react-parser/issues/2011)) ([b1a7f4a](https://github.com/remarkablemark/html-react-parser/commit/b1a7f4a0ed889bc6644fe0ec54f8cca051391d4b))
 
 ## [5.2.7](https://github.com/remarkablemark/html-react-parser/compare/v5.2.6...v5.2.7) (2025-10-13)
 
-
 ### Build System
 
-* **deps:** bump style-to-js from 1.1.17 to 1.1.18 ([#1985](https://github.com/remarkablemark/html-react-parser/issues/1985)) ([6a77b03](https://github.com/remarkablemark/html-react-parser/commit/6a77b0370a28dea41315ba39756224cf4231c202))
+- **deps:** bump style-to-js from 1.1.17 to 1.1.18 ([#1985](https://github.com/remarkablemark/html-react-parser/issues/1985)) ([6a77b03](https://github.com/remarkablemark/html-react-parser/commit/6a77b0370a28dea41315ba39756224cf4231c202))
 
 ## [5.2.6](https://github.com/remarkablemark/html-react-parser/compare/v5.2.5...v5.2.6) (2025-07-18)
 
-
 ### Build System
 
-* **deps:** bump style-to-js from 1.1.16 to 1.1.17 ([#1843](https://github.com/remarkablemark/html-react-parser/issues/1843)) ([98cb7b5](https://github.com/remarkablemark/html-react-parser/commit/98cb7b5d4986d52dbb68d7d4fea486e8f2898841))
+- **deps:** bump style-to-js from 1.1.16 to 1.1.17 ([#1843](https://github.com/remarkablemark/html-react-parser/issues/1843)) ([98cb7b5](https://github.com/remarkablemark/html-react-parser/commit/98cb7b5d4986d52dbb68d7d4fea486e8f2898841))
 
 ## [5.2.5](https://github.com/remarkablemark/html-react-parser/compare/v5.2.4...v5.2.5) (2025-05-12)
 
-
 ### Build System
 
-* **deps:** bump html-dom-parser from 5.1.0 to 5.1.1 ([#1795](https://github.com/remarkablemark/html-react-parser/issues/1795)) ([d2fdc58](https://github.com/remarkablemark/html-react-parser/commit/d2fdc5812dcd6c8027704744a03475154ac5722a))
+- **deps:** bump html-dom-parser from 5.1.0 to 5.1.1 ([#1795](https://github.com/remarkablemark/html-react-parser/issues/1795)) ([d2fdc58](https://github.com/remarkablemark/html-react-parser/commit/d2fdc5812dcd6c8027704744a03475154ac5722a))
 
 ## [5.2.4](https://github.com/remarkablemark/html-react-parser/compare/v5.2.3...v5.2.4) (2025-05-09)
 
-
 ### Build System
 
-* **deps:** bump html-dom-parser from 5.0.13 to 5.1.0 ([#1792](https://github.com/remarkablemark/html-react-parser/issues/1792)) ([6b8fa10](https://github.com/remarkablemark/html-react-parser/commit/6b8fa1055033363f8b2ba0fe58229ae2d36f8199))
+- **deps:** bump html-dom-parser from 5.0.13 to 5.1.0 ([#1792](https://github.com/remarkablemark/html-react-parser/issues/1792)) ([6b8fa10](https://github.com/remarkablemark/html-react-parser/commit/6b8fa1055033363f8b2ba0fe58229ae2d36f8199))
 
 ## [5.2.3](https://github.com/remarkablemark/html-react-parser/compare/v5.2.2...v5.2.3) (2025-04-02)
 
-
 ### Documentation
 
-* **readme:** replace legacy React docs site link ([7761bab](https://github.com/remarkablemark/html-react-parser/commit/7761bab5783dcb3b6fc0eb7f7fcefc4d3b8cccc2))
+- **readme:** replace legacy React docs site link ([7761bab](https://github.com/remarkablemark/html-react-parser/commit/7761bab5783dcb3b6fc0eb7f7fcefc4d3b8cccc2))
 
 ## [5.2.2](https://github.com/remarkablemark/html-react-parser/compare/v5.2.1...v5.2.2) (2024-12-25)
 
-
 ### Build System
 
-* **deps:** bump html-dom-parser from 5.0.12 to 5.0.13 ([#1652](https://github.com/remarkablemark/html-react-parser/issues/1652)) ([ff0b897](https://github.com/remarkablemark/html-react-parser/commit/ff0b8970585b17f48af8d352275437b37e5936d7))
+- **deps:** bump html-dom-parser from 5.0.12 to 5.0.13 ([#1652](https://github.com/remarkablemark/html-react-parser/issues/1652)) ([ff0b897](https://github.com/remarkablemark/html-react-parser/commit/ff0b8970585b17f48af8d352275437b37e5936d7))
 
 ## [5.2.1](https://github.com/remarkablemark/html-react-parser/compare/v5.2.0...v5.2.1) (2024-12-16)
 
-
 ### Bug Fixes
 
-* **package:** bump html-dom-parser to 5.0.12 so that `\\r` isn't escaped ([#1642](https://github.com/remarkablemark/html-react-parser/issues/1642)) ([a1ef928](https://github.com/remarkablemark/html-react-parser/commit/a1ef928cbe13768a8460a31386b7676f016ede4c)), closes [#1634](https://github.com/remarkablemark/html-react-parser/issues/1634)
+- **package:** bump html-dom-parser to 5.0.12 so that `\\r` isn't escaped ([#1642](https://github.com/remarkablemark/html-react-parser/issues/1642)) ([a1ef928](https://github.com/remarkablemark/html-react-parser/commit/a1ef928cbe13768a8460a31386b7676f016ede4c)), closes [#1634](https://github.com/remarkablemark/html-react-parser/issues/1634)
 
 ## [5.2.0](https://github.com/remarkablemark/html-react-parser/compare/v5.1.19...v5.2.0) (2024-12-06)
 
-
 ### Features
 
-* **package:** add react 19 to package.json peerDependencies ([8b6506c](https://github.com/remarkablemark/html-react-parser/commit/8b6506cfbacd6fb4987130473258ce3d7c4cb165)), closes [#1455](https://github.com/remarkablemark/html-react-parser/issues/1455) [#1501](https://github.com/remarkablemark/html-react-parser/issues/1501)
+- **package:** add react 19 to package.json peerDependencies ([8b6506c](https://github.com/remarkablemark/html-react-parser/commit/8b6506cfbacd6fb4987130473258ce3d7c4cb165)), closes [#1455](https://github.com/remarkablemark/html-react-parser/issues/1455) [#1501](https://github.com/remarkablemark/html-react-parser/issues/1501)
 
 ## [5.1.19](https://github.com/remarkablemark/html-react-parser/compare/v5.1.18...v5.1.19) (2024-12-04)
 
-
 ### Bug Fixes
 
-* **deps:** bump html-dom-parser from 5.0.10 to 5.0.11 ([#1623](https://github.com/remarkablemark/html-react-parser/issues/1623)) ([f11fa35](https://github.com/remarkablemark/html-react-parser/commit/f11fa354da84551997430e8abed49deaa44b9dd6)), closes [#864](https://github.com/remarkablemark/html-react-parser/issues/864) [#1617](https://github.com/remarkablemark/html-react-parser/issues/1617)
+- **deps:** bump html-dom-parser from 5.0.10 to 5.0.11 ([#1623](https://github.com/remarkablemark/html-react-parser/issues/1623)) ([f11fa35](https://github.com/remarkablemark/html-react-parser/commit/f11fa354da84551997430e8abed49deaa44b9dd6)), closes [#864](https://github.com/remarkablemark/html-react-parser/issues/864) [#1617](https://github.com/remarkablemark/html-react-parser/issues/1617)
 
 ## [5.1.18](https://github.com/remarkablemark/html-react-parser/compare/v5.1.17...v5.1.18) (2024-10-06)
 
-
 ### Bug Fixes
 
-* **deps:** bump style-to-js from 1.1.15 to 1.1.16 ([#1561](https://github.com/remarkablemark/html-react-parser/issues/1561)) ([4892aa2](https://github.com/remarkablemark/html-react-parser/commit/4892aa2d7433977df5f6bf8972e1c5222ecab787))
+- **deps:** bump style-to-js from 1.1.15 to 1.1.16 ([#1561](https://github.com/remarkablemark/html-react-parser/issues/1561)) ([4892aa2](https://github.com/remarkablemark/html-react-parser/commit/4892aa2d7433977df5f6bf8972e1c5222ecab787))
 
 ## [5.1.17](https://github.com/remarkablemark/html-react-parser/compare/v5.1.16...v5.1.17) (2024-10-03)
 
-
 ### Build System
 
-* **deps:** bump style-to-js from 1.1.14 to 1.1.15 ([#1555](https://github.com/remarkablemark/html-react-parser/issues/1555)) ([6aae441](https://github.com/remarkablemark/html-react-parser/commit/6aae441f3ce782c43e155d127da21ca97fcca8a8))
+- **deps:** bump style-to-js from 1.1.14 to 1.1.15 ([#1555](https://github.com/remarkablemark/html-react-parser/issues/1555)) ([6aae441](https://github.com/remarkablemark/html-react-parser/commit/6aae441f3ce782c43e155d127da21ca97fcca8a8))
 
 ## [5.1.16](https://github.com/remarkablemark/html-react-parser/compare/v5.1.15...v5.1.16) (2024-09-11)
 
-
 ### Build System
 
-* **deps:** bump style-to-js from 1.1.13 to 1.1.14 ([#1514](https://github.com/remarkablemark/html-react-parser/issues/1514)) ([e7a1de6](https://github.com/remarkablemark/html-react-parser/commit/e7a1de6bbddb6b43cea2085dc8b50a5557d73663))
+- **deps:** bump style-to-js from 1.1.13 to 1.1.14 ([#1514](https://github.com/remarkablemark/html-react-parser/issues/1514)) ([e7a1de6](https://github.com/remarkablemark/html-react-parser/commit/e7a1de6bbddb6b43cea2085dc8b50a5557d73663))
 
 ## [5.1.15](https://github.com/remarkablemark/html-react-parser/compare/v5.1.14...v5.1.15) (2024-08-29)
 
