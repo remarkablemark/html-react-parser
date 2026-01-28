@@ -27,9 +27,6 @@ updates:
           - '@types/react-dom'
           - react
           - react-dom
-      typescript-eslint:
-        patterns:
-          - '@typescript-eslint/*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
