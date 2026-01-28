@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.14](https://github.com/remarkablemark/html-react-parser/compare/v5.2.13...v5.2.14) (2026-01-28)
+
+
+### Reverts
+
+* downgrade html-dom-parser from 5.1.5 to 5.1.4 ([#2093](https://github.com/remarkablemark/html-react-parser/issues/2093)) ([994cf93](https://github.com/remarkablemark/html-react-parser/commit/994cf93fe6aff14bddfb84d2ae66e5295fa6e724))
+
 ## [5.2.13](https://github.com/remarkablemark/html-react-parser/compare/v5.2.12...v5.2.13) (2026-01-27)
 
 
