@@ -2,7 +2,17 @@
   "name": "html-react-parser",
   "version": "5.2.14",
   "description": "HTML to React parser.",
-  "author": "Mark <mark@remarkablemark.org> (https://remarkablemark.org)",
+  "author": "Mark <mark@remarkablemark.org> (https://remarkabl.org)",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/remarkablemark"
+    },
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/html-react-parser"
+    }
+  ],
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
   "exports": {
