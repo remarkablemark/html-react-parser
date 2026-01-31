@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.15](https://github.com/remarkablemark/html-react-parser/compare/v5.2.14...v5.2.15) (2026-01-31)
+
+
+### Bug Fixes
+
+* **esm:** set explicit file extension for `./lib/utilities` ([d8fd0c5](https://github.com/remarkablemark/html-react-parser/commit/d8fd0c51665fa6698fcbe42a18deffe68bdf1dbe))
+
 ## [5.2.14](https://github.com/remarkablemark/html-react-parser/compare/v5.2.13...v5.2.14) (2026-01-28)
 
 
