@@ -16,6 +16,14 @@ const config: Config = {
       ? [['github-actions', { silent: false }], 'summary']
       : undefined,
   testMatch: ['**/__tests__/**/*.test.ts?(x)'],
+  transform: {
+    '^.+\\.m?[tj]sx?$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.test.json',
+      },
+    ],
+  },
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',

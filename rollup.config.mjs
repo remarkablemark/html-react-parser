@@ -5,7 +5,6 @@ import typescript from '@rollup/plugin-typescript';
 
 const getConfig = (minify = false) => ({
   external: ['react'],
-
   input: 'umd/index.ts',
 
   output: {
@@ -20,11 +19,11 @@ const getConfig = (minify = false) => ({
 
   plugins: [
     typescript({
-      declaration: false,
-      declarationMap: false,
-      module: 'esnext',
       tsconfig: 'tsconfig.build.json',
       compilerOptions: {
+        declaration: false,
+        declarationMap: false,
+        module: 'esnext',
         outDir: 'dist',
       },
     }),
