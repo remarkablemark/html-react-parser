@@ -1,11 +1,11 @@
-name: build
+name: lint
 on: [push, pull_request]
 
 permissions:
   contents: read
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,5 +24,11 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Run benchmark
-        run: npm run benchmark
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run lint:tsc
+
+      - name: Lint package
+        run: npm run lint:package

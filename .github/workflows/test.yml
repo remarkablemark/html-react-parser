@@ -1,11 +1,11 @@
-name: build
+name: test
 on: [push, pull_request]
 
 permissions:
   contents: read
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
-      - name: Build package
-        run: npm run build
+      - name: Run unit tests
+        run: npm run test:ci
 
-      - name: Run benchmark
-        run: npm run benchmark
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Run module tests
+        run: npm run test:esm
+
+      - name: Run integration tests
+        run: npm run test:integration
