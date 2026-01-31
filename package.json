@@ -26,7 +26,7 @@
     }
   },
   "scripts": {
-    "benchmark": "ts-node benchmark",
+    "benchmark": "ts-node --project tsconfig.test.json benchmark",
     "build": "npm run build:cjs && npm run build:umd",
     "build:cjs": "tsc --project tsconfig.build.json",
     "build:umd": "rollup --config --failAfterWarnings",
