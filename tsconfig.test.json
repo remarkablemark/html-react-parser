@@ -1,4 +1,11 @@
 {
   "extends": "./tsconfig.build.json",
-  "include": ["__tests__", "benchmark", "src", "*.mjs", "*.ts"]
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": ["__tests__", "benchmark", "lib", "src", "umd", "*.mjs", "*.ts"]
 }
