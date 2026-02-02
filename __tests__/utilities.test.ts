@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+
 import type { Element } from 'html-dom-parser';
 import * as React from 'react';
 
@@ -29,9 +31,10 @@ describe('isCustomComponent', () => {
 
 describe('PRESERVE_CUSTOM_ATTRIBUTES', () => {
   const isReactGreaterThan15 =
-    parseInt(React.version.match(/^\d./)![0], 10) >= 16;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    parseInt(/^\d./.exec(React.version)![0], 10) >= 16;
 
-  it(`is ${isReactGreaterThan15} when React.version="${React.version}"`, () => {
+  it(`is ${String(isReactGreaterThan15)} when React.version="${React.version}"`, () => {
     expect(PRESERVE_CUSTOM_ATTRIBUTES).toBe(isReactGreaterThan15);
   });
 });

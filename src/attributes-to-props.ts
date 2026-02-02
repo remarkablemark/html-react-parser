@@ -66,7 +66,9 @@ export default function attributesToProps(
     let propName = getPropName(attributeNameLowerCased);
 
     if (propName) {
-      const propertyInfo = getPropertyInfo(propName);
+      const propertyInfo = getPropertyInfo(propName) as
+        | { type: number }
+        | undefined;
 
       // convert attribute to uncontrolled component prop (e.g., `value` to `defaultValue`)
       if (
@@ -74,7 +76,7 @@ export default function attributesToProps(
           propName as UncontrolledComponentAttributes,
         ) &&
         UNCONTROLLED_COMPONENT_NAMES.includes(
-          nodeName! as UncontrolledComponentNames,
+          nodeName as UncontrolledComponentNames,
         ) &&
         !isInputValueOnly
       ) {
@@ -83,7 +85,7 @@ export default function attributesToProps(
 
       props[propName] = attributeValue;
 
-      switch (propertyInfo && propertyInfo.type) {
+      switch (propertyInfo?.type) {
         case BOOLEAN:
           props[propName] = true;
           break;

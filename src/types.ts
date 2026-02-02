@@ -29,12 +29,14 @@ export interface HTMLReactParserOptions {
   replace?: (
     domNode: DOMNode,
     index: number,
+    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   ) => JSX.Element | string | null | boolean | object | void;
 
   transform?: (
     reactNode: ReactNode,
     domNode: DOMNode,
     index: number,
+    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   ) => JSX.Element | string | null | void;
 
   trim?: boolean;
