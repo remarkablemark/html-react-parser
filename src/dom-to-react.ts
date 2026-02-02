@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-enum-comparison */
+
 import type { DOMNode, Element, Text } from 'html-dom-parser';
 import type { JSX } from 'react';
 import { cloneElement, createElement, isValidElement } from 'react';
@@ -30,12 +32,12 @@ export default function domToReact(
   nodes: DOMNode[],
   options: HTMLReactParserOptions = {},
 ): string | JSX.Element | JSX.Element[] {
-  const reactElements = [];
+  const reactElements: JSX.Element[] = [];
 
   const hasReplace = typeof options.replace === 'function';
-  const transform = options.transform || returnFirstArg;
+  const transform = options.transform ?? returnFirstArg;
   const { cloneElement, createElement, isValidElement } =
-    options.library || React;
+    options.library ?? React;
 
   const nodesLength = nodes.length;
 
@@ -44,18 +46,21 @@ export default function domToReact(
 
     // replace with custom React element (if present)
     if (hasReplace) {
-      let replaceElement = options.replace!(node, index) as JSX.Element;
+      let replaceElement = options.replace?.(node, index) as JSX.Element;
 
       if (isValidElement(replaceElement)) {
         // set "key" prop for sibling elements
         // https://react.dev/learn/rendering-lists#rules-of-keys
         if (nodesLength > 1) {
           replaceElement = cloneElement(replaceElement, {
-            key: replaceElement.key || index,
+            key: replaceElement.key ?? index,
           });
         }
 
-        reactElements.push(transform(replaceElement, node, index));
+        reactElements.push(
+          transform(replaceElement, node, index) as JSX.Element,
+        );
+
         continue;
       }
     }
@@ -81,7 +86,7 @@ export default function domToReact(
 
       // We have a text node that's not whitespace and it can be nested
       // in its parent so add it to the results
-      reactElements.push(transform(node.data, node, index));
+      reactElements.push(transform(node.data, node, index) as JSX.Element);
       continue;
     }
 
@@ -91,6 +96,7 @@ export default function domToReact(
     if (skipAttributesToProps(element)) {
       setStyleProp(element.attribs.style, element.attribs);
       props = element.attribs;
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     } else if (element.attribs) {
       props = attributesToProps(element.attribs, element.name);
     }
@@ -114,7 +120,8 @@ export default function domToReact(
         // https://react.dev/reference/react-dom/components/textarea#caveats
         if (node.name === 'textarea' && node.children[0]) {
           props.defaultValue = (node.children[0] as Text).data;
-        } else if (node.children && node.children.length) {
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        } else if (node.children?.length) {
           // continue recursion of creating React elements (if applicable)
           children = domToReact(node.children as Text[], options);
         }
@@ -132,7 +139,11 @@ export default function domToReact(
     }
 
     reactElements.push(
-      transform(createElement(node.name, props, children), node, index),
+      transform(
+        createElement(node.name, props, children),
+        node,
+        index,
+      ) as JSX.Element,
     );
   }
 

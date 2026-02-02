@@ -16,7 +16,8 @@ suite
     parse(html.complex);
   })
   .on('cycle', (event: Benchmark.Event) => {
-    process.stdout.write(String(event.target) + '\n');
+    // eslint-disable-next-line no-console, @typescript-eslint/no-base-to-string
+    console.log(String(event.target));
   })
   .run({
     minSamples: 100,

@@ -19,6 +19,7 @@ describe('index', () => {
   });
 
   it('parses HTML to React element', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     assert.ok(isValidElement(parse('<p>text</p>')));
   });
 

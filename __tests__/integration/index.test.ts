@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const paths = ['dist/html-react-parser.min.js', 'dist/html-react-parser.js'];
 
 describe.each(paths)('UMD %s', (type) => {

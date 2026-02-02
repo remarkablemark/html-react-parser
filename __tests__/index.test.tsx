@@ -1,6 +1,5 @@
 import * as domhandler from 'domhandler';
 import type { Element } from 'html-dom-parser';
-import type { JSX } from 'react';
 
 import * as HTMLReactParser from '../src';
 import parse from '../src';
@@ -31,6 +30,7 @@ describe('module', () => {
 });
 
 describe('HTMLReactParser', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   it.each([undefined, null, {}, [], true, false, 0, 1, () => {}, new Date()])(
     'throws error for value: %p',
     (value) => {
@@ -110,7 +110,10 @@ describe('HTMLReactParser', () => {
   it('decodes HTML entities', () => {
     const encodedEntities = 'asdf &amp; &yuml; &uuml; &apos;';
     const decodedEntities = "asdf & ÿ ü '";
-    const reactElement = parse('<i>' + encodedEntities + '</i>') as JSX.Element;
+    const reactElement = parse(
+      '<i>' + encodedEntities + '</i>',
+    ) as React.JSX.Element;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(reactElement.props.children).toBe(decodedEntities);
   });
 
@@ -136,6 +139,7 @@ describe('replace option', () => {
     expect(
       parse(html.complex, {
         replace(domNode) {
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if ((domNode as Element).attribs?.id === 'header') {
             return {
               type: 'h1',
@@ -149,6 +153,7 @@ describe('replace option', () => {
 });
 
 describe('library option', () => {
+  /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
   const Preact = require('preact');
   const React = require('react');
 
@@ -162,6 +167,7 @@ describe('library option', () => {
     delete parsedElement.__v;
     delete preactElement.__v;
     expect(parsedElement).toEqual(preactElement);
+    /* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
   });
 });
 
@@ -182,7 +188,7 @@ describe('trim option', () => {
     <tr><td>hello</td><td>\n</td><td>&nbsp;</td>\t</tr>\r
   </tbody>
 </table>`;
-    const reactElement = parse(html) as JSX.Element;
+    const reactElement = parse(html) as React.JSX.Element;
     expect(render(reactElement)).toBe(
       '<table><tbody><tr><td>hello</td><td>\n</td><td>\u00a0</td></tr></tbody></table>',
     );
@@ -193,7 +199,7 @@ describe('trim option', () => {
     const html = `<table>
       <tbody><tr><td> text </td><td> </td>\t</tr>\r</tbody>\n</table>`;
     const options = { trim: true };
-    const reactElement = parse(html, options) as JSX.Element;
+    const reactElement = parse(html, options) as React.JSX.Element;
     expect(render(reactElement)).toBe(
       '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>',
     );
@@ -203,7 +209,7 @@ describe('trim option', () => {
 describe('invalid styles', () => {
   it('copes with invalid styles', () => {
     const html = '<p style="font - size: 1em">X</p>';
-    const reactElement = parse(html) as JSX.Element;
+    const reactElement = parse(html) as React.JSX.Element;
     expect(render(reactElement)).toBe('<p>X</p>');
   });
 });

@@ -52,6 +52,7 @@ describe('domToReact', () => {
 
   it('does not have `children` for void elements', () => {
     const reactElement = domToReact(htmlToDOM(html.img)) as React.JSX.Element;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(reactElement.props.children).toBe(undefined);
   });
 
@@ -87,6 +88,7 @@ describe('domToReact', () => {
   });
 });
 
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 describe('library option', () => {
   const React = require('react');
   const Preact = require('preact');
@@ -112,6 +114,7 @@ describe('library option', () => {
     expect(parsedElement).toEqual(preactElement);
   });
 });
+/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
 describe('replace option', () => {
   it.each([undefined, null, 0, 1, true, false, {}])(
@@ -191,7 +194,9 @@ describe('transform option', () => {
     }) as React.JSX.Element;
 
     expect(reactElement.key).toBe('0');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(reactElement.props.children.props.children[0].key).toBe('0');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(reactElement.props.children.props.children[1].key).toBe('1');
     expect(reactElement).toMatchSnapshot();
   });
