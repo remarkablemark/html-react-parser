@@ -14,7 +14,5 @@ export default defineConfig({
       },
     },
     include: ['__tests__/**/*.test.ts?(x)'],
-    reporters:
-      process.env.CI === 'true' ? ['default', 'github-actions'] : ['default'],
   },
 });
