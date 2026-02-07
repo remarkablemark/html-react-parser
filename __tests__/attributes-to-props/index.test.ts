@@ -1,5 +1,6 @@
-import attributesToProps, { type Attributes } from '../src/attributes-to-props';
-import * as utilities from '../src/utilities';
+import attributesToProps, {
+  type Attributes,
+} from '../../src/attributes-to-props';
 
 it('returns empty object is argument is undefined', () => {
   expect(attributesToProps()).toEqual({});
@@ -351,26 +352,5 @@ describe('attributesToProps with custom attribute', () => {
         "valueOf": "",
       }
     `);
-  });
-});
-
-describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
-  const emptyProps = {};
-
-  beforeAll(() => {
-    vi.spyOn(utilities, 'PRESERVE_CUSTOM_ATTRIBUTES', 'get').mockReturnValue(
-      false,
-    );
-  });
-
-  afterAll(() => {
-    vi.restoreAllMocks();
-  });
-
-  it('omits unknown attributes', () => {
-    const attributes = {
-      unknownAttribute: 'someValue',
-    };
-    expect(attributesToProps(attributes)).toEqual(emptyProps);
   });
 });

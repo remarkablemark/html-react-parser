@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`domToReact > when React version is 15 > removes unknown attributes 1`] = `
+<custom-element
+  className="myClass"
+  style={
+    {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
+/>
+`;

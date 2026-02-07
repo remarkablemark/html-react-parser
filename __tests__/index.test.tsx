@@ -153,21 +153,23 @@ describe('replace option', () => {
 });
 
 describe('library option', () => {
-  /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
-  const Preact = require('preact');
-  const React = require('react');
+  it('converts with Preact instead of React', async () => {
+    const Preact = await import('preact');
+    const React = await import('react');
 
-  it('converts with Preact instead of React', () => {
     const parsedElement = parse(html.single, { library: Preact });
     const preactElement = Preact.createElement('p', {}, 'foo');
+
     expect(React.isValidElement(parsedElement)).toBe(false);
     expect(Preact.isValidElement(parsedElement)).toBe(true);
+
     // remove `__v` key since it's causing test equality to fail
     // @ts-expect-error Property '__v' does not exist on type 'string | Element | Element[]'. Property '__v' does not exist on type 'string'.
     delete parsedElement.__v;
+    // @ts-expect-error Property '__v' does not exist on type 'VNode<ClassAttributes<HTMLElement>>'.
     delete preactElement.__v;
+
     expect(parsedElement).toEqual(preactElement);
-    /* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
   });
 });
 
@@ -178,31 +180,6 @@ describe('htmlparser2 option', () => {
     // enabling htmlparser2 option xmlMode resolves this issue
     const options = { htmlparser2: { xmlMode: true } };
     expect(parse('<ul><li/><li/></ul>', options)).toMatchSnapshot();
-  });
-});
-
-describe('trim option', () => {
-  it('preserves whitespace text nodes when disabled if valid in parent (default)', () => {
-    const html = `<table>
-  <tbody>
-    <tr><td>hello</td><td>\n</td><td>&nbsp;</td>\t</tr>\r
-  </tbody>
-</table>`;
-    const reactElement = parse(html) as React.JSX.Element;
-    expect(render(reactElement)).toBe(
-      '<table><tbody><tr><td>hello</td><td>\n</td><td>\u00a0</td></tr></tbody></table>',
-    );
-    expect(reactElement).toMatchSnapshot();
-  });
-
-  it('removes whitespace text nodes when enabled', () => {
-    const html = `<table>
-      <tbody><tr><td> text </td><td> </td>\t</tr>\r</tbody>\n</table>`;
-    const options = { trim: true };
-    const reactElement = parse(html, options) as React.JSX.Element;
-    expect(render(reactElement)).toBe(
-      '<table><tbody><tr><td> text </td><td></td></tr></tbody></table>',
-    );
   });
 });
 
