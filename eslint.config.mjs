@@ -57,8 +57,6 @@ export default defineConfig([
     },
   },
 
-  tseslint.configs.recommended,
-
   {
     files: ['__tests__/**'],
 
