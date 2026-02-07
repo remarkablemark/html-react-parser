@@ -355,17 +355,16 @@ describe('attributesToProps with custom attribute', () => {
 });
 
 describe('utilities.PRESERVE_CUSTOM_ATTRIBUTES=false', () => {
-  const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
   const emptyProps = {};
 
   beforeAll(() => {
-    // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
-    utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+    vi.spyOn(utilities, 'PRESERVE_CUSTOM_ATTRIBUTES', 'get').mockReturnValue(
+      false,
+    );
   });
 
   afterAll(() => {
-    // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
-    utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+    vi.restoreAllMocks();
   });
 
   it('omits unknown attributes', () => {

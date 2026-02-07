@@ -4,8 +4,18 @@
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
+    "types": ["vitest/globals"],
     "noEmit": true,
     "allowJs": true
   },
-  "include": ["__tests__", "benchmark", "lib", "src", "umd", "*.mjs", "*.ts"]
+  "include": [
+    "__tests__",
+    "benchmark",
+    "lib",
+    "src",
+    "umd",
+    "*.mjs",
+    "*.mts",
+    "*.ts"
+  ]
 }

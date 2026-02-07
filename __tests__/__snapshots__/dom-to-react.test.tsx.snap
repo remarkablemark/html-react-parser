@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`domToReact converts <textarea> correctly 1`] = `
+exports[`domToReact > converts <textarea> correctly 1`] = `
 <textarea
   defaultValue="foo"
 />
 `;
 
-exports[`domToReact converts LaTeX 1`] = `
+exports[`domToReact > converts LaTeX 1`] = `
 [
   <span
     className="math"
@@ -18,7 +18,7 @@ exports[`domToReact converts LaTeX 1`] = `
 ]
 `;
 
-exports[`domToReact converts SVG element with viewBox attribute 1`] = `
+exports[`domToReact > converts SVG element with viewBox attribute 1`] = `
 <svg
   id="foo"
   viewBox="0 0 512 512"
@@ -27,7 +27,7 @@ exports[`domToReact converts SVG element with viewBox attribute 1`] = `
 </svg>
 `;
 
-exports[`domToReact converts custom element with attributes 1`] = `
+exports[`domToReact > converts custom element with attributes 1`] = `
 <custom-element
   class="myClass"
   custom-attribute="value"
@@ -40,7 +40,7 @@ exports[`domToReact converts custom element with attributes 1`] = `
 />
 `;
 
-exports[`domToReact converts multiple DOM nodes to React 1`] = `
+exports[`domToReact > converts multiple DOM nodes to React 1`] = `
 [
   <p>
     foo
@@ -51,13 +51,13 @@ exports[`domToReact converts multiple DOM nodes to React 1`] = `
 ]
 `;
 
-exports[`domToReact converts single DOM node to React 1`] = `
+exports[`domToReact > converts single DOM node to React 1`] = `
 <p>
   foo
 </p>
 `;
 
-exports[`domToReact does not escape <script> content 1`] = `
+exports[`domToReact > does not escape <script> content 1`] = `
 <script
   dangerouslySetInnerHTML={
     {
@@ -67,7 +67,7 @@ exports[`domToReact does not escape <script> content 1`] = `
 />
 `;
 
-exports[`domToReact does not escape <style> content 1`] = `
+exports[`domToReact > does not escape <style> content 1`] = `
 <style
   dangerouslySetInnerHTML={
     {
@@ -77,7 +77,7 @@ exports[`domToReact does not escape <style> content 1`] = `
 />
 `;
 
-exports[`domToReact skips doctype and comments 1`] = `
+exports[`domToReact > skips doctype and comments 1`] = `
 [
   <p>
     foo
@@ -88,7 +88,7 @@ exports[`domToReact skips doctype and comments 1`] = `
 ]
 `;
 
-exports[`domToReact when React <16 removes unknown attributes 1`] = `
+exports[`domToReact > when React <16 > removes unknown attributes 1`] = `
 <custom-element
   className="myClass"
   style={
@@ -100,7 +100,7 @@ exports[`domToReact when React <16 removes unknown attributes 1`] = `
 />
 `;
 
-exports[`domToReact when React >=16 preserves unknown attributes 1`] = `
+exports[`domToReact > when React >=16 > preserves unknown attributes 1`] = `
 <custom-element
   class="myClass"
   custom-attribute="value"
@@ -113,7 +113,7 @@ exports[`domToReact when React >=16 preserves unknown attributes 1`] = `
 />
 `;
 
-exports[`transform option can wrap all elements 1`] = `
+exports[`transform option > can wrap all elements 1`] = `
 <div>
   <ol>
     <div>

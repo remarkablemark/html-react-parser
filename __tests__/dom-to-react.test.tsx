@@ -211,16 +211,14 @@ describe('domToReact', () => {
   });
 
   describe('when React <16', () => {
-    const { PRESERVE_CUSTOM_ATTRIBUTES } = utilities;
-
     beforeAll(() => {
-      // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = false;
+      vi.spyOn(utilities, 'PRESERVE_CUSTOM_ATTRIBUTES', 'get').mockReturnValue(
+        false,
+      );
     });
 
     afterAll(() => {
-      // @ts-expect-error Cannot assign to 'PRESERVE_CUSTOM_ATTRIBUTES' because it is a read-only property.
-      utilities.PRESERVE_CUSTOM_ATTRIBUTES = PRESERVE_CUSTOM_ATTRIBUTES;
+      vi.restoreAllMocks();
     });
 
     it('removes unknown attributes', () => {

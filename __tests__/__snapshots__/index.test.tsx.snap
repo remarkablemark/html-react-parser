@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`HTMLReactParser escapes tags inside of <title> 1`] = `
+exports[`HTMLReactParser > escapes tags inside of <title> 1`] = `
 <title>
   &lt;em&gt;text&lt;/em&gt;
 </title>
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 1`] = `
+exports[`HTMLReactParser > parses HTML with newlines 1`] = `
 [
   "
 ",
@@ -14,7 +14,7 @@ exports[`HTMLReactParser parses HTML with newlines 1`] = `
 ]
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 2`] = `
+exports[`HTMLReactParser > parses HTML with newlines 2`] = `
 [
   <br />,
   "
@@ -22,7 +22,7 @@ exports[`HTMLReactParser parses HTML with newlines 2`] = `
 ]
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 3`] = `
+exports[`HTMLReactParser > parses HTML with newlines 3`] = `
 [
   "
 ",
@@ -32,14 +32,14 @@ exports[`HTMLReactParser parses HTML with newlines 3`] = `
 ]
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 4`] = `
+exports[`HTMLReactParser > parses HTML with newlines 4`] = `
 <p>
   foo
 bar
 </p>
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 5`] = `
+exports[`HTMLReactParser > parses HTML with newlines 5`] = `
 [
   <p>
     foo
@@ -49,7 +49,7 @@ bar",
 ]
 `;
 
-exports[`HTMLReactParser parses HTML with newlines 6`] = `
+exports[`HTMLReactParser > parses HTML with newlines 6`] = `
 [
   "foo",
   <p>
@@ -62,7 +62,7 @@ bar
 ]
 `;
 
-exports[`HTMLReactParser parses SVG 1`] = `
+exports[`HTMLReactParser > parses SVG 1`] = `
 <svg
   height="400"
   width="450"
@@ -105,7 +105,7 @@ exports[`HTMLReactParser parses SVG 1`] = `
 </svg>
 `;
 
-exports[`HTMLReactParser parses complex HTML with doctype 1`] = `
+exports[`HTMLReactParser > parses complex HTML with doctype 1`] = `
 <html>
   <head>
     <meta
@@ -162,11 +162,11 @@ exports[`HTMLReactParser parses complex HTML with doctype 1`] = `
 </html>
 `;
 
-exports[`HTMLReactParser parses empty <script> 1`] = `<script />`;
+exports[`HTMLReactParser > parses empty <script> 1`] = `<script />`;
 
-exports[`HTMLReactParser parses empty <style> 1`] = `<style />`;
+exports[`HTMLReactParser > parses empty <style> 1`] = `<style />`;
 
-exports[`HTMLReactParser parses form 1`] = `
+exports[`HTMLReactParser > parses form 1`] = `
 <input
   defaultChecked={true}
   defaultValue="foo"
@@ -174,7 +174,7 @@ exports[`HTMLReactParser parses form 1`] = `
 />
 `;
 
-exports[`HTMLReactParser parses list 1`] = `
+exports[`HTMLReactParser > parses list 1`] = `
 <ol>
   <li>
     One
@@ -187,7 +187,7 @@ exports[`HTMLReactParser parses list 1`] = `
 </ol>
 `;
 
-exports[`HTMLReactParser parses multiple HTML elements 1`] = `
+exports[`HTMLReactParser > parses multiple HTML elements 1`] = `
 [
   <p>
     foo
@@ -198,19 +198,19 @@ exports[`HTMLReactParser parses multiple HTML elements 1`] = `
 ]
 `;
 
-exports[`HTMLReactParser parses single HTML element 1`] = `
+exports[`HTMLReactParser > parses single HTML element 1`] = `
 <p>
   foo
 </p>
 `;
 
-exports[`HTMLReactParser parses single HTML element with comment 1`] = `
+exports[`HTMLReactParser > parses single HTML element with comment 1`] = `
 <p>
   foo
 </p>
 `;
 
-exports[`HTMLReactParser parses template 1`] = `
+exports[`HTMLReactParser > parses template 1`] = `
 <template>
   <article>
     <p>
@@ -220,14 +220,14 @@ exports[`HTMLReactParser parses template 1`] = `
 </template>
 `;
 
-exports[`htmlparser2 option parses XHTML with xmlMode enabled 1`] = `
+exports[`htmlparser2 option > parses XHTML with xmlMode enabled 1`] = `
 <ul>
   <li />
   <li />
 </ul>
 `;
 
-exports[`replace option does not replace the element if an invalid React element is returned 1`] = `
+exports[`replace option > does not replace the element if an invalid React element is returned 1`] = `
 <html>
   <head>
     <meta
@@ -284,7 +284,7 @@ exports[`replace option does not replace the element if an invalid React element
 </html>
 `;
 
-exports[`replace option replaces the element if a valid React element is returned 1`] = `
+exports[`replace option > replaces the element if a valid React element is returned 1`] = `
 <html>
   <head>
     <meta
@@ -341,7 +341,7 @@ exports[`replace option replaces the element if a valid React element is returne
 </html>
 `;
 
-exports[`trim option preserves whitespace text nodes when disabled if valid in parent (default) 1`] = `
+exports[`trim option > preserves whitespace text nodes when disabled if valid in parent (default) 1`] = `
 <table>
   <tbody>
     <tr>
