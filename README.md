@@ -614,9 +614,9 @@ npm run benchmark
 Output of benchmark run on MacBook Pro 2024:
 
 ```
-html-to-react - Single x 1,230,874 ops/sec ±0.21% (97 runs sampled)
-html-to-react - Multiple x 502,028 ops/sec ±0.89% (94 runs sampled)
-html-to-react - Complex x 54,401 ops/sec ±0.76% (93 runs sampled)
+html-to-react - Single x 1,270,990 ops/sec ±0.21% (100 runs sampled)
+html-to-react - Multiple x 522,472 ops/sec ±0.64% (94 runs sampled)
+html-to-react - Complex x 54,028 ops/sec ±0.82% (98 runs sampled)
 ```
 
 Run [Size Limit](https://github.com/ai/size-limit):
