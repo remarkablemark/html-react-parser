@@ -2,8 +2,8 @@
 
 const paths = ['dist/html-react-parser.min.js', 'dist/html-react-parser.js'];
 
-describe.each(paths)('UMD %s', (type) => {
-  const parse = require(`../../${type}`);
+describe.each(paths)('UMD %s', async (type) => {
+  const parse = await import(`../../${type}`);
 
   it('exports default', () => {
     expect(parse.default).toBeInstanceOf(Function);

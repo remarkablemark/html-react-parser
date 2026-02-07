@@ -340,22 +340,3 @@ exports[`replace option > replaces the element if a valid React element is retur
   </body>
 </html>
 `;
-
-exports[`trim option > preserves whitespace text nodes when disabled if valid in parent (default) 1`] = `
-<table>
-  <tbody>
-    <tr>
-      <td>
-        hello
-      </td>
-      <td>
-        
-
-      </td>
-      <td>
-         
-      </td>
-    </tr>
-  </tbody>
-</table>
-`;

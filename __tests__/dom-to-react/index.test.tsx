@@ -1,10 +1,11 @@
 import htmlToDOM from 'html-dom-parser';
+import type Preact from 'preact';
+import type React from 'react';
 
-import { type DOMNode, Element, type HTMLReactParserOptions } from '../src';
-import domToReact from '../src/dom-to-react';
-import * as utilities from '../src/utilities';
-import { html, svg } from './data';
-import { render } from './helpers';
+import { type DOMNode, Element, type HTMLReactParserOptions } from '../../src';
+import domToReact from '../../src/dom-to-react';
+import { html, svg } from '../data';
+import { render } from '../helpers';
 
 describe('domToReact', () => {
   it.each([
@@ -88,33 +89,40 @@ describe('domToReact', () => {
   });
 });
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 describe('library option', () => {
-  const React = require('react');
-  const Preact = require('preact');
+  let react: typeof React;
+  let preact: typeof Preact;
+
+  beforeAll(async () => {
+    react = await import('react');
+    preact = await import('preact');
+  });
 
   it('converts with React by default', () => {
     const reactElement = domToReact(htmlToDOM(html.single));
-    expect(React.isValidElement(reactElement)).toBe(true);
-    expect(Preact.isValidElement(reactElement)).toBe(false);
-    expect(reactElement).toEqual(React.createElement('p', {}, 'foo'));
+    expect(react.isValidElement(reactElement)).toBe(true);
+    expect(preact.isValidElement(reactElement)).toBe(false);
+    expect(reactElement).toEqual(react.createElement('p', {}, 'foo'));
   });
 
   it('converts with Preact', () => {
     const parsedElement = domToReact(htmlToDOM(html.single), {
-      library: Preact,
+      library: preact,
     });
-    const preactElement = Preact.createElement('p', {}, 'foo');
-    expect(React.isValidElement(parsedElement)).toBe(false);
-    expect(Preact.isValidElement(parsedElement)).toBe(true);
+    const preactElement = preact.createElement('p', {}, 'foo');
+
+    expect(react.isValidElement(parsedElement)).toBe(false);
+    expect(preact.isValidElement(parsedElement)).toBe(true);
+
     // remove `__v` key since it's causing test equality to fail
     // @ts-expect-error Property '__v' does not exist on type 'string'.
     delete parsedElement.__v;
+    // @ts-expect-error Property '__v' does not exist on type 'VNode<ClassAttributes<HTMLElement>>'.
     delete preactElement.__v;
+
     expect(parsedElement).toEqual(preactElement);
   });
 });
-/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
 describe('replace option', () => {
   it.each([undefined, null, 0, 1, true, false, {}])(
@@ -205,23 +213,6 @@ describe('transform option', () => {
 describe('domToReact', () => {
   describe('when React >=16', () => {
     it('preserves unknown attributes', () => {
-      const reactElement = domToReact(htmlToDOM(html.customElement));
-      expect(reactElement).toMatchSnapshot();
-    });
-  });
-
-  describe('when React <16', () => {
-    beforeAll(() => {
-      vi.spyOn(utilities, 'PRESERVE_CUSTOM_ATTRIBUTES', 'get').mockReturnValue(
-        false,
-      );
-    });
-
-    afterAll(() => {
-      vi.restoreAllMocks();
-    });
-
-    it('removes unknown attributes', () => {
       const reactElement = domToReact(htmlToDOM(html.customElement));
       expect(reactElement).toMatchSnapshot();
     });

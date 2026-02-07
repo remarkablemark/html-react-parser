@@ -39,10 +39,11 @@
     "prepublishOnly": "npm run build && npm run lint && npm run lint:tsc && npm run lint:package && npm run test:ci",
     "size-limit": "size-limit",
     "test": "vitest run --exclude=__tests__/integration/",
+    "test:browser": "npm test -- --config=vitest.config.browser.mts --browser=chromium",
     "test:ci": "CI=true npm test -- --color",
     "test:esm": "npm run build:cjs && node --test __tests__/esm/*",
     "test:integration": "npm run build && vitest run __tests__/integration/ --coverage.enabled=false",
-    "test:watch": "vitest --coverage.enabled=false"
+    "test:watch": "vitest --exclude=__tests__/integration/ --coverage.enabled=false"
   },
   "repository": {
     "type": "git",
@@ -79,6 +80,7 @@
     "@types/node": "25.2.1",
     "@types/react": "19.2.13",
     "@types/react-dom": "19.2.3",
+    "@vitest/browser": "3.1.1",
     "@vitest/coverage-v8": "3.1.1",
     "benchmark": "2.1.4",
     "eslint": "9.39.2",
@@ -88,6 +90,7 @@
     "globals": "17.3.0",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
+    "playwright": "1.58.2",
     "preact": "10.28.3",
     "publint": "0.3.17",
     "react": "19.2.4",

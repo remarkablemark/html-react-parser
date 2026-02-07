@@ -1,0 +1,125 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`domToReact > converts <textarea> correctly 1`] = `
+<textarea
+  defaultValue="foo"
+/>
+`;
+
+exports[`domToReact > converts LaTeX 1`] = `
+[
+  <span
+    className="math"
+  >
+    \\left(\\right)\\rD\\rightarrow\\reals\\ni
+  </span>,
+  "
+",
+]
+`;
+
+exports[`domToReact > converts SVG element with viewBox attribute 1`] = `
+<svg
+  id="foo"
+  viewBox="0 0 512 512"
+>
+  Inner
+</svg>
+`;
+
+exports[`domToReact > converts custom element with attributes 1`] = `
+<custom-element
+  class="myClass"
+  custom-attribute="value"
+  style={
+    {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
+/>
+`;
+
+exports[`domToReact > converts multiple DOM nodes to React 1`] = `
+[
+  <p>
+    foo
+  </p>,
+  <p>
+    bar
+  </p>,
+]
+`;
+
+exports[`domToReact > converts single DOM node to React 1`] = `
+<p>
+  foo
+</p>
+`;
+
+exports[`domToReact > does not escape <script> content 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    {
+      "__html": "alert(1 < 2);",
+    }
+  }
+/>
+`;
+
+exports[`domToReact > does not escape <style> content 1`] = `
+<style
+  dangerouslySetInnerHTML={
+    {
+      "__html": "body > .foo { color: #f00; }",
+    }
+  }
+/>
+`;
+
+exports[`domToReact > skips doctype and comments 1`] = `
+[
+  <p>
+    foo
+  </p>,
+  <p>
+    foo
+  </p>,
+]
+`;
+
+exports[`domToReact > when React >=16 > preserves unknown attributes 1`] = `
+<custom-element
+  class="myClass"
+  custom-attribute="value"
+  style={
+    {
+      "OTransition": "all .5s",
+      "lineHeight": "1",
+    }
+  }
+/>
+`;
+
+exports[`transform option > can wrap all elements 1`] = `
+<div>
+  <ol>
+    <div>
+      <li>
+        <div>
+          One
+        </div>
+      </li>
+    </div>
+    <div>
+      <li
+        value="2"
+      >
+        <div>
+          Two
+        </div>
+      </li>
+    </div>
+  </ol>
+</div>
+`;
