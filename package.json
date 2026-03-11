@@ -90,7 +90,7 @@
     "eslint-plugin-tsdoc": "0.5.0",
     "globals": "17.4.0",
     "husky": "9.1.7",
-    "lint-staged": "16.3.2",
+    "lint-staged": "16.3.3",
     "playwright": "1.58.2",
     "preact": "10.28.4",
     "publint": "0.3.18",
