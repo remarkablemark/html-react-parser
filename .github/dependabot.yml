@@ -24,6 +24,10 @@ updates:
           - '@types/react-dom'
           - react
           - react-dom
+      vitest:
+        patterns:
+          - '@vitest/*'
+          - vitest
 
   - package-ecosystem: 'github-actions'
     directory: '/'
