@@ -1,8 +1,7 @@
 name: build
 on: [push, pull_request]
 
-permissions:
-  contents: read
+permissions: read-all
 
 jobs:
   build:

@@ -1,12 +1,14 @@
 name: Assign Reviewer
 on: pull_request_target
 
-permissions:
-  pull-requests: write
+permissions: read-all
 
 jobs:
   assign-reviewer:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
     steps:
       - name: Assign reviewer
         if: >

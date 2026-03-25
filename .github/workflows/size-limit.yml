@@ -4,14 +4,15 @@ on:
     branches:
       - master
 
-permissions:
-  pull-requests: write
+permissions: read-all
 
 jobs:
   size:
     runs-on: ubuntu-latest
     env:
       CI_JOB_NUMBER: 1
+    permissions:
+      pull-requests: write
 
     steps:
       - name: Checkout repository

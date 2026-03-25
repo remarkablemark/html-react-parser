@@ -4,6 +4,8 @@ on:
     branches:
       - master
 
+permissions: read-all
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -25,7 +27,6 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     permissions:
-      contents: read
       id-token: write
 
     steps:
