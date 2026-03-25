@@ -12,8 +12,7 @@ jobs:
     steps:
       - name: Assign reviewer
         if: >
-          github.actor != 'dependabot[bot]'
-          && startsWith(github.event.pull_request.title, 'build(deps-dev): bump ') == false
+          startsWith(github.event.pull_request.title, 'build(deps-dev): bump ') == false
           && contains(github.event.action, 'opened')
         run: >
           gh pr edit ${{ github.event.pull_request.html_url }}
