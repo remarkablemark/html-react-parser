@@ -24,6 +24,7 @@ const getConfig = (minify = false) => ({
         declaration: false,
         declarationMap: false,
         module: 'esnext',
+        moduleResolution: 'bundler',
         outDir: 'dist',
       },
     }),
