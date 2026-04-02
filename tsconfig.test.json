@@ -6,7 +6,8 @@
     "moduleResolution": "nodenext",
     "types": ["vitest/globals"],
     "noEmit": true,
-    "allowJs": true
+    "allowJs": true,
+    "rootDir": "."
   },
   "include": [
     "__tests__",
