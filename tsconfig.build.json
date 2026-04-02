@@ -8,6 +8,7 @@
     "declarationMap": true,
     "sourceMap": true,
     "strict": true,
+    "skipLibCheck": true,
     "outDir": "lib",
     "jsx": "react-jsx"
   },
