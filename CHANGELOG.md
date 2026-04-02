@@ -1,5 +1,20 @@
 # Changelog
 
+## [6.0.0](https://github.com/remarkablemark/html-react-parser/compare/v5.2.17...v6.0.0) (2026-04-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** bump html-dom-parser from 5.1.8 to 7.0.0
+* **deps:** bump domhandler from 5.0.3 to 6.0.1
+* **tsconfig:** change build target from `es5` to `es2016`
+
+### Build System
+
+* **deps:** bump domhandler from 5.0.3 to 6.0.1 ([#2163](https://github.com/remarkablemark/html-react-parser/issues/2163)) ([c3d3092](https://github.com/remarkablemark/html-react-parser/commit/c3d30926dc933650a217ea388cc3d76e36d09bd3))
+* **deps:** bump html-dom-parser from 5.1.8 to 7.0.0 ([#2177](https://github.com/remarkablemark/html-react-parser/issues/2177)) ([1ae59e6](https://github.com/remarkablemark/html-react-parser/commit/1ae59e6bd2e9980a95e23b53e341054e5b50cbe9))
+* **tsconfig:** change target from es5 to es2016 ([796f4de](https://github.com/remarkablemark/html-react-parser/commit/796f4de6c57363ad7744426d7dacdadc47d3e876))
+
 ## [5.2.17](https://github.com/remarkablemark/html-react-parser/compare/v5.2.16...v5.2.17) (2026-02-07)
 
 
