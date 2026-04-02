@@ -445,6 +445,12 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 ## Migration
 
+### v6
+
+Changed build target from `es5` to `es2016`.
+
+[html-dom-parser](https://github.com/remarkablemark/html-dom-parser) has been upgraded to [v7](https://github.com/remarkablemark/html-dom-parser/releases/tag/v7.0.0) and [domhandler](https://github.com/fb55/domhandler) has been upgraded to [v6](https://github.com/fb55/domhandler/releases/tag/v6.0.1).
+
 ### v5
 
 Migrated to TypeScript. CommonJS imports require the `.default` key:
