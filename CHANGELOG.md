@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/remarkablemark/html-react-parser/compare/v6.0.0...v6.0.1) (2026-04-08)
+
+
+### Build System
+
+* **deps:** bump html-dom-parser from 7.0.0 to 7.0.1 ([#2189](https://github.com/remarkablemark/html-react-parser/issues/2189)) ([c1f9856](https://github.com/remarkablemark/html-react-parser/commit/c1f9856f9831ac92971ef87a4cf375ee126535ce))
+
 ## [6.0.0](https://github.com/remarkablemark/html-react-parser/compare/v5.2.17...v6.0.0) (2026-04-02)
 
 
