@@ -99,7 +99,7 @@
     "rollup": "4.60.1",
     "size-limit": "12.1.0",
     "ts-node": "10.9.2",
-    "typescript": "6.0.2",
+    "typescript": "6.0.3",
     "typescript-eslint": "8.58.2",
     "vitest": "4.1.4"
   },
