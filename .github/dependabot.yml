@@ -15,8 +15,7 @@ updates:
           - '@commitlint/*'
       eslint:
         patterns:
-          - '@eslint/*'
-          - 'eslint*'
+          - '*eslint*'
           - prettier
       react:
         patterns:
