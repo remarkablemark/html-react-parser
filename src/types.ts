@@ -3,8 +3,14 @@ import type { DOMNode } from 'html-dom-parser';
 import type { ParserOptions } from 'htmlparser2';
 import type { JSX, ReactNode } from 'react';
 
+interface TrustedTypePolicyLike {
+  createHTML(input: string): unknown;
+}
+
 export interface HTMLReactParserOptions {
   htmlparser2?: ParserOptions & DomHandlerOptions;
+
+  trustedTypePolicy?: TrustedTypePolicyLike;
 
   library?: {
     /* eslint-disable @typescript-eslint/no-explicit-any */

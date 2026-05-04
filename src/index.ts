@@ -31,8 +31,13 @@ export default function HTMLReactParser(
     return [];
   }
 
+  const htmlToDOMOptions = {
+    ...(options?.htmlparser2 ?? domParserOptions),
+    trustedTypePolicy: options?.trustedTypePolicy,
+  };
+
   return domToReact(
-    htmlToDOM(html, options?.htmlparser2 ?? domParserOptions),
+    htmlToDOM(html, htmlToDOMOptions),
     options,
   );
 }
