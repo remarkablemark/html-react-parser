@@ -209,7 +209,7 @@ parse('<br>', {
 
 > [!NOTE]
 >
-> The index will restart at 0 when traversing the node's children so don't rely on index being a unique key. See [#1259](https://github.com/remarkablemark/html-react-parser/issues/1259#issuecomment-1889574133).
+> The index will restart at 0 when traversing the node's children so don't rely on index being a unique key (see [#1259](https://github.com/remarkablemark/html-react-parser/issues/1259#issuecomment-1889574133)).
 
 #### replace with TypeScript
 
@@ -535,19 +535,19 @@ No, this library does **not** sanitize HTML (see [#124](https://github.com/remar
 
 ### Are `<script>` tags parsed?
 
-Although `<script>` tags and their contents are rendered on the server-side, they're not evaluated on the client-side. See [#98](https://github.com/remarkablemark/html-react-parser/issues/98).
+Although `<script>` tags and their contents are rendered on the server-side, they're not evaluated on the client-side (see [#98](https://github.com/remarkablemark/html-react-parser/issues/98)).
 
 ### Attributes aren't getting called
 
-The reason why your HTML attributes aren't getting called is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ rather than a _function_. See [#73](https://github.com/remarkablemark/html-react-parser/issues/73).
+The reason why your HTML attributes aren't getting called is because [inline event handlers](https://developer.mozilla.org/docs/Web/Guide/Events/Event_handlers) (e.g., `onclick`) are parsed as a _string_ rather than a _function_ (see [#73](https://github.com/remarkablemark/html-react-parser/issues/73)).
 
 ### Parser throws an error
 
-If the parser throws an error, check if your arguments are valid. See ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized).
+If the parser throws an error, check if your arguments are valid (see ["Does invalid HTML get sanitized?"](#does-invalid-html-get-sanitized)).
 
 ### Is SSR supported?
 
-Yes, server-side rendering on Node.js is supported by this library. See [demo](https://replit.com/@remarkablemark/html-react-parser-SSR).
+Yes, server-side rendering on Node.js is supported by this library (see [demo](https://replit.com/@remarkablemark/html-react-parser-SSR)).
 
 ### Elements aren't nested correctly
 
@@ -584,11 +584,11 @@ See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [ex
 
 ### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
-The TypeScript error occurs because `DOMNode` needs to be an instance of domhandler's `Element`. See [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199).
+The TypeScript error occurs because `DOMNode` needs to be an instance of domhandler's `Element` (see [migration](#migration) or [#199](https://github.com/remarkablemark/html-react-parser/issues/199)).
 
 ### Can I enable `trim` for certain elements?
 
-Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replace) option. See [#205](https://github.com/remarkablemark/html-react-parser/issues/205).
+Yes, you can enable or disable [`trim`](#trim) for certain elements using the [`replace`](#replace) option (see [#205](https://github.com/remarkablemark/html-react-parser/issues/205)).
 
 ### Webpack build warnings
 
@@ -623,7 +623,7 @@ node_modules/htmlparser2/lib/index.d.ts:2:23 - error TS1005: ',' expected.
                         ~~~~~~~~~~~~~
 ```
 
-Then upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript). See [#748](https://github.com/remarkablemark/html-react-parser/issues/748).
+Then upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript) (see [#748](https://github.com/remarkablemark/html-react-parser/issues/748)).
 
 ## Performance
 
