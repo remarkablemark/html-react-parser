@@ -1,10 +1,11 @@
 import type { DomHandlerOptions } from 'domhandler';
-import type { DOMNode } from 'html-dom-parser';
+import type { DOMNode, TrustedTypePolicy } from 'html-dom-parser';
 import type { ParserOptions } from 'htmlparser2';
 import type { JSX, ReactNode } from 'react';
 
 export interface HTMLReactParserOptions {
   htmlparser2?: ParserOptions & DomHandlerOptions;
+  trustedTypePolicy?: TrustedTypePolicy;
 
   library?: {
     /* eslint-disable @typescript-eslint/no-explicit-any */
