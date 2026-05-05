@@ -527,11 +527,11 @@ Since [v1.1.1](https://github.com/remarkablemark/html-react-parser/releases/tag/
 
 ### Is this XSS safe?
 
-No, this library is _**not**_ [XSS (cross-site scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe. See [#94](https://github.com/remarkablemark/html-react-parser/issues/94).
+No, this library is **not** [XSS (cross-site scripting)](https://wikipedia.org/wiki/Cross-site_scripting) safe (see [#94](https://github.com/remarkablemark/html-react-parser/issues/94)). However, you can mitigate this risk by enforcing a Content Security Policy (CSP) with [Trusted Types](#trustedtypepolicy).
 
 ### Does invalid HTML get sanitized?
 
-No, this library does _**not**_ sanitize HTML. See [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141).
+No, this library does **not** sanitize HTML (see [#124](https://github.com/remarkablemark/html-react-parser/issues/124), [#125](https://github.com/remarkablemark/html-react-parser/issues/125), and [#141](https://github.com/remarkablemark/html-react-parser/issues/141)).
 
 ### Are `<script>` tags parsed?
 
