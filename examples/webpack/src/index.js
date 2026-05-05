@@ -3,10 +3,17 @@ import parse from 'html-react-parser';
 
 const root = createRoot(document.getElementById('root'));
 
-let trustedHtml = (window.trustedTypes && window.trustedTypes.createPolicy)
-                ? window.trustedTypes.createPolicy('csp-react-html', {createHTML: function(s) { return s; }})
-                : null;
+const trustedHtml =
+  window.trustedTypes && window.trustedTypes.createPolicy
+    ? window.trustedTypes.createPolicy('csp-react-html', {
+        createHTML: function (string) {
+          return string;
+        },
+      })
+    : null;
 
-root.render(parse('<h1>HTMLReactParser loaded with Webpack</h1>',{
-   trustedTypePolicy : trustedHtml
-}));
+root.render(
+  parse('<h1>HTMLReactParser loaded with Webpack</h1>', {
+    trustedTypePolicy: trustedHtml,
+  }),
+);
