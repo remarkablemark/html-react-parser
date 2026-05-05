@@ -245,7 +245,7 @@ If you're having issues, take a look at our [Create React App example](./example
 
 #### replace element and children
 
-Replace the element and its children (see [demo](https://replit.com/@remarkablemark/html-react-parser-replace-example)):
+Replace the element and its children:
 
 ```tsx
 import parse, { domToReact } from 'html-react-parser';
@@ -336,7 +336,7 @@ parse(html, options);
 
 #### replace and remove element
 
-[Exclude](https://replit.com/@remarkablemark/html-react-parser-56) an element from rendering by replacing it with `<React.Fragment>`:
+Exclude an element from rendering by replacing it with `<React.Fragment>`:
 
 ```tsx
 parse('<p><br id="remove"></p>', {
@@ -547,7 +547,7 @@ If the parser throws an error, check if your arguments are valid (see ["Does inv
 
 ### Is SSR supported?
 
-Yes, server-side rendering on Node.js is supported by this library (see [demo](https://replit.com/@remarkablemark/html-react-parser-SSR)).
+Yes, server-side rendering on Node.js is supported by this library:
 
 ### Elements aren't nested correctly
 
@@ -580,7 +580,7 @@ parse('<CustomElement>', options); // React.createElement('CustomElement')
 > Warning: <CustomElement> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
 > ```
 
-See [#62](https://github.com/remarkablemark/html-react-parser/issues/62) and [example](https://replit.com/@remarkablemark/html-react-parser-62).
+See [#62](https://github.com/remarkablemark/html-react-parser/issues/62).
 
 ### TS Error: Property 'attribs' does not exist on type 'DOMNode'
 
