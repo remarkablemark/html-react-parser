@@ -446,7 +446,7 @@ parse('<p> </p>', { trim: true }); // React.createElement('p')
 
 ### trustedTypePolicy
 
-When running in the browser, you can pass a [Trusted Types](https://developer.mozilla.org/docs/Web/API/Trusted_Types_API) policy. The parser uses `trustedTypePolicy.createHTML` right before assigning to `innerHTML`:
+When running in a browser, you can pass a [Trusted Types](https://developer.mozilla.org/docs/Web/API/Trusted_Types_API) policy so the parser calls `trustedTypePolicy.createHTML` before assigning content to `innerHTML`:
 
 ```ts
 parse('<div>Hello</div>', {
