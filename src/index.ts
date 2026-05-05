@@ -36,8 +36,5 @@ export default function HTMLReactParser(
     trustedTypePolicy: options?.trustedTypePolicy,
   };
 
-  return domToReact(
-    htmlToDOM(html, htmlToDOMOptions),
-    options,
-  );
+  return domToReact(htmlToDOM(html, htmlToDOMOptions), options);
 }
