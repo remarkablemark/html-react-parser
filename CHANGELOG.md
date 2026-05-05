@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/remarkablemark/html-react-parser/compare/v6.0.1...v6.1.0) (2026-05-05)
+
+
+### Features
+
+* **options:** add CSP support with `trustedTypePolicy` ([#2220](https://github.com/remarkablemark/html-react-parser/issues/2220)) ([0fd3aa0](https://github.com/remarkablemark/html-react-parser/commit/0fd3aa0ec8e58224349e9de010c9f100028800ac))
+
 ## [6.0.1](https://github.com/remarkablemark/html-react-parser/compare/v6.0.0...v6.0.1) (2026-04-08)
 
 
