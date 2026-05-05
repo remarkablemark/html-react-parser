@@ -43,6 +43,7 @@ parse('<p>Hello, World!</p>'); // React.createElement('p', {}, 'Hello, World!')
   - [library](#library)
   - [htmlparser2](#htmlparser2)
   - [trim](#trim)
+  - [trustedTypePolicy](#trustedtypepolicy)
 - [Migration](#migration)
   - [v5](#v5)
   - [v4](#v4)
@@ -441,6 +442,21 @@ However, intentional whitespace may be stripped out:
 
 ```ts
 parse('<p> </p>', { trim: true }); // React.createElement('p')
+```
+
+### trustedTypePolicy
+
+When running in the browser, you can pass a [Trusted Types](https://developer.mozilla.org/docs/Web/API/Trusted_Types_API) policy. The parser uses `trustedTypePolicy.createHTML` right before assigning to `innerHTML`:
+
+```ts
+parse('<div>Hello</div>', {
+  trustedTypePolicy: window.trustedTypes?.createPolicy('my-policy', {
+    createHTML(input) {
+      // apply sanitization logic here
+      return DOMPurify.sanitize(input);
+    },
+  }),
+});
 ```
 
 ## Migration

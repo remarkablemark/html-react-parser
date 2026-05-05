@@ -6,8 +6,8 @@ const root = createRoot(document.getElementById('root'));
 const trustedHtml =
   window.trustedTypes && window.trustedTypes.createPolicy
     ? window.trustedTypes.createPolicy('csp-react-html', {
-        createHTML: function (string) {
-          return string;
+        createHTML: function (input) {
+          return input;
         },
       })
     : null;
