@@ -93,7 +93,7 @@
     "lint-staged": "17.0.4",
     "playwright": "1.60.0",
     "preact": "10.29.1",
-    "publint": "0.3.20",
+    "publint": "0.3.21",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "rollup": "4.60.3",
