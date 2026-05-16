@@ -69,7 +69,6 @@
     "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/cli": "21.0.1",
     "@commitlint/config-conventional": "21.0.1",
-    "@eslint/compat": "2.1.0",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-commonjs": "29.0.2",
