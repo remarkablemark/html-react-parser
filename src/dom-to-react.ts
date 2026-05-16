@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-enum-comparison */
 
+import { Element as DomHandlerElement } from 'domhandler';
 import type { DOMNode, Element, Text } from 'html-dom-parser';
 import type { JSX } from 'react';
 import { cloneElement, createElement, isValidElement } from 'react';
@@ -40,6 +41,8 @@ export default function domToReact(
     options.library ?? React;
 
   const nodesLength = nodes.length;
+
+  normalizeDOMNodes(nodes);
 
   for (let index = 0; index < nodesLength; index++) {
     const node = nodes[index];
@@ -148,6 +151,19 @@ export default function domToReact(
   }
 
   return reactElements.length === 1 ? reactElements[0] : reactElements;
+}
+
+function normalizeDOMNodes(nodes: DOMNode[]): void {
+  for (const node of nodes) {
+    if (
+      node.type === 'tag' ||
+      node.type === 'script' ||
+      node.type === 'style'
+    ) {
+      Object.setPrototypeOf(node, DomHandlerElement.prototype);
+      normalizeDOMNodes(node.children as DOMNode[]);
+    }
+  }
 }
 
 /**

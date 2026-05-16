@@ -123,6 +123,27 @@ describe('HTMLReactParser', () => {
 });
 
 describe('replace option', () => {
+  it('provides DOM elements that are instances of the exported Element', () => {
+    const checks: boolean[] = [];
+
+    parse('<p>Hello <strong>world</strong></p><br />', {
+      replace(domNode) {
+        if (
+          domNode instanceof HTMLReactParser.Element &&
+          domNode.name === 'p'
+        ) {
+          const [text, strong] = domNode.children;
+
+          checks.push(domhandler.isText(text));
+          checks.push(strong instanceof HTMLReactParser.Element);
+          checks.push(domNode.next instanceof HTMLReactParser.Element);
+        }
+      },
+    });
+
+    expect(checks).toEqual([true, true, true]);
+  });
+
   it('replaces the element if a valid React element is returned', () => {
     expect(
       parse(html.complex, {
