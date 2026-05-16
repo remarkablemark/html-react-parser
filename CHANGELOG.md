@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/remarkablemark/html-react-parser/compare/v6.1.0...v6.1.1) (2026-05-16)
+
+
+### Bug Fixes
+
+* normalize exported DOM element class ([fe88b54](https://github.com/remarkablemark/html-react-parser/commit/fe88b541c4efe94cfcb602d9a882186832d8cc4b))
+
 ## [6.1.0](https://github.com/remarkablemark/html-react-parser/compare/v6.0.1...v6.1.0) (2026-05-05)
 
 
