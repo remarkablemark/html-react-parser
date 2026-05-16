@@ -69,7 +69,6 @@
     "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/cli": "21.0.1",
     "@commitlint/config-conventional": "21.0.1",
-    "@eslint/compat": "2.0.5",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-commonjs": "29.0.2",
@@ -85,7 +84,7 @@
     "@vitest/browser-playwright": "4.1.6",
     "@vitest/coverage-v8": "4.1.6",
     "benchmark": "2.1.4",
-    "eslint": "10.3.0",
+    "eslint": "10.4.0",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "13.0.0",
     "eslint-plugin-tsdoc": "0.5.2",
@@ -101,7 +100,7 @@
     "size-limit": "12.1.0",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.59.2",
+    "typescript-eslint": "8.59.3",
     "vitest": "4.1.6"
   },
   "peerDependencies": {
