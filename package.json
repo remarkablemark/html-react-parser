@@ -35,6 +35,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:package": "publint",
     "lint:tsc": "tsc --project tsconfig.test.json",
+    "lint:types": "npx @arethetypeswrong/cli --pack",
     "prepare": "husky",
     "prepublishOnly": "npm run build && npm run lint && npm run lint:tsc && npm run lint:package && npm run test:ci",
     "size-limit": "size-limit",

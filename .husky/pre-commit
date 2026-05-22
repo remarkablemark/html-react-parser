@@ -1,4 +1,5 @@
 npm run test:ci
 npm run test:esm
 npm run lint:package
+npm run lint:types
 npx lint-staged

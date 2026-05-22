@@ -33,9 +33,4 @@ jobs:
         run: npm run lint:package
 
       - name: Check types
-        run: |
-          npx @arethetypeswrong/cli --pack
-          if [[ "$(npx @arethetypeswrong/cli --pack -f json | jq '.problems != {}')" == 'true' ]]; then
-            npx @arethetypeswrong/cli --pack -f json | jq
-            exit 1
-          fi
+        run: npm run lint:types
