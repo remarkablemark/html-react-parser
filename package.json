@@ -91,7 +91,7 @@
     "eslint-plugin-tsdoc": "0.5.2",
     "globals": "17.6.0",
     "husky": "9.1.7",
-    "lint-staged": "17.0.5",
+    "lint-staged": "17.0.7",
     "playwright": "1.60.0",
     "preact": "10.29.2",
     "publint": "0.3.21",
