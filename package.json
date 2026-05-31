@@ -62,7 +62,7 @@
   ],
   "dependencies": {
     "domhandler": "6.0.1",
-    "html-dom-parser": "7.1.0",
+    "html-dom-parser": "8.0.0",
     "react-property": "2.0.2",
     "style-to-js": "2.0.0"
   },
