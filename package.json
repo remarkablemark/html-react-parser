@@ -89,7 +89,7 @@
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-simple-import-sort": "13.0.0",
     "eslint-plugin-tsdoc": "0.5.2",
-    "globals": "17.6.0",
+    "globals": "17.7.0",
     "husky": "9.1.7",
     "lint-staged": "17.0.8",
     "playwright": "1.61.0",
