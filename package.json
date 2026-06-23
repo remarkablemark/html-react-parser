@@ -67,7 +67,7 @@
     "style-to-js": "2.0.0"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.18.3",
+    "@arethetypeswrong/cli": "0.18.4",
     "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "21.0.2",
     "@eslint/eslintrc": "3.3.5",
