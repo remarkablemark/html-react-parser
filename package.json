@@ -64,7 +64,7 @@
     "domhandler": "6.0.1",
     "html-dom-parser": "8.0.0",
     "react-property": "2.0.2",
-    "style-to-js": "2.0.0"
+    "style-to-js": "2.0.1"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.4",
