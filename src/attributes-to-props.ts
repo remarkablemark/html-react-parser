@@ -67,8 +67,7 @@ export default function attributesToProps(
 
     if (propName) {
       const propertyInfo = getPropertyInfo(propName) as
-        | { type: number }
-        | undefined;
+        { type: number } | undefined;
 
       // convert attribute to uncontrolled component prop (e.g., `value` to `defaultValue`)
       if (
