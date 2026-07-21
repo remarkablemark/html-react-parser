@@ -101,7 +101,7 @@
     "size-limit": "12.1.0",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.64.0",
+    "typescript-eslint": "8.65.0",
     "vitest": "4.1.10"
   },
   "peerDependencies": {
