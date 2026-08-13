@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.7](https://github.com/remarkablemark/html-react-parser/compare/v6.1.6...v6.1.7) (2026-08-13)
+
+
+### Bug Fixes
+
+* bump html-dom-parser@8.0.2 so require does not throw ERR_REQUIRE_ESM_RACE_CONDITION ([#2369](https://github.com/remarkablemark/html-react-parser/issues/2369)) ([d01b8e2](https://github.com/remarkablemark/html-react-parser/commit/d01b8e2bfb6b63d985c6b44241606c1d94799dfc))
+
 ## [6.1.6](https://github.com/remarkablemark/html-react-parser/compare/v6.1.5...v6.1.6) (2026-08-13)
 
 
