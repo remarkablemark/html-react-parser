@@ -1,10 +1,12 @@
-import type { DomHandlerOptions } from 'domhandler';
-import type { DOMNode, TrustedTypePolicy } from 'html-dom-parser';
-import type { ParserOptions } from 'htmlparser2';
+import type {
+  DOMNode,
+  HTMLDOMParserOptions,
+  TrustedTypePolicy,
+} from 'html-dom-parser';
 import type { JSX, ReactNode } from 'react';
 
 export interface HTMLReactParserOptions {
-  htmlparser2?: ParserOptions & DomHandlerOptions;
+  htmlparser2?: Omit<HTMLDOMParserOptions, 'trustedTypePolicy'>;
   trustedTypePolicy?: TrustedTypePolicy;
 
   library?: {
