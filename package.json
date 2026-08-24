@@ -81,9 +81,9 @@
     "@types/node": "26.2.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "@vitest/browser": "4.1.10",
-    "@vitest/browser-playwright": "4.1.10",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/browser": "4.1.11",
+    "@vitest/browser-playwright": "4.1.11",
+    "@vitest/coverage-v8": "4.1.11",
     "benchmark": "2.1.4",
     "eslint": "10.8.1",
     "eslint-plugin-prettier": "5.5.6",
@@ -102,7 +102,7 @@
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
     "typescript-eslint": "8.67.0",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "peerDependencies": {
     "@types/react": "0.14 || 15 || 16 || 17 || 18 || 19",
