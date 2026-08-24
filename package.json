@@ -97,7 +97,7 @@
     "publint": "0.3.24",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "rollup": "4.62.4",
+    "rollup": "4.62.5",
     "size-limit": "13.0.3",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
