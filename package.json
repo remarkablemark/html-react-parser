@@ -98,7 +98,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "rollup": "4.63.1",
-    "size-limit": "13.0.3",
+    "size-limit": "13.1.1",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
     "typescript-eslint": "8.70.0",
