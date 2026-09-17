@@ -1,11 +1,10 @@
 import { fileURLToPath } from 'node:url';
 
-import eslint from '@eslint/js';
+import js from '@eslint/js';
 import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tsdoc from 'eslint-plugin-tsdoc';
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
@@ -22,25 +21,17 @@ export default defineConfig([
 
     plugins: {
       'simple-import-sort': simpleImportSort,
-      eslint,
       prettier,
       tsdoc,
     },
 
     extends: [
-      eslint.configs.recommended,
-      tseslint.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
+      js.configs.recommended,
       tseslint.configs.strictTypeChecked,
       tseslint.configs.stylisticTypeChecked,
     ],
 
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.vitest,
-      },
       parserOptions: {
         project: ['tsconfig.build.json', 'tsconfig.test.json'],
         tsconfigRootDir: import.meta.dirname,
@@ -49,7 +40,6 @@ export default defineConfig([
 
     rules: {
       'no-console': 'error',
-      'no-debugger': 'error',
       'prettier/prettier': 'error',
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': 'error',
