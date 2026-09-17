@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.8](https://github.com/remarkablemark/html-react-parser/compare/v6.1.7...v6.1.8) (2026-09-17)
+
+
+### Bug Fixes
+
+* restore instanceof Text and Comment in replace callback ([#2406](https://github.com/remarkablemark/html-react-parser/issues/2406)) ([e16b187](https://github.com/remarkablemark/html-react-parser/commit/e16b18709d3c4adeab636af75272767219bd9c1c)), closes [#2256](https://github.com/remarkablemark/html-react-parser/issues/2256)
+
 ## [6.1.7](https://github.com/remarkablemark/html-react-parser/compare/v6.1.6...v6.1.7) (2026-08-13)
 
 
