@@ -144,6 +144,38 @@ describe('replace option', () => {
     expect(checks).toEqual([true, true, true]);
   });
 
+  it('provides text and comment nodes that are instances of the exported classes', () => {
+    const checks: boolean[] = [];
+
+    parse('Hello <strong>world</strong><!--note-->', {
+      replace(domNode) {
+        if (
+          domNode instanceof HTMLReactParser.Text &&
+          domNode.data === 'Hello '
+        ) {
+          checks.push(true);
+        }
+
+        if (
+          domNode instanceof HTMLReactParser.Element &&
+          domNode.name === 'strong'
+        ) {
+          const [text] = domNode.children;
+          checks.push(text instanceof HTMLReactParser.Text);
+        }
+
+        if (
+          domNode instanceof HTMLReactParser.Comment &&
+          domNode.data === 'note'
+        ) {
+          checks.push(true);
+        }
+      },
+    });
+
+    expect(checks).toEqual([true, true, true]);
+  });
+
   it('replaces the element if a valid React element is returned', () => {
     expect(
       parse(html.complex, {

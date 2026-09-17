@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-enum-comparison */
 
-import { Element as DomHandlerElement } from 'domhandler';
+import {
+  Comment as DomHandlerComment,
+  Element as DomHandlerElement,
+  Text as DomHandlerText,
+} from 'domhandler';
 import type { DOMNode, Element, Text } from 'html-dom-parser';
 import type { JSX } from 'react';
 import { cloneElement, createElement, isValidElement } from 'react';
@@ -155,13 +159,19 @@ export default function domToReact(
 
 function normalizeDOMNodes(nodes: DOMNode[]): void {
   for (const node of nodes) {
-    if (
-      node.type === 'tag' ||
-      node.type === 'script' ||
-      node.type === 'style'
-    ) {
-      Object.setPrototypeOf(node, DomHandlerElement.prototype);
-      normalizeDOMNodes(node.children as DOMNode[]);
+    switch (node.type) {
+      case 'tag':
+      case 'script':
+      case 'style':
+        Object.setPrototypeOf(node, DomHandlerElement.prototype);
+        normalizeDOMNodes(node.children as DOMNode[]);
+        break;
+      case 'text':
+        Object.setPrototypeOf(node, DomHandlerText.prototype);
+        break;
+      case 'comment':
+        Object.setPrototypeOf(node, DomHandlerComment.prototype);
+        break;
     }
   }
 }
