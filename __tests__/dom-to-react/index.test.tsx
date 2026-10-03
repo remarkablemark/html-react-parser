@@ -147,6 +147,9 @@ describe('replace option', () => {
       htmlToDOM(html.single + html.customElement),
       {
         replace(domNode) {
+          // `html-dom-parser` bundles its own copy of `domhandler`, so the
+          // node types use a different `ElementType` enum than `Element`.
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
           const element = domNode as Element;
 
           if (element.name === 'p') {
@@ -175,6 +178,7 @@ describe('replace option', () => {
     const options: HTMLReactParserOptions = {
       replace(domNode) {
         if (domNode instanceof Element) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
           return domToReact(domNode.children as DOMNode[], options);
         }
       },
