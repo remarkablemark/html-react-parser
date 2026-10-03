@@ -32,5 +32,5 @@ jobs:
       - name: Lint package
         run: npm run lint:package
 
-      - name: Check types
+      - name: Check package types
         run: npm run lint:types
