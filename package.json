@@ -92,7 +92,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "playwright": "1.63.0",
-    "preact": "10.29.8",
+    "preact": "11.0.0",
     "publint": "0.3.25",
     "react": "19.3.0",
     "react-dom": "19.3.0",
