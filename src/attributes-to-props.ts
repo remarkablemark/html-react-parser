@@ -84,6 +84,11 @@ export default function attributesToProps(
 
       props[propName] = attributeValue;
 
+      // transform inline style to object after normalizing the attribute name
+      if (propName === 'style') {
+        setStyleProp(attributeValue, props);
+      }
+
       switch (propertyInfo?.type) {
         case BOOLEAN:
           props[propName] = true;
@@ -102,9 +107,6 @@ export default function attributesToProps(
       props[attributeName] = attributeValue;
     }
   }
-
-  // transform inline style to object
-  setStyleProp(attributes.style, props);
 
   return props;
 }

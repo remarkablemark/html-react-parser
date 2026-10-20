@@ -280,6 +280,15 @@ describe('attributesToProps with SVG attribute', () => {
 describe('attributesToProps with style attribute', () => {
   const propsEmptyStyle = { style: {} };
 
+  it.each(['style', 'STYLE', 'StYlE'])(
+    'converts %s to a style object',
+    (attributeName) => {
+      expect(
+        attributesToProps({ [attributeName]: 'color: red; font-size: 12px' }),
+      ).toEqual({ style: { color: 'red', fontSize: '12px' } });
+    },
+  );
+
   it.each([undefined, null] as unknown as string[])(
     'does not parse invalid value: %s',
     (style) => {
