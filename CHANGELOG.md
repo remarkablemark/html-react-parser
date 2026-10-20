@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.9](https://github.com/remarkablemark/html-react-parser/compare/v6.1.8...v6.1.9) (2026-10-20)
+
+
+### Bug Fixes
+
+* convert case-insensitive style attributes ([6d72dba](https://github.com/remarkablemark/html-react-parser/commit/6d72dba8b3e5bf2333b52c81c86e7a4588fc48d2))
+
 ## [6.1.8](https://github.com/remarkablemark/html-react-parser/compare/v6.1.7...v6.1.8) (2026-09-17)
 
 
