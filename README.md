@@ -623,7 +623,7 @@ node_modules/htmlparser2/lib/index.d.ts:2:23 - error TS1005: ',' expected.
                         ~~~~~~~~~~~~~
 ```
 
-Then upgrade to the latest version of [typescript](https://www.npmjs.com/package/typescript) (see [#748](https://github.com/remarkablemark/html-react-parser/issues/748)).
+Then upgrade to the latest version of [`typescript`](https://www.npmjs.com/package/typescript) (see [#748](https://github.com/remarkablemark/html-react-parser/issues/748)).
 
 ## Performance
 
