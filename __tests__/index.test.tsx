@@ -236,7 +236,17 @@ describe('htmlparser2 option', () => {
   });
 });
 
-describe('invalid styles', () => {
+describe('styles', () => {
+  it.each(['style', 'STYLE', 'StYlE'])(
+    'renders an element with a %s attribute',
+    (attributeName) => {
+      const html = `<p ${attributeName}="color: red; font-size: 12px">Hello</p>`;
+      expect(render(parse(html) as React.JSX.Element)).toBe(
+        '<p style="color:red;font-size:12px">Hello</p>',
+      );
+    },
+  );
+
   it('copes with invalid styles', () => {
     const html = '<p style="font - size: 1em">X</p>';
     const reactElement = parse(html) as React.JSX.Element;
