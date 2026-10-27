@@ -74,7 +74,7 @@
     "@eslint/js": "10.0.1",
     "@rollup/plugin-commonjs": "29.0.3",
     "@rollup/plugin-node-resolve": "16.0.3",
-    "@rollup/plugin-terser": "1.0.0",
+    "@rollup/plugin-terser": "1.0.2",
     "@rollup/plugin-typescript": "12.3.0",
     "@size-limit/preset-big-lib": "14.3.0",
     "@types/benchmark": "2.1.5",
