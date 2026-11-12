@@ -686,7 +686,6 @@ Support this project with your organization. Your logo will show up here with a 
 - [Patreon](https://b.remarkabl.org/patreon)
 - [Ko-fi](https://b.remarkabl.org/ko-fi)
 - [Liberapay](https://b.remarkabl.org/liberapay)
-- [Teespring](https://b.remarkabl.org/teespring)
 
 ## License
 
