@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.10](https://github.com/remarkablemark/html-react-parser/compare/v6.1.9...v6.1.10) (2026-11-17)
+
+
+### Documentation
+
+* **readme:** replace broken example link ([ce38641](https://github.com/remarkablemark/html-react-parser/commit/ce38641d01fd06166fa26379aff749436a78169c))
+
 ## [6.1.9](https://github.com/remarkablemark/html-react-parser/compare/v6.1.8...v6.1.9) (2026-10-20)
 
 
