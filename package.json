@@ -67,10 +67,8 @@
     "style-to-js": "2.0.2"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.18.5",
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
-    "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-commonjs": "29.0.3",
     "@rollup/plugin-node-resolve": "16.0.3",
