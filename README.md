@@ -227,7 +227,7 @@ const options: HTMLReactParserOptions = {
 };
 ```
 
-Or use a type assertion:
+Or use a type assertion (see [example](examples/vite/src/App.tsx)):
 
 ```tsx
 import { HTMLReactParserOptions, Element } from 'html-react-parser';
@@ -240,8 +240,6 @@ const options: HTMLReactParserOptions = {
   },
 };
 ```
-
-If you're having issues, take a look at our [Create React App example](./examples/create-react-app-typescript/src/App.tsx).
 
 #### replace element and children
 
