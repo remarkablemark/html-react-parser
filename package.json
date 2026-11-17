@@ -85,7 +85,7 @@
     "@vitest/browser-playwright": "5.1.0",
     "@vitest/coverage-v8": "5.1.0",
     "benchmark": "2.1.4",
-    "eslint": "10.14.0",
+    "eslint": "10.15.0",
     "eslint-plugin-prettier": "5.5.7",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-tsdoc": "0.5.4",
