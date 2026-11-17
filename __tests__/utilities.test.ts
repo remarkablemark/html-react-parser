@@ -90,7 +90,7 @@ describe('canTextBeChildOfNode', () => {
     (nodeName) => {
       const node = {
         name: nodeName,
-      } as Element;
+      } as unknown as Element;
       expect(canTextBeChildOfNode(node)).toBe(false);
     },
   );
@@ -98,7 +98,7 @@ describe('canTextBeChildOfNode', () => {
   it('returns true if text can be child of <td/>', () => {
     const node = {
       name: 'td',
-    } as Element;
+    } as unknown as Element;
     expect(canTextBeChildOfNode(node)).toBe(true);
   });
 });

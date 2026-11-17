@@ -149,7 +149,7 @@ describe('replace option', () => {
         replace(domNode) {
           // `html-dom-parser` bundles its own copy of `domhandler`, so the
           // node types use a different `ElementType` enum than `Element`.
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment, @typescript-eslint/no-unsafe-class-instance-assignment
           const element = domNode as Element;
 
           if (element.name === 'p') {
@@ -178,7 +178,7 @@ describe('replace option', () => {
     const options: HTMLReactParserOptions = {
       replace(domNode) {
         if (domNode instanceof Element) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment, @typescript-eslint/no-unsafe-class-instance-assignment
           return domToReact(domNode.children as DOMNode[], options);
         }
       },
